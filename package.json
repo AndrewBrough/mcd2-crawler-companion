@@ -13,7 +13,10 @@
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix",
     "check": "prettier --check .",
-    "sync:gear": "node --env-file=.env.local scripts/sync-gear.mjs"
+    "sync:gear": "node --env-file=.env.local scripts/sync-gear.mjs",
+    "sync:locations": "node --env-file=.env.local scripts/sync-locations.mjs",
+    "sync:enemies": "node --env-file=.env.local scripts/sync-enemies.mjs",
+    "sync:catalog": "npm run sync:gear && npm run sync:locations && npm run sync:enemies"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.0",
