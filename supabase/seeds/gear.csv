@@ -1,0 +1,21 @@
+name,slug,type,description
+Test Melee Weapon,test-melee-weapon,melee_weapon,Placeholder melee weapon for catalog testing
+Test Melee Weapon 1,test-melee-weapon-1,melee_weapon,Placeholder melee weapon for catalog testing
+Test Melee Weapon 2,test-melee-weapon-2,melee_weapon,Placeholder melee weapon for catalog testing
+Test Melee Weapon 3,test-melee-weapon-3,melee_weapon,Placeholder melee weapon for catalog testing
+Test Ranged Weapon,test-ranged-weapon,ranged_weapon,Placeholder ranged weapon for catalog testing
+Test Ranged Weapon 1,test-ranged-weapon-1,ranged_weapon,Placeholder ranged weapon for catalog testing
+Test Ranged Weapon 2,test-ranged-weapon-2,ranged_weapon,Placeholder ranged weapon for catalog testing
+Test Ranged Weapon 3,test-ranged-weapon-3,ranged_weapon,Placeholder ranged weapon for catalog testing
+Test Armor,test-armor,armor,Placeholder armor for catalog testing
+Test Armor 1,test-armor-1,armor,Placeholder armor for catalog testing
+Test Armor 2,test-armor-2,armor,Placeholder armor for catalog testing
+Test Armor 3,test-armor-3,armor,Placeholder armor for catalog testing
+Test Artifact,test-artifact,artifact,Placeholder artifact for catalog testing
+Test Artifact 1,test-artifact-1,artifact,Placeholder artifact for catalog testing
+Test Artifact 2,test-artifact-2,artifact,Placeholder artifact for catalog testing
+Test Artifact 3,test-artifact-3,artifact,Placeholder artifact for catalog testing
+Test Talisman,test-talisman,talisman,Placeholder talisman for catalog testing
+Test Talisman 1,test-talisman-1,talisman,Placeholder talisman for catalog testing
+Test Talisman 2,test-talisman-2,talisman,Placeholder talisman for catalog testing
+Test Talisman 3,test-talisman-3,talisman,Placeholder talisman for catalog testing

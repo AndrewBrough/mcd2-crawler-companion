@@ -1,0 +1,19 @@
+.empty {
+  border: 1px dashed var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--surface);
+  padding: 2rem 1.25rem;
+  text-align: center;
+  color: var(--sea-ink-soft);
+}
+
+.title {
+  margin: 0 0 0.4rem;
+  color: var(--sea-ink);
+  font-size: 1.1rem;
+}
+
+.body {
+  margin: 0;
+  line-height: 1.55;
+}

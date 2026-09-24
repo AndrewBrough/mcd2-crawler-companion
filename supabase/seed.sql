@@ -1,0 +1,2 @@
+-- Catalog rows are not stored here.
+-- Edit supabase/seeds/gear.csv and run: npm run sync:gear
