@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import { GearCatalog } from '#/components/GearCatalog'
-import type { Gear, GearListItem, GearType } from '#/types/data/gear'
+import type { Gear, GearListItem, GearRarity, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from './GearDetailPanel'
 
 export type GearPageProps = {
@@ -10,6 +10,7 @@ export type GearPageProps = {
 
 export function GearPage({ gear }: GearPageProps) {
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
+  const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
   const selected = gear.find((item) => item.slug === selectedSlug) ?? null
 
@@ -27,6 +28,8 @@ export function GearPage({ gear }: GearPageProps) {
           gear={gear}
           typeFilter={typeFilter}
           onTypeFilterChange={setTypeFilter}
+          rarityFilter={rarityFilter}
+          onRarityFilterChange={setRarityFilter}
           selectedSlug={selectedSlug}
           onItemSelect={handleItemSelect}
         />

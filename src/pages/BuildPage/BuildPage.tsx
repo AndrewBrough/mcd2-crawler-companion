@@ -5,7 +5,7 @@ import {
   type BuildLoadout,
   type BuildSocketDefinition,
 } from '#/types/data/build'
-import type { Gear, GearType } from '#/types/data/gear'
+import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
 import styles from './BuildPage.module.css'
 
@@ -20,6 +20,7 @@ function socketKind(id: string): GearType | undefined {
 export function BuildPage({ gear }: BuildPageProps) {
   const [title, setTitle] = useState('Untitled build')
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
+  const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
   const [loadout, setLoadout] = useState<BuildLoadout>({})
 
@@ -86,6 +87,8 @@ export function BuildPage({ gear }: BuildPageProps) {
           gear={gear}
           typeFilter={typeFilter}
           onTypeFilterChange={handleTypeFilterChange}
+          rarityFilter={rarityFilter}
+          onRarityFilterChange={setRarityFilter}
           selectedSlug={activeSocketId ? (loadout[activeSocketId]?.slug ?? null) : null}
           onItemSelect={handleItemSelect}
         />

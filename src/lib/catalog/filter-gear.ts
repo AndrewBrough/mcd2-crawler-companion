@@ -1,15 +1,23 @@
+import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
 import { filterCatalogItems } from '#/lib/catalog/filter-catalog-items'
-import type { Gear, GearType } from '#/types/data/gear'
+import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 
 export type FilterGearOptions = {
   query: string
   type?: GearType | null
+  rarity?: GearRarity | null
 }
 
 export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array<Gear> {
   const type = options.type ?? null
-  const typed = type ? gear.filter((item) => item.type === type) : gear
+  const rarity = options.rarity ?? null
+  const matched = gear.filter(
+    (item) => (!type || item.type === type) && (!rarity || item.rarity === rarity),
+  )
 
-  return filterCatalogItems(typed, options.query, (item) => [formatGearType(item.type)])
+  return filterCatalogItems(matched, options.query, (item) => [
+    formatGearType(item.type),
+    formatGearRarity(item.rarity),
+  ])
 }
