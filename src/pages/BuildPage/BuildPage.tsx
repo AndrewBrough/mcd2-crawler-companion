@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import { GearCatalog } from '#/components/GearCatalog'
 import {
   BUILD_SOCKET_ROWS,
   type BuildLoadout,
   type BuildSocketDefinition,
 } from '#/types/data/build'
 import type { Gear, GearType } from '#/types/data/gear'
-import { BuildDetailPanel } from './BuildDetailPanel'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
 import styles from './BuildPage.module.css'
 
@@ -82,7 +82,7 @@ export function BuildPage({ gear }: BuildPageProps) {
           onSocketSelect={handleSocketSelect}
           onSocketClear={handleSocketClear}
         />
-        <BuildDetailPanel
+        <GearCatalog
           gear={gear}
           typeFilter={typeFilter}
           onTypeFilterChange={handleTypeFilterChange}

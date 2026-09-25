@@ -24,6 +24,13 @@ const homeLinks: Array<HomeLinkCardProps> = [
     body: 'Look up every source and drop rate for weapons, armor, and artifacts.',
     accent: 'secondary',
   },
+  {
+    to: '/enchantments',
+    kicker: 'Magic',
+    title: 'Enchantments',
+    body: 'Browse enchantments and see which gear types they belong to.',
+    accent: 'primary',
+  },
 ]
 
 export const Route = createFileRoute('/')({ component: Home })

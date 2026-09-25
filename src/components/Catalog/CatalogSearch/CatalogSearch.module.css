@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.kicker {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.69rem;
+  color: var(--kicker);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
+  color: var(--white);
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+}
+
+.field::placeholder {
+  color: color-mix(in oklab, var(--white) 42%, transparent);
+}
+
+.field:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}

@@ -1,5 +1,5 @@
 import { supabase } from '#/lib/supabase/client'
-import { compactMap, mapDrop, type NamedEmbed } from '#/lib/catalog/map-drop'
+import { compactMap, mapDrop, mapNamedRef, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
 import type { GearListItem } from '#/types/data/gear'
 
@@ -8,6 +8,7 @@ type GearQueryRow = {
   slug: string
   description: string
   type: GearListItem['type']
+  gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
   enemy_gear_drops: Array<{ drop_rate: number | string; enemy: NamedEmbed }> | null
 }
@@ -21,6 +22,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
         slug,
         description,
         type,
+        gear_enchantments ( enchantment:enchantments ( slug, name ) ),
         location_gear_drops ( drop_rate, location:locations ( slug, name ) ),
         enemy_gear_drops ( drop_rate, enemy:enemies ( slug, name ) )
       `,
@@ -36,6 +38,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
     slug: row.slug,
     description: row.description,
     type: row.type,
+    enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
     locationSources: compactMap(row.location_gear_drops, (entry) =>
       mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
     ),

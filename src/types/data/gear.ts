@@ -1,4 +1,4 @@
-import type { DropRateEntry } from './drop-rate'
+import type { DropRateEntry, NamedRef } from './drop-rate'
 
 export const GEAR_TYPES = [
   'melee_weapon',
@@ -15,6 +15,7 @@ export type Gear = {
   name: string
   description: string
   type: GearType
+  enchantments: Array<NamedRef>
 }
 
 export type GearListItem = Gear & {

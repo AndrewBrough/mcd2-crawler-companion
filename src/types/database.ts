@@ -8,12 +8,33 @@ export type Json =
 
 export type Database = {
   // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  // instead of creating createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: '14.5'
   }
   public: {
     Tables: {
+      enchantments: {
+        Row: {
+          description: string
+          gear_type: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          description?: string
+          gear_type: string
+          name: string
+          slug: string
+        }
+        Update: {
+          description?: string
+          gear_type?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       enemies: {
         Row: {
           description: string
@@ -118,6 +139,36 @@ export type Database = {
           type?: string
         }
         Relationships: []
+      }
+      gear_enchantments: {
+        Row: {
+          enchantment_id: string
+          gear_id: string
+        }
+        Insert: {
+          enchantment_id: string
+          gear_id: string
+        }
+        Update: {
+          enchantment_id?: string
+          gear_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'gear_enchantments_enchantment_id_fkey'
+            columns: ['enchantment_id']
+            isOneToOne: false
+            referencedRelation: 'enchantments'
+            referencedColumns: ['slug']
+          },
+          {
+            foreignKeyName: 'gear_enchantments_gear_id_fkey'
+            columns: ['gear_id']
+            isOneToOne: false
+            referencedRelation: 'gear'
+            referencedColumns: ['slug']
+          },
+        ]
       }
       items: {
         Row: {
@@ -320,10 +371,8 @@ export type Tables<
     }
     ? R
     : never
-  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema['Tables'] &
-        DefaultSchema['Views'])
-    ? (DefaultSchema['Tables'] &
-        DefaultSchema['Views'])[DefaultSchemaTableNameOrOptions] extends {
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema['Tables'] & DefaultSchema['Views'])
+    ? (DefaultSchema['Tables'] & DefaultSchema['Views'])[DefaultSchemaTableNameOrOptions] extends {
         Row: infer R
       }
       ? R

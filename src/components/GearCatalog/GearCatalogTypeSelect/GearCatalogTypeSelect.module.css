@@ -1,0 +1,34 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 8.5rem;
+}
+
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
+  color: var(--white);
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}

@@ -154,3 +154,101 @@ ${updateColumns.map((column) => `  ${column} = excluded.${column}`).join(',\n')}
 
   console.log(`Synced ${rows.length} ${table} rows from supabase/seeds/${csvFile}`)
 }
+
+export async function syncAssociationCsv({ table, csvFile, columns, conflict }) {
+  const csvPath = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    '../supabase/seeds',
+    csvFile,
+  )
+  const prune = process.argv.includes('--prune')
+  const csv = (await readFile(csvPath, 'utf8')).trim()
+  const [header, ...body] = parseCsv(csv)
+  const index = Object.fromEntries(header.map((column, i) => [column.trim(), i]))
+
+  for (const column of columns) {
+    if (index[column] === undefined) {
+      throw new Error(`${csvFile} is missing column: ${column}`)
+    }
+  }
+
+  const rows = body.map((entry, rowNumber) => {
+    const record = Object.fromEntries(
+      columns.map((column) => [column, entry[index[column]]?.trim() ?? '']),
+    )
+
+    for (const column of columns) {
+      if (!SLUG_PATTERN.test(record[column])) {
+        throw new Error(`${csvFile} row ${rowNumber + 2} has invalid ${column}: ${record[column]}`)
+      }
+    }
+
+    return record
+  })
+
+  const keys = rows.map((item) => columns.map((column) => item[column]).join('\0'))
+  const duplicate = keys.find((key, i) => keys.indexOf(key) !== i)
+
+  if (duplicate) {
+    throw new Error(`${csvFile} has a duplicate association`)
+  }
+
+  const upsertSql = `insert into public.${table} (${columns.join(', ')})
+values
+${rows
+  .map((item) => `  (${columns.map((column) => sqlLiteral(item[column])).join(', ')})`)
+  .join(',\n')}
+on conflict (${conflict}) do nothing;`
+
+  const supabaseUrl = process.env.VITE_SUPABASE_URL
+  const secretKey = process.env.SUPABASE_SECRET_KEY
+
+  if (!supabaseUrl || !secretKey) {
+    console.log(upsertSql)
+    if (prune) {
+      const keep = rows
+        .map((item) => `(${columns.map((column) => sqlLiteral(item[column])).join(', ')})`)
+        .join(', ')
+      console.log(
+        `\ndelete from public.${table}\nwhere (${columns.join(', ')}) not in (${keep});`,
+      )
+    }
+    console.error(
+      'Printed SQL because SUPABASE_SECRET_KEY is missing. Add it to .env.local (not VITE_) to apply automatically.',
+    )
+    process.exit(1)
+  }
+
+  const supabase = createClient(supabaseUrl, secretKey)
+  const { error: upsertError } = await supabase.from(table).upsert(rows, { onConflict: conflict })
+
+  if (upsertError) {
+    throw new Error(upsertError.message)
+  }
+
+  if (prune) {
+    const { data: existing, error: readError } = await supabase.from(table).select(columns.join(', '))
+
+    if (readError) {
+      throw new Error(readError.message)
+    }
+
+    const keep = new Set(keys)
+    const extra = (existing ?? []).filter(
+      (row) => !keep.has(columns.map((column) => row[column]).join('\0')),
+    )
+
+    for (const row of extra) {
+      let query = supabase.from(table).delete()
+      for (const column of columns) {
+        query = query.eq(column, row[column])
+      }
+      const { error: deleteError } = await query
+      if (deleteError) {
+        throw new Error(deleteError.message)
+      }
+    }
+  }
+
+  console.log(`Synced ${rows.length} ${table} rows from supabase/seeds/${csvFile}`)
+}

@@ -13,6 +13,7 @@ const navItems: Array<NavItem> = [
   { to: '/locations', label: 'Locations' },
   { to: '/enemies', label: 'Enemies' },
   { to: '/gear', label: 'Gear' },
+  { to: '/enchantments', label: 'Enchantments' },
 ]
 
 export function AppShell({ children }: AppShellProps) {

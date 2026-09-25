@@ -1,41 +1,36 @@
-import { CatalogList } from '#/components/CatalogList'
-import { EmptyState } from '#/components/EmptyState'
-import { PageHeader } from '#/components/PageHeader'
+import { useState } from 'react'
+import { Catalog } from '#/components/Catalog'
+import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import type { EnemyListItem } from '#/types/data/enemy'
-import styles from './EnemiesPage.module.css'
+import { EnemyDetailPanel } from './EnemyDetailPanel'
 
 export type EnemiesPageProps = {
   enemies: Array<EnemyListItem>
 }
 
 export function EnemiesPage({ enemies }: EnemiesPageProps) {
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
+  const selected = enemies.find((item) => item.slug === selectedSlug) ?? null
+
   return (
-    <div className={styles.page}>
-      <PageHeader
-        kicker="Mobs"
-        title="Enemies"
-        description="Track where each enemy appears and what they drop while you grind."
-      />
-      {enemies.length ? (
-        <CatalogList
-          cards={enemies.map((enemy) => ({
-            title: enemy.name,
-            description: enemy.description,
-            catalogKind: 'enemies',
-            slug: enemy.slug,
-            relationGroups: [{ label: 'Locations', relations: enemy.locations }],
-            dropGroups: [
-              { label: 'Gear drops', drops: enemy.gearDrops },
-              { label: 'Item drops', drops: enemy.itemDrops },
-            ],
-          }))}
+    <CatalogBrowsePage
+      kicker="Mobs"
+      title="Enemies"
+      description="Browse the catalog and inspect an enemy."
+      catalog={
+        <Catalog
+          items={enemies}
+          catalogKind="enemies"
+          selectedSlug={selectedSlug}
+          onItemSelect={(item) => setSelectedSlug(item.slug)}
+          ariaLabel="Enemy catalog"
+          searchPlaceholder="Search enemies"
+          searchLabel="Search enemies"
+          emptyFiltered="No enemies match that search."
+          emptyCatalog="No enemies in the catalog yet."
         />
-      ) : (
-        <EmptyState
-          title="No enemies yet"
-          body="Add rows in the enemies table to connect mobs with locations and drop rates."
-        />
-      )}
-    </div>
+      }
+      detail={<EnemyDetailPanel item={selected} />}
+    />
   )
 }

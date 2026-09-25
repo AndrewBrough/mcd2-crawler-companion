@@ -1,0 +1,45 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+div.tile {
+  cursor: default;
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.selected .preview {
+  box-shadow:
+    0 0 0 2px var(--primary),
+    0 0 16px color-mix(in oklab, var(--primary) 35%, transparent);
+}
+
+.tile:focus-visible .preview {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.name {
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
