@@ -26,7 +26,6 @@ export function BuildSocketRow({
         {sockets.map((socket) => (
           <BuildSocket
             key={socket.id}
-            kind={socket.kind}
             label={socket.label}
             selected={activeSocketId === socket.id}
             equipped={loadout[socket.id] ?? null}

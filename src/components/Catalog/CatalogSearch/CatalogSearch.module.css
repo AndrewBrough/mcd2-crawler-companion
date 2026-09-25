@@ -21,7 +21,7 @@
 .field {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 0;
   background: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
   color: var(--white);
   font: inherit;

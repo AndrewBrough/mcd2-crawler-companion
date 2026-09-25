@@ -4,7 +4,7 @@
   gap: 0.35rem;
   margin: 0;
   border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--line));
-  border-radius: 999px;
+  border-radius: 0;
   background: color-mix(in oklab, var(--primary) 18%, var(--navy));
   color: var(--white);
   font: inherit;

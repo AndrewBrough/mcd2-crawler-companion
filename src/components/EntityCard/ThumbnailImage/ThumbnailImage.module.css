@@ -1,6 +1,6 @@
 .media {
   overflow: hidden;
-  border-radius: var(--radius);
+  border-radius: 0;
   background:
     radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 52%),
     linear-gradient(

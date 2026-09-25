@@ -4,25 +4,32 @@
   justify-content: center;
   gap: 0.5rem;
   border: 0;
-  border-radius: var(--radius);
+  border-radius: 0;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
 
-.primary {
+.primary,
+.primary:hover,
+.primary:focus-visible {
   background: var(--primary);
   color: var(--black);
+  border-top: 5px solid var(--primary-light);
+  border-bottom: 5px solid var(--primary-dark);
 }
 
 .primary:hover {
   background: var(--primary-dark);
-  color: var(--black);
 }
 
-.secondary {
+.secondary,
+.secondary:hover,
+.secondary:focus-visible {
   background: var(--secondary);
   color: var(--navy);
+  border-top: 5px solid var(--secondary-light);
+  border-bottom: 5px solid var(--secondary-dark);
 }
 
 .secondary:hover {

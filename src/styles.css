@@ -10,6 +10,8 @@
   --black: #000000;
   --white: #ffffff;
   --navy: #010c29;
+  --grey: #747774;
+  --grey-dark: #454845;
 
   --primary: #ffa31f;
   --primary-light: #ffda53;
@@ -41,7 +43,7 @@
   --chart-3: var(--primary-dark);
   --chart-4: var(--secondary-dark);
   --chart-5: var(--primary-light);
-  --radius: 0.625rem;
+  --radius: 0;
   --sidebar: color-mix(in oklab, var(--navy) 90%, var(--black) 10%);
   --sidebar-foreground: var(--white);
   --sidebar-primary: var(--primary);
@@ -150,10 +152,12 @@
   --color-navy: var(--navy);
   --color-black: var(--black);
   --color-white: var(--white);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --color-grey: var(--grey);
+  --color-grey-dark: var(--grey-dark);
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -226,7 +230,7 @@ code {
   font-size: 0.9em;
   border: 1px solid var(--line);
   background: color-mix(in oklab, var(--surface-strong) 82%, var(--black) 18%);
-  border-radius: 7px;
+  border-radius: 0;
   padding: 2px 7px;
 }
 
@@ -241,7 +245,7 @@ pre code {
 
 .prose pre {
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--black);
   color: var(--white);
 }

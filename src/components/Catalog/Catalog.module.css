@@ -8,7 +8,7 @@
   height: 100%;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: calc(var(--radius) + 6px);
+  border-radius: 0;
   background: linear-gradient(
     165deg,
     color-mix(in oklab, var(--surface-strong) 93%, var(--white) 7%),
@@ -24,6 +24,8 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  margin: -3px;
+  padding: 3px;
 }
 
 .empty {
