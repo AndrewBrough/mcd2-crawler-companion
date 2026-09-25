@@ -1,4 +1,4 @@
-import { appendFile, readFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseCsv } from './sync-catalog-csv.mjs'
@@ -120,8 +120,25 @@ async function fetchPage(pageTitle, pageUrl) {
   return wikitext
 }
 
-async function fetchDescriptions(names) {
-  const descriptions = new Map()
+function infoboxField(wikitext, key) {
+  const match = wikitext.match(new RegExp(`^\\s*\\|\\s*${key}\\s*=\\s*(.*)$`, 'mi'))
+  return match?.[1]?.trim() ?? ''
+}
+
+function gearRarity(wikitext, name, uniqueGear) {
+  const setName = infoboxField(wikitext, 'set').toLowerCase()
+  const lead = wikitext.split('\n==')[0]
+  const unique =
+    uniqueGear.names.has(name.toLowerCase()) ||
+    infoboxField(wikitext, 'rarity').toLowerCase() === 'unique' ||
+    (setName !== '' && uniqueGear.sets.has(setName)) ||
+    /\{\{MCD2\|unique\}\}/i.test(lead)
+
+  return unique ? 'unique' : 'regular'
+}
+
+async function fetchWikitextByName(names) {
+  const wikitextByName = new Map()
 
   for (let start = 0; start < names.length; start += 40) {
     const chunk = names.slice(start, start + 40)
@@ -139,23 +156,49 @@ async function fetchDescriptions(names) {
     for (const name of chunk) {
       const redirected = redirects.get(`Dungeons II:${name}`)
       const page = pages.get(redirected ?? `Dungeons II:${name}`)
-      const wikitext = page?.revisions?.[0]?.slots?.main?.content ?? ''
-      descriptions.set(name, leadDescription(wikitext))
+      wikitextByName.set(name, page?.revisions?.[0]?.slots?.main?.content ?? '')
     }
   }
 
-  return descriptions
+  return wikitextByName
 }
 
-function existingSlugs(csv, csvFile) {
+async function fetchUniqueGear() {
+  const pageUrl = 'https://minecraft.wiki/w/Dungeons_II:Rarity'
+  const wikitext = await fetchPage('Dungeons II:Rarity', pageUrl)
+  const names = new Set(
+    ['Melee weapons', 'Ranged weapons'].flatMap((heading) =>
+      namesInSection(wikitext, heading, pageUrl).map((name) => name.toLowerCase()),
+    ),
+  )
+  const sets = new Set(
+    namesInSection(wikitext, 'Armor sets', pageUrl).map((name) =>
+      name.replace(/\s+armor$/i, '').toLowerCase(),
+    ),
+  )
+
+  return { names, sets }
+}
+
+function rowsFromCsv(csv) {
   const [header, ...body] = parseCsv(csv.trim())
-  const slugIndex = header.findIndex((column) => column.trim() === 'slug')
+  const index = Object.fromEntries(header.map((column, i) => [column.trim(), i]))
 
-  if (slugIndex === -1) {
-    throw new Error(`supabase/seeds/${csvFile} is missing a slug column`)
-  }
+  return body.map((entry) => ({
+    name: entry[index.name]?.trim() ?? '',
+    slug: entry[index.slug]?.trim() ?? '',
+    type: entry[index.type]?.trim() ?? '',
+    description: entry[index.description]?.trim() ?? '',
+    rarity: entry[index.rarity]?.trim() || 'regular',
+  }))
+}
 
-  return new Set(body.map((row) => row[slugIndex]?.trim()).filter(Boolean))
+function gearCsv(rows) {
+  const lines = rows.map((row) =>
+    [row.name, row.slug, row.type, row.description, row.rarity].map(csvField).join(','),
+  )
+
+  return `name,slug,type,description,rarity\n${lines.join('\n')}\n`
 }
 
 export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, label }) {
@@ -177,22 +220,66 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     return true
   })
   const csv = await readFile(csvPath, 'utf8')
-  const present = existingSlugs(csv, csvFile)
+  const existingRows = rowsFromCsv(csv)
+  const present = new Set(existingRows.map((row) => row.slug))
   const additions = items.filter((item) => !present.has(item.slug))
+  const [wikitextByName, uniqueGear] = await Promise.all([
+    fetchWikitextByName(items.map((item) => item.name)),
+    fetchUniqueGear(),
+  ])
+  const rarityBySlug = new Map(
+    items.map((item) => [
+      item.slug,
+      gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
+    ]),
+  )
+  const rowsBySlug = new Map(existingRows.map((row) => [row.slug, { ...row }]))
+
+  for (const item of items) {
+    const rarity = rarityBySlug.get(item.slug) ?? 'regular'
+    const current = rowsBySlug.get(item.slug)
+
+    if (current) {
+      current.rarity = rarity
+      continue
+    }
+
+    rowsBySlug.set(item.slug, {
+      name: item.name,
+      slug: item.slug,
+      type: item.type,
+      description: leadDescription(wikitextByName.get(item.name) ?? ''),
+      rarity,
+    })
+  }
+
+  const writtenSlugs = new Set()
+  const rows = []
+
+  for (const row of existingRows) {
+    rows.push(rowsBySlug.get(row.slug) ?? row)
+    writtenSlugs.add(row.slug)
+  }
+
+  for (const item of items) {
+    if (writtenSlugs.has(item.slug)) {
+      continue
+    }
+
+    rows.push(rowsBySlug.get(item.slug))
+    writtenSlugs.add(item.slug)
+  }
+
+  await writeFile(csvPath, gearCsv(rows))
+
+  const uniqueCount = rows.filter((row) => row.rarity === 'unique').length
 
   if (additions.length === 0) {
-    console.log(`No new ${label}. ${present.size} rows already in supabase/seeds/${csvFile}`)
+    console.log(`No new ${label}. ${rows.length} rows already in supabase/seeds/${csvFile}`)
   } else {
-    const descriptions = await fetchDescriptions(additions.map((item) => item.name))
-    const missing = additions.filter((item) => !descriptions.get(item.name))
-    const rows = additions.map((item) =>
-      [item.name, item.slug, item.type, descriptions.get(item.name) ?? ''].map(csvField).join(','),
-    )
-    const prefix = csv.endsWith('\n') ? '' : '\n'
-    await appendFile(csvPath, `${prefix}${rows.join('\n')}\n`)
-
+    const missing = additions.filter((item) => !leadDescription(wikitextByName.get(item.name) ?? ''))
     console.log(
-      `Added ${rows.length} ${label} to supabase/seeds/${csvFile} (${items.length - additions.length} already present).`,
+      `Added ${additions.length} ${label} to supabase/seeds/${csvFile} (${items.length - additions.length} already present).`,
     )
     console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
 
@@ -200,6 +287,8 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
       console.log(`No description found for: ${missing.map((item) => item.name).join(', ')}`)
     }
   }
+
+  console.log(`Set rarity on ${rows.length} ${label}: ${uniqueCount} unique, ${rows.length - uniqueCount} regular.`)
 
   await syncCatalogThumbnails({ kind: 'gear', items })
 }

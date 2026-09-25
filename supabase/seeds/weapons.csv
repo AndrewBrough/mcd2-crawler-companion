@@ -1,56 +1,56 @@
-name,slug,type,description
-Awesomeaxe,awesomeaxe,melee_weapon,The awesomeaxe is a unique melee weapon that grants strength on impact.
-Axe,axe,melee_weapon,An axe is a melee weapon that swings in a circular motion. Axes are commonly wielded by vindicators.
-Battlestaff,battlestaff,melee_weapon,A battlestaff is a long melee weapon with a wide swing.
-Battle Hammer,battle-hammer,melee_weapon,A battle hammer is a one-handed melee weapon with weak but fast swings.
-Burning Blade,burning-blade,melee_weapon,The burning blade is a melee weapon.
-Cacaphonous Cleaver,cacaphonous-cleaver,melee_weapon,The cacaphonous cleaver is a unique melee weapon.
-Claws,claws,melee_weapon,Claws are a melee weapon equipped on each hand.
-Claymore,claymore,melee_weapon,A claymore is a large melee weapon with powerful swings.
-Cookiecutter,cookiecutter,melee_weapon,A cookiecutter is a curved melee weapon.
-Diamond Pickaxe,diamond-pickaxe,melee_weapon,The diamond pickaxe is a melee weapon.
-Diamond Shovel,diamond-shovel,melee_weapon,The diamond shovel is a unique melee weapon.
-Double Daggers,double-daggers,melee_weapon,Double daggers are a dual-wielded melee weapon that can rapidly slash through nearby mobs.
-Double Sickles,double-sickles,melee_weapon,Double sickles are melee weapons that can rapidly slash through groups of mobs.
-Elemental Staff,elemental-staff,melee_weapon,The elemental staff is a long melee weapon that grants random elemental melee buffs.
-Emerald Hammer,emerald-hammer,melee_weapon,The emerald hammer is a unique melee weapon.
-Glaive,glaive,melee_weapon,A glaive is a long-reaching melee weapon wielded by vanguards.
-Great Hammer,great-hammer,melee_weapon,The great hammer is a unique melee weapon.
-Greatsword,greatsword,melee_weapon,"A greatsword is a two-handed melee weapon with slow, heavy swings."
-Greataxe,greataxe,melee_weapon,A greataxe is a two-handed melee weapon.
-Mace,mace,melee_weapon,A mace is a blunt melee weapon with a powerful swing wielded by royal guards.
-Mallet,mallet,melee_weapon,A mallet is a large melee weapon.
-Meat Cleaver,meat-cleaver,melee_weapon,A meat cleaver is a melee weapon.
-Mob Mallet,mob-mallet,melee_weapon,The mob mallet is a unique melee weapon with heavy damage.
-Pickaxe,pickaxe,melee_weapon,A pickaxe is a slow melee weapon. Pickaxes are commonly wielded by excavators.
-Pike,pike,melee_weapon,A pike is a long melee weapon with a far reach.
-Pride of the Plains,pride-of-the-plains,melee_weapon,The pride of the plains is a unique melee weapon that deals additional damage to the primary mob hit.
-Prime Enchanter Gauntlets,prime-enchanter-gauntlets,melee_weapon,The prime enchanter gauntlets are a melee weapon resembling the Prime Enchanter's ice and electricity gauntlets.
-Redstone Club,redstone-club,melee_weapon,The redstone club is a large unique melee weapon.
-Riftslasher,riftslasher,melee_weapon,A riftslasher is a long melee weapon.
-Sculk Claws,sculk-claws,melee_weapon,The sculk claws are a unique melee weapon resembling the claws of a monarch.
-Sculker's Bane,sculkers-bane,melee_weapon,The sculker's bane is a unique melee weapon.
-Scythe,scythe,melee_weapon,A scythe is a melee weapon.
-Shovel,shovel,melee_weapon,A shovel is a large melee weapon that swings through mobs in a circular motion.
-Sift Sickles,sift-sickles,melee_weapon,The sift sickles are a unique melee weapon.
-Soul Reaper,soul-reaper,melee_weapon,The soul reaper is a unique melee weapon that greatly increases soul input.
-Spectral Spear,spectral-spear,melee_weapon,The spectral spear is a unique melee weapon made of ichor.
-Stormcaller,stormcaller,melee_weapon,The stormcaller is a unique melee weapon with electric attacks.
-Sword,sword,melee_weapon,A sword is a melee weapon that can slash through mobs.
-Tidal Sickle,tidal-sickle,melee_weapon,The tidal sickle is a melee weapon.
-Tornado Blade,tornado-blade,melee_weapon,The tornado blade is a unique melee weapon.
-War Hammer,war-hammer,melee_weapon,A war hammer is a large melee weapon with powerful swings.
-Bow,bow,ranged_weapon,A bow is a charged ranged weapon that fires arrows.
-Creaking's Reach,creakings-reach,ranged_weapon,The creaking's reach is a unique charged ranged weapon.
-Greatbow,greatbow,ranged_weapon,A greatbow is a large ranged weapon with heavy damage.
-Longbow,longbow,ranged_weapon,A longbow is a charged ranged weapon that fires arrows.
-Phantom Wing,phantom-wing,ranged_weapon,The phantom wing is a unique charged ranged weapon.
-Powerbow,powerbow,ranged_weapon,A powerbow is a bow found naturally wielded by high tier skeletons.
-Shooting Star,shooting-star,ranged_weapon,The shooting star is a unique charged ranged weapon.
-Shortbow,shortbow,ranged_weapon,A shortbow is a charged ranged weapon that rapidly fires weak arrows.
-Trickbow,trickbow,ranged_weapon,A trickbow is a charged ranged weapon that fires curving arrows.
-Crossbow,crossbow,ranged_weapon,"A crossbow is a slow-firing ranged weapon that can't be charged, and are naturally wielded by pillagers."
-Dual Crossbows,dual-crossbows,ranged_weapon,Dual crossbows are a duel wielded ranged weapon that can rapidly fire arrows from two crossbows at once.
-Heavy Crossbow,heavy-crossbow,ranged_weapon,A heavy crossbow is a ranged weapon.
-Scatter Crossbow,scatter-crossbow,ranged_weapon,A scatter crossbow is a ranged weapon that fires three arrows at once.
-The Shackler,the-shackler,ranged_weapon,The shackler is a unique ranged weapon that chains enemies hit by its arrows.
+name,slug,type,description,rarity
+Awesomeaxe,awesomeaxe,melee_weapon,The awesomeaxe is a unique melee weapon that grants strength on impact.,unique
+Axe,axe,melee_weapon,An axe is a melee weapon that swings in a circular motion. Axes are commonly wielded by vindicators.,regular
+Battlestaff,battlestaff,melee_weapon,A battlestaff is a long melee weapon with a wide swing.,regular
+Battle Hammer,battle-hammer,melee_weapon,A battle hammer is a one-handed melee weapon with weak but fast swings.,regular
+Burning Blade,burning-blade,melee_weapon,The burning blade is a melee weapon.,unique
+Cacaphonous Cleaver,cacaphonous-cleaver,melee_weapon,The cacaphonous cleaver is a unique melee weapon.,unique
+Claws,claws,melee_weapon,Claws are a melee weapon equipped on each hand.,regular
+Claymore,claymore,melee_weapon,A claymore is a large melee weapon with powerful swings.,regular
+Cookiecutter,cookiecutter,melee_weapon,A cookiecutter is a curved melee weapon.,regular
+Diamond Pickaxe,diamond-pickaxe,melee_weapon,The diamond pickaxe is a melee weapon.,unique
+Diamond Shovel,diamond-shovel,melee_weapon,The diamond shovel is a unique melee weapon.,unique
+Double Daggers,double-daggers,melee_weapon,Double daggers are a dual-wielded melee weapon that can rapidly slash through nearby mobs.,regular
+Double Sickles,double-sickles,melee_weapon,Double sickles are melee weapons that can rapidly slash through groups of mobs.,regular
+Elemental Staff,elemental-staff,melee_weapon,The elemental staff is a long melee weapon that grants random elemental melee buffs.,unique
+Emerald Hammer,emerald-hammer,melee_weapon,The emerald hammer is a unique melee weapon.,unique
+Glaive,glaive,melee_weapon,A glaive is a long-reaching melee weapon wielded by vanguards.,regular
+Great Hammer,great-hammer,melee_weapon,The great hammer is a unique melee weapon.,unique
+Greatsword,greatsword,melee_weapon,"A greatsword is a two-handed melee weapon with slow, heavy swings.",regular
+Greataxe,greataxe,melee_weapon,A greataxe is a two-handed melee weapon.,regular
+Mace,mace,melee_weapon,A mace is a blunt melee weapon with a powerful swing wielded by royal guards.,regular
+Mallet,mallet,melee_weapon,A mallet is a large melee weapon.,regular
+Meat Cleaver,meat-cleaver,melee_weapon,A meat cleaver is a melee weapon.,regular
+Mob Mallet,mob-mallet,melee_weapon,The mob mallet is a unique melee weapon with heavy damage.,unique
+Pickaxe,pickaxe,melee_weapon,A pickaxe is a slow melee weapon. Pickaxes are commonly wielded by excavators.,regular
+Pike,pike,melee_weapon,A pike is a long melee weapon with a far reach.,regular
+Pride of the Plains,pride-of-the-plains,melee_weapon,The pride of the plains is a unique melee weapon that deals additional damage to the primary mob hit.,unique
+Prime Enchanter Gauntlets,prime-enchanter-gauntlets,melee_weapon,The prime enchanter gauntlets are a melee weapon resembling the Prime Enchanter's ice and electricity gauntlets.,unique
+Redstone Club,redstone-club,melee_weapon,The redstone club is a large unique melee weapon.,unique
+Riftslasher,riftslasher,melee_weapon,A riftslasher is a long melee weapon.,regular
+Sculk Claws,sculk-claws,melee_weapon,The sculk claws are a unique melee weapon resembling the claws of a monarch.,unique
+Sculker's Bane,sculkers-bane,melee_weapon,The sculker's bane is a unique melee weapon.,unique
+Scythe,scythe,melee_weapon,A scythe is a melee weapon.,regular
+Shovel,shovel,melee_weapon,A shovel is a large melee weapon that swings through mobs in a circular motion.,regular
+Sift Sickles,sift-sickles,melee_weapon,The sift sickles are a unique melee weapon.,unique
+Soul Reaper,soul-reaper,melee_weapon,The soul reaper is a unique melee weapon that greatly increases soul input.,unique
+Spectral Spear,spectral-spear,melee_weapon,The spectral spear is a unique melee weapon made of ichor.,unique
+Stormcaller,stormcaller,melee_weapon,The stormcaller is a unique melee weapon with electric attacks.,unique
+Sword,sword,melee_weapon,A sword is a melee weapon that can slash through mobs.,regular
+Tidal Sickle,tidal-sickle,melee_weapon,The tidal sickle is a melee weapon.,unique
+Tornado Blade,tornado-blade,melee_weapon,The tornado blade is a unique melee weapon.,unique
+War Hammer,war-hammer,melee_weapon,A war hammer is a large melee weapon with powerful swings.,regular
+Bow,bow,ranged_weapon,A bow is a charged ranged weapon that fires arrows.,regular
+Creaking's Reach,creakings-reach,ranged_weapon,The creaking's reach is a unique charged ranged weapon.,unique
+Greatbow,greatbow,ranged_weapon,A greatbow is a large ranged weapon with heavy damage.,regular
+Longbow,longbow,ranged_weapon,A longbow is a charged ranged weapon that fires arrows.,regular
+Phantom Wing,phantom-wing,ranged_weapon,The phantom wing is a unique charged ranged weapon.,unique
+Powerbow,powerbow,ranged_weapon,A powerbow is a bow found naturally wielded by high tier skeletons.,regular
+Shooting Star,shooting-star,ranged_weapon,The shooting star is a unique charged ranged weapon.,unique
+Shortbow,shortbow,ranged_weapon,A shortbow is a charged ranged weapon that rapidly fires weak arrows.,regular
+Trickbow,trickbow,ranged_weapon,A trickbow is a charged ranged weapon that fires curving arrows.,regular
+Crossbow,crossbow,ranged_weapon,"A crossbow is a slow-firing ranged weapon that can't be charged, and are naturally wielded by pillagers.",regular
+Dual Crossbows,dual-crossbows,ranged_weapon,Dual crossbows are a duel wielded ranged weapon that can rapidly fire arrows from two crossbows at once.,regular
+Heavy Crossbow,heavy-crossbow,ranged_weapon,A heavy crossbow is a ranged weapon.,regular
+Scatter Crossbow,scatter-crossbow,ranged_weapon,A scatter crossbow is a ranged weapon that fires three arrows at once.,regular
+The Shackler,the-shackler,ranged_weapon,The shackler is a unique ranged weapon that chains enemies hit by its arrows.,unique

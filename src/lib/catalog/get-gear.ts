@@ -1,12 +1,13 @@
 import { supabase } from '#/lib/supabase/client'
 import { compactMap, mapDrop, mapNamedRef, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
-import type { GearListItem } from '#/types/data/gear'
+import { GEAR_RARITIES, type GearListItem } from '#/types/data/gear'
 
 type GearQueryRow = {
   name: string
   slug: string
   description: string
+  rarity: string
   type: GearListItem['type']
   gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
@@ -21,6 +22,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
         name,
         slug,
         description,
+        rarity,
         type,
         gear_enchantments ( enchantment:enchantments ( slug, name ) ),
         location_gear_drops ( drop_rate, location:locations ( slug, name ) ),
@@ -33,17 +35,28 @@ export async function getGear(): Promise<Array<GearListItem>> {
     throw new CatalogQueryError(error.message)
   }
 
-  return ((data ?? []) as Array<GearQueryRow>).map((row) => ({
-    name: row.name,
-    slug: row.slug,
-    description: row.description,
-    type: row.type,
-    enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
-    locationSources: compactMap(row.location_gear_drops, (entry) =>
-      mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
-    ),
-    enemySources: compactMap(row.enemy_gear_drops, (entry) =>
-      mapDrop({ drop_rate: entry.drop_rate, target: entry.enemy }),
-    ),
-  }))
+  return ((data ?? []) as Array<GearQueryRow>).flatMap((row) => {
+    const rarity = GEAR_RARITIES.find((value) => value === row.rarity)
+
+    if (!rarity) {
+      return []
+    }
+
+    return [
+      {
+        name: row.name,
+        slug: row.slug,
+        description: row.description,
+        rarity,
+        type: row.type,
+        enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
+        locationSources: compactMap(row.location_gear_drops, (entry) =>
+          mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
+        ),
+        enemySources: compactMap(row.enemy_gear_drops, (entry) =>
+          mapDrop({ drop_rate: entry.drop_rate, target: entry.enemy }),
+        ),
+      },
+    ]
+  })
 }

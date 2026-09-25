@@ -1,18 +1,18 @@
-name,slug,type,description
-Armadillo Amulet,armadillo-amulet,talisman,The Armadillo Amulet is a talisman that reduces the cooldown time on rolling.
-Essence of Efficiency,essence-of-efficiency,talisman,The Essence of Efficiency is a talisman that decreases artifact cooldowns.
-Fist of Iron,fist-of-iron,talisman,The Fist of Iron is a talisman that increases all melee attack damage.
-Golem Kit,golem-kit,talisman,The Golem Kit is a talisman that summons an iron golem to fight alongside the hero as a companion.
-Healing Heart,healing-heart,talisman,The Healing Heart is a talisman that regenerates health when out of combat.
-Lucky Clover,lucky-clover,talisman,The Lucky Clover is a talisman that increases the odds of enemies dropping extra loot if they dropped loot.
-Looter's Charm,looters-charm,talisman,The Looter's Charm is a talisman that increases the odds of enemies dropping loot.
-Medallion of Momentum,medallion-of-momentum,talisman,The Medallion of Momentum is a talisman that increases movement speed after continuously moving for several seconds.
-Ocelot's Paw,ocelots-paw,talisman,The Ocelot's Paw is a talisman that boosts jump attack damage.
-Prickle's Mark,prickles-mark,talisman,The Prickle's Mark is a talisman that summons a prickle to fight alongside the hero as a companion.
-Sigil of Beeswax,sigil-of-beeswax,talisman,The Sigil of Beeswax is a talisman that boosts the hero's health.
-Tasty Bone,tasty-bone,talisman,The Tasty Bone is a talisman that summons a wolf to fight alongside the hero.
-Tendrils of the Sprout,tendrils-of-the-sprout,talisman,The Tendrils of the Sprout is a sprout-inspired talisman that increases damage output.
-The Eye of Experience,the-eye-of-experience,talisman,The Eye of Experience is a talisman that increases the experience gained by heroes.
-Thrifty Pendant,thrifty-pendant,talisman,The Thrifty Pendant is a talisman that grants a conditional damage boost based on the hero's emerald count.
-Twig of Dark Oak,twig-of-dark-oak,talisman,The Twig of Dark Oak is a talisman grants the hero more ammo.
-Twisted Tooth,twisted-tooth,talisman,The Twisted Tooth is a talisman that increases the user's soul input.
+name,slug,type,description,rarity
+Armadillo Amulet,armadillo-amulet,talisman,The Armadillo Amulet is a talisman that reduces the cooldown time on rolling.,regular
+Essence of Efficiency,essence-of-efficiency,talisman,The Essence of Efficiency is a talisman that decreases artifact cooldowns.,regular
+Fist of Iron,fist-of-iron,talisman,The Fist of Iron is a talisman that increases all melee attack damage.,regular
+Golem Kit,golem-kit,talisman,The Golem Kit is a talisman that summons an iron golem to fight alongside the hero as a companion.,regular
+Healing Heart,healing-heart,talisman,The Healing Heart is a talisman that regenerates health when out of combat.,regular
+Lucky Clover,lucky-clover,talisman,The Lucky Clover is a talisman that increases the odds of enemies dropping extra loot if they dropped loot.,regular
+Looter's Charm,looters-charm,talisman,The Looter's Charm is a talisman that increases the odds of enemies dropping loot.,regular
+Medallion of Momentum,medallion-of-momentum,talisman,The Medallion of Momentum is a talisman that increases movement speed after continuously moving for several seconds.,regular
+Ocelot's Paw,ocelots-paw,talisman,The Ocelot's Paw is a talisman that boosts jump attack damage.,regular
+Prickle's Mark,prickles-mark,talisman,The Prickle's Mark is a talisman that summons a prickle to fight alongside the hero as a companion.,regular
+Sigil of Beeswax,sigil-of-beeswax,talisman,The Sigil of Beeswax is a talisman that boosts the hero's health.,regular
+Tasty Bone,tasty-bone,talisman,The Tasty Bone is a talisman that summons a wolf to fight alongside the hero.,regular
+Tendrils of the Sprout,tendrils-of-the-sprout,talisman,The Tendrils of the Sprout is a sprout-inspired talisman that increases damage output.,regular
+The Eye of Experience,the-eye-of-experience,talisman,The Eye of Experience is a talisman that increases the experience gained by heroes.,regular
+Thrifty Pendant,thrifty-pendant,talisman,The Thrifty Pendant is a talisman that grants a conditional damage boost based on the hero's emerald count.,regular
+Twig of Dark Oak,twig-of-dark-oak,talisman,The Twig of Dark Oak is a talisman grants the hero more ammo.,regular
+Twisted Tooth,twisted-tooth,talisman,The Twisted Tooth is a talisman that increases the user's soul input.,regular

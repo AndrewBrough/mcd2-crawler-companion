@@ -14,6 +14,9 @@ const GEAR_TYPES = [
 await syncCatalogCsv({
   table: 'gear',
   csvFiles: ['weapons.csv', 'armor.csv', 'artifacts.csv', 'talismans.csv'],
-  required: ['name', 'slug', 'type', 'description'],
-  enums: { type: GEAR_TYPES },
+  required: ['name', 'slug', 'type', 'description', 'rarity'],
+  enums: {
+    type: GEAR_TYPES,
+    rarity: ['regular', 'unique'],
+  },
 })

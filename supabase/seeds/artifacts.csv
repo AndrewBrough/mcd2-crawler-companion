@@ -1,36 +1,36 @@
-name,slug,type,description
-Banner,banner,artifact,"A banner is a support artifact that places a circle on the ground, granting strength to heroes that walk inside it."
-Blaze Bangle,blaze-bangle,artifact,A blaze bangle is an artifact that adds a status to the hero that causes their weapons to apply burning.
-Blight Bangle,blight-bangle,artifact,A blight bangle is an artifact that adds a status to the hero that causes their weapons to apply poison.
-Cinder Scepter,cinder-scepter,artifact,A cinder scepter is an fiery artifact that summons fire around enemies.
-Conductive Quiver,conductive-quiver,artifact,A conductive quiver is an artifact that loads three electric arrows into the hero's ranged weapon.
-Corrupted Beacon,corrupted-beacon,artifact,A corrupted beacon is an offensive artifact that fires a damaging purple beam when active.
-Corrupted Seeds,corrupted-seeds,artifact,"Corrupted seeds are an artifact that places sprouts vines, inflicting poison on mobs within them."
-Creeper Candle,creeper-candle,artifact,"A creeper candle is an artifact that places an explosive candle on the ground, exploding shortly after."
-Death Cap Mushroom,death-cap-mushroom,artifact,A death cap mushroom is an artifact that grants increased movement and attack speed.
-Electric Bangle,electric-bangle,artifact,An electric bangle is an artifact that applies a status to the hero that causes their weapons to deal electric damage.
-Ender Fog,ender-fog,artifact,Ender fog is an artifact that adds the shadowcloaking status to the hero when used.
-Fighter's Flute,fighters-flute,artifact,A fighter's flute is an artifact that grants a status which greatly increases the chance of critical hits.
-Firework Arrow,firework-arrow,artifact,A firework arrow is an offensive artifact that loads an explosive firework into your ranged weapon.
-Flaming Quiver,flaming-quiver,artifact,A flaming quiver is an artifact that loads three flaming arrows into the hero's ranged weapon.
-Freezing Quiver,freezing-quiver,artifact,A freezing quiver is an artifact that loads three icy arrows into the hero's ranged weapon.
-Grindstone,grindstone,artifact,A grindstone is an artifact.
-Soul Harvester,soul-harvester,artifact,"A soul harvester is an artifact that releases a burst of souls, dealing damage in a large radius."
-Honey Dipper,honey-dipper,artifact,A honey dipper is an artifact that drops honey and bees on the ground.
-Lightning Rod,lightning-rod,artifact,A lightning rod is an electric artifact that summons lightning around enemies.
-Picnic Basket,picnic-basket,artifact,A picnic basket is a supportive artifact that summons food when placed.
-Pouch of Fire,pouch-of-fire,artifact,A pouch of fire is a fiery artifact that releases an explosive burst of fire.
-Pouch of Ice,pouch-of-ice,artifact,
-Pouch of Thunder,pouch-of-thunder,artifact,A pouch of thunder is an electric artifact that releases an explosive burst of lightning.
-Powershaker,powershaker,artifact,A powershaker is an artifact that imbues the user with a status causing their attacks to release explosions on mobs.
-Redstone Mine Launcher,redstone-mine-launcher,artifact,A redstone mine launcher is an artifact that deploys redstone mines on the ground which explode after a short delay.
-Tempo Truffle,tempo-truffle,artifact,A tempo truffle is an artifact that grants the hero a movement speed boost.
-Totem of Casting,totem-of-casting,artifact,"A totem of casting is an artifact that places an area of effect, granting heroes within it reduced artifact cooldown times."
-Totem of Shielding,totem-of-shielding,artifact,"The totem of shielding is an artifact that, when placed, spawns a shield that protects against projectiles."
-Turtle Master's Mandolin,turtle-masters-mandolin,artifact,The turtle master's mandolin is a musical artifact that provides a defensive boost to all nearby allies.
-Venomous Quiver,venomous-quiver,artifact,A venomous quiver is an artifact that loads three poisonous arrows into the hero's ranged weapon.
-Warding Chimes,warding-chimes,artifact,Warding chimes are an artifact that make the hero temporarily impervious to damage.
-Warrior Drums,warrior-drums,artifact,Warrior drums are an artifact that grants the hero a status effect that increases critical hit damage for a few seconds.
-Wind Horn,wind-horn,artifact,A wind horn is an artifact that blows a gust of wind.
-Winter Staff,winter-staff,artifact,Frost attacks deal 15% more damage.
-Witch Brew,witch-brew,artifact,A witch brew is a throwable artifact that creates a purple cloud where it lands.
+name,slug,type,description,rarity
+Banner,banner,artifact,"A banner is a support artifact that places a circle on the ground, granting strength to heroes that walk inside it.",regular
+Blaze Bangle,blaze-bangle,artifact,A blaze bangle is an artifact that adds a status to the hero that causes their weapons to apply burning.,regular
+Blight Bangle,blight-bangle,artifact,A blight bangle is an artifact that adds a status to the hero that causes their weapons to apply poison.,regular
+Cinder Scepter,cinder-scepter,artifact,A cinder scepter is an fiery artifact that summons fire around enemies.,regular
+Conductive Quiver,conductive-quiver,artifact,A conductive quiver is an artifact that loads three electric arrows into the hero's ranged weapon.,regular
+Corrupted Beacon,corrupted-beacon,artifact,A corrupted beacon is an offensive artifact that fires a damaging purple beam when active.,regular
+Corrupted Seeds,corrupted-seeds,artifact,"Corrupted seeds are an artifact that places sprouts vines, inflicting poison on mobs within them.",regular
+Creeper Candle,creeper-candle,artifact,"A creeper candle is an artifact that places an explosive candle on the ground, exploding shortly after.",regular
+Death Cap Mushroom,death-cap-mushroom,artifact,A death cap mushroom is an artifact that grants increased movement and attack speed.,regular
+Electric Bangle,electric-bangle,artifact,An electric bangle is an artifact that applies a status to the hero that causes their weapons to deal electric damage.,regular
+Ender Fog,ender-fog,artifact,Ender fog is an artifact that adds the shadowcloaking status to the hero when used.,regular
+Fighter's Flute,fighters-flute,artifact,A fighter's flute is an artifact that grants a status which greatly increases the chance of critical hits.,regular
+Firework Arrow,firework-arrow,artifact,A firework arrow is an offensive artifact that loads an explosive firework into your ranged weapon.,regular
+Flaming Quiver,flaming-quiver,artifact,A flaming quiver is an artifact that loads three flaming arrows into the hero's ranged weapon.,regular
+Freezing Quiver,freezing-quiver,artifact,A freezing quiver is an artifact that loads three icy arrows into the hero's ranged weapon.,regular
+Grindstone,grindstone,artifact,A grindstone is an artifact.,regular
+Soul Harvester,soul-harvester,artifact,"A soul harvester is an artifact that releases a burst of souls, dealing damage in a large radius.",regular
+Honey Dipper,honey-dipper,artifact,A honey dipper is an artifact that drops honey and bees on the ground.,regular
+Lightning Rod,lightning-rod,artifact,A lightning rod is an electric artifact that summons lightning around enemies.,regular
+Picnic Basket,picnic-basket,artifact,A picnic basket is a supportive artifact that summons food when placed.,regular
+Pouch of Fire,pouch-of-fire,artifact,A pouch of fire is a fiery artifact that releases an explosive burst of fire.,regular
+Pouch of Ice,pouch-of-ice,artifact,,regular
+Pouch of Thunder,pouch-of-thunder,artifact,A pouch of thunder is an electric artifact that releases an explosive burst of lightning.,regular
+Powershaker,powershaker,artifact,A powershaker is an artifact that imbues the user with a status causing their attacks to release explosions on mobs.,regular
+Redstone Mine Launcher,redstone-mine-launcher,artifact,A redstone mine launcher is an artifact that deploys redstone mines on the ground which explode after a short delay.,regular
+Tempo Truffle,tempo-truffle,artifact,A tempo truffle is an artifact that grants the hero a movement speed boost.,regular
+Totem of Casting,totem-of-casting,artifact,"A totem of casting is an artifact that places an area of effect, granting heroes within it reduced artifact cooldown times.",regular
+Totem of Shielding,totem-of-shielding,artifact,"The totem of shielding is an artifact that, when placed, spawns a shield that protects against projectiles.",regular
+Turtle Master's Mandolin,turtle-masters-mandolin,artifact,The turtle master's mandolin is a musical artifact that provides a defensive boost to all nearby allies.,regular
+Venomous Quiver,venomous-quiver,artifact,A venomous quiver is an artifact that loads three poisonous arrows into the hero's ranged weapon.,regular
+Warding Chimes,warding-chimes,artifact,Warding chimes are an artifact that make the hero temporarily impervious to damage.,regular
+Warrior Drums,warrior-drums,artifact,Warrior drums are an artifact that grants the hero a status effect that increases critical hit damage for a few seconds.,regular
+Wind Horn,wind-horn,artifact,A wind horn is an artifact that blows a gust of wind.,regular
+Winter Staff,winter-staff,artifact,Frost attacks deal 15% more damage.,regular
+Witch Brew,witch-brew,artifact,A witch brew is a throwable artifact that creates a purple cloud where it lands.,regular

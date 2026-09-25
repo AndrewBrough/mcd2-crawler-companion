@@ -13,11 +13,16 @@ export const GEAR_TYPES = [
 
 export type GearType = (typeof GEAR_TYPES)[number]
 
+export const GEAR_RARITIES = ['regular', 'unique'] as const
+
+export type GearRarity = (typeof GEAR_RARITIES)[number]
+
 export type Gear = {
   slug: string
   name: string
   description: string
   type: GearType
+  rarity: GearRarity
   enchantments: Array<NamedRef>
 }
 
