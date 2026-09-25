@@ -1,0 +1,27 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0.08rem 0.4rem 0.1rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.unique {
+  background: var(--primary);
+  color: var(--black);
+  border-top: 2px solid var(--primary-light);
+  border-bottom: 2px solid var(--primary-dark);
+}
+
+.regular {
+  background: #e4e4e1;
+  color: var(--grey-dark);
+  border-top: 2px solid var(--white);
+  border-bottom: 2px solid var(--grey);
+}

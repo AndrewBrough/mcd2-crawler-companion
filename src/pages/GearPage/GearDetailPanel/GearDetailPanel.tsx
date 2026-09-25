@@ -1,6 +1,7 @@
 import { CatalogGrid } from '#/components/Catalog'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
 import type { Gear } from '#/types/data/gear'
+import { GearRarityBadge } from './GearRarityBadge'
 import styles from './GearDetailPanel.module.css'
 
 export type GearDetailPanelProps = {
@@ -13,6 +14,7 @@ export function GearDetailPanel({ item }: GearDetailPanelProps) {
       ariaLabel="Gear details"
       emptyMessage="Select a piece of gear to see its details."
       item={item}
+      headingExtra={item ? <GearRarityBadge rarity={item.rarity} /> : null}
     >
       {item ? (
         <section className={styles.enchantments}>

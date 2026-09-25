@@ -28,6 +28,13 @@
   color: var(--kicker);
 }
 
+.heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
 .name {
   margin: 0;
   color: var(--white);
