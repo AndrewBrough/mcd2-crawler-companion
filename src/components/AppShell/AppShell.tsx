@@ -21,14 +21,14 @@ export function AppShell({ children }: AppShellProps) {
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <BrandLink kicker="Minecraft Dungeons" title="Crawler Companion" />
+          <BrandLink kicker="Minecraft Dungeons 2" title="Crawler Companion" />
           <GlobalNav items={navItems} />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          Hunt locations and enemies for gear drop rates.
+          All data is sourced from the unofficial Minecraft Dungeons 2 wiki. All official content is owned by Microsoft and Minecraft. Web app is built by <a href="https://andrewbrough.ca/" target="_blank" rel="noopener noreferrer">Andrew Brough</a>.
         </div>
       </footer>
     </div>

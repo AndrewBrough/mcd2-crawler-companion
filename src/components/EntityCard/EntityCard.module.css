@@ -33,7 +33,7 @@
 
 .title {
   margin: 0;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--white);
 }
