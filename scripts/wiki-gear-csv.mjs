@@ -2,6 +2,7 @@ import { appendFile, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseCsv } from './sync-catalog-csv.mjs'
+import { syncCatalogThumbnails } from './upload-catalog-thumbnails.mjs'
 
 const API_URL = 'https://minecraft.wiki/api.php'
 const USER_AGENT = 'mcd2-crawler-companion/seed-scraper (noncommercial; CC BY-NC-SA 3.0)'
@@ -181,23 +182,24 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
 
   if (additions.length === 0) {
     console.log(`No new ${label}. ${present.size} rows already in supabase/seeds/${csvFile}`)
-    return
+  } else {
+    const descriptions = await fetchDescriptions(additions.map((item) => item.name))
+    const missing = additions.filter((item) => !descriptions.get(item.name))
+    const rows = additions.map((item) =>
+      [item.name, item.slug, item.type, descriptions.get(item.name) ?? ''].map(csvField).join(','),
+    )
+    const prefix = csv.endsWith('\n') ? '' : '\n'
+    await appendFile(csvPath, `${prefix}${rows.join('\n')}\n`)
+
+    console.log(
+      `Added ${rows.length} ${label} to supabase/seeds/${csvFile} (${items.length - additions.length} already present).`,
+    )
+    console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
+
+    if (missing.length) {
+      console.log(`No description found for: ${missing.map((item) => item.name).join(', ')}`)
+    }
   }
 
-  const descriptions = await fetchDescriptions(additions.map((item) => item.name))
-  const missing = additions.filter((item) => !descriptions.get(item.name))
-  const rows = additions.map((item) =>
-    [item.name, item.slug, item.type, descriptions.get(item.name) ?? ''].map(csvField).join(','),
-  )
-  const prefix = csv.endsWith('\n') ? '' : '\n'
-  await appendFile(csvPath, `${prefix}${rows.join('\n')}\n`)
-
-  console.log(
-    `Added ${rows.length} ${label} to supabase/seeds/${csvFile} (${items.length - additions.length} already present).`,
-  )
-  console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
-
-  if (missing.length) {
-    console.log(`No description found for: ${missing.map((item) => item.name).join(', ')}`)
-  }
+  await syncCatalogThumbnails({ kind: 'gear', items })
 }
