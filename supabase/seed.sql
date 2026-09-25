@@ -1,2 +1,5 @@
 -- Catalog rows are not stored here.
 -- Edit supabase/seeds/*.csv and run: npm run sync:catalog
+-- Melee and ranged weapons live in weapons.csv.
+-- Armor pieces live in armor.csv.
+-- Artifacts live in artifacts.csv. Talismans live in talismans.csv.

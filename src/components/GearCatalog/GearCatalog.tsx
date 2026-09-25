@@ -1,7 +1,7 @@
 import { Catalog } from '#/components/Catalog'
 import { filterGear } from '#/lib/catalog/filter-gear'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
-import type { Gear, GearType } from '#/types/data/gear'
+import { GEAR_TYPES, type Gear, type GearType } from '#/types/data/gear'
 import { GearCatalogFilters } from './GearCatalogFilters'
 import { GearCatalogTypeSelect } from './GearCatalogTypeSelect'
 
@@ -34,9 +34,18 @@ export function GearCatalog({
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
       extraSearchText={(item) => [formatGearType(item.type)]}
-      toolbar={<GearCatalogTypeSelect value={typeFilter} onChange={onTypeFilterChange} />}
+      toolbar={
+        <GearCatalogTypeSelect
+          value={typeFilter}
+          types={GEAR_TYPES}
+          onChange={onTypeFilterChange}
+        />
+      }
       filters={
-        <GearCatalogFilters type={typeFilter} onRemoveType={() => onTypeFilterChange(null)} />
+        <GearCatalogFilters
+          type={typeFilter}
+          onRemoveType={() => onTypeFilterChange(null)}
+        />
       }
     />
   )

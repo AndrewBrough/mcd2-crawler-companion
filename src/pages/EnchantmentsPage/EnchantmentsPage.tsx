@@ -4,8 +4,11 @@ import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import { GearCatalogFilters } from '#/components/GearCatalog/GearCatalogFilters'
 import { GearCatalogTypeSelect } from '#/components/GearCatalog/GearCatalogTypeSelect'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
-import type { Enchantment } from '#/types/data/enchantment'
-import type { GearType } from '#/types/data/gear'
+import {
+  ENCHANTMENT_GEAR_TYPES,
+  type Enchantment,
+  type EnchantmentGearType,
+} from '#/types/data/enchantment'
 import { EnchantmentDetailPanel } from './EnchantmentDetailPanel'
 
 export type EnchantmentsPageProps = {
@@ -13,12 +16,13 @@ export type EnchantmentsPageProps = {
 }
 
 export function EnchantmentsPage({ enchantments }: EnchantmentsPageProps) {
-  const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
+  const [typeFilter, setTypeFilter] = useState<EnchantmentGearType | null>(null)
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
   const items = typeFilter
     ? enchantments.filter((item) => item.gearType === typeFilter)
     : enchantments
-  const selected = enchantments.find((item) => item.slug === selectedSlug) ?? null
+  const selected =
+    enchantments.find((item) => item.slug === selectedSlug) ?? null
 
   return (
     <CatalogBrowsePage
@@ -36,10 +40,22 @@ export function EnchantmentsPage({ enchantments }: EnchantmentsPageProps) {
           searchLabel="Search enchantments"
           emptyFiltered="No enchantments match that search."
           emptyCatalog="No enchantments in the catalog yet."
-          extraSearchText={(item) => [item.description, formatGearType(item.gearType)]}
-          toolbar={<GearCatalogTypeSelect value={typeFilter} onChange={setTypeFilter} />}
+          extraSearchText={(item) => [
+            item.description,
+            formatGearType(item.gearType),
+          ]}
+          toolbar={
+            <GearCatalogTypeSelect
+              value={typeFilter}
+              types={ENCHANTMENT_GEAR_TYPES}
+              onChange={setTypeFilter}
+            />
+          }
           filters={
-            <GearCatalogFilters type={typeFilter} onRemoveType={() => setTypeFilter(null)} />
+            <GearCatalogFilters
+              type={typeFilter}
+              onRemoveType={() => setTypeFilter(null)}
+            />
           }
         />
       }

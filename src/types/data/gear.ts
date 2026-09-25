@@ -3,7 +3,10 @@ import type { DropRateEntry, NamedRef } from './drop-rate'
 export const GEAR_TYPES = [
   'melee_weapon',
   'ranged_weapon',
-  'armor',
+  'armor_helmet',
+  'armor_chest',
+  'armor_leggings',
+  'armor_boots',
   'artifact',
   'talisman',
 ] as const

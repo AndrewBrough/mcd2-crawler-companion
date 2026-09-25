@@ -1,0 +1,90 @@
+name,slug,type,description
+Alchemist Hat,alchemist-hat,armor_helmet,The alchemist hat is a helmet.
+Beekeeper Veil,beekeeper-veil,armor_helmet,A beekeeper veil is a helmet.
+Bounty Hunter Helmet,bounty-hunter-helmet,armor_helmet,A bounty hunter helmet is a helmet.
+Disciple Mask,disciple-mask,armor_helmet,A disciple mask is a helmet.
+Fly Agaric Cap,fly-agaric-cap,armor_helmet,A fly agaric cap is a helmet.
+Hivemind Hardhat,hivemind-hardhat,armor_helmet,The hivemind hardhat is a unique helmet that increases the duration of positive statuses.
+Mystic Circlet,mystic-circlet,armor_helmet,A mystic circlet is a helmet.
+Nomad Hood,nomad-hood,armor_helmet,A nomad hood is a helmet.
+Oracle Crown,oracle-crown,armor_helmet,The oracle crown is a unique helmet.
+Phantom Helmet,phantom-helmet,armor_helmet,A phantom helmet is a helmet.
+Protector Helmet,protector-helmet,armor_helmet,A protector helmet is a helmet.
+Ranger Hat,ranger-hat,armor_helmet,A ranger hat is a helmet.
+Realmreacher Hat,realmreacher-hat,armor_helmet,A realmreacher hat is a helmet.
+Redstone Helmet,redstone-helmet,armor_helmet,A redstone helmet is a helmet.
+Rover Helmet,rover-helmet,armor_helmet,A rover helmet is a helmet.
+Sculk Digger Hood,sculk-digger-hood,armor_helmet,A sculk digger hood is a helmet.
+Sharpshooter Fedora,sharpshooter-fedora,armor_helmet,A sharpshooter fedora is a unique helmet.
+Sifter Hat,sifter-hat,armor_helmet,A sifter hat is a helmet.
+Soul Fire Hat,soul-fire-hat,armor_helmet,The soul fire hat is a unique helmet.
+Steel Wool Hat,steel-wool-hat,armor_helmet,A steel wool hat is a helmet.
+Treehugger Mask,treehugger-mask,armor_helmet,A treehugger mask is a helmet.
+Twisted Warden Hood,twisted-warden-hood,armor_helmet,The Twisted Warden hood is a unique helmet.
+Wolfpack Hood,wolfpack-hood,armor_helmet,A wolfpack hood is a helmet.
+Woodsprite Crown,woodsprite-crown,armor_helmet,The woodsprite crown is a unique helmet.
+Alchemist Robe,alchemist-robe,armor_chest,The alchemist robe is a chestplate.
+Beekeeper Suit,beekeeper-suit,armor_chest,A beekeeper suit is a chestplate.
+Disciple Robe,disciple-robe,armor_chest,A disciple robe is a chestplate.
+Hivemind Chestplate,hivemind-chestplate,armor_chest,The hivemind chestplate is a unique chestplate.
+Hoarfrost Chestplate,hoarfrost-chestplate,armor_chest,A hoarfrost chestplate is a chestplate.
+Fly Agaric Coat,fly-agaric-coat,armor_chest,The fly agaric coat is a unique chestplate.
+Mad Sifter Vest,mad-sifter-vest,armor_chest,The mad sifter vest is a unique chestplate.
+Mystic Robe,mystic-robe,armor_chest,A mystic robe is a chestplate.
+Nomad Chestplate,nomad-chestplate,armor_chest,The nomad chestplate is a chestplate.
+Phantom Chestplate,phantom-chestplate,armor_chest,A phantom chestplate is a chestplate.
+Protector Chestplate,protector-chestplate,armor_chest,A protector chestplate is a chestplate.
+Ranger Jacket,ranger-jacket,armor_chest,The ranger jacket is a chestplate.
+Realmreacher Robe,realmreacher-robe,armor_chest,The realmreacher robe is a chestplate.
+Redstone Chestplate,redstone-chestplate,armor_chest,A redstone chestplate is a chestplate.
+Rover Pauldrons,rover-pauldrons,armor_chest,The rover pauldrons are a unique chestplate.
+Sculk Digger Robe,sculk-digger-robe,armor_chest,A sculk digger robe is a chestplate.
+Sifter Chestplate,sifter-chestplate,armor_chest,A sifter chestplate is a chestplate.
+Sorcerer Robe,sorcerer-robe,armor_chest,A sorcerer robe is a chestplate.
+Soul Fire Robe,soul-fire-robe,armor_chest,The soul fire robe is a unique chestplate.
+Steel Wool Chestplate,steel-wool-chestplate,armor_chest,A steel wool chestplate is a chestplate.
+Treehugger Chestplate,treehugger-chestplate,armor_chest,A treehugger chestplate is a chestplate.
+Twisted Warden Vest,twisted-warden-vest,armor_chest,The Twisted Warden vest is a unique chestplate.
+Beekeeper Leggings,beekeeper-leggings,armor_leggings,Beekeeper leggings are a pair of leggings.
+Disciple Leggings,disciple-leggings,armor_leggings,Disciple leggings are a pair of leggings.
+Fly Agaric Trousers,fly-agaric-trousers,armor_leggings,The fly agaric trousers are a unique pair of leggings.
+Hivemind Leggings,hivemind-leggings,armor_leggings,The hivemind leggings are a unique pair of leggings.
+Hoarfrost Leggings,hoarfrost-leggings,armor_leggings,The hoarfrost leggings are a unique pair of leggings.
+Mystic Leggings,mystic-leggings,armor_leggings,Mystic leggings are a pair of leggings.
+Nomad Leggings,nomad-leggings,armor_leggings,Nomad leggings are a pair of leggings.
+Oracle Tights,oracle-tights,armor_leggings,The oracle tights are a unique pair of leggings.
+Phantom Leggings,phantom-leggings,armor_leggings,Phantom pants are a pair of leggings.
+Protector Shinguards,protector-shinguards,armor_leggings,Protector shinguards are a pair of leggings.
+Ranger Leggings,ranger-leggings,armor_leggings,Ranger leggings are a pair of leggings.
+Realmreacher Leggings,realmreacher-leggings,armor_leggings,Realmreacher leggings are a pair of leggings.
+Redstone Shinguards,redstone-shinguards,armor_leggings,Redstone shinguards are a pair of leggings.
+Rover Leggings,rover-leggings,armor_leggings,The rover leggings are a unique pair of leggings.
+Scamp Leggings,scamp-leggings,armor_leggings,Scamp leggings are a pair of leggings.
+Sculk Digger Leggings,sculk-digger-leggings,armor_leggings,Sculk digger leggings are a pair of leggings.
+Sifter Leggings,sifter-leggings,armor_leggings,Sifter leggings are a pair of leggings.
+Steel Wool Leggings,steel-wool-leggings,armor_leggings,Steel wool leggings are a pair of leggings.
+Treehugger Leggings,treehugger-leggings,armor_leggings,Treehugger leggings are a pair of leggings.
+Twisted Warden Tights,twisted-warden-tights,armor_leggings,The Twisted Warden tights are a unique pair of leggings.
+Wolfpack Leggings,wolfpack-leggings,armor_leggings,Wolfpack leggings are a pair of leggings.
+Woodsprite Trunks,woodsprite-trunks,armor_leggings,The woodsprite trunks are a unique pair of leggings.
+Alchemist Loafers,alchemist-loafers,armor_boots,The alchemist loafers are a unique pair of boots.
+Beekeeper Boots,beekeeper-boots,armor_boots,Beekeeper boots are a pair of boots.
+Bounty Hunter Boots,bounty-hunter-boots,armor_boots,Bounty hunter boots are a pair of boots.
+Disciple Wraps,disciple-wraps,armor_boots,Disciple wraps are a pair of boots.
+Hivemind Boots,hivemind-boots,armor_boots,The hivemind boots are a unique pair of boots.
+Hoarfrost Boots,hoarfrost-boots,armor_boots,The hoarfrost boots are a unique pair of boots.
+Mad Sifter Paws,mad-sifter-paws,armor_boots,The mad sifter paws are a unique pair of boots.
+Monarch Talons,monarch-talons,armor_boots,The monarch talons are a unique pair of leggings.
+Nomad Boots,nomad-boots,armor_boots,Nomad boots are a pair of boots.
+Phantom Boots,phantom-boots,armor_boots,Phantom boots are a pair of boots.
+Protector Boots,protector-boots,armor_boots,Protector boots are a pair of boots.
+Ranger Boots,ranger-boots,armor_boots,Ranger boots are a pair of boots found in .
+Realmreacher Boots,realmreacher-boots,armor_boots,Realmreacher boots are a pair of boots.
+Redstone Boots,redstone-boots,armor_boots,Redstone boots are a pair of boots.
+Rover Boots,rover-boots,armor_boots,The rover sabatons are a unique pair of boots.
+Sculk Digger Boots,sculk-digger-boots,armor_boots,Sculk digger boots are a pair of boots.
+Sifter Boots,sifter-boots,armor_boots,Sifter boots are a pair of boots.
+Soul Fire Boots,soul-fire-boots,armor_boots,The soul fire boots are a unique pair of boots.
+Steel Wool Boots,steel-wool-boots,armor_boots,Steel wool boots are a pair of boots.
+Treehugger Clogs,treehugger-clogs,armor_boots,Treehugger clogs are a pair of boots.
+Wolfpack Boots,wolfpack-boots,armor_boots,Wolfpack boots are a pair of boots.

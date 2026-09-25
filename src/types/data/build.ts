@@ -29,10 +29,10 @@ export const BUILD_SOCKET_ROWS: Array<BuildSocketRowDefinition> = [
     id: 'armor',
     label: 'Armor',
     sockets: [
-      { id: 'armor-1', kind: 'armor', label: 'Armor 1' },
-      { id: 'armor-2', kind: 'armor', label: 'Armor 2' },
-      { id: 'armor-3', kind: 'armor', label: 'Armor 3' },
-      { id: 'armor-4', kind: 'armor', label: 'Armor 4' },
+      { id: 'helmet', kind: 'armor_helmet', label: 'Helmet' },
+      { id: 'chest', kind: 'armor_chest', label: 'Chestplate' },
+      { id: 'leggings', kind: 'armor_leggings', label: 'Leggings' },
+      { id: 'boots', kind: 'armor_boots', label: 'Boots' },
     ],
   },
   {

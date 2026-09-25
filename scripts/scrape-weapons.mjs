@@ -1,0 +1,15 @@
+import { appendWikiGear } from './wiki-gear-csv.mjs'
+
+// Weapon names and lead sentences are adapted from the Minecraft Wiki
+// (CC BY-NC-SA 3.0): https://minecraft.wiki/w/Dungeons_II:Weapon
+await appendWikiGear({
+  pageTitle: 'Dungeons II:Weapon',
+  pageUrl: 'https://minecraft.wiki/w/Dungeons_II:Weapon',
+  csvFile: 'weapons.csv',
+  label: 'weapons',
+  sections: [
+    { heading: 'List of melee weapons', type: 'melee_weapon' },
+    { heading: 'List of bows', type: 'ranged_weapon' },
+    { heading: 'List of crossbows', type: 'ranged_weapon' },
+  ],
+})

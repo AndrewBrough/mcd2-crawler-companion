@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
-function parseCsv(text) {
+export function parseCsv(text) {
   const rows = []
   let field = ''
   let row = []
@@ -54,13 +54,12 @@ function sqlLiteral(value) {
   return `'${value.replaceAll("'", "''")}'`
 }
 
-export async function syncCatalogCsv({ table, csvFile, required, enums = {} }) {
+async function readCatalogCsv(csvFile, required, enums) {
   const csvPath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     '../supabase/seeds',
     csvFile,
   )
-  const prune = process.argv.includes('--prune')
   const csv = (await readFile(csvPath, 'utf8')).trim()
   const [header, ...body] = parseCsv(csv)
   const index = Object.fromEntries(header.map((column, i) => [column.trim(), i]))
@@ -71,7 +70,7 @@ export async function syncCatalogCsv({ table, csvFile, required, enums = {} }) {
     }
   }
 
-  const rows = body.map((entry, rowNumber) => {
+  return body.map((entry, rowNumber) => {
     const record = Object.fromEntries(
       required.map((column) => [column, entry[index[column]]?.trim() ?? '']),
     )
@@ -92,12 +91,18 @@ export async function syncCatalogCsv({ table, csvFile, required, enums = {} }) {
 
     return record
   })
+}
+
+export async function syncCatalogCsv({ table, csvFile, csvFiles, required, enums = {} }) {
+  const files = csvFiles ?? [csvFile]
+  const prune = process.argv.includes('--prune')
+  const rows = (await Promise.all(files.map((file) => readCatalogCsv(file, required, enums)))).flat()
 
   const slugs = rows.map((item) => item.slug)
   const duplicateSlug = slugs.find((slug, i) => slugs.indexOf(slug) !== i)
 
   if (duplicateSlug) {
-    throw new Error(`${csvFile} has duplicate slug: ${duplicateSlug}`)
+    throw new Error(`${files.join(', ')} has duplicate slug: ${duplicateSlug}`)
   }
 
   const updateColumns = required.filter((column) => column !== 'slug')
@@ -152,7 +157,8 @@ ${updateColumns.map((column) => `  ${column} = excluded.${column}`).join(',\n')}
     }
   }
 
-  console.log(`Synced ${rows.length} ${table} rows from supabase/seeds/${csvFile}`)
+  const sources = files.map((file) => `supabase/seeds/${file}`).join(', ')
+  console.log(`Synced ${rows.length} ${table} rows from ${sources}`)
 }
 
 export async function syncAssociationCsv({ table, csvFile, columns, conflict }) {

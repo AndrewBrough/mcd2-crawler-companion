@@ -1,7 +1,10 @@
 import { supabase } from '#/lib/supabase/client'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
-import { GEAR_TYPES, type GearType } from '#/types/data/gear'
-import type { Enchantment } from '#/types/data/enchantment'
+import {
+  ENCHANTMENT_GEAR_TYPES,
+  type Enchantment,
+  type EnchantmentGearType,
+} from '#/types/data/enchantment'
 
 type EnchantmentQueryRow = {
   slug: string
@@ -10,8 +13,8 @@ type EnchantmentQueryRow = {
   gear_type: string
 }
 
-function parseGearType(value: string): GearType | null {
-  return GEAR_TYPES.find((type) => type === value) ?? null
+function parseGearType(value: string): EnchantmentGearType | null {
+  return ENCHANTMENT_GEAR_TYPES.find((type) => type === value) ?? null
 }
 
 export async function getEnchantments(): Promise<Array<Enchantment>> {

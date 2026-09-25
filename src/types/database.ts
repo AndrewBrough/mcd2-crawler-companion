@@ -16,18 +16,21 @@ export type Database = {
     Tables: {
       enchantments: {
         Row: {
+          created_at: string
           description: string
           gear_type: string
           name: string
           slug: string
         }
         Insert: {
+          created_at?: string
           description?: string
           gear_type: string
           name: string
           slug: string
         }
         Update: {
+          created_at?: string
           description?: string
           gear_type?: string
           name?: string
@@ -37,16 +40,19 @@ export type Database = {
       }
       enemies: {
         Row: {
+          created_at: string
           description: string
           name: string
           slug: string
         }
         Insert: {
+          created_at?: string
           description?: string
           name: string
           slug: string
         }
         Update: {
+          created_at?: string
           description?: string
           name?: string
           slug?: string
@@ -121,18 +127,21 @@ export type Database = {
       }
       gear: {
         Row: {
+          created_at: string
           description: string
           name: string
           slug: string
           type: string
         }
         Insert: {
+          created_at?: string
           description?: string
           name: string
           slug: string
           type: string
         }
         Update: {
+          created_at?: string
           description?: string
           name?: string
           slug?: string
@@ -316,16 +325,19 @@ export type Database = {
       }
       locations: {
         Row: {
+          created_at: string
           description: string
           name: string
           slug: string
         }
         Insert: {
+          created_at?: string
           description?: string
           name: string
           slug: string
         }
         Update: {
+          created_at?: string
           description?: string
           name?: string
           slug?: string
