@@ -2,7 +2,6 @@ import { Catalog } from '#/components/Catalog'
 import { filterGear } from '#/lib/catalog/filter-gear'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
 import { GEAR_RARITIES, GEAR_TYPES, type Gear, type GearRarity, type GearType } from '#/types/data/gear'
-import { GearCatalogFilters } from './GearCatalogFilters'
 import { GearCatalogRarityFilters } from './GearCatalogRarityFilters'
 import { GearCatalogTypeFilters } from './GearCatalogTypeFilters'
 
@@ -52,14 +51,6 @@ export function GearCatalog({
             onChange={onRarityFilterChange}
           />
         </>
-      }
-      filters={
-        <GearCatalogFilters
-          type={typeFilter}
-          onRemoveType={() => onTypeFilterChange(null)}
-          rarity={rarityFilter}
-          onRemoveRarity={() => onRarityFilterChange(null)}
-        />
       }
     />
   )

@@ -4,12 +4,12 @@
   background: var(--secondary);
   color: var(--navy);
   font: inherit;
-  font-size: 0.68rem;
+  font-size: 0.4rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.2;
   text-transform: uppercase;
-  padding: 0.28rem 0.55rem;
+  padding: 0.24rem 0.24rem;
   cursor: pointer;
 }
 

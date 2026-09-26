@@ -19,7 +19,6 @@ export type CatalogProps<T extends CatalogItem> = {
   emptyCatalog: string
   extraSearchText?: (item: T) => Array<string | null | undefined>
   toolbar?: ReactNode
-  filters?: ReactNode
 }
 
 export function Catalog<T extends CatalogItem>({
@@ -34,7 +33,6 @@ export function Catalog<T extends CatalogItem>({
   emptyCatalog,
   extraSearchText,
   toolbar,
-  filters,
 }: CatalogProps<T>) {
   const [query, setQuery] = useState('')
   const visible = filterCatalogItems(items, query, extraSearchText)
@@ -49,7 +47,6 @@ export function Catalog<T extends CatalogItem>({
       >
         {toolbar}
       </CatalogSearch>
-      {filters}
       <div className={styles.results}>
         {visible.length ? (
           <CatalogGrid

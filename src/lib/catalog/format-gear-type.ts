@@ -2,8 +2,8 @@ import type { EnchantmentGearType } from '#/types/data/enchantment'
 import type { GearType } from '#/types/data/gear'
 
 const gearTypeLabels = {
-  melee_weapon: 'Melee weapon',
-  ranged_weapon: 'Ranged weapon',
+  melee_weapon: 'Melee',
+  ranged_weapon: 'Ranged',
   armor: 'Armor',
   armor_helmet: 'Helmet',
   armor_chest: 'Chestplate',
