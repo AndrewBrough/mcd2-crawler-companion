@@ -6,6 +6,8 @@ import styles from './BuildLoadoutPanel.module.css'
 export type BuildLoadoutPanelProps = {
   title: string
   onTitleChange: (title: string) => void
+  showSave?: boolean
+  onSave?: () => void
   rows: Array<BuildSocketRowDefinition>
   loadout: BuildLoadout
   activeSocketId: string | null
@@ -16,6 +18,8 @@ export type BuildLoadoutPanelProps = {
 export function BuildLoadoutPanel({
   title,
   onTitleChange,
+  showSave,
+  onSave,
   rows,
   loadout,
   activeSocketId,
@@ -24,7 +28,7 @@ export function BuildLoadoutPanel({
 }: BuildLoadoutPanelProps) {
   return (
     <section className={styles.panel} aria-label="Build loadout">
-      <BuildTitleField value={title} onChange={onTitleChange} />
+      <BuildTitleField value={title} onChange={onTitleChange} showSave={showSave} onSave={onSave} />
       <div className={styles.rows}>
         {rows.map((row) => (
           <BuildSocketRow

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GearCatalog } from '#/components/GearCatalog'
+import { useBuildName } from '#/lib/build/use-build-name'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import {
   BUILD_SOCKET_ROWS,
@@ -13,14 +14,15 @@ import styles from './BuildPage.module.css'
 export type BuildPageProps = {
   gear: Array<Gear>
   initialSlug?: string | null
+  initialName?: string | null
 }
 
 function socketKind(id: string): GearType | undefined {
   return BUILD_SOCKET_ROWS.flatMap((row) => row.sockets).find((socket) => socket.id === id)?.kind
 }
 
-export function BuildPage({ gear, initialSlug = null }: BuildPageProps) {
-  const [title, setTitle] = useState('Untitled build')
+export function BuildPage({ gear, initialSlug = null, initialName = null }: BuildPageProps) {
+  const { title, setTitle, dirty, saveName } = useBuildName(initialName)
   const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
@@ -82,6 +84,8 @@ export function BuildPage({ gear, initialSlug = null }: BuildPageProps) {
         <BuildLoadoutPanel
           title={title}
           onTitleChange={setTitle}
+          showSave={dirty}
+          onSave={saveName}
           rows={BUILD_SOCKET_ROWS}
           loadout={loadout}
           activeSocketId={activeSocketId}

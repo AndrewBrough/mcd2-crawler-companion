@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CatalogPending } from '#/components/CatalogPending'
 import { CatalogRouteError } from '#/components/CatalogRouteError'
-import { catalogSlugSearch } from '#/lib/catalog/catalog-slug-search'
+import { buildSearch } from '#/lib/build/build-search'
 import { getGear } from '#/lib/catalog/get-gear'
 import { BuildPage } from '#/pages/BuildPage'
 
 export const Route = createFileRoute('/build')({
-  validateSearch: catalogSlugSearch,
+  validateSearch: buildSearch,
   loader: () => getGear(),
   component: BuildRoute,
   errorComponent: CatalogRouteError,
@@ -15,7 +15,7 @@ export const Route = createFileRoute('/build')({
 
 function BuildRoute() {
   const gear = Route.useLoaderData()
-  const { slug } = Route.useSearch()
-  return <BuildPage gear={gear} initialSlug={slug ?? null} />
+  const { slug, name } = Route.useSearch()
+  return <BuildPage gear={gear} initialSlug={slug ?? null} initialName={name ?? null} />
 }
 
