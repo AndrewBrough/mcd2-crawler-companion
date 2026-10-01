@@ -27,6 +27,7 @@
     "sync:catalog": "npm run sync:gear && npm run sync:locations && npm run sync:enemies && npm run sync:enchantments && npm run sync:gear-enchantments && npm run sync:effects"
   },
   "dependencies": {
+    "@awesome.me/webawesome": "^3.14.0",
     "@supabase/supabase-js": "^2.117.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",

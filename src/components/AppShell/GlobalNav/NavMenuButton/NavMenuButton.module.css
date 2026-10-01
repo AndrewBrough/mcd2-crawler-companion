@@ -1,0 +1,27 @@
+.button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--secondary);
+  color: var(--navy);
+  border-top: 5px solid var(--secondary-light);
+  border-bottom: 5px solid var(--secondary-dark);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--secondary-dark);
+  color: var(--white);
+}
+
+@media (max-width: 960px) {
+  .button {
+    display: inline-flex;
+  }
+}
