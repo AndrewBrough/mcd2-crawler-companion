@@ -1,3 +1,4 @@
+import type { SavedBuild } from '#/lib/build/build-storage'
 import type { BuildLoadout, BuildSocketDefinition, BuildSocketRowDefinition } from '#/types/data/build'
 import { BuildSocketRow } from '../BuildSocketRow'
 import { BuildTitleField } from '../BuildTitleField'
@@ -8,6 +9,7 @@ export type BuildLoadoutPanelProps = {
   onTitleChange: (title: string) => void
   showSave?: boolean
   onSave?: () => void
+  savedBuilds?: Array<SavedBuild>
   rows: Array<BuildSocketRowDefinition>
   loadout: BuildLoadout
   activeSocketId: string | null
@@ -20,6 +22,7 @@ export function BuildLoadoutPanel({
   onTitleChange,
   showSave,
   onSave,
+  savedBuilds,
   rows,
   loadout,
   activeSocketId,
@@ -28,7 +31,13 @@ export function BuildLoadoutPanel({
 }: BuildLoadoutPanelProps) {
   return (
     <section className={styles.panel} aria-label="Build loadout">
-      <BuildTitleField value={title} onChange={onTitleChange} showSave={showSave} onSave={onSave} />
+      <BuildTitleField
+        value={title}
+        onChange={onTitleChange}
+        showSave={showSave}
+        onSave={onSave}
+        savedBuilds={savedBuilds}
+      />
       <div className={styles.rows}>
         {rows.map((row) => (
           <BuildSocketRow

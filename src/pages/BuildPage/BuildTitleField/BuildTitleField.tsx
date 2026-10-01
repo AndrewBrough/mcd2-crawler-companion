@@ -1,3 +1,5 @@
+import type { SavedBuild } from '#/lib/build/build-storage'
+import { BuildSavedMenu } from '../BuildSavedMenu/BuildSavedMenu'
 import { BuildTitleSave } from '../BuildTitleSave'
 import styles from './BuildTitleField.module.css'
 
@@ -6,9 +8,16 @@ export type BuildTitleFieldProps = {
   onChange: (value: string) => void
   showSave?: boolean
   onSave?: () => void
+  savedBuilds?: Array<SavedBuild>
 }
 
-export function BuildTitleField({ value, onChange, showSave = false, onSave }: BuildTitleFieldProps) {
+export function BuildTitleField({
+  value,
+  onChange,
+  showSave = false,
+  onSave,
+  savedBuilds = [],
+}: BuildTitleFieldProps) {
   return (
     <div className={styles.wrap}>
       <p className={styles.kicker}>Loadout</p>
@@ -21,6 +30,7 @@ export function BuildTitleField({ value, onChange, showSave = false, onSave }: B
           placeholder="Untitled build"
         />
         {showSave && onSave ? <BuildTitleSave onSave={onSave} /> : null}
+        {savedBuilds.length > 0 ? <BuildSavedMenu builds={savedBuilds} /> : null}
       </div>
     </div>
   )

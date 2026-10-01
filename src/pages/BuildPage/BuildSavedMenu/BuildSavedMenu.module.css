@@ -1,0 +1,62 @@
+.menu {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--secondary);
+  color: var(--navy);
+  border-top: 5px solid var(--secondary-light);
+  border-bottom: 5px solid var(--secondary-dark);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--secondary-dark);
+  color: var(--white);
+}
+
+.list {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 6;
+  min-width: 12rem;
+  max-width: 18rem;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 24px color-mix(in oklab, var(--black) 35%, transparent);
+}
+
+.item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item:hover,
+.item:focus {
+  background: var(--secondary);
+  color: var(--navy);
+  outline: none;
+}

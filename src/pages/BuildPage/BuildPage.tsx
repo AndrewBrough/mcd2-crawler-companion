@@ -3,6 +3,7 @@ import { GearCatalog } from '#/components/GearCatalog'
 import type { BuildSearch } from '#/lib/build/build-search'
 import { useBuildLoadout } from '#/lib/build/use-build-loadout'
 import { useBuildName } from '#/lib/build/use-build-name'
+import { useSaveBuild } from '#/lib/build/use-save-build'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import { BUILD_SOCKET_ROWS, type BuildSocketDefinition } from '#/types/data/build'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
@@ -24,6 +25,7 @@ export function BuildPage({ gear, search }: BuildPageProps) {
     search.slug ?? null,
   )
   const { loadout, equip, clearSocket } = useBuildLoadout(gear, search)
+  const savedBuilds = useSaveBuild(search)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
@@ -73,6 +75,7 @@ export function BuildPage({ gear, search }: BuildPageProps) {
           onTitleChange={setTitle}
           showSave={dirty}
           onSave={saveName}
+          savedBuilds={savedBuilds}
           rows={BUILD_SOCKET_ROWS}
           loadout={loadout}
           activeSocketId={activeSocketId}
