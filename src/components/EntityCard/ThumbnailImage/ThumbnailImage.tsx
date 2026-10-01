@@ -9,7 +9,7 @@ import styles from './ThumbnailImage.module.css'
 export type ThumbnailImageProps = {
   catalogKind: CatalogKind
   slug: string
-  size?: 'card' | 'tile' | 'fill'
+  size?: 'card' | 'tile' | 'fill' | 'detail'
 }
 
 export function ThumbnailImage({ catalogKind, slug, size = 'card' }: ThumbnailImageProps) {

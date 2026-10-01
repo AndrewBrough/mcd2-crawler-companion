@@ -24,6 +24,13 @@
   min-height: 0;
 }
 
+.detail {
+  width: 6.5rem;
+  height: 6.5rem;
+  flex-shrink: 0;
+  min-height: 0;
+}
+
 .image {
   display: block;
   width: 100%;
@@ -40,4 +47,8 @@
 
 .image.fill {
   height: 100%;
+}
+
+.image.detail {
+  height: 6.5rem;
 }

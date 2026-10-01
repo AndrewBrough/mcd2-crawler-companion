@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { CatalogGrid } from '#/components/Catalog'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
+import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
@@ -24,6 +25,7 @@ export function GearDetailPanel({ item, effects, footer }: GearDetailPanelProps)
       emptyMessage="Select a piece of gear to see its details."
       item={item}
       headingExtra={item ? <GearRarityBadge rarity={item.rarity} /> : null}
+      media={item ? <ThumbnailImage catalogKind="gear" slug={item.slug} size="detail" /> : null}
     >
       {item ? (
         <>

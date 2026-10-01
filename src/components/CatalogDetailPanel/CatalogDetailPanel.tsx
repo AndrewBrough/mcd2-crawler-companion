@@ -11,6 +11,7 @@ export type CatalogDetailPanelProps = {
   emptyMessage: string
   item: CatalogDetailItem | null
   headingExtra?: ReactNode
+  media?: ReactNode
   children?: ReactNode
 }
 
@@ -19,6 +20,7 @@ export function CatalogDetailPanel({
   emptyMessage,
   item,
   headingExtra,
+  media,
   children,
 }: CatalogDetailPanelProps) {
   if (!item) {
@@ -32,11 +34,16 @@ export function CatalogDetailPanel({
   return (
     <aside className={styles.panel} aria-label={ariaLabel}>
       <p className={styles.kicker}>Details</p>
-      <div className={styles.heading}>
-        <h2 className={styles.name}>{item.name}</h2>
-        {headingExtra}
+      <div className={styles.summary}>
+        <div className={styles.copy}>
+          <div className={styles.heading}>
+            <h2 className={styles.name}>{item.name}</h2>
+            {headingExtra}
+          </div>
+          <p className={styles.description}>{item.description || 'No description yet.'}</p>
+        </div>
+        {media}
       </div>
-      <p className={styles.description}>{item.description || 'No description yet.'}</p>
       {children}
     </aside>
   )
