@@ -22,7 +22,7 @@ export function AppShell({ children }: AppShellProps) {
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <BrandLink kicker="Minecraft Dungeons 2" title="Crawler Companion" />
+          <BrandLink kicker="MCD" title="Companion" />
           <GlobalNav items={navItems} />
         </div>
       </header>
