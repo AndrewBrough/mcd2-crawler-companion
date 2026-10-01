@@ -1,18 +1,38 @@
 name,slug,type,description,rarity
+Amethyst Lens,amethyst-lens,talisman,The Amethyst Lens is a talisman that increases all ranged weapons damage.,regular
+The Prime Enchanted Revived,the-prime-enchanted-revived,talisman,,regular
 Armadillo Amulet,armadillo-amulet,talisman,The Armadillo Amulet is a talisman that reduces the cooldown time on rolling.,regular
+Illegal Illager Trials,illegal-illager-trials,talisman,,regular
 Essence of Efficiency,essence-of-efficiency,talisman,The Essence of Efficiency is a talisman that decreases artifact cooldowns.,regular
+Breaking Camps,breaking-camps,talisman,,regular
 Fist of Iron,fist-of-iron,talisman,The Fist of Iron is a talisman that increases all melee attack damage.,regular
+The Missing Note Blocks,the-missing-note-blocks,talisman,,regular
 Golem Kit,golem-kit,talisman,The Golem Kit is a talisman that summons an iron golem to fight alongside the hero as a companion.,regular
+The Final Souldown,the-final-souldown,talisman,,regular
+Glowstone Flask,glowstone-flask,talisman,The Glowstone Flask is a talisman.,regular
 Healing Heart,healing-heart,talisman,The Healing Heart is a talisman that regenerates health when out of combat.,regular
+Wildflower Warrior,wildflower-warrior,talisman,,regular
 Lucky Clover,lucky-clover,talisman,The Lucky Clover is a talisman that increases the odds of enemies dropping extra loot if they dropped loot.,regular
 Looter's Charm,looters-charm,talisman,The Looter's Charm is a talisman that increases the odds of enemies dropping loot.,regular
+Gone Fishing,gone-fishing,talisman,,regular
 Medallion of Momentum,medallion-of-momentum,talisman,The Medallion of Momentum is a talisman that increases movement speed after continuously moving for several seconds.,regular
 Ocelot's Paw,ocelots-paw,talisman,The Ocelot's Paw is a talisman that boosts jump attack damage.,regular
 Prickle's Mark,prickles-mark,talisman,The Prickle's Mark is a talisman that summons a prickle to fight alongside the hero as a companion.,regular
+A Friend till the End,a-friend-till-the-end,talisman,,regular
+Sculk Badge,sculk-badge,talisman,The sculk badge is a talisman that makes positive statuses last longer.,regular
+Illager Intelligence,illager-intelligence,talisman,,regular
 Sigil of Beeswax,sigil-of-beeswax,talisman,The Sigil of Beeswax is a talisman that boosts the hero's health.,regular
+The Illagers from the Rift,the-illagers-from-the-rift,talisman,The Illagers from the Rift is a quest in .,regular
 Tasty Bone,tasty-bone,talisman,The Tasty Bone is a talisman that summons a wolf to fight alongside the hero.,regular
+The Silence in Little Howl,the-silence-in-little-howl,talisman,,regular
 Tendrils of the Sprout,tendrils-of-the-sprout,talisman,The Tendrils of the Sprout is a sprout-inspired talisman that increases damage output.,regular
+The Sift,the-sift,talisman,"The Sift, referred to internally as Wellspring, is the dimension entered through the Deep Dark portal using the Note Block Machine. Its environment is comprised of red and orange stone, green vegetation, ichor, and sculk. During the events of , illagers have invaded the Sift to take advantage of its resources and souls. The bosses of this dimension are the Monarch, the Sculk Monstrosity, and the Harmonizer.",regular
 The Eye of Experience,the-eye-of-experience,talisman,The Eye of Experience is a talisman that increases the experience gained by heroes.,regular
+Wrath of the Sculkers,wrath-of-the-sculkers,talisman,Wrath of the Sculkers is a quest that takes place in the Singer's Meadow.,regular
 Thrifty Pendant,thrifty-pendant,talisman,The Thrifty Pendant is a talisman that grants a conditional damage boost based on the hero's emerald count.,regular
+Rainy Plains,rainy-plains,talisman,"Rainy Plains is an Overworld location filled with vast wetlands and a massive body of water. At the center of the water is the The Supreme Evoker's Tower, connected to the other land by several bridges.",regular
 Twig of Dark Oak,twig-of-dark-oak,talisman,The Twig of Dark Oak is a talisman grants the hero more ammo.,regular
 Twisted Tooth,twisted-tooth,talisman,The Twisted Tooth is a talisman that increases the user's soul input.,regular
+Twisted Warden,twisted-warden,talisman,"The twisted warden is a colossal warden boss found guarding the Deep Dark portal. It can swing its giant fists, unleash a powerful sonic boom, and erupt fields of soul flames from the ground.",regular
+Wobblestone,wobblestone,talisman,The Wobblestone is a talisman that summons a wobble to fight alongside the hero as a companion.,regular
+Wobble Run,wobble-run,talisman,,regular

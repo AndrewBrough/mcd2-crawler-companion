@@ -219,76 +219,37 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     seen.add(item.slug)
     return true
   })
-  const csv = await readFile(csvPath, 'utf8')
-  const existingRows = rowsFromCsv(csv)
-  const present = new Set(existingRows.map((row) => row.slug))
-  const additions = items.filter((item) => !present.has(item.slug))
+  const previousCsv = await readFile(csvPath, 'utf8')
+  const previousSlugs = new Set(rowsFromCsv(previousCsv).map((row) => row.slug))
   const [wikitextByName, uniqueGear] = await Promise.all([
     fetchWikitextByName(items.map((item) => item.name)),
     fetchUniqueGear(),
   ])
-  const rarityBySlug = new Map(
-    items.map((item) => [
-      item.slug,
-      gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
-    ]),
-  )
-  const rowsBySlug = new Map(existingRows.map((row) => [row.slug, { ...row }]))
-
-  for (const item of items) {
-    const rarity = rarityBySlug.get(item.slug) ?? 'regular'
-    const current = rowsBySlug.get(item.slug)
-
-    if (current) {
-      current.rarity = rarity
-      continue
-    }
-
-    rowsBySlug.set(item.slug, {
-      name: item.name,
-      slug: item.slug,
-      type: item.type,
-      description: leadDescription(wikitextByName.get(item.name) ?? ''),
-      rarity,
-    })
-  }
-
-  const writtenSlugs = new Set()
-  const rows = []
-
-  for (const row of existingRows) {
-    rows.push(rowsBySlug.get(row.slug) ?? row)
-    writtenSlugs.add(row.slug)
-  }
-
-  for (const item of items) {
-    if (writtenSlugs.has(item.slug)) {
-      continue
-    }
-
-    rows.push(rowsBySlug.get(item.slug))
-    writtenSlugs.add(item.slug)
-  }
+  const rows = items.map((item) => ({
+    name: item.name,
+    slug: item.slug,
+    type: item.type,
+    description: leadDescription(wikitextByName.get(item.name) ?? ''),
+    rarity: gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
+  }))
+  const removed = [...previousSlugs].filter((slug) => !rows.some((row) => row.slug === slug))
+  const missing = rows.filter((row) => !row.description)
 
   await writeFile(csvPath, gearCsv(rows))
 
   const uniqueCount = rows.filter((row) => row.rarity === 'unique').length
+  console.log(
+    `Wrote ${rows.length} ${label} to supabase/seeds/${csvFile} (${uniqueCount} unique, ${rows.length - uniqueCount} regular).`,
+  )
+  console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
 
-  if (additions.length === 0) {
-    console.log(`No new ${label}. ${rows.length} rows already in supabase/seeds/${csvFile}`)
-  } else {
-    const missing = additions.filter((item) => !leadDescription(wikitextByName.get(item.name) ?? ''))
-    console.log(
-      `Added ${additions.length} ${label} to supabase/seeds/${csvFile} (${items.length - additions.length} already present).`,
-    )
-    console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
-
-    if (missing.length) {
-      console.log(`No description found for: ${missing.map((item) => item.name).join(', ')}`)
-    }
+  if (removed.length) {
+    console.log(`Removed ${removed.length} ${label} no longer listed: ${removed.join(', ')}`)
   }
 
-  console.log(`Set rarity on ${rows.length} ${label}: ${uniqueCount} unique, ${rows.length - uniqueCount} regular.`)
+  if (missing.length) {
+    console.log(`No description found for: ${missing.map((row) => row.name).join(', ')}`)
+  }
 
   await syncCatalogThumbnails({ kind: 'gear', items })
 }

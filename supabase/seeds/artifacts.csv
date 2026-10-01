@@ -1,5 +1,5 @@
 name,slug,type,description,rarity
-Banner,banner,artifact,"A banner is a support artifact that places a circle on the ground, granting strength to heroes that walk inside it.",regular
+Battle Banner,battle-banner,artifact,"A battle banner is a support artifact that places a circle on the ground, granting strength to heroes that walk inside it.",regular
 Blaze Bangle,blaze-bangle,artifact,A blaze bangle is an artifact that adds a status to the hero that causes their weapons to apply burning.,regular
 Blight Bangle,blight-bangle,artifact,A blight bangle is an artifact that adds a status to the hero that causes their weapons to apply poison.,regular
 Cinder Scepter,cinder-scepter,artifact,A cinder scepter is an fiery artifact that summons fire around enemies.,regular
@@ -8,29 +8,34 @@ Corrupted Beacon,corrupted-beacon,artifact,A corrupted beacon is an offensive ar
 Corrupted Seeds,corrupted-seeds,artifact,"Corrupted seeds are an artifact that places sprouts vines, inflicting poison on mobs within them.",regular
 Creeper Candle,creeper-candle,artifact,"A creeper candle is an artifact that places an explosive candle on the ground, exploding shortly after.",regular
 Death Cap Mushroom,death-cap-mushroom,artifact,A death cap mushroom is an artifact that grants increased movement and attack speed.,regular
+Echo Ocarina,echo-ocarina,artifact,An echo ocarina is an artifact that grants a status which greatly reduces ranged damage.,regular
 Electric Bangle,electric-bangle,artifact,An electric bangle is an artifact that applies a status to the hero that causes their weapons to deal electric damage.,regular
 Ender Fog,ender-fog,artifact,Ender fog is an artifact that adds the shadowcloaking status to the hero when used.,regular
 Fighter's Flute,fighters-flute,artifact,A fighter's flute is an artifact that grants a status which greatly increases the chance of critical hits.,regular
+Fighting Fungus,fighting-fungus,artifact,,regular
 Firework Arrow,firework-arrow,artifact,A firework arrow is an offensive artifact that loads an explosive firework into your ranged weapon.,regular
 Flaming Quiver,flaming-quiver,artifact,A flaming quiver is an artifact that loads three flaming arrows into the hero's ranged weapon.,regular
 Freezing Quiver,freezing-quiver,artifact,A freezing quiver is an artifact that loads three icy arrows into the hero's ranged weapon.,regular
-Grindstone,grindstone,artifact,A grindstone is an artifact.,regular
-Soul Harvester,soul-harvester,artifact,"A soul harvester is an artifact that releases a burst of souls, dealing damage in a large radius.",regular
+Grindstone,grindstone,artifact,A grindstone is an artifact that increases damage.,regular
 Honey Dipper,honey-dipper,artifact,A honey dipper is an artifact that drops honey and bees on the ground.,regular
+Humbling Horn,humbling-horn,artifact,A humbling horn is an artifact.,regular
 Lightning Rod,lightning-rod,artifact,A lightning rod is an electric artifact that summons lightning around enemies.,regular
 Picnic Basket,picnic-basket,artifact,A picnic basket is a supportive artifact that summons food when placed.,regular
-Pouch of Fire,pouch-of-fire,artifact,A pouch of fire is a fiery artifact that releases an explosive burst of fire.,regular
-Pouch of Ice,pouch-of-ice,artifact,,regular
+Pouch of Ember,pouch-of-ember,artifact,A pouch of ember is a fiery artifact that releases an explosive burst of fire.,regular
+Pouch of Frost,pouch-of-frost,artifact,A pouch of frost is an icy artifact that releases an explosive burst of ice.,regular
+Pouch of Poison,pouch-of-poison,artifact,,regular
 Pouch of Thunder,pouch-of-thunder,artifact,A pouch of thunder is an electric artifact that releases an explosive burst of lightning.,regular
-Powershaker,powershaker,artifact,A powershaker is an artifact that imbues the user with a status causing their attacks to release explosions on mobs.,regular
+Powershaker,powershaker,artifact,A powershaker is an artifact that imbues the user with a status causing their attacks to release explosions on mobs. Note: there is a bug with this one where canceling the shaking animation will make it flash red as it it were still on cooldown. You can resolve this by re-equipping it.,regular
 Redstone Mine Launcher,redstone-mine-launcher,artifact,A redstone mine launcher is an artifact that deploys redstone mines on the ground which explode after a short delay.,regular
+Soul Harvester,soul-harvester,artifact,"A soul harvester is an artifact that releases a burst of souls, dealing damage in a large radius.",regular
 Tempo Truffle,tempo-truffle,artifact,A tempo truffle is an artifact that grants the hero a movement speed boost.,regular
 Totem of Casting,totem-of-casting,artifact,"A totem of casting is an artifact that places an area of effect, granting heroes within it reduced artifact cooldown times.",regular
+Totem of Regeneration,totem-of-regeneration,artifact,"The totem of regeneration is an artifact that, when placed, creates a circle of healing for allies.",regular
 Totem of Shielding,totem-of-shielding,artifact,"The totem of shielding is an artifact that, when placed, spawns a shield that protects against projectiles.",regular
-Turtle Master's Mandolin,turtle-masters-mandolin,artifact,The turtle master's mandolin is a musical artifact that provides a defensive boost to all nearby allies.,regular
+Turtle Master's Mandolin,turtle-masters-mandolin,artifact,The turtle master's mandolin is a musical artifact that provides a defensive boost to all nearby allies and companions.,regular
 Venomous Quiver,venomous-quiver,artifact,A venomous quiver is an artifact that loads three poisonous arrows into the hero's ranged weapon.,regular
 Warding Chimes,warding-chimes,artifact,Warding chimes are an artifact that make the hero temporarily impervious to damage.,regular
 Warrior Drums,warrior-drums,artifact,Warrior drums are an artifact that grants the hero a status effect that increases critical hit damage for a few seconds.,regular
 Wind Horn,wind-horn,artifact,A wind horn is an artifact that blows a gust of wind.,regular
 Winter Staff,winter-staff,artifact,Frost attacks deal 15% more damage.,regular
-Witch Brew,witch-brew,artifact,A witch brew is a throwable artifact that creates a purple cloud where it lands.,regular
+Witch Brew,witch-brew,artifact,"A witch brew is a throwable artifact that creates a lingering purple cloud where it lands. Enemies that walk into or are hit by this cloud are coated in the brew, taking 1.5x damage and dealing 0.5x damage for the duration of the effect. The effect has a separate duration from the lingering cloud, which only ticks down until the enemy has left the cloud, or until the cloud has disappeared.",regular

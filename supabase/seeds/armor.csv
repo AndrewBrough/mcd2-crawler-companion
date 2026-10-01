@@ -1,67 +1,113 @@
 name,slug,type,description,rarity
-Alchemist Hat,alchemist-hat,armor_helmet,The alchemist hat is a helmet.,regular
+Alchemist Top Hat,alchemist-top-hat,armor_helmet,The alchemist top hat is a helmet.,unique
 Beekeeper Veil,beekeeper-veil,armor_helmet,A beekeeper veil is a helmet.,regular
 Bounty Hunter Helmet,bounty-hunter-helmet,armor_helmet,A bounty hunter helmet is a helmet.,regular
+Dauntless Horns,dauntless-horns,armor_helmet,,regular
 Disciple Mask,disciple-mask,armor_helmet,A disciple mask is a helmet.,regular
+Dreamruler Crown,dreamruler-crown,armor_helmet,,regular
 Fly Agaric Cap,fly-agaric-cap,armor_helmet,A fly agaric cap is a helmet.,unique
 Hivemind Hardhat,hivemind-hardhat,armor_helmet,The hivemind hardhat is a unique helmet that increases the duration of positive statuses.,unique
+Humbler Antenna,humbler-antenna,armor_helmet,,regular
+Mad Sifter Mask,mad-sifter-mask,armor_helmet,,regular
+Monarch Crown,monarch-crown,armor_helmet,,regular
+Monstrosity Horns,monstrosity-horns,armor_helmet,,regular
+Mushroom Cap,mushroom-cap,armor_helmet,A mushroom cap is a helmet.,regular
 Mystic Circlet,mystic-circlet,armor_helmet,A mystic circlet is a helmet.,regular
 Nomad Hood,nomad-hood,armor_helmet,A nomad hood is a helmet.,regular
 Oracle Crown,oracle-crown,armor_helmet,The oracle crown is a unique helmet.,unique
+Packleader Muzzle,packleader-muzzle,armor_helmet,,regular
 Phantom Helmet,phantom-helmet,armor_helmet,A phantom helmet is a helmet.,regular
 Protector Helmet,protector-helmet,armor_helmet,A protector helmet is a helmet.,regular
-Ranger Hat,ranger-hat,armor_helmet,A ranger hat is a helmet.,regular
+Ranger Cap,ranger-cap,armor_helmet,A ranger cap is a helmet.,regular
 Realmreacher Hat,realmreacher-hat,armor_helmet,A realmreacher hat is a helmet.,regular
-Redstone Helmet,redstone-helmet,armor_helmet,A redstone helmet is a helmet.,regular
-Rover Helmet,rover-helmet,armor_helmet,A rover helmet is a helmet.,unique
+Redstone Helmet,redstone-helmet,armor_helmet,A redstone helmet is a helmet that is part of the Redstone armor set.,regular
+Rimefrost Icecap,rimefrost-icecap,armor_helmet,,regular
+Rover Visor,rover-visor,armor_helmet,A rover visor is a helmet.,unique
+Sage Headband,sage-headband,armor_helmet,,regular
+Scamp Hood,scamp-hood,armor_helmet,,regular
+Scoundrel Cowl,scoundrel-cowl,armor_helmet,,regular
 Sculk Digger Hood,sculk-digger-hood,armor_helmet,A sculk digger hood is a helmet.,regular
+Sculker Mask,sculker-mask,armor_helmet,,regular
 Sharpshooter Fedora,sharpshooter-fedora,armor_helmet,A sharpshooter fedora is a unique helmet.,unique
-Sifter Hat,sifter-hat,armor_helmet,A sifter hat is a helmet.,regular
-Soul Fire Hat,soul-fire-hat,armor_helmet,The soul fire hat is a unique helmet.,unique
-Steel Wool Hat,steel-wool-hat,armor_helmet,A steel wool hat is a helmet.,regular
+Sifter Hood,sifter-hood,armor_helmet,A sifter hood is a helmet.,regular
+Sorcerer Hat,sorcerer-hat,armor_helmet,A sorcerer hat is a helmet.,regular
+Soul Corruptor Mask,soul-corruptor-mask,armor_helmet,The soul fire hat is a unique helmet.,unique
+Steel Wool Cap,steel-wool-cap,armor_helmet,A steel wool cap is a helmet.,regular
 Treehugger Mask,treehugger-mask,armor_helmet,A treehugger mask is a helmet.,regular
-Twisted Warden Hood,twisted-warden-hood,armor_helmet,The Twisted Warden hood is a unique helmet.,unique
+Twisted Warden Blindfold,twisted-warden-blindfold,armor_helmet,The Twisted Warden hood is a unique helmet.,unique
 Wolfpack Hood,wolfpack-hood,armor_helmet,A wolfpack hood is a helmet.,regular
 Woodsprite Crown,woodsprite-crown,armor_helmet,The woodsprite crown is a unique helmet.,unique
-Alchemist Robe,alchemist-robe,armor_chest,The alchemist robe is a chestplate.,regular
+Alchemist Overcoat,alchemist-overcoat,armor_chest,The alchemist overcoat is a chestplate.,unique
 Beekeeper Suit,beekeeper-suit,armor_chest,A beekeeper suit is a chestplate.,regular
+Bounty Hunter Chestplate,bounty-hunter-chestplate,armor_chest,A bounty hunter chestplate is a chestplate.,regular
+Dauntless Pauldrons,dauntless-pauldrons,armor_chest,,regular
 Disciple Robe,disciple-robe,armor_chest,A disciple robe is a chestplate.,regular
-Hivemind Chestplate,hivemind-chestplate,armor_chest,The hivemind chestplate is a unique chestplate.,unique
-Hoarfrost Chestplate,hoarfrost-chestplate,armor_chest,A hoarfrost chestplate is a chestplate.,unique
+Dreamruler Cover,dreamruler-cover,armor_chest,,regular
 Fly Agaric Coat,fly-agaric-coat,armor_chest,The fly agaric coat is a unique chestplate.,unique
+Hivemind Thorax,hivemind-thorax,armor_chest,The hivemind thorax is a unique chestplate.,unique
+Humbler Carapace,humbler-carapace,armor_chest,,regular
 Mad Sifter Vest,mad-sifter-vest,armor_chest,The mad sifter vest is a unique chestplate.,unique
+Monarch Mantle,monarch-mantle,armor_chest,,regular
+Monstrosity Armor (Chestplate),monstrosity-armor-chestplate,armor_chest,,regular
+Mushroom Robe,mushroom-robe,armor_chest,A mushroom robe is a chestplate.,regular
 Mystic Robe,mystic-robe,armor_chest,A mystic robe is a chestplate.,regular
 Nomad Chestplate,nomad-chestplate,armor_chest,The nomad chestplate is a chestplate.,regular
+Oracle Mantle,oracle-mantle,armor_chest,,regular
+Packleader Hide,packleader-hide,armor_chest,,regular
 Phantom Chestplate,phantom-chestplate,armor_chest,A phantom chestplate is a chestplate.,regular
 Protector Chestplate,protector-chestplate,armor_chest,A protector chestplate is a chestplate.,regular
 Ranger Jacket,ranger-jacket,armor_chest,The ranger jacket is a chestplate.,regular
 Realmreacher Robe,realmreacher-robe,armor_chest,The realmreacher robe is a chestplate.,regular
 Redstone Chestplate,redstone-chestplate,armor_chest,A redstone chestplate is a chestplate.,regular
+Rimefrost Armor (Chestplate),rimefrost-armor-chestplate,armor_chest,"A rimefrost armor is a chestplate. For the armor set, look at Rimefrost Armor.",unique
 Rover Pauldrons,rover-pauldrons,armor_chest,The rover pauldrons are a unique chestplate.,unique
+Sage Tunic,sage-tunic,armor_chest,The sage tunic is an armor piece.,regular
+Scamp Jacket,scamp-jacket,armor_chest,A scamp jacket is a chestplate.,regular
+Scoundrel Blazer,scoundrel-blazer,armor_chest,,regular
 Sculk Digger Robe,sculk-digger-robe,armor_chest,A sculk digger robe is a chestplate.,regular
-Sifter Chestplate,sifter-chestplate,armor_chest,A sifter chestplate is a chestplate.,regular
+Sculker Robe,sculker-robe,armor_chest,,regular
+Sharpshooter Duster,sharpshooter-duster,armor_chest,,regular
+Sifter Robe,sifter-robe,armor_chest,A sifter robe is a chestplate.,regular
 Sorcerer Robe,sorcerer-robe,armor_chest,A sorcerer robe is a chestplate.,regular
-Soul Fire Robe,soul-fire-robe,armor_chest,The soul fire robe is a unique chestplate.,unique
-Steel Wool Chestplate,steel-wool-chestplate,armor_chest,A steel wool chestplate is a chestplate.,regular
+Soul Corruptor Duster,soul-corruptor-duster,armor_chest,The soul fire robe is a unique chestplate.,unique
+Steel Wool Sweater,steel-wool-sweater,armor_chest,A steel wool sweater is a chestplate.,regular
 Treehugger Chestplate,treehugger-chestplate,armor_chest,A treehugger chestplate is a chestplate.,regular
 Twisted Warden Vest,twisted-warden-vest,armor_chest,The Twisted Warden vest is a unique chestplate.,unique
+Wolfpack Jacket,wolfpack-jacket,armor_chest,A wolfpack jacket is a chestplate.,regular
+Woodsprite Barkpiece,woodsprite-barkpiece,armor_chest,,regular
+Alchemist Trousers,alchemist-trousers,armor_leggings,Alchemist trousers are a pair of leggings.,unique
 Beekeeper Leggings,beekeeper-leggings,armor_leggings,Beekeeper leggings are a pair of leggings.,regular
+Bounty Hunter Shinguards,bounty-hunter-shinguards,armor_leggings,,regular
+Dauntless Greaves,dauntless-greaves,armor_leggings,,regular
 Disciple Leggings,disciple-leggings,armor_leggings,Disciple leggings are a pair of leggings.,regular
+Dreamruler Pyjamas,dreamruler-pyjamas,armor_leggings,,regular
 Fly Agaric Trousers,fly-agaric-trousers,armor_leggings,The fly agaric trousers are a unique pair of leggings.,unique
-Hivemind Leggings,hivemind-leggings,armor_leggings,The hivemind leggings are a unique pair of leggings.,unique
-Hoarfrost Leggings,hoarfrost-leggings,armor_leggings,The hoarfrost leggings are a unique pair of leggings.,unique
+Hivemind Trousers,hivemind-trousers,armor_leggings,,regular
+Humbler Greaves,humbler-greaves,armor_leggings,,regular
+Mad Sifter Slacks,mad-sifter-slacks,armor_leggings,,regular
+Monarch Sash,monarch-sash,armor_leggings,,regular
+Monstrosity Greaves,monstrosity-greaves,armor_leggings,,regular
+Mushroom Leggings,mushroom-leggings,armor_leggings,,regular
 Mystic Leggings,mystic-leggings,armor_leggings,Mystic leggings are a pair of leggings.,regular
 Nomad Leggings,nomad-leggings,armor_leggings,Nomad leggings are a pair of leggings.,regular
 Oracle Tights,oracle-tights,armor_leggings,The oracle tights are a unique pair of leggings.,unique
-Phantom Leggings,phantom-leggings,armor_leggings,Phantom pants are a pair of leggings.,regular
+Packleader Fur Chaps,packleader-fur-chaps,armor_leggings,,regular
+Phantom Pants,phantom-pants,armor_leggings,Phantom pants are a pair of leggings.,regular
 Protector Shinguards,protector-shinguards,armor_leggings,Protector shinguards are a pair of leggings.,regular
 Ranger Leggings,ranger-leggings,armor_leggings,Ranger leggings are a pair of leggings.,regular
 Realmreacher Leggings,realmreacher-leggings,armor_leggings,Realmreacher leggings are a pair of leggings.,regular
 Redstone Shinguards,redstone-shinguards,armor_leggings,Redstone shinguards are a pair of leggings.,regular
-Rover Leggings,rover-leggings,armor_leggings,The rover leggings are a unique pair of leggings.,unique
+Rimefrost Longjohns,rimefrost-longjohns,armor_leggings,The Rimefrost Longjohns are a unique pair of leggings.,unique
+Rover Gaiters,rover-gaiters,armor_leggings,The rover gaiters are a unique pair of leggings.,unique
+Sage Belt,sage-belt,armor_leggings,,regular
 Scamp Leggings,scamp-leggings,armor_leggings,Scamp leggings are a pair of leggings.,regular
+Scoundrel Chaps,scoundrel-chaps,armor_leggings,,regular
 Sculk Digger Leggings,sculk-digger-leggings,armor_leggings,Sculk digger leggings are a pair of leggings.,regular
+Sculker Slacks,sculker-slacks,armor_leggings,The Skulker Slacks are a Common pair of leggings.,regular
+Sharpshooter Chaps,sharpshooter-chaps,armor_leggings,,regular
 Sifter Leggings,sifter-leggings,armor_leggings,Sifter leggings are a pair of leggings.,regular
+Sorcerer Leggings,sorcerer-leggings,armor_leggings,,regular
+Soul Corruptor Sash,soul-corruptor-sash,armor_leggings,,unique
 Steel Wool Leggings,steel-wool-leggings,armor_leggings,Steel wool leggings are a pair of leggings.,regular
 Treehugger Leggings,treehugger-leggings,armor_leggings,Treehugger leggings are a pair of leggings.,regular
 Twisted Warden Tights,twisted-warden-tights,armor_leggings,The Twisted Warden tights are a unique pair of leggings.,unique
@@ -70,21 +116,38 @@ Woodsprite Trunks,woodsprite-trunks,armor_leggings,The woodsprite trunks are a u
 Alchemist Loafers,alchemist-loafers,armor_boots,The alchemist loafers are a unique pair of boots.,unique
 Beekeeper Boots,beekeeper-boots,armor_boots,Beekeeper boots are a pair of boots.,regular
 Bounty Hunter Boots,bounty-hunter-boots,armor_boots,Bounty hunter boots are a pair of boots.,regular
+Dauntless Sabatons,dauntless-sabatons,armor_boots,,regular
 Disciple Wraps,disciple-wraps,armor_boots,Disciple wraps are a pair of boots.,regular
-Hivemind Boots,hivemind-boots,armor_boots,The hivemind boots are a unique pair of boots.,unique
-Hoarfrost Boots,hoarfrost-boots,armor_boots,The hoarfrost boots are a unique pair of boots.,unique
+Dreamruler Slippers,dreamruler-slippers,armor_boots,,regular
+Fly Agaric Galoshes,fly-agaric-galoshes,armor_boots,,regular
+Hivemind Stingers,hivemind-stingers,armor_boots,The hivemind stingers are a unique pair of boots.,unique
+Humbler Tarsi,humbler-tarsi,armor_boots,,regular
 Mad Sifter Paws,mad-sifter-paws,armor_boots,The mad sifter paws are a unique pair of boots.,unique
 Monarch Talons,monarch-talons,armor_boots,The monarch talons are a unique pair of leggings.,unique
+Monstrosity Stompers,monstrosity-stompers,armor_boots,,regular
+Mushroom Boots,mushroom-boots,armor_boots,Mushroom boots are a pair of boots.,regular
+Mystic Boots,mystic-boots,armor_boots,,regular
 Nomad Boots,nomad-boots,armor_boots,Nomad boots are a pair of boots.,regular
+Oracle Sandals,oracle-sandals,armor_boots,,regular
+Packleader Paws,packleader-paws,armor_boots,,regular
 Phantom Boots,phantom-boots,armor_boots,Phantom boots are a pair of boots.,regular
 Protector Boots,protector-boots,armor_boots,Protector boots are a pair of boots.,regular
 Ranger Boots,ranger-boots,armor_boots,Ranger boots are a pair of boots found in .,regular
 Realmreacher Boots,realmreacher-boots,armor_boots,Realmreacher boots are a pair of boots.,regular
 Redstone Boots,redstone-boots,armor_boots,Redstone boots are a pair of boots.,regular
-Rover Boots,rover-boots,armor_boots,The rover sabatons are a unique pair of boots.,unique
+Rimefrost Plodders,rimefrost-plodders,armor_boots,The Rimefrost Plodders are a unique pair of boots.,unique
+Rover Sabatons,rover-sabatons,armor_boots,The rover sabatons are a unique pair of boots.,unique
+Sage Wraps,sage-wraps,armor_boots,,regular
+Scamp Sneakers,scamp-sneakers,armor_boots,,regular
+Scoundrel Sneakers,scoundrel-sneakers,armor_boots,,regular
 Sculk Digger Boots,sculk-digger-boots,armor_boots,Sculk digger boots are a pair of boots.,regular
+Sculker Boots,sculker-boots,armor_boots,,regular
+Sharpshooter Spurs,sharpshooter-spurs,armor_boots,,regular
 Sifter Boots,sifter-boots,armor_boots,Sifter boots are a pair of boots.,regular
-Soul Fire Boots,soul-fire-boots,armor_boots,The soul fire boots are a unique pair of boots.,unique
+Sorcerer Boots,sorcerer-boots,armor_boots,,regular
+Soul Corruptor Sandals,soul-corruptor-sandals,armor_boots,The soul fire boots are a unique pair of boots.,unique
 Steel Wool Boots,steel-wool-boots,armor_boots,Steel wool boots are a pair of boots.,regular
 Treehugger Clogs,treehugger-clogs,armor_boots,Treehugger clogs are a pair of boots.,regular
+Twisted Warden Sneakers,twisted-warden-sneakers,armor_boots,,regular
 Wolfpack Boots,wolfpack-boots,armor_boots,Wolfpack boots are a pair of boots.,regular
+Woodsprite Root Boots,woodsprite-root-boots,armor_boots,The woodsprite root boots are a unique pair of boots.,unique
