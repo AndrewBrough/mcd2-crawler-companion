@@ -17,6 +17,8 @@
   --background-dark: #3e3223;
   --light-header-black: #201814;
   --dark-header-black: #080305;
+  --light-panel-background: #051a23;
+  --dark-panel-background: #090b0f;
   --content: #e3e2de;
   --display-shadow: -2px 2px 0 var(--black);
 
@@ -67,8 +69,8 @@
   --palm: var(--primary);
   --sand: var(--navy);
   --foam: var(--navy);
-  --surface: color-mix(in oklab, var(--navy) 78%, var(--secondary-dark) 22%);
-  --surface-strong: color-mix(in oklab, var(--navy) 86%, var(--black) 14%);
+  --surface: var(--light-panel-background);
+  --surface-strong: var(--dark-panel-background);
   --line: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --inset-glint: color-mix(in oklab, var(--secondary-light) 16%, transparent);
   --kicker: var(--primary);
@@ -112,8 +114,8 @@
   --palm: var(--primary);
   --sand: var(--navy);
   --foam: var(--navy);
-  --surface: color-mix(in oklab, var(--navy) 78%, var(--secondary-dark) 22%);
-  --surface-strong: color-mix(in oklab, var(--navy) 86%, var(--black) 14%);
+  --surface: var(--light-panel-background);
+  --surface-strong: var(--dark-panel-background);
   --line: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --inset-glint: color-mix(in oklab, var(--secondary-light) 16%, transparent);
   --kicker: var(--primary);
@@ -167,6 +169,8 @@
   --color-content: var(--content);
   --color-light-header-black: var(--light-header-black);
   --color-dark-header-black: var(--dark-header-black);
+  --color-light-panel-background: var(--light-panel-background);
+  --color-dark-panel-background: var(--dark-panel-background);
   --radius-sm: 0;
   --radius-md: 0;
   --radius-lg: 0;
@@ -268,7 +272,7 @@ pre code {
 
 .island-shell {
   border: 1px solid var(--line);
-  background: linear-gradient(165deg, var(--surface-strong), var(--surface));
+  background: linear-gradient(to right, var(--light-panel-background), var(--dark-panel-background));
   box-shadow:
     0 1px 0 var(--inset-glint) inset,
     0 22px 44px color-mix(in oklab, var(--black) 35%, transparent),
@@ -277,7 +281,7 @@ pre code {
 }
 
 .feature-card {
-  background: linear-gradient(165deg, var(--surface-strong), var(--surface));
+  background: linear-gradient(to right, var(--light-panel-background), var(--dark-panel-background));
   box-shadow:
     0 1px 0 var(--inset-glint) inset,
     0 18px 34px color-mix(in oklab, var(--black) 32%, transparent),

@@ -20,7 +20,7 @@
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 0;
-  background: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
+  background: var(--dark-panel-background);
   color: var(--content);
   font: inherit;
   padding: 0.55rem 0.7rem;
