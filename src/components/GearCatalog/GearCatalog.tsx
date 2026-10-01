@@ -13,6 +13,8 @@ export type GearCatalogProps = {
   onRarityFilterChange: (rarity: GearRarity | null) => void
   selectedSlug: string | null
   onItemSelect: (item: Gear) => void
+  query: string
+  onQueryChange: (query: string) => void
 }
 
 export function GearCatalog({
@@ -23,6 +25,8 @@ export function GearCatalog({
   onRarityFilterChange,
   selectedSlug,
   onItemSelect,
+  query,
+  onQueryChange,
 }: GearCatalogProps) {
   const items = filterGear(gear, { query: '', type: typeFilter, rarity: rarityFilter })
 
@@ -38,6 +42,8 @@ export function GearCatalog({
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
       extraSearchText={(item) => [formatGearType(item.type)]}
+      query={query}
+      onQueryChange={onQueryChange}
       toolbar={
         <>
           <GearCatalogTypeFilters

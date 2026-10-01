@@ -1,3 +1,4 @@
+import { catalogLink } from '#/lib/catalog/catalog-link'
 import type { CatalogKind } from '#/types/catalog'
 import { CatalogTile } from '../CatalogTile'
 import styles from './CatalogGrid.module.css'
@@ -12,6 +13,7 @@ export type CatalogGridProps<T extends CatalogGridItem> = {
   catalogKind: CatalogKind
   selectedSlug?: string | null
   onItemSelect?: (item: T) => void
+  linked?: boolean
 }
 
 export function CatalogGrid<T extends CatalogGridItem>({
@@ -19,7 +21,10 @@ export function CatalogGrid<T extends CatalogGridItem>({
   catalogKind,
   selectedSlug = null,
   onItemSelect,
+  linked = false,
 }: CatalogGridProps<T>) {
+  const to = linked ? (catalogLink(catalogKind) ?? undefined) : undefined
+
   return (
     <ul className={styles.grid}>
       {items.map((item) => (
@@ -29,7 +34,8 @@ export function CatalogGrid<T extends CatalogGridItem>({
             slug={item.slug}
             catalogKind={catalogKind}
             selected={selectedSlug === item.slug}
-            onSelect={onItemSelect ? () => onItemSelect(item) : undefined}
+            to={to}
+            onSelect={to || !onItemSelect ? undefined : () => onItemSelect(item)}
           />
         </li>
       ))}

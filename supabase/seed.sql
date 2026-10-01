@@ -3,3 +3,4 @@
 -- Melee and ranged weapons live in weapons.csv.
 -- Armor pieces live in armor.csv.
 -- Artifacts live in artifacts.csv. Talismans live in talismans.csv.
+-- Effects live in effects.csv.

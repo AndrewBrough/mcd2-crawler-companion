@@ -4,6 +4,7 @@ export const CATALOG_KINDS = [
   'gear',
   'items',
   'enchantments',
+  'effects',
 ] as const
 
 export type CatalogKind = (typeof CATALOG_KINDS)[number]

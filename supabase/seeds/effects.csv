@@ -1,0 +1,73 @@
+name,slug,description,level_1,level_2,level_3,unique_level,gear_slugs,unique_bound
+Acrobat,acrobat,Reduces rolling cooldown time by X%.,10,15,25,40,armor,rascals-razor|sage-belt
+Aim,aim,Increases chance of critical hits from ranged attacks by X%.,10,15,20,25,bow|crossbow|quiver,rangers-promise|soul-corruptor-sandals
+Alchemist,alchemist,Restores X% of max health for each soul gathered.,,,,7,unique-only,cacaphonous-cleaver
+Ally,ally,Positive statuses the player applies to themselves and allies last X% longer.,15,30,50,70,armor|artifact,hivemind-hardhat
+Assassin,assassin,Grants an X% chance to stay in Shadowcloaking when attacking.,10,15,20,25,armor,scoundrel-cowl
+Boost,boost,Increases the duration of positive statuses applied to the player by X%.,,,,20,unique-only,mad-sifter-slacks
+Bounty Hunter,bounty-hunter,Deal X% more damage to wounded enemies.,20,25,30,40,melee|bow|crossbow,sage-tunic
+Bowyer,bowyer,Grants an X% chance to gain an additional arrow when ammo is regained.,20,25,30,50,armor,packleader-paws
+Brawler,brawler,Melee attacks deal X% more damage to secondary targets.,20,30,40,50,melee,humbler-greaves|rimefrost-longjohns|slaymore
+Bully,bully,Deal X% more damage to enemies affected by a negative status.,25,35,50,50,melee|crossbow,monarch-talons
+Constitution,constitution,Increases the player's maximum health by X%.,,,,30,unique-only,woodsprite-barkpiece
+Cooldown,cooldown,Reduces artifact cooldown time by X%.,10,15,20,30,armor|artifact|quiver,hivemind-stingers|oracle-tights
+Critical Edge,critical-edge,All critical hits deal X% more damage.,10,20,30,,melee|bow|crossbow,
+Critical Hit,critical-hit,Increases chance of critical hits by X%.,5,10,15,,melee|bow|crossbow,
+Cryomancer,cryomancer,Frost attacks deal X% more damage.,10,15,20,30,armor|artifact|quiver,frostbiter|rimefrost-icecap
+Deflection,deflection,Grants an X% chance to deflect enemy projectiles.,10,15,20,25,armor,mad-sifter-paws|rover-pauldrons
+Duelist,duelist,Melee attacks deal X% more damage to primary targets.,20,25,30,40,melee,dreamruler-cover|pride-of-the-plains
+Electromancer,electromancer,Lightning attacks deal X% more damage.,10,15,20,25,armor|artifact|quiver,oracle-crown|stormcaller
+Elemental Protection,elemental-protection,Reduces damage taken from elemental attacks by X%.,10,15,20,25,armor,monstrosity-greaves|rimefrost-armor
+Evasion,evasion,Grants an X% chance to evade melee damage.,10,15,20,20,armor,humbler-tarsi|shooting-star|twisted-warden-vest
+Finesse,finesse,Increases attack damage by X% when jumping or rolling.,15,25,35,35,melee,carapace-mace|dreamruler-slippers
+Fletcher,fletcher,Reduces ranged ammo cooldown time by X%.,15,20,25,35,armor,hunters-hatchet|sharpshooter-chaps|woodsprite-root-boots
+Healer,healer,Increases healing given to the player and allies by X%.,25,35,50,50,armor|artifact,hivemind-thorax|sift-sickles
+Impact,impact,Ranged attacks deal X% more damage.,10,20,30,30,bow|crossbow,paragon|sharpshooter-duster
+Jumpshot,jumpshot,Increases jump shot damage dealt by X%.,,,,6,unique-only,phantom-wing
+Knockback,knockback,Attacks do X% more knockback.,15,20,30,40,melee|bow|crossbow,dauntless-horns
+Looter,looter,Grants an X% chance to get additional loot drops.,20,40,60,80,melee|bow|crossbow,monarch-crown
+Luck,luck,Grants an X% chance to drop duplicate variations of items.,10,15,20,,armor,
+Marksman,marksman,Critical hits with ranged weapons deal X% more damage.,15,20,25,45,bow|crossbow|quiver,soul-corruptor-sash
+Momentum,momentum,Increases chance to stagger enemies on hit by X%.,20,30,40,60,melee|bow|crossbow,lunar-sickle|rover-gaiters
+Pack Leader,pack-leader,Companions deal X% more damage.,20,25,30,40,melee|crossbow,fly-agaric-trousers|packleader-hide
+Persistence,persistence,Increases damage dealt by X% of player's total missing health.,10,15,20,25,melee|bow|crossbow,rover-sabatons
+Point Blank,point-blank,Ranged attacks deal X% more damage at close range.,25,50,75,100,bow|crossbow,scoundrel-blazer|the-close-ranger
+Potion Maker,potion-maker,Reduces potion cooldown time by X%.,5,10,20,,armor,
+Precision,precision,Increases chance of critical hits with melee attacks by X%.,10,15,20,25,melee,rover-visor|twisted-warden-sneakers
+Prickly,prickly,Deals X% of received damage back to the attacker.,50,65,80,100,armor,woodsprite-trunks
+Projectile Protection,projectile-protection,Take X% less damage from ranged attacks.,10,15,20,25,armor,dauntless-pauldrons|sage-headband
+Prospector,prospector,Grants an X% chance to receive additional emeralds.,5,10,15,20,armor,the-prospectors-pick
+Protection,protection,Take X% less damage.,10,15,20,25,armor,humbler-antenna|monster-masher
+Prowler,prowler,Increases movement speed by X% while Shadowcloaking.,15,20,30,40,armor,dreamruler-pyjamas|scoundrel-sneakers
+Pyromancer,pyromancer,Fire attacks deal X% more damage.,10,15,20,20,armor|artifact|quiver,monstrosity-horns|the-burning-blade
+Pyrotechnics,pyrotechnics,Hits with this weapon explode on impact!,,,,,unique-only,heartbreaker
+Quiver,quiver,Carry X% more ammo.,10,15,20,45,quiver,sharpshooter-spurs
+Raider,raider,Grants an X% chance of higher rarity loot drops.,1,2,3,5,melee|bow|crossbow,emerald-hammer|oracle-sandals
+Randomancer,randomancer,Chance to grant random elemental melee buff when defeating an enemy.,,,,,unique-only,elemental-staff
+Ranger,ranger,Grants an X% chance to fire additional projectiles.,20,30,40,60,bow|crossbow|quiver,harp-crossbow|sharpshooter-fedora
+Reaper,reaper,Increases souls gained by X%.,25,35,45,60,melee|crossbow,dreamruler-crown|soul-reaper
+Recovery,recovery,Increases all healing received by X%.,10,20,30,40,armor,humbler-carapace
+Regeneration,regeneration,Restores health by X% per second after 5 seconds out of combat.,10,15,20,30,armor,fly-agaric-coat
+Relic,relic,Restores X% of max health when activating an artifact.,,,,6,unique-only,alchemist-trousers|monstrosity-armor
+Reload,reload,Reduces time between shots with ranged weapons by X%.,,,,40,unique-only,scoundrel-chaps|the-cross-pollinator
+Resilience,resilience,Recover from negative statuses X% faster.,20,25,30,50,armor,hivemind-trousers|monarch-mantle
+Shackler,shackler,Attacks have an X% chance to inflict the Chained status on hits.,10,15,25,30,melee|crossbow,the-shackler
+Sharpness,sharpness,Melee attacks deal X% more damage.,10,20,30,,melee,
+Sharpshooter,sharpshooter,Charged ranged attacks deal X% more damage.,30,35,40,60,bow|quiver,soul-corruptor-mask
+Shepherd,shepherd,Companions take X% less damage.,5,10,15,20,armor|artifact,fly-agaric-galoshes|woodsprite-crown
+Sniper,sniper,Ranged attacks deal X% more damage from far away.,25,50,75,100,bow|crossbow|quiver,creakings-reach|packleader-muzzle
+Sorcerer,sorcerer,Artifact attacks deal X% more damage.,10,15,20,25,armor|artifact|quiver,alchemist-overcoat|mad-sifter-vest
+Soul Cursed,soul-cursed,Applies Soulsick status to enemies on hit.,,,,,unique-only,lullaby-blade
+Soulmancer,soulmancer,Soul attacks deal X% more damage.,10,15,20,20,armor|artifact|quiver,sculkers-bane
+Speed,speed,Increases movement speed by X%.,5,10,15,,armor,
+Spectral Wave,spectral-wave,Wave deals X% of weapon damage and deals additional soul damage for a short time.,,,,,unique-only,spectral-spear
+Spiritual,spiritual,Increases Soul capacity by X%.,25,30,35,50,armor|artifact|quiver,alchemist-loafers|dauntless-sabatons|monarch-sash
+Stealth,stealth,Shadowcloaking lasts X% longer.,20,25,35,45,armor,twisted-warden-tights
+Strength,strength,Critical hits with melee weapons deal X% more damage.,15,20,25,45,melee,monstrosity-stompers|twisted-warden-blindfold
+Strengthening Hit,strengthening-hit,Attacks have an X% chance to grant the Strength status on hit.,,,,70,unique-only,awesomeaxe
+Swiftness,swiftness,Increases melee attack speed by X%.,10,15,20,30,armor,sage-wraps|the-thousand-cuts
+Tainted,tainted,Increases duration of negative statuses on enemies by X%.,40,60,80,100,armor,mad-sifter-mask|oracle-mantle|rimefrost-plodders
+Totem Radius,totem-radius,Increases the area of all positive status effects by X%.,20,30,40,55,armor|artifact,alchemist-top-hat|soul-corruptor-duster
+Vanguard,vanguard,Deal X% more damage to enemies who are at full health.,20,35,50,60,melee|bow|crossbow,dauntless-greaves|golden-glaive
+Venomancer,venomancer,Poison attacks deal X% more damage.,10,15,20,20,armor|artifact|quiver,fly-agaric-cap|venomous-fangs
+Veterinarian,veterinarian,Defeated companions come back X% faster.,5,10,15,20,armor|artifact,packleader-fur-chaps

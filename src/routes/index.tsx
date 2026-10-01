@@ -25,6 +25,13 @@ const homeLinks: Array<HomeLinkCardProps> = [
     accent: 'secondary',
   },
   {
+    to: '/effects',
+    kicker: 'Loot',
+    title: 'Effects',
+    body: 'Browse effect bonuses and the gear they can roll on.',
+    accent: 'primary',
+  },
+  {
     to: '/enchantments',
     kicker: 'Magic',
     title: 'Enchantments',

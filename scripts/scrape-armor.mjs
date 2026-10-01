@@ -1,6 +1,6 @@
 import { appendWikiGear } from './wiki-gear-csv.mjs'
 
-// Armor names and lead sentences are adapted from the Minecraft Wiki
+// Armor names and infobox descriptions are adapted from the Minecraft Wiki
 // (CC BY-NC-SA 3.0): https://minecraft.wiki/w/Dungeons_II:Armor
 await appendWikiGear({
   pageTitle: 'Dungeons II:Armor',

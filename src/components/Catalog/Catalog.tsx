@@ -19,6 +19,8 @@ export type CatalogProps<T extends CatalogItem> = {
   emptyCatalog: string
   extraSearchText?: (item: T) => Array<string | null | undefined>
   toolbar?: ReactNode
+  query?: string
+  onQueryChange?: (query: string) => void
 }
 
 export function Catalog<T extends CatalogItem>({
@@ -33,8 +35,12 @@ export function Catalog<T extends CatalogItem>({
   emptyCatalog,
   extraSearchText,
   toolbar,
+  query: queryProp,
+  onQueryChange,
 }: CatalogProps<T>) {
-  const [query, setQuery] = useState('')
+  const [internalQuery, setInternalQuery] = useState('')
+  const query = queryProp ?? internalQuery
+  const setQuery = onQueryChange ?? setInternalQuery
   const visible = filterCatalogItems(items, query, extraSearchText)
 
   return (

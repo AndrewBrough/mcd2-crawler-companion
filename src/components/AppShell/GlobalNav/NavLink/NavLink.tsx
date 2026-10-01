@@ -3,7 +3,7 @@ import { Button } from '#/components/ui/button'
 import styles from './NavLink.module.css'
 
 export type NavLinkProps = {
-  to: '/' | '/build' | '/locations' | '/enemies' | '/gear' | '/enchantments'
+  to: '/' | '/build' | '/locations' | '/enemies' | '/gear' | '/effects' | '/enchantments'
   label: string
 }
 

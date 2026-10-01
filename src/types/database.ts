@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      effects: {
+        Row: {
+          created_at: string
+          description: string
+          gear_slugs: string[]
+          level_1: number | null
+          level_2: number | null
+          level_3: number | null
+          name: string
+          slug: string
+          unique_bound: string[]
+          unique_level: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          gear_slugs?: string[]
+          level_1?: number | null
+          level_2?: number | null
+          level_3?: number | null
+          name: string
+          slug: string
+          unique_bound?: string[]
+          unique_level?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          gear_slugs?: string[]
+          level_1?: number | null
+          level_2?: number | null
+          level_3?: number | null
+          name?: string
+          slug?: string
+          unique_bound?: string[]
+          unique_level?: number | null
+        }
+        Relationships: []
+      }
       enchantments: {
         Row: {
           created_at: string

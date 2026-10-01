@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuildRouteImport } from './routes/build'
+import { Route as EffectsRouteImport } from './routes/effects'
 import { Route as EnchantmentsRouteImport } from './routes/enchantments'
 import { Route as EnemiesRouteImport } from './routes/enemies'
 import { Route as GearRouteImport } from './routes/gear'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const BuildRoute = BuildRouteImport.update({
   id: '/build',
   path: '/build',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EffectsRoute = EffectsRouteImport.update({
+  id: '/effects',
+  path: '/effects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnchantmentsRoute = EnchantmentsRouteImport.update({
@@ -50,6 +56,7 @@ const LocationsRoute = LocationsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
+  '/effects': typeof EffectsRoute
   '/enchantments': typeof EnchantmentsRoute
   '/enemies': typeof EnemiesRoute
   '/gear': typeof GearRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
+  '/effects': typeof EffectsRoute
   '/enchantments': typeof EnchantmentsRoute
   '/enemies': typeof EnemiesRoute
   '/gear': typeof GearRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/build': typeof BuildRoute
+  '/effects': typeof EffectsRoute
   '/enchantments': typeof EnchantmentsRoute
   '/enemies': typeof EnemiesRoute
   '/gear': typeof GearRoute
@@ -75,13 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/build' | '/enchantments' | '/enemies' | '/gear' | '/locations'
+    | '/'
+    | '/build'
+    | '/effects'
+    | '/enchantments'
+    | '/enemies'
+    | '/gear'
+    | '/locations'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/build' | '/enchantments' | '/enemies' | '/gear' | '/locations'
+  to:
+    | '/'
+    | '/build'
+    | '/effects'
+    | '/enchantments'
+    | '/enemies'
+    | '/gear'
+    | '/locations'
   id:
     | '__root__'
     | '/'
     | '/build'
+    | '/effects'
     | '/enchantments'
     | '/enemies'
     | '/gear'
@@ -91,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BuildRoute: typeof BuildRoute
+  EffectsRoute: typeof EffectsRoute
   EnchantmentsRoute: typeof EnchantmentsRoute
   EnemiesRoute: typeof EnemiesRoute
   GearRoute: typeof GearRoute
@@ -111,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/build'
       fullPath: '/build'
       preLoaderRoute: typeof BuildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/effects': {
+      id: '/effects'
+      path: '/effects'
+      fullPath: '/effects'
+      preLoaderRoute: typeof EffectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/enchantments': {
@@ -147,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BuildRoute: BuildRoute,
+  EffectsRoute: EffectsRoute,
   EnchantmentsRoute: EnchantmentsRoute,
   EnemiesRoute: EnemiesRoute,
   GearRoute: GearRoute,

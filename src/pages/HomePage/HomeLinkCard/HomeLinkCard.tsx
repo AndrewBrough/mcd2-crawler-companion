@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import styles from './HomeLinkCard.module.css'
 
 export type HomeLinkCardProps = {
-  to: '/locations' | '/enemies' | '/gear'
+  to: '/locations' | '/enemies' | '/gear' | '/effects' | '/enchantments'
   kicker: string
   title: string
   body: string

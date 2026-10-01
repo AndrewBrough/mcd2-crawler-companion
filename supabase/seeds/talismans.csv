@@ -1,38 +1,38 @@
 name,slug,type,description,rarity
-Amethyst Lens,amethyst-lens,talisman,The Amethyst Lens is a talisman that increases all ranged weapons damage.,regular
+Amethyst Lens,amethyst-lens,talisman,Ranged attacks deal X% more damage!,regular
 The Prime Enchanted Revived,the-prime-enchanted-revived,talisman,,regular
-Armadillo Amulet,armadillo-amulet,talisman,The Armadillo Amulet is a talisman that reduces the cooldown time on rolling.,regular
+Armadillo Amulet,armadillo-amulet,talisman,Reduces rolling cooldown time by 20%.,regular
 Illegal Illager Trials,illegal-illager-trials,talisman,,regular
-Essence of Efficiency,essence-of-efficiency,talisman,The Essence of Efficiency is a talisman that decreases artifact cooldowns.,regular
+Essence of Efficiency,essence-of-efficiency,talisman,Reduces artifact cooldown time by 4%.,regular
 Breaking Camps,breaking-camps,talisman,,regular
-Fist of Iron,fist-of-iron,talisman,The Fist of Iron is a talisman that increases all melee attack damage.,regular
+Fist of Iron,fist-of-iron,talisman,Melee attacks deal X% more damage.,regular
 The Missing Note Blocks,the-missing-note-blocks,talisman,,regular
-Golem Kit,golem-kit,talisman,The Golem Kit is a talisman that summons an iron golem to fight alongside the hero as a companion.,regular
+Golem Kit,golem-kit,talisman,Summons a plated protector to prevent you from being harmed!,regular
 The Final Souldown,the-final-souldown,talisman,,regular
-Glowstone Flask,glowstone-flask,talisman,The Glowstone Flask is a talisman.,regular
-Healing Heart,healing-heart,talisman,The Healing Heart is a talisman that regenerates health when out of combat.,regular
+Glowstone Flask,glowstone-flask,talisman,,regular
+Healing Heart,healing-heart,talisman,Restores health by 2% per second after 5 seconds out of combat.,regular
 Wildflower Warrior,wildflower-warrior,talisman,,regular
-Lucky Clover,lucky-clover,talisman,The Lucky Clover is a talisman that increases the odds of enemies dropping extra loot if they dropped loot.,regular
-Looter's Charm,looters-charm,talisman,The Looter's Charm is a talisman that increases the odds of enemies dropping loot.,regular
+Lucky Clover,lucky-clover,talisman,Grants a 2% chance to get additional loot drops.,regular
+Looter's Charm,looters-charm,talisman,Grants a X% increased chance for defeated enemies to drop loot.,regular
 Gone Fishing,gone-fishing,talisman,,regular
-Medallion of Momentum,medallion-of-momentum,talisman,The Medallion of Momentum is a talisman that increases movement speed after continuously moving for several seconds.,regular
-Ocelot's Paw,ocelots-paw,talisman,The Ocelot's Paw is a talisman that boosts jump attack damage.,regular
-Prickle's Mark,prickles-mark,talisman,The Prickle's Mark is a talisman that summons a prickle to fight alongside the hero as a companion.,regular
+Medallion of Momentum,medallion-of-momentum,talisman,Increases movement speed by 10% if moving for more than 3 seconds.,regular
+Ocelot's Paw,ocelots-paw,talisman,Jumping melee attacks deal X% more damage.,regular
+Prickle's Mark,prickles-mark,talisman,Summons a prickly pal to participate in the fight!,regular
 A Friend till the End,a-friend-till-the-end,talisman,,regular
-Sculk Badge,sculk-badge,talisman,The sculk badge is a talisman that makes positive statuses last longer.,regular
+Sculk Badge,sculk-badge,talisman,Increases duration of positive statuses applied to you by X%.,regular
 Illager Intelligence,illager-intelligence,talisman,,regular
-Sigil of Beeswax,sigil-of-beeswax,talisman,The Sigil of Beeswax is a talisman that boosts the hero's health.,regular
-The Illagers from the Rift,the-illagers-from-the-rift,talisman,The Illagers from the Rift is a quest in .,regular
-Tasty Bone,tasty-bone,talisman,The Tasty Bone is a talisman that summons a wolf to fight alongside the hero.,regular
+Sigil of Beeswax,sigil-of-beeswax,talisman,,regular
+The Illagers from the Rift,the-illagers-from-the-rift,talisman,,regular
+Tasty Bone,tasty-bone,talisman,Summons a furry friend to fight by your side!,regular
 The Silence in Little Howl,the-silence-in-little-howl,talisman,,regular
-Tendrils of the Sprout,tendrils-of-the-sprout,talisman,The Tendrils of the Sprout is a sprout-inspired talisman that increases damage output.,regular
-The Sift,the-sift,talisman,"The Sift, referred to internally as Wellspring, is the dimension entered through the Deep Dark portal using the Note Block Machine. Its environment is comprised of red and orange stone, green vegetation, ichor, and sculk. During the events of , illagers have invaded the Sift to take advantage of its resources and souls. The bosses of this dimension are the Monarch, the Sculk Monstrosity, and the Harmonizer.",regular
-The Eye of Experience,the-eye-of-experience,talisman,The Eye of Experience is a talisman that increases the experience gained by heroes.,regular
-Wrath of the Sculkers,wrath-of-the-sculkers,talisman,Wrath of the Sculkers is a quest that takes place in the Singer's Meadow.,regular
-Thrifty Pendant,thrifty-pendant,talisman,The Thrifty Pendant is a talisman that grants a conditional damage boost based on the hero's emerald count.,regular
-Rainy Plains,rainy-plains,talisman,"Rainy Plains is an Overworld location filled with vast wetlands and a massive body of water. At the center of the water is the The Supreme Evoker's Tower, connected to the other land by several bridges.",regular
-Twig of Dark Oak,twig-of-dark-oak,talisman,The Twig of Dark Oak is a talisman grants the hero more ammo.,regular
-Twisted Tooth,twisted-tooth,talisman,The Twisted Tooth is a talisman that increases the user's soul input.,regular
-Twisted Warden,twisted-warden,talisman,"The twisted warden is a colossal warden boss found guarding the Deep Dark portal. It can swing its giant fists, unleash a powerful sonic boom, and erupt fields of soul flames from the ground.",regular
-Wobblestone,wobblestone,talisman,The Wobblestone is a talisman that summons a wobble to fight alongside the hero as a companion.,regular
+Tendrils of the Sprout,tendrils-of-the-sprout,talisman,Grants a X% damage increase while health is above 95%,regular
+The Sift,the-sift,talisman,,regular
+The Eye of Experience,the-eye-of-experience,talisman,Increases experience gained by X%.,regular
+Wrath of the Sculkers,wrath-of-the-sculkers,talisman,,regular
+Thrifty Pendant,thrifty-pendant,talisman,"Grants up to a 25% damage bonus based on emeralds held, effective to a maximum of 7000 emeralds.",regular
+Rainy Plains,rainy-plains,talisman,,regular
+Twig of Dark Oak,twig-of-dark-oak,talisman,Carry 20% more ammo.,regular
+Twisted Tooth,twisted-tooth,talisman,Increases souls gained by X%.,regular
+Twisted Warden,twisted-warden,talisman,,regular
+Wobblestone,wobblestone,talisman,Summons a wobbly ward to aid you in battle!,regular
 Wobble Run,wobble-run,talisman,,regular

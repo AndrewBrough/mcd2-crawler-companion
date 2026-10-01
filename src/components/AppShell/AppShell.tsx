@@ -13,6 +13,7 @@ const navItems: Array<NavItem> = [
   { to: '/locations', label: 'Locations' },
   { to: '/enemies', label: 'Enemies' },
   { to: '/gear', label: 'Gear' },
+  { to: '/effects', label: 'Effects' },
   { to: '/enchantments', label: 'Enchantments' },
 ]
 

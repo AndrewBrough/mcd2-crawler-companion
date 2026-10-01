@@ -1,15 +1,16 @@
-import { useState } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
+import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import type { EnemyListItem } from '#/types/data/enemy'
 import { EnemyDetailPanel } from './EnemyDetailPanel'
 
 export type EnemiesPageProps = {
   enemies: Array<EnemyListItem>
+  initialSlug?: string | null
 }
 
-export function EnemiesPage({ enemies }: EnemiesPageProps) {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
+export function EnemiesPage({ enemies, initialSlug = null }: EnemiesPageProps) {
+  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const selected = enemies.find((item) => item.slug === selectedSlug) ?? null
 
   return (
@@ -22,7 +23,9 @@ export function EnemiesPage({ enemies }: EnemiesPageProps) {
           items={enemies}
           catalogKind="enemies"
           selectedSlug={selectedSlug}
-          onItemSelect={(item) => setSelectedSlug(item.slug)}
+          onItemSelect={(item) => selectSlug(item.slug)}
+          query={query}
+          onQueryChange={setQuery}
           ariaLabel="Enemy catalog"
           searchPlaceholder="Search enemies"
           searchLabel="Search enemies"

@@ -8,7 +8,7 @@ const API_URL = 'https://minecraft.wiki/api.php'
 const USER_AGENT = 'mcd2-crawler-companion/seed-scraper (noncommercial; CC BY-NC-SA 3.0)'
 const SEEDS_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../supabase/seeds')
 
-function slugify(name) {
+export function slugify(name) {
   return name
     .normalize('NFKD')
     .replace(/['’]/g, '')
@@ -17,14 +17,14 @@ function slugify(name) {
     .replace(/^-+|-+$/g, '')
 }
 
-function csvField(value) {
+export function csvField(value) {
   if (/[",\n\r]/.test(value)) {
     return `"${value.replaceAll('"', '""')}"`
   }
   return value
 }
 
-function plainWiki(text) {
+export function plainWiki(text) {
   let value = text.replace(/\[\[(?:[^\]|]+\|)?([^\]]+)\]\]/g, '$1')
 
   for (let pass = 0; pass < 4; pass += 1) {
@@ -50,18 +50,8 @@ function plainWiki(text) {
     .trim()
 }
 
-function leadDescription(wikitext) {
-  for (const line of wikitext.split('\n')) {
-    const trimmed = line.trim()
-    if (!trimmed || /^[{}|=*\s]+$/.test(trimmed)) {
-      continue
-    }
-    if (/^(?:\{\{|\||==|\[\[|\*|<)/.test(trimmed)) {
-      continue
-    }
-    return plainWiki(trimmed)
-  }
-  return ''
+function wikiDescription(wikitext) {
+  return plainWiki(infoboxField(wikitext, 'description'))
 }
 
 function namesInSection(wikitext, heading, pageUrl) {
@@ -102,7 +92,7 @@ async function fetchJson(params) {
   return response.json()
 }
 
-async function fetchPage(pageTitle, pageUrl) {
+export async function fetchPage(pageTitle, pageUrl) {
   const data = await fetchJson({
     action: 'query',
     prop: 'revisions',
@@ -229,7 +219,7 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     name: item.name,
     slug: item.slug,
     type: item.type,
-    description: leadDescription(wikitextByName.get(item.name) ?? ''),
+    description: wikiDescription(wikitextByName.get(item.name) ?? ''),
     rarity: gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
   }))
   const removed = [...previousSlugs].filter((slug) => !rows.some((row) => row.slug === slug))

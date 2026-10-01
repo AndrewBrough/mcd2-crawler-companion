@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GearCatalog } from '#/components/GearCatalog'
+import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import {
   BUILD_SOCKET_ROWS,
   type BuildLoadout,
@@ -11,14 +12,16 @@ import styles from './BuildPage.module.css'
 
 export type BuildPageProps = {
   gear: Array<Gear>
+  initialSlug?: string | null
 }
 
 function socketKind(id: string): GearType | undefined {
   return BUILD_SOCKET_ROWS.flatMap((row) => row.sockets).find((socket) => socket.id === id)?.kind
 }
 
-export function BuildPage({ gear }: BuildPageProps) {
+export function BuildPage({ gear, initialSlug = null }: BuildPageProps) {
   const [title, setTitle] = useState('Untitled build')
+  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
@@ -47,6 +50,8 @@ export function BuildPage({ gear }: BuildPageProps) {
   }
 
   function handleItemSelect(item: Gear) {
+    selectSlug(item.slug)
+
     if (!activeSocketId) {
       return
     }
@@ -89,8 +94,10 @@ export function BuildPage({ gear }: BuildPageProps) {
           onTypeFilterChange={handleTypeFilterChange}
           rarityFilter={rarityFilter}
           onRarityFilterChange={setRarityFilter}
-          selectedSlug={activeSocketId ? (loadout[activeSocketId]?.slug ?? null) : null}
+          selectedSlug={activeSocketId ? (loadout[activeSocketId]?.slug ?? null) : selectedSlug}
           onItemSelect={handleItemSelect}
+          query={query}
+          onQueryChange={setQuery}
         />
       </div>
     </div>

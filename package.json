@@ -17,12 +17,14 @@
     "scrape:armor": "node --env-file=.env.local scripts/scrape-armor.mjs",
     "scrape:artifacts": "node --env-file=.env.local scripts/scrape-artifacts.mjs",
     "scrape:talismans": "node --env-file=.env.local scripts/scrape-talismans.mjs",
+    "scrape:effects": "node --env-file=.env.local scripts/scrape-effects.mjs",
     "sync:gear": "node --env-file=.env.local scripts/sync-gear.mjs",
     "sync:locations": "node --env-file=.env.local scripts/sync-locations.mjs",
     "sync:enemies": "node --env-file=.env.local scripts/sync-enemies.mjs",
     "sync:enchantments": "node --env-file=.env.local scripts/sync-enchantments.mjs",
     "sync:gear-enchantments": "node --env-file=.env.local scripts/sync-gear-enchantments.mjs",
-    "sync:catalog": "npm run sync:gear && npm run sync:locations && npm run sync:enemies && npm run sync:enchantments && npm run sync:gear-enchantments"
+    "sync:effects": "node --env-file=.env.local scripts/sync-effects.mjs",
+    "sync:catalog": "npm run sync:gear && npm run sync:locations && npm run sync:enemies && npm run sync:enchantments && npm run sync:gear-enchantments && npm run sync:effects"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.0",

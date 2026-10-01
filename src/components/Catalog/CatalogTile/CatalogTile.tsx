@@ -1,4 +1,6 @@
+import { Link } from '@tanstack/react-router'
 import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
+import type { CatalogLinkPath } from '#/lib/catalog/catalog-link'
 import type { CatalogKind } from '#/types/catalog'
 import styles from './CatalogTile.module.css'
 
@@ -8,6 +10,7 @@ export type CatalogTileProps = {
   catalogKind?: CatalogKind
   selected?: boolean
   onSelect?: () => void
+  to?: CatalogLinkPath
   emptyLabel?: string
   onClear?: () => void
   clearLabel?: string
@@ -20,6 +23,7 @@ export function CatalogTile({
   catalogKind,
   selected = false,
   onSelect,
+  to,
   emptyLabel,
   onClear,
   clearLabel,
@@ -40,7 +44,12 @@ export function CatalogTile({
 
   return (
     <div className={className}>
-      {onSelect ? (
+      {to && slug ? (
+        <Link to={to} search={{ slug }} className={styles.frame} aria-label={label}>
+          {preview}
+          {caption}
+        </Link>
+      ) : onSelect ? (
         <button
           className={styles.frame}
           type="button"

@@ -1,6 +1,6 @@
 import { appendWikiGear } from './wiki-gear-csv.mjs'
 
-// Weapon names and lead sentences are adapted from the Minecraft Wiki
+// Weapon names and infobox descriptions are adapted from the Minecraft Wiki
 // (CC BY-NC-SA 3.0): https://minecraft.wiki/w/Dungeons_II:Weapon
 await appendWikiGear({
   pageTitle: 'Dungeons II:Weapon',

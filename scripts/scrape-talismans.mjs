@@ -1,6 +1,6 @@
 import { appendWikiGear } from './wiki-gear-csv.mjs'
 
-// Talisman names and lead sentences are adapted from the Minecraft Wiki
+// Talisman names and infobox descriptions are adapted from the Minecraft Wiki
 // (CC BY-NC-SA 3.0): https://minecraft.wiki/w/Dungeons_II:Talisman
 await appendWikiGear({
   pageTitle: 'Dungeons II:Talisman',

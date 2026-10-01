@@ -1,41 +1,41 @@
 name,slug,type,description,rarity
-Battle Banner,battle-banner,artifact,"A battle banner is a support artifact that places a circle on the ground, granting strength to heroes that walk inside it.",regular
-Blaze Bangle,blaze-bangle,artifact,A blaze bangle is an artifact that adds a status to the hero that causes their weapons to apply burning.,regular
-Blight Bangle,blight-bangle,artifact,A blight bangle is an artifact that adds a status to the hero that causes their weapons to apply poison.,regular
-Cinder Scepter,cinder-scepter,artifact,A cinder scepter is an fiery artifact that summons fire around enemies.,regular
-Conductive Quiver,conductive-quiver,artifact,A conductive quiver is an artifact that loads three electric arrows into the hero's ranged weapon.,regular
-Corrupted Beacon,corrupted-beacon,artifact,A corrupted beacon is an offensive artifact that fires a damaging purple beam when active.,regular
-Corrupted Seeds,corrupted-seeds,artifact,"Corrupted seeds are an artifact that places sprouts vines, inflicting poison on mobs within them.",regular
-Creeper Candle,creeper-candle,artifact,"A creeper candle is an artifact that places an explosive candle on the ground, exploding shortly after.",regular
-Death Cap Mushroom,death-cap-mushroom,artifact,A death cap mushroom is an artifact that grants increased movement and attack speed.,regular
-Echo Ocarina,echo-ocarina,artifact,An echo ocarina is an artifact that grants a status which greatly reduces ranged damage.,regular
-Electric Bangle,electric-bangle,artifact,An electric bangle is an artifact that applies a status to the hero that causes their weapons to deal electric damage.,regular
-Ender Fog,ender-fog,artifact,Ender fog is an artifact that adds the shadowcloaking status to the hero when used.,regular
-Fighter's Flute,fighters-flute,artifact,A fighter's flute is an artifact that grants a status which greatly increases the chance of critical hits.,regular
+Battle Banner,battle-banner,artifact,Raise the banner of war and grant strength to you and all nearby allies.,regular
+Blaze Bangle,blaze-bangle,artifact,Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!,regular
+Blight Bangle,blight-bangle,artifact,Imbues your attacks with poisonous power and looks stunning on your wrist!,regular
+Cinder Scepter,cinder-scepter,artifact,"Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",regular
+Conductive Quiver,conductive-quiver,artifact,These arrows will strike your enemies like lightning from the skies.,regular
+Corrupted Beacon,corrupted-beacon,artifact,"Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",regular
+Corrupted Seeds,corrupted-seeds,artifact,"Instantly sprout into deadly vines, poisoning and binding your enemies while you reap what you've sown.",regular
+Creeper Candle,creeper-candle,artifact,"Just a completely normal candle, apart from that ominous hss coming from the burning wick... Wait, that's a fuse!",regular
+Death Cap Mushroom,death-cap-mushroom,artifact,"Eaten by daring warriors before battle to enter a berserker state, increasing both movement and attack speed.",regular
+Echo Ocarina,echo-ocarina,artifact,The music of this hollowed husk protects against ranged attacks.,regular
+Electric Bangle,electric-bangle,artifact,Imbues your attacks with the power of crackling electricy and looks striking on your wrist!,regular
+Ender Fog,ender-fog,artifact,"The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",regular
+Fighter's Flute,fighters-flute,artifact,The music of the flute grants critical striking powers to any fighter of note.,regular
 Fighting Fungus,fighting-fungus,artifact,,regular
-Firework Arrow,firework-arrow,artifact,A firework arrow is an offensive artifact that loads an explosive firework into your ranged weapon.,regular
-Flaming Quiver,flaming-quiver,artifact,A flaming quiver is an artifact that loads three flaming arrows into the hero's ranged weapon.,regular
-Freezing Quiver,freezing-quiver,artifact,A freezing quiver is an artifact that loads three icy arrows into the hero's ranged weapon.,regular
-Grindstone,grindstone,artifact,A grindstone is an artifact that increases damage.,regular
-Honey Dipper,honey-dipper,artifact,A honey dipper is an artifact that drops honey and bees on the ground.,regular
-Humbling Horn,humbling-horn,artifact,A humbling horn is an artifact.,regular
-Lightning Rod,lightning-rod,artifact,A lightning rod is an electric artifact that summons lightning around enemies.,regular
-Picnic Basket,picnic-basket,artifact,A picnic basket is a supportive artifact that summons food when placed.,regular
-Pouch of Ember,pouch-of-ember,artifact,A pouch of ember is a fiery artifact that releases an explosive burst of fire.,regular
-Pouch of Frost,pouch-of-frost,artifact,A pouch of frost is an icy artifact that releases an explosive burst of ice.,regular
+Firework Arrow,firework-arrow,artifact,"The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",regular
+Flaming Quiver,flaming-quiver,artifact,Light your arrows with the flame of your righteous rage.,regular
+Freezing Quiver,freezing-quiver,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
+Grindstone,grindstone,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
+Honey Dipper,honey-dipper,artifact,,regular
+Humbling Horn,humbling-horn,artifact,The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.}},regular
+Lightning Rod,lightning-rod,artifact,"Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",regular
+Picnic Basket,picnic-basket,artifact,Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.,regular
+Pouch of Ember,pouch-of-ember,artifact,Throw it on the ground to spread a fierce fire around yourself. You'll be too hot to handle!,regular
+Pouch of Frost,pouch-of-frost,artifact,Throw it on the ground to spread a blistering blizzard around yourself. One of the coolest artifacts there is!,regular
 Pouch of Poison,pouch-of-poison,artifact,,regular
-Pouch of Thunder,pouch-of-thunder,artifact,A pouch of thunder is an electric artifact that releases an explosive burst of lightning.,regular
-Powershaker,powershaker,artifact,A powershaker is an artifact that imbues the user with a status causing their attacks to release explosions on mobs. Note: there is a bug with this one where canceling the shaking animation will make it flash red as it it were still on cooldown. You can resolve this by re-equipping it.,regular
-Redstone Mine Launcher,redstone-mine-launcher,artifact,A redstone mine launcher is an artifact that deploys redstone mines on the ground which explode after a short delay.,regular
-Soul Harvester,soul-harvester,artifact,"A soul harvester is an artifact that releases a burst of souls, dealing damage in a large radius.",regular
-Tempo Truffle,tempo-truffle,artifact,A tempo truffle is an artifact that grants the hero a movement speed boost.,regular
-Totem of Casting,totem-of-casting,artifact,"A totem of casting is an artifact that places an area of effect, granting heroes within it reduced artifact cooldown times.",regular
-Totem of Regeneration,totem-of-regeneration,artifact,"The totem of regeneration is an artifact that, when placed, creates a circle of healing for allies.",regular
-Totem of Shielding,totem-of-shielding,artifact,"The totem of shielding is an artifact that, when placed, spawns a shield that protects against projectiles.",regular
-Turtle Master's Mandolin,turtle-masters-mandolin,artifact,The turtle master's mandolin is a musical artifact that provides a defensive boost to all nearby allies and companions.,regular
-Venomous Quiver,venomous-quiver,artifact,A venomous quiver is an artifact that loads three poisonous arrows into the hero's ranged weapon.,regular
-Warding Chimes,warding-chimes,artifact,Warding chimes are an artifact that make the hero temporarily impervious to damage.,regular
-Warrior Drums,warrior-drums,artifact,Warrior drums are an artifact that grants the hero a status effect that increases critical hit damage for a few seconds.,regular
-Wind Horn,wind-horn,artifact,A wind horn is an artifact that blows a gust of wind.,regular
-Winter Staff,winter-staff,artifact,Frost attacks deal 15% more damage.,regular
-Witch Brew,witch-brew,artifact,"A witch brew is a throwable artifact that creates a lingering purple cloud where it lands. Enemies that walk into or are hit by this cloud are coated in the brew, taking 1.5x damage and dealing 0.5x damage for the duration of the effect. The effect has a separate duration from the lingering cloud, which only ticks down until the enemy has left the cloud, or until the cloud has disappeared.",regular
+Pouch of Thunder,pouch-of-thunder,artifact,Throw it on the ground to spread conductive chaos around yourself. It's a real trip!,regular
+Powershaker,powershaker,artifact,Let's shake things up! The Powershaker is a smashing good time and will blow your enemies' minds!,regular
+Redstone Mine Launcher,redstone-mine-launcher,artifact,This state-of-the-craft launcher will fire a volley of explosive Redstone mines.,regular
+Soul Harvester,soul-harvester,artifact,Charge it up with the souls you have collected before releasing them into a cluster hex of power.,regular
+Tempo Truffle,tempo-truffle,artifact,"Eaten by daring warriors before battle, sending them charging into battle with increased movement speed.",regular
+Totem of Casting,totem-of-casting,artifact,"Place the totem on the ground to spread artificing energy to your allies, reducing their artifact cooldown time.",regular
+Totem of Regeneration,totem-of-regeneration,artifact,This wooden figurine radiates a warmth like that of a crackling campfire and heals all friends who gather around it.,regular
+Totem of Shielding,totem-of-shielding,artifact,"This solid gold totem radiates a protective barrier, shielding all inside it from projectiles.",regular
+Turtle Master's Mandolin,turtle-masters-mandolin,artifact,"A beautiful instrument varnished with Potion of the Turtle Master, granting resistance to all your friends who catch your groove.",regular
+Venomous Quiver,venomous-quiver,artifact,A quiver soaked in venom for that extra sting when your arrows bite.,regular
+Warding Chimes,warding-chimes,artifact,Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.,regular
+Warrior Drums,warrior-drums,artifact,Let the sound of drums fill your warrior heart with the power to double damage on all critical hits.,regular
+Wind Horn,wind-horn,artifact,,regular
+Winter Staff,winter-staff,artifact,Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.,regular
+Witch Brew,witch-brew,artifact,A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?,regular

@@ -4,6 +4,7 @@ import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import { GearCatalogFilters } from '#/components/GearCatalog/GearCatalogFilters'
 import { GearCatalogTypeSelect } from '#/components/GearCatalog/GearCatalogTypeSelect'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
+import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import {
   ENCHANTMENT_GEAR_TYPES,
   type Enchantment,
@@ -13,11 +14,12 @@ import { EnchantmentDetailPanel } from './EnchantmentDetailPanel'
 
 export type EnchantmentsPageProps = {
   enchantments: Array<Enchantment>
+  initialSlug?: string | null
 }
 
-export function EnchantmentsPage({ enchantments }: EnchantmentsPageProps) {
+export function EnchantmentsPage({ enchantments, initialSlug = null }: EnchantmentsPageProps) {
   const [typeFilter, setTypeFilter] = useState<EnchantmentGearType | null>(null)
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
+  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const items = typeFilter
     ? enchantments.filter((item) => item.gearType === typeFilter)
     : enchantments
@@ -34,7 +36,7 @@ export function EnchantmentsPage({ enchantments }: EnchantmentsPageProps) {
           items={items}
           catalogKind="enchantments"
           selectedSlug={selectedSlug}
-          onItemSelect={(item) => setSelectedSlug(item.slug)}
+          onItemSelect={(item) => selectSlug(item.slug)}
           ariaLabel="Enchantment catalog"
           searchPlaceholder="Search enchantments"
           searchLabel="Search enchantments"
@@ -44,6 +46,8 @@ export function EnchantmentsPage({ enchantments }: EnchantmentsPageProps) {
             item.description,
             formatGearType(item.gearType),
           ]}
+          query={query}
+          onQueryChange={setQuery}
           toolbar={
             <GearCatalogTypeSelect
               value={typeFilter}

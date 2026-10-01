@@ -1,63 +1,63 @@
 name,slug,type,description,rarity
-Axe,axe,melee_weapon,An axe is a melee weapon that swings in a circular motion. Axes are commonly wielded by vindicators.,regular
+Axe,axe,melee_weapon,"An effective weapon, favored by the relentless Vindicators of the Illager army.",regular
 Hunter's Hatchet,hunters-hatchet,melee_weapon,,regular
-Battlestaff,battlestaff,melee_weapon,A battlestaff is a long melee weapon with a wide swing.,regular
-Elemental Staff,elemental-staff,melee_weapon,The elemental staff is a long melee weapon that grants random elemental melee buffs.,unique
-Battle Hammer,battle-hammer,melee_weapon,A battle hammer is a one-handed melee weapon with weak but fast swings.,regular
-Emerald Hammer,emerald-hammer,melee_weapon,The emerald hammer is a unique melee weapon.,unique
-Wolf Claws,wolf-claws,melee_weapon,Claws are a melee weapon equipped on each hand.,regular
-Sculker Claws,sculker-claws,melee_weapon,The sculker claws are a unique melee weapon resembling the claws of a monarch.,unique
-Claymore,claymore,melee_weapon,A claymore is a large melee weapon with powerful swings.,regular
-Clobberer,clobberer,melee_weapon,A clobberer is a large melee weapon.,regular
-Cookiecutter,cookiecutter,melee_weapon,A cookiecutter is a curved melee weapon.,regular
-Double Daggers,double-daggers,melee_weapon,Double daggers are a dual-wielded melee weapon that can rapidly slash through nearby mobs.,regular
+Battlestaff,battlestaff,melee_weapon,,regular
+Elemental Staff,elemental-staff,melee_weapon,"A powerful staff that unleashes the elements of fire, ice, poison and electricity on your enemies.",unique
+Battle Hammer,battle-hammer,melee_weapon,,regular
+Emerald Hammer,emerald-hammer,melee_weapon,This steel hammer with emerald alloy is said to bring extraordinary luck to its wielder.,unique
+Wolf Claws,wolf-claws,melee_weapon,"A respectful offering from your wolf friends, for close combat beneath the full moon.}}",regular
+Sculker Claws,sculker-claws,melee_weapon,,unique
+Claymore,claymore,melee_weapon,A massive sword that rests easily in a righteous warrior's hands.,regular
+Clobberer,clobberer,melee_weapon,For those who prefer a less subtle approach to problem solving.,regular
+Cookiecutter,cookiecutter,melee_weapon,A curved greatsword that works all enemies into equal shape and size.,regular
+Double Daggers,double-daggers,melee_weapon,When one dagger just isn't fast enough.,regular
 Venomous Fangs,venomous-fangs,melee_weapon,,regular
-Double Sickles,double-sickles,melee_weapon,Double sickles are melee weapons that can rapidly slash through groups of mobs.,regular
-Sift Sickles,sift-sickles,melee_weapon,The Sift sickles are a unique melee weapon.,unique
-Gauntlets,gauntlets,melee_weapon,Gauntlets are a pair of melee weapons.,regular
-Prime Enchanter's Gauntlets,prime-enchanters-gauntlets,melee_weapon,The Prime Enchanter's gauntlets are a unique melee weapon resembling the Prime Enchanter's ice and electricity gauntlets.,unique
-Glaive,glaive,melee_weapon,A glaive is a long-reaching melee weapon wielded by vanguards.,regular
+Double Sickles,double-sickles,melee_weapon,,regular
+Sift Sickles,sift-sickles,melee_weapon,A pair of humbler husk sickles with the power to both harm and heal.,unique
+Gauntlets,gauntlets,melee_weapon,,regular
+Prime Enchanter's Gauntlets,prime-enchanters-gauntlets,melee_weapon,,unique
+Glaive,glaive,melee_weapon,,regular
 Golden Glaive,golden-glaive,melee_weapon,,regular
-Greatsword,greatsword,melee_weapon,"A greatsword is a two-handed melee weapon with slow, heavy swings.",regular
-Greataxe,greataxe,melee_weapon,A greataxe is a two-handed melee weapon.,regular
-Awesomeaxe,awesomeaxe,melee_weapon,The awesomeaxe is a unique melee weapon that grants strength on impact.,unique
-Mace,mace,melee_weapon,A mace is a blunt melee weapon with a powerful swing wielded by royal guards.,regular
-Meat Cleaver,meat-cleaver,melee_weapon,A meat cleaver is a melee weapon.,regular
-Cacaphonous Cleaver,cacaphonous-cleaver,melee_weapon,The cacaphonous cleaver is a unique melee weapon.,unique
-Pickaxe,pickaxe,melee_weapon,A pickaxe is a slow melee weapon. Pickaxes are commonly wielded by excavators.,regular
+Greatsword,greatsword,melee_weapon,"If your heart is just, even the greatest sword will feel as light as a feather.",regular
+Greataxe,greataxe,melee_weapon,A good axe settles for having one blade on one side. This is no goodaxe.,regular
+Awesomeaxe,awesomeaxe,melee_weapon,Why would anyone ever settle for a greataxe?,unique
+Mace,mace,melee_weapon,,regular
+Meat Cleaver,meat-cleaver,melee_weapon,A reliable kitchen cleaver repurposed for serving up justice.,regular
+Cacaphonous Cleaver,cacaphonous-cleaver,melee_weapon,A mystical meat cleaver that serves souls for dessert.,unique
+Pickaxe,pickaxe,melee_weapon,The iconic tool for adventurers and heroes for as longs as anyone can remember.,regular
 The Prospector's Pick,the-prospectors-pick,melee_weapon,,regular
-Pike,pike,melee_weapon,A pike is a long melee weapon with a far reach.,regular
-Stormcaller,stormcaller,melee_weapon,The stormcaller is a unique melee weapon with electric attacks.,unique
-Riftslasher,riftslasher,melee_weapon,A riftslasher is a long melee weapon.,regular
-Pride of the Plains,pride-of-the-plains,melee_weapon,The pride of the plains is a unique melee weapon that deals additional damage to the primary mob hit.,unique
-Scythe,scythe,melee_weapon,A scythe is a melee weapon.,regular
-Soul Reaper,soul-reaper,melee_weapon,The soul reaper is a unique melee weapon that greatly increases soul input.,unique
-Shovel,shovel,melee_weapon,A shovel is a large melee weapon that swings through mobs in a circular motion.,regular
-Diamond Shovel,diamond-shovel,melee_weapon,The diamond shovel is a unique melee weapon.,unique
-Sword,sword,melee_weapon,A sword is a melee weapon that can slash through mobs.,regular
-Burning Blade,burning-blade,melee_weapon,The burning blade is a melee weapon.,unique
-Short Spear,short-spear,melee_weapon,The short spear is a melee weapon.,regular
-Spectral Spear,spectral-spear,melee_weapon,The spectral spear is a unique melee weapon made of ichor.,unique
-War Hammer,war-hammer,melee_weapon,A war hammer is a large melee weapon with powerful swings.,regular
-Sculker's Bane,sculkers-bane,melee_weapon,The sculker's bane is a unique melee weapon.,unique
-Sift Socks,sift-socks,melee_weapon,The Sift socks are a unique melee weapon equipped on the legs.,unique
-Tidal Sickle,tidal-sickle,melee_weapon,The tidal sickle is a melee weapon.,unique
-Tornado Blade,tornado-blade,melee_weapon,The tornado blade is a unique melee weapon.,unique
-Rapier,rapier,melee_weapon,The rapier is a melee weapon.,regular
+Pike,pike,melee_weapon,Enemies won't want to get the wrong end of the stick when they run into you.,regular
+Stormcaller,stormcaller,melee_weapon,A magic lightning rod attached to a copper pike that can strike your enemies in more ways than one.,unique
+Riftslasher,riftslasher,melee_weapon,"A curved longsword with an edge so sharp it could open rifts of its own... It doesn't, though.",regular
+Pride of the Plains,pride-of-the-plains,melee_weapon,A sharp copper sword forged as a gift to a noble protector of the plains.,unique
+Scythe,scythe,melee_weapon,"Fit only for toiling warriors, the scythe truly separates the wheat from the chaff.",regular
+Soul Reaper,soul-reaper,melee_weapon,"A scythe with a shard of a soul block for a blade, that draws all souls towards you.",unique
+Shovel,shovel,melee_weapon,"When planning for revenge, you must dig two graves: one for your enemy. And one... for your other enemy.",regular
+Diamond Shovel,diamond-shovel,melee_weapon,A durable diamond shovel enchanted with the power to blast enemies away.,unique
+Sword,sword,melee_weapon,A classic sword used by heroes and survivors since the dawn of the Overworld.,regular
+Burning Blade,burning-blade,melee_weapon,,unique
+Short Spear,short-spear,melee_weapon,"With the right wielder, even a short spear can reach across dimensions",regular
+Spectral Spear,spectral-spear,melee_weapon,A spear forged in ichor and possessed by souls that will burn all enemies you point at.,unique
+War Hammer,war-hammer,melee_weapon,,regular
+Sculker's Bane,sculkers-bane,melee_weapon,A deadly dagger with a soul-infused edge.,unique
+Sift Socks,sift-socks,melee_weapon,"A comfy pair of socks made from Sift materials, for kicking the wits out of Illagers.",unique
+Tidal Sickle,tidal-sickle,melee_weapon,,unique
+Tornado Blade,tornado-blade,melee_weapon,There's a storm coming. You are the eye of the tornado.,unique
+Rapier,rapier,melee_weapon,A nimble and narrow blade that strikes with fierce ferocity,regular
 Longsword,longsword,melee_weapon,,regular
-Bow,bow,ranged_weapon,A bow is a charged ranged weapon that fires arrows.,regular
-Greatbow,greatbow,ranged_weapon,A greatbow is a large ranged weapon with heavy damage.,regular
-Longbow,longbow,ranged_weapon,A longbow is a charged ranged weapon that fires arrows.,regular
-Creaking's Reach,creakings-reach,ranged_weapon,The creaking's reach is a unique charged ranged weapon.,unique
-Powerbow,powerbow,ranged_weapon,A powerbow is a bow found naturally wielded by high tier skeletons.,regular
-Shortbow,shortbow,ranged_weapon,A shortbow is a charged ranged weapon that rapidly fires weak arrows.,regular
-Shooting Star,shooting-star,ranged_weapon,The shooting star is a unique charged ranged weapon.,unique
-Trickbow,trickbow,ranged_weapon,A trickbow is a charged ranged weapon that fires curving arrows.,regular
-Phantom Wing,phantom-wing,ranged_weapon,The phantom wing is a unique charged ranged weapon.,unique
-Crossbow,crossbow,ranged_weapon,"A crossbow is a slow-firing ranged weapon that can't be charged, and are naturally wielded by pillagers.",regular
-The Shackler,the-shackler,ranged_weapon,The shackler is a unique ranged weapon that chains enemies hit by its arrows.,unique
-Dual Crossbows,dual-crossbows,ranged_weapon,Dual crossbows are a duel wielded ranged weapon that can rapidly fire arrows from two crossbows at once.,regular
-Double Crossers,double-crossers,ranged_weapon,The double crossers are a unique duel wielded ranged weapon that can rapidly fire arrows from two crossbows at once.,unique
-Heavy Crossbow,heavy-crossbow,ranged_weapon,A heavy crossbow is a ranged weapon.,regular
-Scatter Crossbow,scatter-crossbow,ranged_weapon,A scatter crossbow is a ranged weapon that fires three arrows at once.,regular
-Harp Crossbow,harp-crossbow,ranged_weapon,The harp crossbow is a unique ranged weapon that fires multiple arrows at once.,unique
+Bow,bow,ranged_weapon,"A hunter's best friend, repurposed for hunting Illagers and monsters.",regular
+Greatbow,greatbow,ranged_weapon,A powerful bow that fires with such force your arrows pierce even the toughest of enemies.,regular
+Longbow,longbow,ranged_weapon,,regular
+Creaking's Reach,creakings-reach,ranged_weapon,Made from the branch of a Creaking. Hits with the strength of an entire forest.,unique
+Powerbow,powerbow,ranged_weapon,,regular
+Shortbow,shortbow,ranged_weapon,,regular
+Shooting Star,shooting-star,ranged_weapon,"When you wish upon this star, you will evade enemy projectiles and shoot back.",unique
+Trickbow,trickbow,ranged_weapon,"For the trick shooter who likes to roll, jump, and shoot ricocheting arrows.",regular
+Phantom Wing,phantom-wing,ranged_weapon,Fly like a phantom and become your enemy's worst nightmare.,unique
+Crossbow,crossbow,ranged_weapon,The ranged weapon of choice for the Pillager warriors.,regular
+The Shackler,the-shackler,ranged_weapon,Shoot chains at enemies to pin them to the ground. Nobody escapes the Shackler!,unique
+Dual Crossbows,dual-crossbows,ranged_weapon,When one crossbow just isn't enough.,regular
+Double Crossers,double-crossers,ranged_weapon,"These enchanted crossbows power up when you roll, firing with extra force.",unique
+Heavy Crossbow,heavy-crossbow,ranged_weapon,A slow but deadly menace and a real threat from a distance.,regular
+Scatter Crossbow,scatter-crossbow,ranged_weapon,The ultimate weapon for when you have enemies coming from every direction.,regular
+Harp Crossbow,harp-crossbow,ranged_weapon,,unique
