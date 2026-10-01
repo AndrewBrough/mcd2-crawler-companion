@@ -28,8 +28,9 @@
   border-bottom: 2px solid transparent;
   border-radius: 0;
   background: transparent;
-  color: var(--white);
+  color: var(--content);
   font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 700;
   line-height: 1.2;

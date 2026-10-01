@@ -16,6 +16,7 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
   font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.15;
   color: var(--sea-ink);

@@ -6,7 +6,7 @@
   border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--line));
   border-radius: 0;
   background: color-mix(in oklab, var(--primary) 18%, var(--navy));
-  color: var(--white);
+  color: var(--content);
   font: inherit;
   font-size: 0.75rem;
   font-weight: 700;

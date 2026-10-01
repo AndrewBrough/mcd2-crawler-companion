@@ -11,8 +11,9 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
   font-size: 1.4rem;
-  color: var(--white);
+  color: var(--content);
 }
 
 .body {

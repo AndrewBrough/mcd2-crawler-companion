@@ -1,8 +1,29 @@
 .link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+  color: var(--content);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--content);
+}
+
+.active,
+.link.active:hover,
+.link.active:focus {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+  margin-bottom: -3px;
 }
 
 .block {
   width: 100%;
   justify-content: flex-start;
+  padding: 0.35rem 0;
 }

@@ -1,5 +1,4 @@
 import { Link, useRouterState } from '@tanstack/react-router'
-import { Button } from '#/components/ui/button'
 import styles from './NavLink.module.css'
 
 export type NavLinkProps = {
@@ -16,15 +15,12 @@ export function NavLink({ to, label, block = false, onSelect }: NavLinkProps) {
   const isActive = pathname === to
 
   return (
-    <Button
-      asChild
-      variant={isActive ? 'default' : 'secondary'}
-      size="sm"
-      className={block ? styles.block : undefined}
+    <Link
+      to={to}
+      className={[styles.link, block ? styles.block : '', isActive ? styles.active : ''].filter(Boolean).join(' ')}
+      onClick={onSelect}
     >
-      <Link to={to} className={styles.link} onClick={onSelect}>
-        {label}
-      </Link>
-    </Button>
+      {label}
+    </Link>
   )
 }

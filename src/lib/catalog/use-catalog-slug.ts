@@ -25,5 +25,20 @@ export function useCatalogSlug(slug: string | null) {
     } as Parameters<typeof navigate>[0])
   }
 
-  return { selectedSlug, setSelectedSlug, selectSlug, query, setQuery }
+  function clearSlug() {
+    setSelectedSlug(null)
+    if (!slug) {
+      return
+    }
+
+    void navigate({
+      search: (previous: CatalogSlugSearch) => {
+        const next = { ...previous }
+        delete next.slug
+        return next
+      },
+    } as Parameters<typeof navigate>[0])
+  }
+
+  return { selectedSlug, setSelectedSlug, selectSlug, clearSlug, query, setQuery }
 }

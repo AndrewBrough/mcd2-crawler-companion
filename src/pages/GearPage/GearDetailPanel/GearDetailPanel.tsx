@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { CatalogGrid } from '#/components/Catalog'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
@@ -11,9 +12,10 @@ import styles from './GearDetailPanel.module.css'
 export type GearDetailPanelProps = {
   item: Gear | null
   effects: Array<Effect>
+  footer?: ReactNode
 }
 
-export function GearDetailPanel({ item, effects }: GearDetailPanelProps) {
+export function GearDetailPanel({ item, effects, footer }: GearDetailPanelProps) {
   const uniqueEffect = item ? uniqueEffectForGear(effects, item.slug) : null
 
   return (
@@ -35,6 +37,7 @@ export function GearDetailPanel({ item, effects }: GearDetailPanelProps) {
               <p className={styles.none}>No enchantments</p>
             )}
           </section>
+          {footer ? <div className={styles.footer}>{footer}</div> : null}
         </>
       ) : null}
     </CatalogDetailPanel>

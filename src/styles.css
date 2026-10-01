@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -13,6 +13,13 @@
   --grey: #747774;
   --grey-dark: #454845;
 
+  --background-light: #4e3f2c;
+  --background-dark: #3e3223;
+  --light-header-black: #201814;
+  --dark-header-black: #080305;
+  --content: #e3e2de;
+  --display-shadow: -2px 2px 0 var(--black);
+
   --primary: #ffa31f;
   --primary-light: #ffda53;
   --primary-dark: #fe781c;
@@ -23,14 +30,14 @@
   --secondary-dark: #339cd7;
   --secondary-foreground: #010c29;
 
-  --background: var(--navy);
-  --foreground: var(--white);
+  --background: var(--background-dark);
+  --foreground: var(--content);
   --card: color-mix(in oklab, var(--navy) 82%, var(--secondary-dark) 18%);
-  --card-foreground: var(--white);
+  --card-foreground: var(--content);
   --popover: color-mix(in oklab, var(--navy) 88%, var(--black) 12%);
-  --popover-foreground: var(--white);
+  --popover-foreground: var(--content);
   --muted: color-mix(in oklab, var(--navy) 78%, var(--secondary-dark) 22%);
-  --muted-foreground: color-mix(in oklab, var(--white) 78%, transparent);
+  --muted-foreground: color-mix(in oklab, var(--content) 78%, transparent);
   --accent: var(--secondary);
   --accent-foreground: var(--navy);
   --destructive: #e5484d;
@@ -45,7 +52,7 @@
   --chart-5: var(--primary-light);
   --radius: 0;
   --sidebar: color-mix(in oklab, var(--navy) 90%, var(--black) 10%);
-  --sidebar-foreground: var(--white);
+  --sidebar-foreground: var(--content);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--black);
   --sidebar-accent: var(--secondary);
@@ -53,8 +60,8 @@
   --sidebar-border: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --sidebar-ring: var(--primary);
 
-  --sea-ink: var(--white);
-  --sea-ink-soft: color-mix(in oklab, var(--white) 78%, transparent);
+  --sea-ink: var(--content);
+  --sea-ink-soft: color-mix(in oklab, var(--content) 78%, transparent);
   --lagoon: var(--secondary);
   --lagoon-deep: var(--secondary-dark);
   --palm: var(--primary);
@@ -65,7 +72,7 @@
   --line: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --inset-glint: color-mix(in oklab, var(--secondary-light) 16%, transparent);
   --kicker: var(--primary);
-  --bg-base: var(--navy);
+  --bg-base: var(--background-dark);
   --header-bg: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
   --chip-bg: color-mix(in oklab, var(--navy) 70%, var(--secondary-dark) 30%);
   --chip-line: color-mix(in oklab, var(--secondary) 32%, transparent);
@@ -75,14 +82,14 @@
 }
 
 .dark {
-  --background: var(--navy);
-  --foreground: var(--white);
+  --background: var(--background-dark);
+  --foreground: var(--content);
   --card: color-mix(in oklab, var(--navy) 82%, var(--secondary-dark) 18%);
-  --card-foreground: var(--white);
+  --card-foreground: var(--content);
   --popover: color-mix(in oklab, var(--navy) 88%, var(--black) 12%);
-  --popover-foreground: var(--white);
+  --popover-foreground: var(--content);
   --muted: color-mix(in oklab, var(--navy) 78%, var(--secondary-dark) 22%);
-  --muted-foreground: color-mix(in oklab, var(--white) 78%, transparent);
+  --muted-foreground: color-mix(in oklab, var(--content) 78%, transparent);
   --accent: var(--secondary);
   --accent-foreground: var(--navy);
   --destructive: #e5484d;
@@ -91,15 +98,15 @@
   --input: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --ring: var(--primary);
   --sidebar: color-mix(in oklab, var(--navy) 90%, var(--black) 10%);
-  --sidebar-foreground: var(--white);
+  --sidebar-foreground: var(--content);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--black);
   --sidebar-accent: var(--secondary);
   --sidebar-accent-foreground: var(--navy);
   --sidebar-border: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --sidebar-ring: var(--primary);
-  --sea-ink: var(--white);
-  --sea-ink-soft: color-mix(in oklab, var(--white) 78%, transparent);
+  --sea-ink: var(--content);
+  --sea-ink-soft: color-mix(in oklab, var(--content) 78%, transparent);
   --lagoon: var(--secondary);
   --lagoon-deep: var(--secondary-dark);
   --palm: var(--primary);
@@ -110,7 +117,7 @@
   --line: color-mix(in oklab, var(--secondary-dark) 42%, transparent);
   --inset-glint: color-mix(in oklab, var(--secondary-light) 16%, transparent);
   --kicker: var(--primary);
-  --bg-base: var(--navy);
+  --bg-base: var(--background-dark);
   --header-bg: color-mix(in oklab, var(--navy) 82%, var(--black) 18%);
   --chip-bg: color-mix(in oklab, var(--navy) 70%, var(--secondary-dark) 30%);
   --chip-line: color-mix(in oklab, var(--secondary) 32%, transparent);
@@ -120,8 +127,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-display: 'Jersey 20', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: 'Geist Pixel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Jersey 25', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -155,6 +162,11 @@
   --color-white: var(--white);
   --color-grey: var(--grey);
   --color-grey-dark: var(--grey-dark);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+  --color-content: var(--content);
+  --color-light-header-black: var(--light-header-black);
+  --color-dark-header-black: var(--dark-header-black);
   --radius-sm: 0;
   --radius-md: 0;
   --radius-lg: 0;
@@ -179,12 +191,8 @@ body {
   margin: 0;
   color: var(--foreground);
   font-family: var(--font-sans);
-  background-color: var(--background);
-  background:
-    radial-gradient(1100px 620px at -8% -10%, var(--hero-a), transparent 58%),
-    radial-gradient(1050px 620px at 112% -12%, var(--hero-b), transparent 62%),
-    radial-gradient(720px 380px at 50% 115%, color-mix(in oklab, var(--secondary) 12%, transparent), transparent 68%),
-    var(--background);
+  background-color: var(--background-dark);
+  background-image: linear-gradient(to right, var(--background-light), var(--background-dark));
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -197,19 +205,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.34;
-  background:
-    radial-gradient(circle at 20% 15%, color-mix(in oklab, var(--primary-light) 22%, transparent), transparent 34%),
-    radial-gradient(circle at 78% 26%, color-mix(in oklab, var(--secondary) 18%, transparent), transparent 42%),
-    radial-gradient(circle at 42% 82%, color-mix(in oklab, var(--primary-dark) 14%, transparent), transparent 36%);
+  text-shadow: var(--display-shadow);
 }
 
 body::after {
@@ -267,6 +263,7 @@ pre code {
 
 .display-title {
   font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
 }
 
 .island-shell {
@@ -290,6 +287,10 @@ pre code {
 .feature-card:hover {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--primary) 45%, var(--line));
+}
+
+button {
+  text-shadow: none;
 }
 
 button,
@@ -353,7 +354,7 @@ a {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  background: color-mix(in oklab, var(--header-bg) 84%, transparent 16%);
+  background: transparent;
 }
 
 @layer base {

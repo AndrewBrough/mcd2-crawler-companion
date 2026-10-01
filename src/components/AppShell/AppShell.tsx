@@ -22,7 +22,7 @@ export function AppShell({ children }: AppShellProps) {
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <BrandLink kicker="MCD" title="Companion" />
+          <BrandLink kicker="MCD2" title="Companion" />
           <GlobalNav items={navItems} />
         </div>
       </header>

@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 0.55rem;
   text-decoration: none;
-  color: var(--white);
+  color: var(--content);
   border: 1px solid var(--line);
   border-radius: 0;
   background: linear-gradient(
@@ -19,7 +19,7 @@
 
 .card:hover {
   transform: translateY(-2px);
-  color: var(--white);
+  color: var(--content);
 }
 
 .primary:hover {
@@ -48,8 +48,9 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
   font-size: 1.35rem;
-  color: var(--white);
+  color: var(--content);
 }
 
 .body {

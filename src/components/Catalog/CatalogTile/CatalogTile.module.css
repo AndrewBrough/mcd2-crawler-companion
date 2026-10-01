@@ -76,11 +76,11 @@ div.frame {
 }
 
 .selected .emptyLabel {
-  color: var(--white);
+  color: var(--content);
 }
 
 .name {
-  color: var(--white);
+  color: var(--content);
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.3;

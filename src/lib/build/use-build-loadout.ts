@@ -63,6 +63,30 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
     writeSocket(socketId, item.slug, item.slug)
   }
 
+  function removeSlug(slug: string) {
+    setLoadout((current) => {
+      const next = { ...current }
+      for (const [socketId, item] of Object.entries(next)) {
+        if (item.slug === slug) {
+          delete next[socketId]
+        }
+      }
+      return next
+    })
+
+    void navigate({
+      search: (previous: BuildSearch) => {
+        const next = { ...previous }
+        for (const param of Object.values(BUILD_SOCKET_PARAMS)) {
+          if (next[param] === slug) {
+            delete next[param]
+          }
+        }
+        return next
+      },
+    } as Parameters<typeof navigate>[0])
+  }
+
   function clearSocket(socketId: string) {
     setLoadout((current) => {
       if (!(socketId in current)) {
@@ -76,5 +100,5 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
     writeSocket(socketId, null)
   }
 
-  return { loadout, equip, clearSocket }
+  return { loadout, equip, clearSocket, removeSlug }
 }

@@ -8,9 +8,8 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid var(--line);
-  background: var(--header-bg);
-  backdrop-filter: blur(10px);
+  border-bottom: 5px solid var(--dark-header-black);
+  background: linear-gradient(to top, var(--light-header-black), var(--dark-header-black));
 }
 
 .headerInner {
@@ -32,7 +31,7 @@
 
 .footer {
   border-top: 1px solid var(--line);
-  background: color-mix(in oklab, var(--header-bg) 84%, transparent 16%);
+  background: transparent;
 }
 
 .footerInner {
