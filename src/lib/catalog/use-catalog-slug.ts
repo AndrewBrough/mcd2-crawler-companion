@@ -25,5 +25,5 @@ export function useCatalogSlug(slug: string | null) {
     } as Parameters<typeof navigate>[0])
   }
 
-  return { selectedSlug, selectSlug, query, setQuery }
+  return { selectedSlug, setSelectedSlug, selectSlug, query, setQuery }
 }

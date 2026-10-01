@@ -1,33 +1,32 @@
 import { useState } from 'react'
 import { GearCatalog } from '#/components/GearCatalog'
+import type { BuildSearch } from '#/lib/build/build-search'
+import { useBuildLoadout } from '#/lib/build/use-build-loadout'
 import { useBuildName } from '#/lib/build/use-build-name'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
-import {
-  BUILD_SOCKET_ROWS,
-  type BuildLoadout,
-  type BuildSocketDefinition,
-} from '#/types/data/build'
+import { BUILD_SOCKET_ROWS, type BuildSocketDefinition } from '#/types/data/build'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
 import styles from './BuildPage.module.css'
 
 export type BuildPageProps = {
   gear: Array<Gear>
-  initialSlug?: string | null
-  initialName?: string | null
+  search: BuildSearch
 }
 
 function socketKind(id: string): GearType | undefined {
   return BUILD_SOCKET_ROWS.flatMap((row) => row.sockets).find((socket) => socket.id === id)?.kind
 }
 
-export function BuildPage({ gear, initialSlug = null, initialName = null }: BuildPageProps) {
-  const { title, setTitle, dirty, saveName } = useBuildName(initialName)
-  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
+export function BuildPage({ gear, search }: BuildPageProps) {
+  const { title, setTitle, dirty, saveName } = useBuildName(search.name ?? null)
+  const { selectedSlug, setSelectedSlug, selectSlug, query, setQuery } = useCatalogSlug(
+    search.slug ?? null,
+  )
+  const { loadout, equip, clearSocket } = useBuildLoadout(gear, search)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
-  const [loadout, setLoadout] = useState<BuildLoadout>({})
 
   function handleSocketSelect(socket: BuildSocketDefinition) {
     if (socket.id === activeSocketId) {
@@ -52,30 +51,18 @@ export function BuildPage({ gear, initialSlug = null, initialName = null }: Buil
   }
 
   function handleItemSelect(item: Gear) {
+    const kind = activeSocketId ? socketKind(activeSocketId) : undefined
+    if (activeSocketId && kind && item.type === kind) {
+      setSelectedSlug(item.slug)
+      equip(activeSocketId, item)
+      return
+    }
+
     selectSlug(item.slug)
-
-    if (!activeSocketId) {
-      return
-    }
-
-    const kind = socketKind(activeSocketId)
-    if (kind && item.type !== kind) {
-      return
-    }
-
-    setLoadout((current) => ({ ...current, [activeSocketId]: item }))
   }
 
   function handleSocketClear(socketId: string) {
-    setLoadout((current) => {
-      if (!(socketId in current)) {
-        return current
-      }
-
-      const next = { ...current }
-      delete next[socketId]
-      return next
-    })
+    clearSocket(socketId)
   }
 
   return (

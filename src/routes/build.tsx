@@ -15,7 +15,7 @@ export const Route = createFileRoute('/build')({
 
 function BuildRoute() {
   const gear = Route.useLoaderData()
-  const { slug, name } = Route.useSearch()
-  return <BuildPage gear={gear} initialSlug={slug ?? null} initialName={name ?? null} />
+  const search = Route.useSearch()
+  return <BuildPage gear={gear} search={search} />
 }
 
