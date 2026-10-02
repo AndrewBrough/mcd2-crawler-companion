@@ -20,7 +20,6 @@ export function BuildTitleField({
 }: BuildTitleFieldProps) {
   return (
     <div className={styles.wrap}>
-      <p className={styles.kicker}>Loadout</p>
       <div className={styles.row}>
         <input
           className={styles.field}

@@ -9,10 +9,7 @@
   gap: 1rem;
   align-items: stretch;
   width: 100%;
-  position: sticky;
-  top: var(--app-header-offset);
-  z-index: 2;
-  height: calc(100vh - var(--app-header-offset));
+  height: calc(100vh - var(--app-header-offset) - (2 * var(--app-main-padding-block)));
   overflow: hidden;
 }
 

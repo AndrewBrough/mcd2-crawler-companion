@@ -24,12 +24,13 @@
 }
 
 .main {
+  --app-main-padding-block: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   width: min(1080px, calc(100% - 2rem));
   margin-inline: auto;
-  padding: 1rem 0;
+  padding: var(--app-main-padding-block) 0;
 }
 
 .content {

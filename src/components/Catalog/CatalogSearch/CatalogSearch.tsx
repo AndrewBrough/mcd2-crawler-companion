@@ -18,7 +18,6 @@ export function CatalogSearch({
 }: CatalogSearchProps) {
   return (
     <div className={styles.wrap}>
-      <span className={styles.kicker}>Catalog</span>
       <div className={styles.controls}>
         <input
           className={styles.field}
