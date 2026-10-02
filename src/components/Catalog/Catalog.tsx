@@ -21,6 +21,7 @@ export type CatalogProps<T extends CatalogItem> = {
   toolbar?: ReactNode
   query?: string
   onQueryChange?: (query: string) => void
+  limitResults?: boolean
 }
 
 export function Catalog<T extends CatalogItem>({
@@ -37,6 +38,7 @@ export function Catalog<T extends CatalogItem>({
   toolbar,
   query: queryProp,
   onQueryChange,
+  limitResults = false,
 }: CatalogProps<T>) {
   const [internalQuery, setInternalQuery] = useState('')
   const query = queryProp ?? internalQuery
@@ -53,7 +55,7 @@ export function Catalog<T extends CatalogItem>({
       >
         {toolbar}
       </CatalogSearch>
-      <div className={styles.results}>
+      <div className={limitResults ? `${styles.results} ${styles.limited}` : styles.results}>
         {visible.length ? (
           <CatalogGrid
             items={visible}

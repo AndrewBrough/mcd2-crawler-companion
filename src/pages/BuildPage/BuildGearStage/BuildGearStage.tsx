@@ -3,6 +3,7 @@ import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from '#/pages/GearPage/GearDetailPanel'
 import { BuildGearAction } from '../BuildGearAction/BuildGearAction'
+import styles from './BuildGearStage.module.css'
 
 export type BuildGearStageProps = {
   gear: Array<Gear>
@@ -39,29 +40,30 @@ export function BuildGearStage({
   onRemove,
   onBack,
 }: BuildGearStageProps) {
-  if (detailItem) {
-    return (
-      <GearDetailPanel
-        item={detailItem}
-        effects={effects}
-        footer={
-          <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
-        }
-      />
-    )
-  }
-
   return (
-    <GearCatalog
-      gear={gear}
-      typeFilter={typeFilter}
-      onTypeFilterChange={onTypeFilterChange}
-      rarityFilter={rarityFilter}
-      onRarityFilterChange={onRarityFilterChange}
-      selectedSlug={selectedSlug}
-      onItemSelect={onItemSelect}
-      query={query}
-      onQueryChange={onQueryChange}
-    />
+    <div className={styles.stage}>
+      <div className={styles.catalog} hidden={detailItem !== null}>
+        <GearCatalog
+          gear={gear}
+          typeFilter={typeFilter}
+          onTypeFilterChange={onTypeFilterChange}
+          rarityFilter={rarityFilter}
+          onRarityFilterChange={onRarityFilterChange}
+          selectedSlug={selectedSlug}
+          onItemSelect={onItemSelect}
+          query={query}
+          onQueryChange={onQueryChange}
+        />
+      </div>
+      {detailItem ? (
+        <GearDetailPanel
+          item={detailItem}
+          effects={effects}
+          footer={
+            <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
+          }
+        />
+      ) : null}
+    </div>
   )
 }

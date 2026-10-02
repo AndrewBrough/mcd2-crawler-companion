@@ -10,6 +10,7 @@ import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { BuildGearStage } from './BuildGearStage/BuildGearStage'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
+import { usePreserveCatalogScroll } from './use-preserve-catalog-scroll'
 import styles from './BuildPage.module.css'
 
 export type BuildPageProps = {
@@ -31,6 +32,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+  const rememberCatalogScroll = usePreserveCatalogScroll(!showDetails)
   const inspected = gear.find((item) => item.slug === selectedSlug) ?? null
   const detailItem = showDetails ? inspected : null
   const inBuild = Boolean(detailItem && Object.values(loadout).some((item) => item.slug === detailItem.slug))
@@ -47,6 +49,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     setTypeFilter(socket.kind)
     const item = loadout[socket.id]
     if (item) {
+      rememberCatalogScroll()
       selectSlug(item.slug)
       setShowDetails(true)
       return
@@ -100,6 +103,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
           onRarityFilterChange={setRarityFilter}
           selectedSlug={selectedSlug}
           onItemSelect={(item) => {
+            rememberCatalogScroll()
             selectSlug(item.slug)
             setShowDetails(true)
           }}

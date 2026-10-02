@@ -18,6 +18,7 @@ export function useCatalogSlug(slug: string | null) {
     }
 
     void navigate({
+      resetScroll: false,
       search: (previous: CatalogSlugSearch) => ({
         ...previous,
         slug: next,
@@ -32,6 +33,7 @@ export function useCatalogSlug(slug: string | null) {
     }
 
     void navigate({
+      resetScroll: false,
       search: (previous: CatalogSlugSearch) => {
         const next = { ...previous }
         delete next.slug

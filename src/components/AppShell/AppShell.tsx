@@ -26,12 +26,11 @@ export function AppShell({ children }: AppShellProps) {
           <GlobalNav items={navItems} />
         </div>
       </header>
-      <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          All data is sourced from the unofficial Minecraft Dungeons 2 wiki. All official content is owned by Microsoft and Minecraft. Web app is built by <a href="https://andrewbrough.ca/" target="_blank" rel="noopener noreferrer">Andrew Brough</a>.
+      <main className={styles.main}>
+        <div className={styles.content}>
+          {children}
         </div>
-      </footer>
+      </main>
     </div>
   )
 }

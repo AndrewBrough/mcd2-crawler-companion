@@ -43,6 +43,7 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
     }
 
     void navigate({
+      resetScroll: false,
       search: (previous: BuildSearch) => {
         const next = { ...previous }
         if (catalogSlug) {
@@ -75,6 +76,7 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
     })
 
     void navigate({
+      resetScroll: false,
       search: (previous: BuildSearch) => {
         const next = { ...previous }
         for (const param of Object.values(BUILD_SOCKET_PARAMS)) {

@@ -1,4 +1,5 @@
 .shell {
+  --app-header-offset: calc(3.09rem + 15px);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,14 +25,40 @@
 
 .main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   width: min(1080px, calc(100% - 2rem));
   margin-inline: auto;
-  padding: 2rem 0 3.5rem;
+  padding: 1rem 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  margin-top: auto;
+  margin-left: calc(50% - 50vw);
+  padding-top: 3.5rem;
+  border-top: 0;
+  background: linear-gradient(to right, var(--background-light), var(--background-dark));
+  background-size: 100% calc(100% - 3.5rem);
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  right: 0;
   border-top: 1px solid var(--line);
-  background: transparent;
 }
 
 .footerInner {

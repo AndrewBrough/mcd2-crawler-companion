@@ -44,6 +44,7 @@ export function GearCatalog({
       extraSearchText={(item) => [formatGearType(item.type)]}
       query={query}
       onQueryChange={onQueryChange}
+      limitResults
       toolbar={
         <>
           <GearCatalogTypeFilters

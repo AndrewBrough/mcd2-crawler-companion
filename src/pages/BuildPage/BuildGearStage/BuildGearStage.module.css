@@ -1,0 +1,11 @@
+.stage {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.catalog {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
