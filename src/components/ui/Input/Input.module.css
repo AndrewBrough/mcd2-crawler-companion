@@ -1,0 +1,49 @@
+.input {
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid var(--white);
+  border-radius: 0;
+  background: transparent;
+  color: var(--content);
+  font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0 0 0.25rem;
+}
+
+.input::placeholder {
+  color: color-mix(in oklab, var(--white) 42%, transparent);
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+.input[type='search'] {
+  appearance: none;
+}
+
+.input[type='search']::-webkit-search-decoration,
+.input[type='search']::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.normal {
+  font-size: 1.25rem;
+}
+
+.large {
+  font-size: 2rem;
+}
+
+.fill {
+  width: 100%;
+}
+
+.grow {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 0;
+}

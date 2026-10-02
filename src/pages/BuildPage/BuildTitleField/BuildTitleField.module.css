@@ -9,30 +9,3 @@
   align-items: center;
   gap: 0.65rem;
 }
-
-.field {
-  flex: 1 1 auto;
-  min-width: 0;
-  width: 0;
-  margin: 0;
-  border: 0;
-  border-bottom: 2px solid var(--white);
-  border-radius: 0;
-  background: transparent;
-  color: var(--content);
-  font-family: var(--font-display);
-  text-shadow: var(--display-shadow);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.2;
-  padding: 0 0 0.25rem;
-}
-
-.field::placeholder {
-  color: color-mix(in oklab, var(--white) 42%, transparent);
-}
-
-.field:focus {
-  outline: none;
-  border-bottom-color: var(--primary);
-}

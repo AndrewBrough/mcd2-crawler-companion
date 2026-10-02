@@ -11,21 +11,27 @@
 }
 
 .field {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 0;
-  background: var(--dark-panel-background);
+  display: flex;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 0.2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--content);
-  font: inherit;
-  padding: 0.55rem 0.7rem;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.field::placeholder {
-  color: color-mix(in oklab, var(--white) 42%, transparent);
-}
-
-.field:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 1px;
-  border-color: var(--primary);
+.clear:hover,
+.clear:focus-visible {
+  color: var(--primary);
 }

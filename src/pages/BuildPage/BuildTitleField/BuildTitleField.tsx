@@ -1,4 +1,5 @@
 import type { SavedBuild } from '#/lib/build/build-storage'
+import { Input } from '#/components/ui/Input'
 import { BuildSavedMenu } from '../BuildSavedMenu/BuildSavedMenu'
 import { BuildTitleSave } from '../BuildTitleSave'
 import styles from './BuildTitleField.module.css'
@@ -21,8 +22,9 @@ export function BuildTitleField({
   return (
     <div className={styles.wrap}>
       <div className={styles.row}>
-        <input
-          className={styles.field}
+        <Input
+          size="large"
+          grow
           value={value}
           onChange={(event) => onChange(event.target.value)}
           aria-label="Build name"

@@ -1,4 +1,6 @@
-import type { ReactNode } from 'react'
+import { createElement, type ReactNode } from 'react'
+import '@awesome.me/webawesome/dist/components/icon/icon.js'
+import { Input } from '#/components/ui/Input'
 import styles from './CatalogSearch.module.css'
 
 export type CatalogSearchProps = {
@@ -19,14 +21,30 @@ export function CatalogSearch({
   return (
     <div className={styles.wrap}>
       <div className={styles.controls}>
-        <input
-          className={styles.field}
-          type="search"
-          value={value}
-          onChange={(event) => onChange(event.target.value)}
-          placeholder={placeholder}
-          aria-label={label}
-        />
+        <div className={styles.field}>
+          <Input
+            type="search"
+            grow
+            value={value}
+            onChange={(event) => onChange(event.target.value)}
+            placeholder={placeholder}
+            aria-label={label}
+          />
+          {value.length > 0 ? (
+            <button
+              className={styles.clear}
+              type="button"
+              aria-label="Clear search"
+              onClick={() => onChange('')}
+            >
+              {createElement('wa-icon', {
+                name: 'xmark',
+                family: 'classic',
+                variant: 'solid',
+              })}
+            </button>
+          ) : null}
+        </div>
         {children}
       </div>
     </div>
