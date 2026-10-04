@@ -1,7 +1,7 @@
 import { supabase } from '#/lib/supabase/client'
 import type { CatalogKind } from '#/types/catalog'
 
-export const DEFAULT_THUMBNAIL_URL = '/default_thumbnail.png'
+export const DEFAULT_THUMBNAIL_URL = '/no-image.png'
 export const CATALOG_THUMBNAIL_BUCKET = 'catalog-thumbnails'
 
 export function catalogThumbnailPath(kind: CatalogKind, slug: string): string {
