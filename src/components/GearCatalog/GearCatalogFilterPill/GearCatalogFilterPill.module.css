@@ -1,5 +1,6 @@
 .pill {
   display: inline-flex;
+  text-shadow: none;
   align-items: center;
   gap: 0.35rem;
   margin: 0;

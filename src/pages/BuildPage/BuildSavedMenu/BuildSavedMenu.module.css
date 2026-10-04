@@ -49,6 +49,7 @@
   background: transparent;
   color: var(--content);
   font-family: var(--font-display);
+  text-shadow: none;
   font-size: 1rem;
   text-align: left;
   cursor: pointer;

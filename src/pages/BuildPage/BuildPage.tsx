@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { BuildSearch } from '#/lib/build/build-search'
 import { targetSocketId } from '#/lib/build/target-socket'
 import { useBuildLoadout } from '#/lib/build/use-build-loadout'
 import { useBuildName } from '#/lib/build/use-build-name'
 import { useSaveBuild } from '#/lib/build/use-save-build'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
-import { BUILD_SOCKET_ROWS, type BuildSocketDefinition } from '#/types/data/build'
+import { BUILD_SOCKET_ROWS, type BuildLoadout, type BuildSocketDefinition } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { BuildGearStage } from './BuildGearStage/BuildGearStage'
@@ -24,6 +24,14 @@ function socketKind(id: string): GearType | undefined {
   return BUILD_SOCKET_ROWS.flatMap((row) => row.sockets).find((socket) => socket.id === id)?.kind
 }
 
+function socketIdForSlug(loadout: BuildLoadout, slug: string | undefined): string | null {
+  if (!slug) {
+    return null
+  }
+
+  return Object.entries(loadout).find(([, item]) => item.slug === slug)?.[0] ?? null
+}
+
 export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const { title, setTitle, dirty, saveName } = useBuildName(search.name ?? null)
   const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(search.slug ?? null)
@@ -31,8 +39,39 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const savedBuilds = useSaveBuild(search)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
-  const [activeSocketId, setActiveSocketId] = useState<string | null>(null)
-  const [showDetails, setShowDetails] = useState(false)
+  const [activeSocketId, setActiveSocketId] = useState<string | null>(() =>
+    socketIdForSlug(loadout, search.slug),
+  )
+  const retainSocket = useRef(false)
+
+  useEffect(() => {
+    if (search.slug) {
+      const socketId = socketIdForSlug(loadout, search.slug)
+      if (socketId) {
+        setActiveSocketId(socketId)
+      }
+      return
+    }
+
+    if (retainSocket.current) {
+      retainSocket.current = false
+      return
+    }
+
+    setActiveSocketId(null)
+  }, [loadout, search.slug])
+  const [showDetails, setShowDetails] = useState(() =>
+    gear.some((item) => item.slug === search.slug),
+  )
+
+  useEffect(() => {
+    if (!search.slug) {
+      return
+    }
+    if (gear.some((item) => item.slug === search.slug)) {
+      setShowDetails(true)
+    }
+  }, [gear, search.slug])
   const rememberCatalogScroll = usePreserveCatalogScroll(!showDetails)
   const inspected = gear.find((item) => item.slug === selectedSlug) ?? null
   const detailItem = showDetails ? inspected : null
@@ -43,6 +82,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
       setActiveSocketId(null)
       setTypeFilter(null)
       setShowDetails(false)
+      clearSlug()
       return
     }
 
@@ -56,6 +96,9 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
       return
     }
 
+    if (search.slug) {
+      retainSocket.current = true
+    }
     clearSlug()
     setShowDetails(false)
   }
@@ -69,13 +112,19 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     if (!detailItem) return
     const socketId = targetSocketId(loadout, activeSocketId, detailItem)
     if (!socketId) return
-    setActiveSocketId(socketId)
     setTypeFilter(detailItem.type)
     equip(socketId, detailItem)
+    setActiveSocketId(null)
+    setShowDetails(false)
+    clearSlug()
   }
 
   function handleRemove() {
-    if (detailItem) removeSlug(detailItem.slug)
+    if (!detailItem) return
+    removeSlug(detailItem.slug)
+    setActiveSocketId(null)
+    setShowDetails(false)
+    clearSlug()
   }
 
   return (
@@ -111,9 +160,17 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
           }}
           query={query}
           onQueryChange={setQuery}
+          onSearchClear={() => {
+            setActiveSocketId(null)
+            clearSlug()
+          }}
           onAdd={handleAdd}
           onRemove={handleRemove}
-          onBack={() => setShowDetails(false)}
+          onBack={() => {
+            setActiveSocketId(null)
+            setShowDetails(false)
+            clearSlug()
+          }}
         />
       </div>
     </div>

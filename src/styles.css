@@ -23,6 +23,7 @@
   --dark-panel-background: #090b0f;
   --content: #e3e2de;
   --display-shadow: -2px 2px 0 var(--black);
+  --text-shadow: -1px 1px 0 var(--black);
 
   --primary: #ffa31f;
   --primary-light: #ffda53;
@@ -198,6 +199,7 @@ body {
   margin: 0;
   color: var(--foreground);
   font-family: var(--font-sans);
+  text-shadow: var(--text-shadow);
   background-color: var(--background-darker);
   background-image:
     linear-gradient(to bottom, transparent, var(--background-darker)),
@@ -299,8 +301,9 @@ pre code {
   border-color: color-mix(in oklab, var(--primary) 45%, var(--line));
 }
 
-button {
-  text-shadow: none;
+input,
+textarea {
+  text-shadow: var(--text-shadow);
 }
 
 button,

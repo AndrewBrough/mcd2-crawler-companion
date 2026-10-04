@@ -15,6 +15,7 @@ export type GearCatalogProps = {
   onItemSelect: (item: Gear) => void
   query: string
   onQueryChange: (query: string) => void
+  onSearchClear?: () => void
 }
 
 export function GearCatalog({
@@ -27,6 +28,7 @@ export function GearCatalog({
   onItemSelect,
   query,
   onQueryChange,
+  onSearchClear,
 }: GearCatalogProps) {
   const items = filterGear(gear, { query: '', type: typeFilter, rarity: rarityFilter })
 
@@ -44,6 +46,7 @@ export function GearCatalog({
       extraSearchText={(item) => [formatGearType(item.type)]}
       query={query}
       onQueryChange={onQueryChange}
+      onSearchClear={onSearchClear}
       limitResults
       toolbar={
         <>

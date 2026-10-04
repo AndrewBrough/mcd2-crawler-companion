@@ -18,6 +18,7 @@ export type BuildGearStageProps = {
   onItemSelect: (item: Gear) => void
   query: string
   onQueryChange: (query: string) => void
+  onSearchClear?: () => void
   onAdd: () => void
   onRemove: () => void
   onBack: () => void
@@ -36,6 +37,7 @@ export function BuildGearStage({
   onItemSelect,
   query,
   onQueryChange,
+  onSearchClear,
   onAdd,
   onRemove,
   onBack,
@@ -53,6 +55,7 @@ export function BuildGearStage({
           onItemSelect={onItemSelect}
           query={query}
           onQueryChange={onQueryChange}
+          onSearchClear={onSearchClear}
         />
       </div>
       {detailItem ? (

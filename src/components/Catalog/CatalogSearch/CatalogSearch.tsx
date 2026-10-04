@@ -8,6 +8,7 @@ export type CatalogSearchProps = {
   onChange: (value: string) => void
   placeholder: string
   label: string
+  onClear?: () => void
   children?: ReactNode
 }
 
@@ -16,6 +17,7 @@ export function CatalogSearch({
   onChange,
   placeholder,
   label,
+  onClear,
   children,
 }: CatalogSearchProps) {
   return (
@@ -35,7 +37,10 @@ export function CatalogSearch({
               className={styles.clear}
               type="button"
               aria-label="Clear search"
-              onClick={() => onChange('')}
+              onClick={() => {
+                onChange('')
+                onClear?.()
+              }}
             >
               {createElement('wa-icon', {
                 name: 'xmark',

@@ -21,6 +21,7 @@ export type CatalogProps<T extends CatalogItem> = {
   toolbar?: ReactNode
   query?: string
   onQueryChange?: (query: string) => void
+  onSearchClear?: () => void
   limitResults?: boolean
 }
 
@@ -38,6 +39,7 @@ export function Catalog<T extends CatalogItem>({
   toolbar,
   query: queryProp,
   onQueryChange,
+  onSearchClear,
   limitResults = false,
 }: CatalogProps<T>) {
   const [internalQuery, setInternalQuery] = useState('')
@@ -50,6 +52,7 @@ export function Catalog<T extends CatalogItem>({
       <CatalogSearch
         value={query}
         onChange={setQuery}
+        onClear={onSearchClear}
         placeholder={searchPlaceholder}
         label={searchLabel}
       >

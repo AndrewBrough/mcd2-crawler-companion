@@ -61,6 +61,7 @@ div.frame {
 .previewSlot {
   position: relative;
   display: block;
+  filter: drop-shadow(var(--display-shadow));
 }
 
 .notched {
