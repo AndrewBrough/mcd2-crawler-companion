@@ -1,9 +1,9 @@
 import styles from './PageHeader.module.css'
 
 export type PageHeaderProps = {
-  kicker: string
+  kicker?: string
   title: string
-  description: string
+  description?: string
 }
 
 export function PageHeader({ kicker, title, description }: PageHeaderProps) {

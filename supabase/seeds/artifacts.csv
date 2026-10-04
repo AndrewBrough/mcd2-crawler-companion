@@ -2,6 +2,7 @@ name,slug,type,description,rarity
 Battle Banner,battle-banner,artifact,Raise the banner of war and grant strength to you and all nearby allies.,regular
 Blaze Bangle,blaze-bangle,artifact,Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!,regular
 Blight Bangle,blight-bangle,artifact,Imbues your attacks with poisonous power and looks stunning on your wrist!,regular
+Blizzard Bangle,blizzard-bangle,artifact,Imbues your attacks with the power of freezing blizzards and looks really cool on your wrist!,regular
 Cinder Scepter,cinder-scepter,artifact,"Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",regular
 Conductive Quiver,conductive-quiver,artifact,These arrows will strike your enemies like lightning from the skies.,regular
 Corrupted Beacon,corrupted-beacon,artifact,"Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",regular
@@ -12,12 +13,12 @@ Echo Ocarina,echo-ocarina,artifact,The music of this hollowed husk protects agai
 Electric Bangle,electric-bangle,artifact,Imbues your attacks with the power of crackling electricy and looks striking on your wrist!,regular
 Ender Fog,ender-fog,artifact,"The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",regular
 Fighter's Flute,fighters-flute,artifact,The music of the flute grants critical striking powers to any fighter of note.,regular
-Fighting Fungus,fighting-fungus,artifact,,regular
+Fighting Fungus,fighting-fungus,artifact,"Eaten by daring warriors before battle, unleashing their rage and increasing their attack speed.",regular
 Firework Arrow,firework-arrow,artifact,"The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",regular
 Flaming Quiver,flaming-quiver,artifact,Light your arrows with the flame of your righteous rage.,regular
 Freezing Quiver,freezing-quiver,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
 Grindstone,grindstone,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
-Honey Dipper,honey-dipper,artifact,,regular
+Honey Dipper,honey-dipper,artifact,A sticky treat to trap your enemies as your buzzing friends join the battle! Victory never tasted so sweet.}},regular
 Humbling Horn,humbling-horn,artifact,The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.}},regular
 Lightning Rod,lightning-rod,artifact,"Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",regular
 Picnic Basket,picnic-basket,artifact,Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.,regular
@@ -36,6 +37,5 @@ Turtle Master's Mandolin,turtle-masters-mandolin,artifact,"A beautiful instrumen
 Venomous Quiver,venomous-quiver,artifact,A quiver soaked in venom for that extra sting when your arrows bite.,regular
 Warding Chimes,warding-chimes,artifact,Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.,regular
 Warrior Drums,warrior-drums,artifact,Let the sound of drums fill your warrior heart with the power to double damage on all critical hits.,regular
-Wind Horn,wind-horn,artifact,,regular
 Winter Staff,winter-staff,artifact,Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.,regular
 Witch Brew,witch-brew,artifact,A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?,regular

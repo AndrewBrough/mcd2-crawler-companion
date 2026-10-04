@@ -44,7 +44,14 @@ export function NavDrawer({ open, items, onClose }: NavDrawerProps) {
       <button className={styles.backdrop} type="button" aria-label="Close menu" onClick={onClose} />
       <nav id="site-menu" className={styles.panel} aria-label="Primary">
         {items.map((item) => (
-          <NavLink key={item.to} to={item.to} label={item.label} block onSelect={onClose} />
+          <NavLink
+            key={item.to}
+            to={item.to}
+            label={item.label}
+            block
+            priority={item.to === '/' || item.to === '/gear'}
+            onSelect={onClose}
+          />
         ))}
       </nav>
     </div>,

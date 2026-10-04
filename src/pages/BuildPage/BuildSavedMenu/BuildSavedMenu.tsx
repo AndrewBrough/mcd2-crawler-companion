@@ -45,7 +45,7 @@ export function BuildSavedMenu({ builds }: BuildSavedMenuProps) {
     parsed.searchParams.forEach((value, key) => {
       search[key] = value
     })
-    void navigate({ to: '/build', search } as Parameters<typeof navigate>[0])
+    void navigate({ to: '/', search } as Parameters<typeof navigate>[0])
   }
 
   return (

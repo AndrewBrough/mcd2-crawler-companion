@@ -158,6 +158,7 @@ export async function syncCatalogThumbnails({
   kind,
   items,
   pageTitle = (name) => `Dungeons II:${name}`,
+  replace = false,
 }) {
   if (!hasUploadCredentials()) {
     console.error(
@@ -167,7 +168,7 @@ export async function syncCatalogThumbnails({
   }
 
   const supabase = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SECRET_KEY)
-  const stored = await storedFileNames(supabase, kind)
+  const stored = replace ? new Set() : await storedFileNames(supabase, kind)
   const missing = items.filter((item) => item.slug && !stored.has(`${item.slug}.png`))
 
   if (missing.length === 0) {
@@ -175,14 +176,17 @@ export async function syncCatalogThumbnails({
     return
   }
 
-  const wikitextByName = await fetchWikitext(
-    [...new Set(missing.map((item) => item.name))],
-    pageTitle,
-  )
+  const needsPage = missing.filter((item) => !item.image)
+  const wikitextByName = needsPage.length
+    ? await fetchWikitext(
+        [...new Set(needsPage.map((item) => item.name))],
+        pageTitle,
+      )
+    : new Map()
   const files = missing.map((item) => ({
     slug: item.slug,
     name: item.name,
-    filename: infoboxImage(wikitextByName.get(item.name) ?? ''),
+    filename: item.image || infoboxImage(wikitextByName.get(item.name) ?? ''),
   }))
   const withoutImage = files.filter((file) => !file.filename)
   const infoByFilename = await fetchImageInfo(files.map((file) => file.filename).filter(Boolean))
@@ -203,7 +207,7 @@ export async function syncCatalogThumbnails({
         const bytes = await downloadImage(info.url)
         const { error } = await supabase.storage.from(BUCKET).upload(`${kind}/${file.slug}.png`, bytes, {
           contentType: info.mime,
-          upsert: false,
+          upsert: replace,
         })
 
         if (error) {
@@ -219,7 +223,9 @@ export async function syncCatalogThumbnails({
   )
 
   console.log(
-    `Uploaded ${uploaded} ${kind} thumbnails to ${BUCKET}/${kind}/ (${stored.size} already stored).`,
+    replace
+      ? `Replaced ${uploaded} ${kind} thumbnails in ${BUCKET}/${kind}/.`
+      : `Uploaded ${uploaded} ${kind} thumbnails to ${BUCKET}/${kind}/ (${stored.size} already stored).`,
   )
 
   if (withoutImage.length) {

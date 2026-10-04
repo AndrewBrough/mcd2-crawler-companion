@@ -1,38 +1,25 @@
 name,slug,type,description,rarity
-Amethyst Lens,amethyst-lens,talisman,Ranged attacks deal X% more damage!,regular
-The Prime Enchanted Revived,the-prime-enchanted-revived,talisman,,regular
-Armadillo Amulet,armadillo-amulet,talisman,Reduces rolling cooldown time by 20%.,regular
-Illegal Illager Trials,illegal-illager-trials,talisman,,regular
-Essence of Efficiency,essence-of-efficiency,talisman,Reduces artifact cooldown time by 4%.,regular
-Breaking Camps,breaking-camps,talisman,,regular
+Amethyst Lens,amethyst-lens,talisman,Ranged Attacks deal X% more damage.,regular
+Armadillo Amulet,armadillo-amulet,talisman,Reduces rolling cooldown time by X%.,regular
+Emerald of Good Fortune,emerald-of-good-fortune,talisman,Grants a X% chance to receive additional emeralds..,regular
+Essence of Efficiency,essence-of-efficiency,talisman,Reduces artifact cooldown time by X%.,regular
 Fist of Iron,fist-of-iron,talisman,Melee attacks deal X% more damage.,regular
-The Missing Note Blocks,the-missing-note-blocks,talisman,,regular
 Golem Kit,golem-kit,talisman,Summons a plated protector to prevent you from being harmed!,regular
-The Final Souldown,the-final-souldown,talisman,,regular
-Glowstone Flask,glowstone-flask,talisman,,regular
-Healing Heart,healing-heart,talisman,Restores health by 2% per second after 5 seconds out of combat.,regular
-Wildflower Warrior,wildflower-warrior,talisman,,regular
-Lucky Clover,lucky-clover,talisman,Grants a 2% chance to get additional loot drops.,regular
+Glowstone Flask,glowstone-flask,talisman,Reduces potion cooldown time by X%,regular
+Healing Heart,healing-heart,talisman,Restores health by X% per second after 5 seconds out of combat.,regular
+Lucky Clover,lucky-clover,talisman,Grants a X% chance to get additional loot drops.,regular
 Looter's Charm,looters-charm,talisman,Grants a X% increased chance for defeated enemies to drop loot.,regular
-Gone Fishing,gone-fishing,talisman,,regular
-Medallion of Momentum,medallion-of-momentum,talisman,Increases movement speed by 10% if moving for more than 3 seconds.,regular
+Medallion of Momentum,medallion-of-momentum,talisman,Increases movement speed by X% if moving for more than 3 seconds.,regular
 Ocelot's Paw,ocelots-paw,talisman,Jumping melee attacks deal X% more damage.,regular
 Prickle's Mark,prickles-mark,talisman,Summons a prickly pal to participate in the fight!,regular
-A Friend till the End,a-friend-till-the-end,talisman,,regular
 Sculk Badge,sculk-badge,talisman,Increases duration of positive statuses applied to you by X%.,regular
-Illager Intelligence,illager-intelligence,talisman,,regular
-Sigil of Beeswax,sigil-of-beeswax,talisman,,regular
-The Illagers from the Rift,the-illagers-from-the-rift,talisman,,regular
+Sigil of Beeswax,sigil-of-beeswax,talisman,Increases the player's maximum health by X%,regular
+Soul Chip,soul-chip,talisman,Increases Soul capacity by X%.,regular
 Tasty Bone,tasty-bone,talisman,Summons a furry friend to fight by your side!,regular
-The Silence in Little Howl,the-silence-in-little-howl,talisman,,regular
 Tendrils of the Sprout,tendrils-of-the-sprout,talisman,Grants a X% damage increase while health is above 95%,regular
-The Sift,the-sift,talisman,,regular
 The Eye of Experience,the-eye-of-experience,talisman,Increases experience gained by X%.,regular
-Wrath of the Sculkers,wrath-of-the-sculkers,talisman,,regular
-Thrifty Pendant,thrifty-pendant,talisman,"Grants up to a 25% damage bonus based on emeralds held, effective to a maximum of 7000 emeralds.",regular
-Rainy Plains,rainy-plains,talisman,,regular
-Twig of Dark Oak,twig-of-dark-oak,talisman,Carry 20% more ammo.,regular
+Thrifty Pendant,thrifty-pendant,talisman,"Grants up to a X% damage bonus based on emeralds held, effective to a maximum of X emeralds.",regular
+Twig of Dark Oak,twig-of-dark-oak,talisman,Carry X% more ammo.,regular
 Twisted Tooth,twisted-tooth,talisman,Increases souls gained by X%.,regular
-Twisted Warden,twisted-warden,talisman,,regular
 Wobblestone,wobblestone,talisman,Summons a wobbly ward to aid you in battle!,regular
-Wobble Run,wobble-run,talisman,,regular
+Wonderful Wheat,wonderful-wheat,talisman,Summons a woolly wanderer to watch over you in battle!,regular

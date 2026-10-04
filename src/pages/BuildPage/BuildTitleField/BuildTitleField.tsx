@@ -23,7 +23,6 @@ export function BuildTitleField({
     <div className={styles.wrap}>
       <div className={styles.row}>
         <Input
-          size="large"
           grow
           value={value}
           onChange={(event) => onChange(event.target.value)}

@@ -8,11 +8,10 @@ export type AppShellProps = {
 }
 
 const navItems: Array<NavItem> = [
-  { to: '/', label: 'Home' },
-  { to: '/build', label: 'Build' },
-  { to: '/locations', label: 'Locations' },
-  { to: '/enemies', label: 'Enemies' },
+  { to: '/', label: 'Build' },
   { to: '/gear', label: 'Gear' },
+  // { to: '/locations', label: 'Locations' },
+  // { to: '/enemies', label: 'Enemies' },
   { to: '/effects', label: 'Effects' },
   { to: '/enchantments', label: 'Enchantments' },
 ]

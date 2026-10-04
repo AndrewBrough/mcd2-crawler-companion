@@ -54,7 +54,7 @@ function wikiDescription(wikitext) {
   return plainWiki(infoboxField(wikitext, 'description'))
 }
 
-function namesInSection(wikitext, heading, pageUrl) {
+function entriesInSection(wikitext, heading, pageUrl) {
   const lines = wikitext.split('\n')
   const start = lines.findIndex((line) => new RegExp(`^=+\\s*${heading}\\s*=+\\s*$`).test(line))
 
@@ -70,9 +70,51 @@ function namesInSection(wikitext, heading, pageUrl) {
     body.push(line)
   }
 
-  return body
-    .map((line) => line.match(/\{\{MCD2(?:Link)?\|([^}]+)\}\}/)?.[1]?.trim())
-    .filter(Boolean)
+  const rows = []
+  let current = []
+
+  for (const line of body) {
+    if (line.startsWith('|-') || line.startsWith('*')) {
+      if (current.length > 0) {
+        rows.push(current.join('\n'))
+      }
+      current = [line]
+      continue
+    }
+
+    current.push(line)
+  }
+
+  if (current.length > 0) {
+    rows.push(current.join('\n'))
+  }
+
+  return rows.map(entryFromRow).filter(Boolean)
+}
+
+function entryFromRow(row) {
+  const imageMatch = row.match(/\[\[(?:File|Image):([^\]|]+)/i)
+  const searchable = imageMatch ? row.slice(imageMatch.index + imageMatch[0].length) : row
+  const templates = [
+    searchable.match(/\{\{MCD2(?:Link)?\|([^}]+)\}\}/),
+    searchable.match(/\[\[Dungeons II:([^\]|#]+)(?:\|[^\]]*)?\]\]/),
+  ].filter(Boolean)
+
+  templates.sort((left, right) => left.index - right.index)
+  const name = templates[0]?.[1]?.trim()
+
+  if (!name || name.includes('{')) {
+    return null
+  }
+
+  return {
+    name,
+    image: imageMatch?.[1]?.trim() ?? '',
+  }
+}
+
+function namesInSection(wikitext, heading, pageUrl) {
+  return entriesInSection(wikitext, heading, pageUrl).map((entry) => entry.name)
 }
 
 async function fetchJson(params) {
@@ -195,10 +237,11 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
   const csvPath = path.join(SEEDS_DIR, csvFile)
   const wikitext = await fetchPage(pageTitle, pageUrl)
   const listed = sections.flatMap(({ heading, type }) =>
-    namesInSection(wikitext, heading, pageUrl).map((name) => ({
-      name,
+    entriesInSection(wikitext, heading, pageUrl).map((entry) => ({
+      name: entry.name,
       type,
-      slug: slugify(name),
+      slug: slugify(entry.name),
+      image: entry.image,
     })),
   )
   const seen = new Set()
@@ -241,5 +284,9 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     console.log(`No description found for: ${missing.map((row) => row.name).join(', ')}`)
   }
 
-  await syncCatalogThumbnails({ kind: 'gear', items })
+  await syncCatalogThumbnails({
+    kind: 'gear',
+    items,
+    replace: process.env.REPLACE_THUMBNAILS === '1',
+  })
 }

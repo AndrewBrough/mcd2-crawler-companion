@@ -27,3 +27,21 @@
   justify-content: flex-start;
   padding: 0.35rem 0;
 }
+
+@media (max-width: 960px) {
+  .link:not(.priority):not(.block) {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .block.priority {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .link:not(.block) {
+    display: none;
+  }
+}

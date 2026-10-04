@@ -53,7 +53,7 @@ export function buildShareUrl(search: BuildSearch, origin: string): string {
   }
 
   const query = params.toString()
-  const path = query ? `/build?${query}` : '/build'
+  const path = query ? `/?${query}` : '/'
   return new URL(path, origin).toString()
 }
 

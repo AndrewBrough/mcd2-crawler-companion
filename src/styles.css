@@ -13,8 +13,9 @@
   --grey: #747774;
   --grey-dark: #454845;
 
-  --background-light: #4e3f2c;
-  --background-dark: #3e3223;
+  --background-light: #467683;
+  --background-dark: #0A4558;
+  --background-darker: #080305;
   --light-header-black: #201814;
   --dark-header-black: #080305;
   --light-panel-background: #051a23;
@@ -166,6 +167,7 @@
   --color-grey-dark: var(--grey-dark);
   --color-background-light: var(--background-light);
   --color-background-dark: var(--background-dark);
+  --color-background-darker: var(--background-darker);
   --color-content: var(--content);
   --color-light-header-black: var(--light-header-black);
   --color-dark-header-black: var(--dark-header-black);
@@ -195,8 +197,11 @@ body {
   margin: 0;
   color: var(--foreground);
   font-family: var(--font-sans);
-  background-color: var(--background-dark);
-  background-image: linear-gradient(to right, var(--background-light), var(--background-dark));
+  background-color: var(--background-darker);
+  background-image:
+    linear-gradient(to bottom, transparent, var(--background-darker)),
+    linear-gradient(to right, var(--background-light), var(--background-dark));
+  background-attachment: fixed;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

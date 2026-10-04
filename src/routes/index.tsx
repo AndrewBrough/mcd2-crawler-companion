@@ -1,47 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { HomePage } from '#/pages/HomePage'
-import type { HomeLinkCardProps } from '#/pages/HomePage/HomeLinkCard'
+import { CatalogPending } from '#/components/CatalogPending'
+import { CatalogRouteError } from '#/components/CatalogRouteError'
+import { buildSearch } from '#/lib/build/build-search'
+import { getEffects } from '#/lib/catalog/get-effects'
+import { getGear } from '#/lib/catalog/get-gear'
+import { BuildPage } from '#/pages/BuildPage'
 
-const homeLinks: Array<HomeLinkCardProps> = [
-  {
-    to: '/locations',
-    kicker: 'Missions',
-    title: 'Locations',
-    body: 'See enemies, linked missions, and drop tables for each area.',
-    accent: 'secondary',
+export const Route = createFileRoute('/')({
+  validateSearch: buildSearch,
+  loader: async () => {
+    const [gear, effects] = await Promise.all([getGear(), getEffects()])
+    return { gear, effects }
   },
-  {
-    to: '/enemies',
-    kicker: 'Mobs',
-    title: 'Enemies',
-    body: 'Find where a mob spawns and what gear or items it can drop.',
-    accent: 'primary',
-  },
-  {
-    to: '/gear',
-    kicker: 'Loot',
-    title: 'Gear',
-    body: 'Look up every source and drop rate for weapons, armor, and artifacts.',
-    accent: 'secondary',
-  },
-  {
-    to: '/effects',
-    kicker: 'Loot',
-    title: 'Effects',
-    body: 'Browse effect bonuses and the gear they can roll on.',
-    accent: 'primary',
-  },
-  {
-    to: '/enchantments',
-    kicker: 'Magic',
-    title: 'Enchantments',
-    body: 'Browse enchantments and see which gear types they belong to.',
-    accent: 'primary',
-  },
-]
+  component: HomeRoute,
+  errorComponent: CatalogRouteError,
+  pendingComponent: CatalogPending,
+})
 
-export const Route = createFileRoute('/')({ component: Home })
-
-function Home() {
-  return <HomePage links={homeLinks} />
+function HomeRoute() {
+  const { gear, effects } = Route.useLoaderData()
+  const search = Route.useSearch()
+  return <BuildPage gear={gear} effects={effects} search={search} />
 }

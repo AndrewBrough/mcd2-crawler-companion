@@ -11,7 +11,7 @@ Humbler Antenna,humbler-antenna,armor_helmet,,regular
 Mad Sifter Mask,mad-sifter-mask,armor_helmet,,regular
 Monarch Crown,monarch-crown,armor_helmet,,regular
 Monstrosity Horns,monstrosity-horns,armor_helmet,,regular
-Mushroom Cap,mushroom-cap,armor_helmet,,regular
+Mushroom Cap,mushroom-cap,armor_helmet,Eating the boots is not advised. Side effects may include suspicious behaviour and cold ears.,regular
 Mystic Circlet,mystic-circlet,armor_helmet,A Magician's circlet with an obsidian stone scavenged from a broken portal.,regular
 Nomad Hood,nomad-hood,armor_helmet,A rainproof hood for wandering the Overworld in search of danger.,regular
 Oracle Crown,oracle-crown,armor_helmet,A striking crown forged in a thunderstorm for a fighter with bright ideas.,unique
@@ -26,7 +26,7 @@ Rover Visor,rover-visor,armor_helmet,,unique
 Sage Headband,sage-headband,armor_helmet,,regular
 Scamp Hood,scamp-hood,armor_helmet,,regular
 Scoundrel Cowl,scoundrel-cowl,armor_helmet,,regular
-Sculk Digger Hood,sculk-digger-hood,armor_helmet,,regular
+Sculk Digger Hood,sculk-digger-hood,armor_helmet,"Sculk-infused hood, tailored by the dim glow of Warden horns.",regular
 Sculker Mask,sculker-mask,armor_helmet,,regular
 Sharpshooter Fedora,sharpshooter-fedora,armor_helmet,A flashy fedora with an attached monocle scope for aiming multiple arrows at once.,unique
 Sifter Hood,sifter-hood,armor_helmet,A cute hood with adorable ears to listen for sculking predators.,regular
@@ -45,11 +45,11 @@ Disciple Robe,disciple-robe,armor_chest,,regular
 Dreamruler Cover,dreamruler-cover,armor_chest,,regular
 Fly Agaric Coat,fly-agaric-coat,armor_chest,A cute coat made of mycelium with natural healing properties.|rarity=Unique}},unique
 Hivemind Thorax,hivemind-thorax,armor_chest,,unique
-Humbler Carapace,humbler-carapace,armor_chest,,regular
+Humbler Carapace,humbler-carapace,armor_chest,A carapace chestplate imbued with the healing properties of humbler husk.,unique
 Mad Sifter Vest,mad-sifter-vest,armor_chest,An enchanted vest fashioned like an enraged Sifter that grants enraged power to all artifacts.,unique
 Monarch Mantle,monarch-mantle,armor_chest,,regular
 Monstrosity Armor (Chestplate),monstrosity-armor-chestplate,armor_chest,,regular
-Mushroom Robe,mushroom-robe,armor_chest,Eating the robe is not advised. Side effects may include suspicious behaviour and cold shoulders,regular
+Mushroom Robe,mushroom-robe,armor_chest,Eating the robe is not advised. Side effects may include suspicious behavior and cold shoulders.,regular
 Mystic Robe,mystic-robe,armor_chest,An Evoker's robe retailored to suit a far more handsome wearer.,regular
 Nomad Chestplate,nomad-chestplate,armor_chest,A sturdy chestplate for roaming the Overworld in search of justice.,regular
 Oracle Mantle,oracle-mantle,armor_chest,,regular
@@ -80,10 +80,10 @@ Beekeeper Leggings,beekeeper-leggings,armor_leggings,"As far as leggings go, the
 Bounty Hunter Shinguards,bounty-hunter-shinguards,armor_leggings,,regular
 Dauntless Greaves,dauntless-greaves,armor_leggings,,regular
 Disciple Leggings,disciple-leggings,armor_leggings,A true warrior wears leggings. Even warriors need to be comfy.,regular
-Dreamruler Pyjamas,dreamruler-pyjamas,armor_leggings,,regular
+Dreamruler Pyjamas,dreamruler-pyjamas,armor_leggings,"A pair of pyjama pants as light as shadows, helping you sneak through your enemy's nightmares.}}",unique
 Fly Agaric Trousers,fly-agaric-trousers,armor_leggings,Don't eat the trousers! They are poisonous to humans but grant extra strength to your pets.,unique
 Hivemind Trousers,hivemind-trousers,armor_leggings,,regular
-Humbler Greaves,humbler-greaves,armor_leggings,,regular
+Humbler Greaves,humbler-greaves,armor_leggings,,unique
 Mad Sifter Slacks,mad-sifter-slacks,armor_leggings,,regular
 Monarch Sash,monarch-sash,armor_leggings,,regular
 Monstrosity Greaves,monstrosity-greaves,armor_leggings,,regular
@@ -126,7 +126,7 @@ Mad Sifter Paws,mad-sifter-paws,armor_boots,"A pair of boots fashioned like Sift
 Monarch Talons,monarch-talons,armor_boots,A pair of regal boots with sharp talons. Be the top of the ecosystem in every dimension.,unique
 Monstrosity Stompers,monstrosity-stompers,armor_boots,,regular
 Mushroom Boots,mushroom-boots,armor_boots,Eating the boots is not advised. Side effects may include suspicious behaviour and cold feet.,regular
-Mystic Boots,mystic-boots,armor_boots,,regular
+Mystic Boots,mystic-boots,armor_boots,An Evoker's boots repurposed for kicking Illager butt with an iron toe to boot.}},regular
 Nomad Boots,nomad-boots,armor_boots,A pair of reliable boots for traversing the Overworld in search of adventure.,regular
 Oracle Sandals,oracle-sandals,armor_boots,,regular
 Packleader Paws,packleader-paws,armor_boots,,regular
@@ -148,6 +148,6 @@ Sorcerer Boots,sorcerer-boots,armor_boots,,regular
 Soul Corruptor Sandals,soul-corruptor-sandals,armor_boots,,unique
 Steel Wool Boots,steel-wool-boots,armor_boots,,regular
 Treehugger Clogs,treehugger-clogs,armor_boots,For a traveler who loves walking in the woods.,regular
-Twisted Warden Sneakers,twisted-warden-sneakers,armor_boots,,regular
+Twisted Warden Sneakers,twisted-warden-sneakers,armor_boots,,unique
 Wolfpack Boots,wolfpack-boots,armor_boots,,regular
 Woodsprite Root Boots,woodsprite-root-boots,armor_boots,A pair of root boots to keep you grounded with endlessly springing twigs to fletch arrows.,unique

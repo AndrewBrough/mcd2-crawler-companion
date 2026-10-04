@@ -11,6 +11,8 @@ export type GlobalNavProps = {
   items: Array<NavItem>
 }
 
+const pinned = new Set<NavItem['to']>(['/', '/gear'])
+
 export function GlobalNav({ items }: GlobalNavProps) {
   const [open, setOpen] = useState(false)
   const pathname = useRouterState({ select: (state) => state.location.pathname })
@@ -23,12 +25,19 @@ export function GlobalNav({ items }: GlobalNavProps) {
 
   return (
     <>
-      <nav className={styles.nav} aria-label="Primary">
-        {items.map((item) => (
-          <NavLink key={item.to} to={item.to} label={item.label} />
-        ))}
-      </nav>
-      <NavMenuButton open={open} onToggle={() => setOpen((current) => !current)} />
+      <div className={styles.bar}>
+        <nav className={styles.nav} aria-label="Primary">
+          {items.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              label={item.label}
+              priority={pinned.has(item.to)}
+            />
+          ))}
+        </nav>
+        <NavMenuButton open={open} onToggle={() => setOpen((current) => !current)} />
+      </div>
       <NavDrawer open={open} items={items} onClose={close} />
     </>
   )
