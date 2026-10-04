@@ -36,6 +36,7 @@ export function CatalogGrid<T extends CatalogGridItem>({
             selected={selectedSlug === item.slug}
             to={to}
             onSelect={to || !onItemSelect ? undefined : () => onItemSelect(item)}
+            pixelBorder
           />
         </li>
       ))}
