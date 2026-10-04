@@ -1,3 +1,5 @@
+@reference '../../../../breakpoints.css';
+
 .link {
   display: inline-flex;
   align-items: center;
@@ -28,19 +30,7 @@
   padding: 0.35rem 0;
 }
 
-@media (max-width: 960px) {
-  .link:not(.priority):not(.block) {
-    display: none;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 960px) {
-  .block.priority {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: theme(--breakpoint-sm)) {
   .link:not(.block) {
     display: none;
   }

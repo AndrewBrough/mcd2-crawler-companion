@@ -1,3 +1,5 @@
+@reference '../../breakpoints.css';
+
 .page {
   --build-slot-size: 4.75rem;
   display: contents;
@@ -13,7 +15,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 960px) {
+@media (max-width: theme(--breakpoint-sm)) {
   .layout {
     grid-template-columns: 1fr;
     height: auto;

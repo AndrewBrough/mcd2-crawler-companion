@@ -1,3 +1,5 @@
+@reference '../../breakpoints.css';
+
 .page {
   display: contents;
 }
@@ -17,7 +19,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 640px) {
+@media (max-width: theme(--breakpoint-sm)) {
   .layout {
     grid-template-columns: 1fr;
     height: auto;

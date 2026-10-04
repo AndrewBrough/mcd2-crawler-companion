@@ -1,3 +1,5 @@
+@reference '../../../../breakpoints.css';
+
 .button {
   display: none;
   align-items: center;
@@ -20,7 +22,7 @@
   color: var(--white);
 }
 
-@media (max-width: 960px) {
+@media (max-width: theme(--breakpoint-sm)) {
   .button {
     display: inline-flex;
   }

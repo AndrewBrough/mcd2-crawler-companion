@@ -49,7 +49,6 @@ export function NavDrawer({ open, items, onClose }: NavDrawerProps) {
             to={item.to}
             label={item.label}
             block
-            priority={item.to === '/' || item.to === '/gear'}
             onSelect={onClose}
           />
         ))}

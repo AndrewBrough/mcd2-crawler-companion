@@ -11,8 +11,6 @@ export type GlobalNavProps = {
   items: Array<NavItem>
 }
 
-const pinned = new Set<NavItem['to']>(['/', '/gear'])
-
 export function GlobalNav({ items }: GlobalNavProps) {
   const [open, setOpen] = useState(false)
   const pathname = useRouterState({ select: (state) => state.location.pathname })
@@ -32,7 +30,6 @@ export function GlobalNav({ items }: GlobalNavProps) {
               key={item.to}
               to={item.to}
               label={item.label}
-              priority={pinned.has(item.to)}
             />
           ))}
         </nav>
