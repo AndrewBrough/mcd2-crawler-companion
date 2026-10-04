@@ -1,0 +1,16 @@
+.corners {
+  clip-path: polygon(
+    var(--pixel-border-width, 4px) 0,
+    calc(100% - var(--pixel-border-width, 4px)) 0,
+    calc(100% - var(--pixel-border-width, 4px)) var(--pixel-border-width, 4px),
+    100% var(--pixel-border-width, 4px),
+    100% calc(100% - var(--pixel-border-width, 4px)),
+    calc(100% - var(--pixel-border-width, 4px)) calc(100% - var(--pixel-border-width, 4px)),
+    calc(100% - var(--pixel-border-width, 4px)) 100%,
+    var(--pixel-border-width, 4px) 100%,
+    var(--pixel-border-width, 4px) calc(100% - var(--pixel-border-width, 4px)),
+    0 calc(100% - var(--pixel-border-width, 4px)),
+    0 var(--pixel-border-width, 4px),
+    var(--pixel-border-width, 4px) var(--pixel-border-width, 4px)
+  );
+}

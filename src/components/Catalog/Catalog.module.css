@@ -1,5 +1,7 @@
 .panel {
+  composes: corners from '../../styles/pixel-border.module.css';
   --gear-slot-size: 4.75rem;
+  --pixel-border-width: 4px;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -7,11 +9,8 @@
   min-height: 0;
   height: 100%;
   overflow: hidden;
-  border: 0;
+  border: var(--pixel-border-width) solid var(--dark-panel-background);
   background: linear-gradient(to right, var(--light-panel-background), var(--dark-panel-background));
-  box-shadow:
-    0 1px 0 var(--inset-glint) inset,
-    0 18px 34px color-mix(in oklab, var(--black) 32%, transparent);
   padding: 1.2rem 1.2rem 1.3rem;
 }
 

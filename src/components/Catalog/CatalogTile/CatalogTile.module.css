@@ -58,6 +58,31 @@ div.frame {
   outline-offset: 0;
 }
 
+.previewSlot {
+  position: relative;
+  display: block;
+}
+
+.notched {
+  composes: corners from '../../../styles/pixel-border.module.css';
+  --pixel-border-width: 3px;
+}
+
+.pixelOutline {
+  composes: corners from '../../../styles/pixel-border.module.css';
+  --pixel-border-width: 3px;
+  position: absolute;
+  z-index: 1;
+  inset: -3px;
+  border: 3px solid var(--white);
+  pointer-events: none;
+}
+
+.pixel.selected .preview,
+.pixel.selected .frame:focus-visible .preview {
+  outline: none;
+}
+
 .emptyLabel {
   display: flex;
   align-items: center;
