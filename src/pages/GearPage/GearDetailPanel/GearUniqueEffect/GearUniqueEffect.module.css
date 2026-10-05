@@ -5,6 +5,13 @@
   gap: 0.4rem;
 }
 
+.heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .label {
   margin: 0;
   letter-spacing: 0.12em;
@@ -14,33 +21,8 @@
   color: var(--primary);
 }
 
-.name {
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  border: 0;
-  border-radius: 0;
-  padding: 0.02rem 0.26rem 0.04rem;
-  background: var(--primary);
-  color: var(--black);
-  border-top: 1px solid var(--primary-light);
-  border-bottom: 1px solid var(--primary-dark);
-  font-size: 0.48rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
 .description {
   margin: 0;
   color: var(--sea-ink-soft);
   line-height: 1.5;
-}
-
-.percent {
-  margin: 0;
-  color: var(--content);
-  font-weight: 700;
-  line-height: 1.3;
 }

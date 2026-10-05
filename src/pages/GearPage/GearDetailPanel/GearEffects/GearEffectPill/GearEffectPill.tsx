@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { EffectDescription } from '#/components/ui/EffectDescription'
 import type { Effect } from '#/types/data/effect'
 import styles from './GearEffectPill.module.css'
 
@@ -56,7 +57,9 @@ export function GearEffectPill({ effect }: GearEffectPillProps) {
           role="tooltip"
           style={{ top: position.top, left: position.left }}
         >
-          <p className={styles.description}>{effect.description || 'No description yet.'}</p>
+          <p className={styles.description}>
+            {effect.description ? <EffectDescription effect={effect} /> : 'No description yet.'}
+          </p>
           {effect.levels.length ? (
             <ul className={styles.levels}>
               {effect.levels.map((level) => (
