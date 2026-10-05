@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { BUILD_SOCKET_ROWS, type BuildLoadout } from '#/types/data/build'
 import type { Gear } from '#/types/data/gear'
 import type { BuildSearch } from './build-search'
-import { BUILD_SOCKET_PARAMS, BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
+import { BUILD_SOCKET_PARAMS, BUILD_SOCKET_SEARCH_KEYS, clearSocketPins } from './build-socket-params'
 
 function loadoutFromSearch(gear: Array<Gear>, search: BuildSearch): BuildLoadout {
   const bySlug = new Map(gear.map((item) => [item.slug, item]))
@@ -49,10 +49,14 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
         if (catalogSlug) {
           next.slug = catalogSlug
         }
+        const previousSlug = next[param] ?? null
         if (slug) {
           next[param] = slug
         } else {
           delete next[param]
+        }
+        if (previousSlug !== slug) {
+          clearSocketPins(next, socketId)
         }
         return next
       },
@@ -79,9 +83,10 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
       resetScroll: false,
       search: (previous: BuildSearch) => {
         const next = { ...previous }
-        for (const param of Object.values(BUILD_SOCKET_PARAMS)) {
+        for (const [socketId, param] of Object.entries(BUILD_SOCKET_PARAMS)) {
           if (next[param] === slug) {
             delete next[param]
+            clearSocketPins(next, socketId)
           }
         }
         return next

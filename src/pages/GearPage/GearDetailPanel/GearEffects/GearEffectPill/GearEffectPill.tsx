@@ -5,6 +5,9 @@ import styles from './GearEffectPill.module.css'
 
 export type GearEffectPillProps = {
   effect: Effect
+  pinned?: boolean
+  disabled?: boolean
+  onPin?: () => void
 }
 
 type TooltipPosition = {
@@ -12,8 +15,8 @@ type TooltipPosition = {
   left: number
 }
 
-export function GearEffectPill({ effect }: GearEffectPillProps) {
-  const pillRef = useRef<HTMLSpanElement>(null)
+export function GearEffectPill({ effect, pinned = false, disabled = false, onPin }: GearEffectPillProps) {
+  const pillRef = useRef<HTMLElement>(null)
   const [position, setPosition] = useState<TooltipPosition | null>(null)
 
   useEffect(() => {
@@ -38,19 +41,42 @@ export function GearEffectPill({ effect }: GearEffectPillProps) {
     setPosition({ top, left })
   }
 
+  const className = pinned ? `${styles.pill} ${styles.pinned}` : styles.pill
+  const tooltipHandlers = {
+    onMouseEnter: showTooltip,
+    onMouseLeave: () => setPosition(null),
+    onFocus: showTooltip,
+    onBlur: () => setPosition(null),
+  }
+
   return (
     <>
-      <span
-        ref={pillRef}
-        className={styles.pill}
-        tabIndex={0}
-        onMouseEnter={showTooltip}
-        onMouseLeave={() => setPosition(null)}
-        onFocus={showTooltip}
-        onBlur={() => setPosition(null)}
-      >
-        {effect.name}
-      </span>
+      {onPin ? (
+        <button
+          ref={(node) => {
+            pillRef.current = node
+          }}
+          className={className}
+          type="button"
+          disabled={disabled}
+          aria-pressed={pinned}
+          onClick={onPin}
+          {...tooltipHandlers}
+        >
+          {effect.name}
+        </button>
+      ) : (
+        <span
+          ref={(node) => {
+            pillRef.current = node
+          }}
+          className={className}
+          tabIndex={0}
+          {...tooltipHandlers}
+        >
+          {effect.name}
+        </span>
+      )}
       {position ? (
         <span
           className={styles.tooltip}

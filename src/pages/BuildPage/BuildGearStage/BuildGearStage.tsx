@@ -1,4 +1,7 @@
 import { GearCatalog } from '#/components/GearCatalog'
+import type { BuildSearch } from '#/lib/build/build-search'
+import { useGearPins } from '#/lib/build/use-build-pins'
+import type { BuildLoadout } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from '#/pages/GearPage/GearDetailPanel'
@@ -8,6 +11,8 @@ import styles from './BuildGearStage.module.css'
 export type BuildGearStageProps = {
   gear: Array<Gear>
   effects: Array<Effect>
+  search: BuildSearch
+  loadout: BuildLoadout
   detailItem: Gear | null
   inBuild: boolean
   typeFilter: GearType | null
@@ -27,6 +32,8 @@ export type BuildGearStageProps = {
 export function BuildGearStage({
   gear,
   effects,
+  search,
+  loadout,
   detailItem,
   inBuild,
   typeFilter,
@@ -42,6 +49,8 @@ export function BuildGearStage({
   onRemove,
   onBack,
 }: BuildGearStageProps) {
+  const gearPins = useGearPins(search, loadout, detailItem, effects)
+
   return (
     <div className={styles.stage}>
       <div className={styles.catalog} hidden={detailItem !== null}>
@@ -62,6 +71,10 @@ export function BuildGearStage({
         <GearDetailPanel
           item={detailItem}
           effects={effects}
+          pinnedEffectSlugs={gearPins.pinnedEffectSlugs}
+          onPinEffect={gearPins.onPinEffect}
+          pinnedEnchantmentSlug={gearPins.pinnedEnchantmentSlug}
+          onPinEnchantment={gearPins.onPinEnchantment}
           onVariantSelect={(slug) => {
             const variant = gear.find((entry) => entry.slug === slug)
             if (variant) {

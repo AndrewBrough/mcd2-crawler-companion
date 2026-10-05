@@ -16,10 +16,23 @@ export type GearDetailPanelProps = {
   item: Gear | null
   effects: Array<Effect>
   onVariantSelect: (slug: string) => void
+  pinnedEffectSlugs?: Array<string>
+  onPinEffect?: (slug: string) => void
+  pinnedEnchantmentSlug?: string | null
+  onPinEnchantment?: (slug: string) => void
   footer?: ReactNode
 }
 
-export function GearDetailPanel({ item, effects, onVariantSelect, footer }: GearDetailPanelProps) {
+export function GearDetailPanel({
+  item,
+  effects,
+  onVariantSelect,
+  pinnedEffectSlugs,
+  onPinEffect,
+  pinnedEnchantmentSlug = null,
+  onPinEnchantment,
+  footer,
+}: GearDetailPanelProps) {
   const uniqueEffect = item ? uniqueEffectForGear(effects, item.slug) : null
 
   return (
@@ -44,11 +57,21 @@ export function GearDetailPanel({ item, effects, onVariantSelect, footer }: Gear
           <GearEffects
             effects={effectsForGear(effects, item)}
             archetypeNames={item.archetypeNames}
+            pinnedSlugs={pinnedEffectSlugs}
+            onPinEffect={onPinEffect}
           />
           <section className={styles.enchantments}>
             <h3 className="heading">Enchantments</h3>
             {item.enchantments.length ? (
-              <CatalogGrid items={item.enchantments} catalogKind="enchantments" linked />
+              <CatalogGrid
+                items={item.enchantments}
+                catalogKind="enchantments"
+                linked={!onPinEnchantment}
+                selectedSlug={pinnedEnchantmentSlug}
+                onItemSelect={
+                  onPinEnchantment ? (enchantment) => onPinEnchantment(enchantment.slug) : undefined
+                }
+              />
             ) : (
               <p>No enchantments</p>
             )}

@@ -147,6 +147,8 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
         <BuildGearStage
           gear={gear}
           effects={effects}
+          search={search}
+          loadout={loadout}
           detailItem={detailItem}
           inBuild={inBuild}
           typeFilter={typeFilter}

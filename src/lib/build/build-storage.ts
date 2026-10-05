@@ -1,5 +1,5 @@
 import type { BuildSearch } from './build-search'
-import { BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
+import { BUILD_PIN_SEARCH_KEYS, BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
 
 const BUILD_KEY_PREFIX = 'build-'
 
@@ -48,7 +48,7 @@ export function buildShareUrl(search: BuildSearch, origin: string): string {
     params.set('name', name)
   }
 
-  for (const key of BUILD_SOCKET_SEARCH_KEYS) {
+  for (const key of [...BUILD_SOCKET_SEARCH_KEYS, ...BUILD_PIN_SEARCH_KEYS]) {
     const value = search[key]
     if (value) {
       params.set(key, value)

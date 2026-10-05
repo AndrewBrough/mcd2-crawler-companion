@@ -2,12 +2,12 @@ import { useNavigate } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import type { BuildSearch } from './build-search'
 import { buildStorageKey, deleteBuild, listSavedBuilds, saveBuild, type SavedBuild } from './build-storage'
-import { BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
+import { BUILD_PIN_SEARCH_KEYS, BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
 
 function buildSignature(search: BuildSearch): string {
   const name = search.name?.trim() ?? ''
-  const sockets = BUILD_SOCKET_SEARCH_KEYS.map((key) => search[key] ?? '').join('|')
-  return `${name}|${sockets}`
+  const params = [...BUILD_SOCKET_SEARCH_KEYS, ...BUILD_PIN_SEARCH_KEYS].map((key) => search[key] ?? '').join('|')
+  return `${name}|${params}`
 }
 
 export function useSaveBuild(search: BuildSearch) {
