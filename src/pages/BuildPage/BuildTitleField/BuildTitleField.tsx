@@ -10,6 +10,7 @@ export type BuildTitleFieldProps = {
   showSave?: boolean
   onSave?: () => void
   savedBuilds?: Array<SavedBuild>
+  onDeleteBuild?: (key: string) => void
 }
 
 export function BuildTitleField({
@@ -18,6 +19,7 @@ export function BuildTitleField({
   showSave = false,
   onSave,
   savedBuilds = [],
+  onDeleteBuild,
 }: BuildTitleFieldProps) {
   return (
     <div className={styles.wrap}>
@@ -30,7 +32,7 @@ export function BuildTitleField({
           placeholder="Untitled build"
         />
         {showSave && onSave ? <BuildTitleSave onSave={onSave} /> : null}
-        {savedBuilds.length > 0 ? <BuildSavedMenu builds={savedBuilds} /> : null}
+        {onDeleteBuild ? <BuildSavedMenu builds={savedBuilds} onDelete={onDeleteBuild} /> : null}
       </div>
     </div>
   )

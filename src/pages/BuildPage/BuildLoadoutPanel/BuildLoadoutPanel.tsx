@@ -10,6 +10,7 @@ export type BuildLoadoutPanelProps = {
   showSave?: boolean
   onSave?: () => void
   savedBuilds?: Array<SavedBuild>
+  onDeleteBuild?: (key: string) => void
   rows: Array<BuildSocketRowDefinition>
   loadout: BuildLoadout
   activeSocketId: string | null
@@ -23,6 +24,7 @@ export function BuildLoadoutPanel({
   showSave,
   onSave,
   savedBuilds,
+  onDeleteBuild,
   rows,
   loadout,
   activeSocketId,
@@ -37,6 +39,7 @@ export function BuildLoadoutPanel({
         showSave={showSave}
         onSave={onSave}
         savedBuilds={savedBuilds}
+        onDeleteBuild={onDeleteBuild}
       />
       <div className={styles.rows}>
         {rows.map((row) => (

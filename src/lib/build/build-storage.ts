@@ -1,39 +1,42 @@
 import type { BuildSearch } from './build-search'
 import { BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
 
-export const BUILD_UNTITLED_NAME = 'Untitled build'
-
 const BUILD_KEY_PREFIX = 'build-'
 
 export type SavedBuild = {
   key: string
   url: string
+  current: boolean
 }
 
 export function savedBuildLabel(key: string): string {
   return key.slice(BUILD_KEY_PREFIX.length).replaceAll('+', ' ')
 }
 
-export function listSavedBuilds(currentKey: string): Array<SavedBuild> {
+export function listSavedBuilds(currentKey: string | null): Array<SavedBuild> {
   const builds: Array<SavedBuild> = []
 
   for (let index = 0; index < localStorage.length; index += 1) {
     const key = localStorage.key(index)
-    if (!key?.startsWith(BUILD_KEY_PREFIX) || key === currentKey) {
+    if (!key?.startsWith(BUILD_KEY_PREFIX)) {
       continue
     }
 
     const url = localStorage.getItem(key)
     if (url) {
-      builds.push({ key, url })
+      builds.push({ key, url, current: key === currentKey })
     }
   }
 
   return builds.sort((left, right) => savedBuildLabel(left.key).localeCompare(savedBuildLabel(right.key)))
 }
 
-export function buildStorageKey(name: string | undefined): string {
-  const label = name?.trim() || BUILD_UNTITLED_NAME
+export function buildStorageKey(name: string | undefined): string | null {
+  const label = name?.trim()
+  if (!label) {
+    return null
+  }
+
   return `${BUILD_KEY_PREFIX}${label.replaceAll(' ', '+')}`
 }
 
@@ -41,7 +44,7 @@ export function buildShareUrl(search: BuildSearch, origin: string): string {
   const params = new URLSearchParams()
   const name = search.name?.trim()
 
-  if (name && name !== BUILD_UNTITLED_NAME) {
+  if (name) {
     params.set('name', name)
   }
 
@@ -58,5 +61,14 @@ export function buildShareUrl(search: BuildSearch, origin: string): string {
 }
 
 export function saveBuild(search: BuildSearch): void {
-  localStorage.setItem(buildStorageKey(search.name), buildShareUrl(search, window.location.origin))
+  const key = buildStorageKey(search.name)
+  if (!key) {
+    return
+  }
+
+  localStorage.setItem(key, buildShareUrl(search, window.location.origin))
+}
+
+export function deleteBuild(key: string): void {
+  localStorage.removeItem(key)
 }

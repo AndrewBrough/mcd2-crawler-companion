@@ -40,7 +40,12 @@
   box-shadow: 0 12px 24px color-mix(in oklab, var(--black) 35%, transparent);
 }
 
-.item {
+.newBuildRow {
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.newBuild {
   display: block;
   width: 100%;
   margin: 0;
@@ -55,9 +60,10 @@
   cursor: pointer;
 }
 
-.item:hover,
-.item:focus {
+.newBuild:hover,
+.newBuild:focus {
   background: var(--secondary);
   color: var(--navy);
   outline: none;
 }
+

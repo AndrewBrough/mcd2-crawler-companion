@@ -38,3 +38,16 @@
   background: var(--secondary-dark);
   color: var(--white);
 }
+
+.danger,
+.danger:hover,
+.danger:focus-visible {
+  background: var(--destructive);
+  color: var(--black);
+  border-top: 5px solid color-mix(in oklab, var(--destructive) 55%, white);
+  border-bottom: 5px solid color-mix(in oklab, var(--destructive) 72%, black);
+}
+
+.danger:hover {
+  background: color-mix(in oklab, var(--destructive) 78%, black);
+}

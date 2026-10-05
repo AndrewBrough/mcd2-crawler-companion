@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.current {
+  background: color-mix(in oklab, var(--primary) 28%, var(--surface-strong));
+}
+
+.item {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border: 0;
+  background: transparent;
+  color: var(--content);
+  font-family: var(--font-display);
+  text-shadow: none;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item:hover,
+.item:focus {
+  background: var(--secondary);
+  color: var(--navy);
+  outline: none;
+}

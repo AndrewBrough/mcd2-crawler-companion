@@ -1,6 +1,7 @@
+import { useNavigate } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import type { BuildSearch } from './build-search'
-import { buildStorageKey, listSavedBuilds, saveBuild, type SavedBuild } from './build-storage'
+import { buildStorageKey, deleteBuild, listSavedBuilds, saveBuild, type SavedBuild } from './build-storage'
 import { BUILD_SOCKET_SEARCH_KEYS } from './build-socket-params'
 
 function buildSignature(search: BuildSearch): string {
@@ -10,6 +11,7 @@ function buildSignature(search: BuildSearch): string {
 }
 
 export function useSaveBuild(search: BuildSearch) {
+  const navigate = useNavigate()
   const signature = buildSignature(search)
   const searchRef = useRef(search)
   searchRef.current = search
@@ -21,5 +23,16 @@ export function useSaveBuild(search: BuildSearch) {
     setSavedBuilds(listSavedBuilds(buildStorageKey(current.name)))
   }, [signature])
 
-  return savedBuilds
+  function removeSavedBuild(key: string) {
+    const currentKey = buildStorageKey(searchRef.current.name)
+    deleteBuild(key)
+
+    if (key === currentKey) {
+      void navigate({ to: '/', search: {} } as Parameters<typeof navigate>[0])
+    }
+
+    setSavedBuilds(listSavedBuilds(key === currentKey ? null : currentKey))
+  }
+
+  return { savedBuilds, removeSavedBuild }
 }

@@ -12,6 +12,7 @@ const buttonVariants = cva(
         default: styles.primary,
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20',
+        danger: styles.danger,
         outline:
           'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
         secondary: styles.secondary,

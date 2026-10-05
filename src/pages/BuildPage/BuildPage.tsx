@@ -36,7 +36,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const { title, setTitle, dirty, saveName } = useBuildName(search.name ?? null)
   const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(search.slug ?? null)
   const { loadout, equip, clearSocket, removeSlug } = useBuildLoadout(gear, search)
-  const savedBuilds = useSaveBuild(search)
+  const { savedBuilds, removeSavedBuild } = useSaveBuild(search)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(() =>
@@ -137,6 +137,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
           showSave={dirty}
           onSave={saveName}
           savedBuilds={savedBuilds}
+          onDeleteBuild={removeSavedBuild}
           rows={BUILD_SOCKET_ROWS}
           loadout={loadout}
           activeSocketId={activeSocketId}
