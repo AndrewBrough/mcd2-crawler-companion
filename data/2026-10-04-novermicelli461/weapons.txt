@@ -1,0 +1,326 @@
+MELEE WEAPONS (UPDATED: multi-hit swings fixed, combo time and base DPS added)
+
+
+Combo = damage of each hit in the combo (x2 / x3 = that swing hits more than once).
+Time = how long the whole combo takes if you keep attacking. Base DPS = total / time.
+Reach = attack range (bigger = hits from further away). Sorted by Base DPS.
+
+
+Light weapons
+
+
+    Weapon           Combo                  Total  Time   Base DPS  Jump  Reach
+    ---------------  ---------------------  -----  -----  --------  ----  -----
+    Twilight Dagger  25                     25     0.25s  100       28    280
+    Wolf Claws       12 x2 / 12 x2 / 16 x2  80     1.84s  43.4      12    180
+    Double Sickles   9 x2 / 9 x2 / 13 x2    62     1.46s  42.6      24    300
+    Rapier           6 x3 / 8 x3 / 28       70     2.02s  34.7      22    425
+    Double Daggers   6 x2 / 6 x2 / 9 x2     42     1.45s  29        14    275
+
+
+Medium weapons
+
+
+    Weapon         Combo            Total  Time   Base DPS  Jump  Reach
+    -------------  ---------------  -----  -----  --------  ----  -----
+    Riftslasher    14 / 14 / 15 x2  58     1.17s  49.7      20    320
+    Short Spear    14 / 8 x3        38     0.93s  40.7      22    450
+    Axe            14 / 16 / 22     52     1.4s   37.1      21    350
+    Sword          14 / 16 / 22     52     1.48s  35.1      24    385
+    Meat Cleaver   13 / 13 / 18     44     1.31s  33.5      20    350
+    Sabre          12 / 14 / 22     48     1.44s  33.2      20    350
+    Longsword      18 / 18 / 26     62     1.88s  33        22    475
+    Scythe         22 / 26 / 30     78     2.4s   32.5      24    350
+    Pike           15 / 17 / 22     54     1.71s  31.5      24    525
+    Pickaxe        16 / 16 / 24     56     1.79s  31.4      28    300
+    Battle Hammer  15 / 15 / 25     55     1.77s  31        30    300
+    Mace           14 / 16 / 24     54     1.81s  29.8      35    250
+
+
+Heavy weapons
+
+
+    Weapon        Combo         Total  Time   Base DPS  Jump  Reach
+    ------------  ------------  -----  -----  --------  ----  -----
+    War Hammer    40            40     0.96s  41.6      40    250
+    Mob Mallet    18 x5 / 24    114    2.82s  40.5      24    450
+    Battlestaff   26 / 26 / 30  82     2.32s  35.3      26    450
+    Shovel        15 / 15 / 60  90     2.58s  34.9      30    400
+    Cookiecutter  20 / 20 / 30  70     2.05s  34.2      20    500
+    Greataxe      28 / 30       58     1.75s  33.1      24    350
+    Glaive        18 / 20 / 28  66     2.0s   32.9      24    350
+    Tidal Sickle  12 / 12 / 19  43     1.35s  31.8      22    300
+    Claymore      15 / 25 / 20  60     1.92s  31.3      25    385
+    Greatsword    18 x3         54     1.88s  28.7      18    400
+    Clobberer     35            35     1.4s   25        28    400
+
+
+Fist weapons
+
+
+    Weapon     Combo                Total  Time   Base DPS  Jump  Reach
+    ---------  -------------------  -----  -----  --------  ----  -----
+    Gauntlets  9 x2 / 9 x2 / 12 x2  60     1.52s  39.5      22    275
+
+
+Notes:
+- Twilight Dagger: a single quick stab with a 0.25 second minimum between attacks, so its DPS is the max if you can keep it up.
+- Short Spear: its data lists a 20 damage third hit that its animation never seems to reach.
+- Swiftness makes every weapon faster.
+
+
+Unique melee weapons that differ from the normal version (UPDATED):
+
+
+- Awesomeaxe (Greataxe): reach 350 -> 330
+- Carapace Mace (Mace): reach 250 -> 300
+- Elemental Staff (Battlestaff): combo 26 / 26 / 30 -> 24 / 24 / 30; total 82 -> 78; base DPS 35.3 -> 33.6
+- Heartbreaker (War Hammer): reach 250 -> 300
+- Hunter's Hatchet (Axe): combo 14 / 16 / 22 -> 14 / 14 / 21; total 52 -> 49; base DPS 37.1 -> 36.1; jump 21 -> 22
+- Lullaby Blade (Cookiecutter): base DPS 34.2 -> 32.8; reach 500 -> 385
+- Lunar Sickle (Tidal Sickle): combo 12 / 12 / 19 -> 15 / 15 / 23; total 43 -> 53; base DPS 31.8 -> 37.5
+- Monster Masher (Mob Mallet): combo 18 x5 / 24 -> 16 x5 / 24; total 114 -> 104; base DPS 40.5 -> 36.5; jump 24 -> 18
+- Pride of the Plains (Riftslasher): base DPS 49.7 -> 51.1
+- Prime Enchanter's Gauntlets (Gauntlets): combo 9 x2 / 9 x2 / 12 x2 -> 5 x2 / 5.5 x2 / 7 x2; total 60 -> 35; base DPS 39.5 -> 17.6; jump 22 -> 24
+- Rascal's Razor (Sabre): base DPS 33.2 -> 35.3
+- Redstone Wrecker (Clobberer): base DPS 25 -> 27.9
+- Spectral Spear (Short Spear): base DPS 40.7 -> 44.2
+- Stormcaller (Pike): base DPS 31.5 -> 27
+- The Burning Blade (Sword): combo 14 / 16 / 22 -> 14 / 14 / 20; total 52 -> 48; base DPS 35.1 -> 32.4
+- Venomous Fangs (Double Daggers): reach 275 -> 285
+
+
+RANGED WEAPONS
+
+
+Damage = per arrow. Rate = seconds between shots. Charged = charge time (damage multiplier when fully charged).
+
+
+    Weapon            Damage  Arrows  Rate   Ammo  Reload  Charged
+    ----------------  ------  ------  -----  ----  ------  ---------------
+    Bow               18      1       0.4s   15    1.2s    0.35s (x3 dmg)
+    Crossbow          24      1       0.6s   15    1.5s    No
+    Dual Crossbows    12      2       0.6s   20    1s      No
+    Greatbow          72      1       0.4s   10    1.2s    0.3s (x4 dmg)
+    Heavy Crossbow    108     1       0.95s  8     2s      No
+    Longbow           25      1       0.5s   12    1.5s    0.4s (x3 dmg)
+    Powerbow          40      1       0.5s   12    1.5s    0.4s (x4 dmg)
+    Rapid Crossbow    8       1       0.2s   25    0.8s    No
+    Scatter Crossbow  12      3       0.4s   12    1.5s    No
+    Shortbow          11      1       0.2s   18    1s      0.125s (x3 dmg)
+    Trickbow          14      1       0.3s   15    1.2s    0.2s (x3 dmg)
+
+
+Unique ranged weapons that differ from the normal version:
+
+
+- Ranger's Promise (Bow): reload 1.2 -> 0.8; charge 0.35s (x3 dmg) -> 0.3s (x3 dmg)
+
+
+EFFECTS (the stats that roll on gear)
+
+
+What each effect gives at each tier. I / II / III are normal rolls; Unique is the value on unique items.
+
+
+MELEE
+
+
+    Effect     I    II   III  Unique  What it does
+    ---------  ---  ---  ---  ------  ----------------------------------------------------------
+    Brawler    20%  30%  40%  50%     Melee attacks deal X more damage to secondary targets.
+    Duelist    20%  25%  30%  40%     Melee attacks deal X more damage to primary targets.
+    Finesse    15%  25%  35%  35%     Increases attack damage by X when jumping or rolling.
+    Precision  10%  15%  20%  25%     Increases chance of critical hits with melee attacks by X.
+    Sharpness  10%  20%  30%  30%     Melee attacks deal X more damage.
+    Strength   15%  20%  25%  45%     Critical hits with melee weapons deal X more damage.
+
+
+RANGED
+
+
+    Effect       I    II   III  Unique  What it does
+    -----------  ---  ---  ---  ------  -----------------------------------------------------------
+    Aim          10%  15%  20%  25%     Increases chance of critical hits from ranged attacks by X.
+    Marksman     15%  20%  25%  45%     Critical hits with ranged weapons deal X more damage.
+    Point Blank  25%  50%  75%  100%    Ranged attacks deal X more damage at close range.
+    Ranger       20%  30%  40%  60%     Grants a X chance to fire additional projectiles.
+    Sniper       25%  50%  75%  100%    Ranged attacks deal X more damage from far away.
+
+
+MELEE & RANGED
+
+
+    Effect         I    II   III  Unique  What it does
+    -------------  ---  ---  ---  ------  --------------------------------------------------------------
+    Bounty Hunter  20%  25%  30%  40%     Deal X more damage to wounded enemies.
+    Bully          25%  35%  50%  50%     Deal X more damage to enemies affected by a negative status.
+    Critical Edge  10%  20%  30%  40%     All critical hits deal X more damage.
+    Critical Hit   5%   10%  15%  20%     Increases chance of critical hits by X.
+    Knockback      15%  20%  30%  40%     Attacks do X more knockback.
+    Looter         20%  40%  60%  80%     Grants a X chance to get additional loot drops.
+    Momentum       20%  30%  40%  60%     Increases chance to stagger enemies on hit by X.
+    Pack Leader    20%  25%  30%  40%     Companions deal X more damage.
+    Persistence    10%  15%  20%  25%     Increases damage dealt by X of player's total missing health.
+    Raider         1%   2%   3%   5%      Grants a X chance of higher rarity loot drops.
+    Reaper         25%  35%  45%  60%     Increases souls gained by X.
+    Shackler       10%  15%  25%  30%     Attacks have a X chance to inflict the Chained status on hits.
+    Vanguard       20%  35%  50%  60%     Deal X more damage to enemies who are at full health.
+
+
+CROSSBOWS
+
+
+    Effect  I    II   III  Unique  What it does
+    ------  ---  ---  ---  ------  ----------------------------------------------------
+    Reload  20%  30%  40%  40%     Reduces time between shots with ranged weapons by X.
+
+
+BOWS & QUIVERS
+
+
+    Effect        I    II   III  Unique  What it does
+    ------------  ---  ---  ---  ------  ------------------------------------------
+    Sharpshooter  30%  35%  40%  60%     Charged ranged attacks deal X more damage.
+
+
+QUIVERS
+
+
+    Effect  I    II   III  Unique  What it does
+    ------  ---  ---  ---  ------  ------------------
+    Quiver  10%  15%  20%  45%     Carry X more ammo.
+
+
+RANGED, QUIVER & ARTIFACT
+
+
+    Effect  I    II   III  Unique  What it does
+    ------  ---  ---  ---  ------  ----------------------------------
+    Impact  10%  20%  30%  30%     Ranged attacks deal X more damage.
+
+
+ARTIFACT
+
+
+    Effect         I    II   III  Unique  What it does
+    -------------  ---  ---  ---  ------  -----------------------------------------------------------------
+    Ally           15%  30%  50%  70%     Positive statuses you apply to yourself and allies last X longer.
+    Cooldown       10%  15%  20%  30%     Reduces artifact cooldown time by X.
+    Cryomancer     10%  15%  20%  30%     Frost attacks deal X more damage.
+    Electromancer  10%  15%  20%  25%     Lightning attacks deal X more damage.
+    Healer         25%  35%  50%  50%     Increases healing given to yourself and allies by X.
+    Pyromancer     10%  15%  20%  20%     Fire attacks deal X more damage.
+    Shepherd       5%   10%  15%  20%     Companions take X less damage.
+    Sorcerer       10%  15%  20%  25%     Artifact attacks deal X more damage.
+    Soulmancer     10%  15%  20%  20%     Soul attacks deal X more damage.
+    Spiritual      25%  30%  35%  50%     Increases Soul capacity by X.
+    Totem Radius   20%  30%  40%  55%     Increases the area of all positive status effects by X.
+    Venomancer     10%  15%  20%  20%     Poison attacks deal X more damage.
+    Veterinarian   5%   10%  15%  20%     Defeated companions come back X faster.
+
+
+ONLY ON UNIQUE ITEMS
+
+
+    Effect             I  II  III  Unique  What it does
+    -----------------  -  --  ---  ------  --------------------------------------------------------------------
+    Boost              -  -   -    20%     Increases duration of positive statuses applied to you by X.
+    Constitution       -  -   -    30%     Increases the player's maximum health by X.
+    Jumpshot           -  -   -    6%      Increases jump shot damage dealt by X.
+    Leaper             -  -   -    50%     Jumping melee attacks deal X more damage.
+    Prodigy            -  -   -    8%      Increases experience gained by X.
+    Pyrotechnics       -  -   -    yes     Hits with this weapon explode on impact!
+    Randomancer        -  -   -    yes     Chance to grant random elemental melee buff when defeating an enemy.
+    Relic              -  -   -    6%      Restores X of max health when activating an artifact.
+    Soul Cursed        -  -   -    yes     Applies Soulsick status to enemies on hit.
+    Strengthening Hit  -  -   -    6%      Attacks have a X chance to grant the Strength status on hit.
+
+
+
+
+
+THERE ARE 8 DAMAGE TYPES (NEW)
+Melee, ranged, fire, ice, lightning, poison, soul and blast. Damage number colours show the type, e.g. purple = soul. Some unique weapons deal elemental damage instead of normal melee damage, so they get boosted by the matching artifact effect (Pyromancer, Soulmancer, etc.):
+
+
+- Soul: Soul Reaper (Scythe), Spectral Spear (Short Spear), Sculker's Bane (Twilight Dagger), Cacaphonous Cleaver (Meat Cleaver), Lullaby Blade (Cookiecutter)
+- Fire: The Burning Blade (Sword)
+- Ice: Frostbiter (Longsword), Prime Enchanter's Gauntlets (Gauntlets) (one hand)
+- Lightning: Stormcaller (Pike), Prime Enchanter's Gauntlets (Gauntlets) (other hand)
+- Poison: Venomous Fangs (Double Daggers)
+- Blast: Heartbreaker (War Hammer)
+
+
+Thanks to u/WarlordCain for the great find.
+
+
+WHAT EVERY UNIQUE WEAPON DOES (NEW)
+Uniques come with a fixed effect at the Unique value. A few have their ability built into the weapon itself instead, so the game's description is the only info.
+
+
+MELEE
+
+
+    Unique                              Fixed effect             Damage type
+    ----------------------------------  -----------------------  -----------
+    Hunter's Hatchet (Axe)              Fletcher 35%             Melee
+    Emerald Hammer (Battle Hammer)      Raider 5%                Melee
+    Elemental Staff (Battlestaff)       Randomancer              Melee
+    Slaymore (Claymore)                 Brawler 50%              Melee
+    Lullaby Blade (Cookiecutter)        Soul Cursed              Soul
+    Venomous Fangs (Double Daggers)     Venomancer 20%           Poison
+    Sift Sickles (Double Sickles)       Healer 50%               Melee
+    Golden Glaive (Glaive)              Vanguard 60%             Melee
+    Awesomeaxe (Greataxe)               Strengthening Hit 6%     Melee
+    Frostbiter (Longsword)              Cryomancer 30%           Ice
+    Carapace Mace (Mace)                Finesse 35%              Melee
+    Cacaphonous Cleaver (Meat Cleaver)  Alchemist 7%             Soul
+    Monster Masher (Mob Mallet)         Protection 25%           Melee
+    The Prospector's Pick (Pickaxe)     Prospector 20%           Melee
+    Stormcaller (Pike)                  Electromancer 25%        Lightning
+    The Thousand Cuts (Rapier)          Swiftness 30%            Melee
+    Pride of the Plains (Riftslasher)   Duelist 40%              Melee
+    Rascal's Razor (Sabre)              Acrobat 40%              Melee
+    Soul Reaper (Scythe)                Reaper 60%               Soul
+    The Burning Blade (Sword)           Pyromancer 20%           Fire
+    Lunar Sickle (Tidal Sickle)         Momentum 60%             Melee
+    Sculker's Bane (Twilight Dagger)    Soulmancer 20%           Soul
+    Heartbreaker (War Hammer)           Pyrotechnics (explodes)  Blast
+
+
+Built into the weapon (no fixed effect):
+- Spectral Spear (Short Spear): soul damage, "burns all enemies you point at"
+- Prime Enchanter's Gauntlets (Gauntlets): ice and lightning punches that apply Freezing and Conductive
+- Redstone Wrecker (Clobberer): "fire engineering" (fire built into its attack)
+- Diamond Shovel (Shovel): "blasts enemies away"
+- The Darkshard (Greatsword) and Sculker Claws (Wolf Claws): no extra effect found in the data
+
+
+RANGED
+
+
+    Unique                                 Fixed effect
+    -------------------------------------  ----------------
+    Ranger's Promise (Bow)                 Aim 25%
+    The Shackler (Crossbow)                Shackler 30%
+    The Close Ranger (Heavy Crossbow)      Point Blank 100%
+    Creaking's Reach (Longbow)             Sniper 100%
+    Paragon (Powerbow)                     Impact 30%
+    The Cross Pollinator (Rapid Crossbow)  Reload 40%
+    Harp Crossbow (Scatter Crossbow)       Ranger 60%
+    Shooting Star (Shortbow)               Evasion 20%
+    Phantom Wing (Trickbow)                Jumpshot 6%
+
+
+Built into the weapon:
+- Double Crossers (Dual Crossbows): "power up when you roll, firing with extra force"
+- Humbler Heartstring (Greatbow): special arrows that "pierce through the toughest husks"
+
+
+MORE FINDINGS (NEW)
+- The Blizzard Staff fires real projectiles, which is probably why ranged enchantments like Ricochet affect it (great find from u/LeastKaleidoscope359).
+- Armour = Item Power (how tanky you are) + set (which effects it can roll) + effects.
+
+How I got these:
+ I extracted the game's data tables and animation files and read the values directly. The exact Item Power curve is in the game's code rather than its data, so I can't give that one yet. Feel free to use the data in any way you want! Credit is greatly appreciated. 
