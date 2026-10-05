@@ -1,0 +1,26 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--content);
+  line-height: 1.4;
+}
+
+.label {
+  flex: 0 0 1.5rem;
+  font-weight: 700;
+}

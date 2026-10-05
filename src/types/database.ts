@@ -103,25 +103,40 @@ export type Database = {
       }
       enchantments: {
         Row: {
+          categories: string[]
           created_at: string
           description: string
-          gear_type: string
+          gear_types: string[]
           name: string
           slug: string
+          sources: string[]
+          tier_1: string
+          tier_2: string
+          tier_3: string
         }
         Insert: {
+          categories?: string[]
           created_at?: string
           description?: string
-          gear_type: string
+          gear_types: string[]
           name: string
           slug: string
+          sources?: string[]
+          tier_1?: string
+          tier_2?: string
+          tier_3?: string
         }
         Update: {
+          categories?: string[]
           created_at?: string
           description?: string
-          gear_type?: string
+          gear_types?: string[]
           name?: string
           slug?: string
+          sources?: string[]
+          tier_1?: string
+          tier_2?: string
+          tier_3?: string
         }
         Relationships: []
       }

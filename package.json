@@ -18,6 +18,7 @@
     "scrape:artifacts": "node --env-file=.env.local scripts/scrape-artifacts.mjs",
     "scrape:talismans": "node --env-file=.env.local scripts/scrape-talismans.mjs",
     "scrape:effects": "node --env-file=.env.local scripts/scrape-effects.mjs",
+    "scrape:enchantments": "node --env-file=.env.local scripts/scrape-enchantments.mjs",
     "sync:gear": "node --env-file=.env.local scripts/sync-gear.mjs",
     "sync:locations": "node --env-file=.env.local scripts/sync-locations.mjs",
     "sync:enemies": "node --env-file=.env.local scripts/sync-enemies.mjs",

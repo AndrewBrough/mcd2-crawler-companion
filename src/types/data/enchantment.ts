@@ -8,9 +8,17 @@ export const ENCHANTMENT_GEAR_TYPES = [
 
 export type EnchantmentGearType = (typeof ENCHANTMENT_GEAR_TYPES)[number]
 
+export type EnchantmentTier = {
+  label: string
+  text: string
+}
+
 export type Enchantment = {
   slug: string
   name: string
   description: string
-  gearType: EnchantmentGearType
+  gearTypes: Array<EnchantmentGearType>
+  tiers: Array<EnchantmentTier>
+  categories: Array<string>
+  sources: Array<string>
 }

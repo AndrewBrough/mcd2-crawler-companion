@@ -1,7 +1,8 @@
 import { supabase } from '#/lib/supabase/client'
-import { compactMap, mapDrop, mapNamedRef, type NamedEmbed } from '#/lib/catalog/map-drop'
+import { compactMap, mapDrop, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
-import { GEAR_RARITIES, type GearListItem, type GearRarity } from '#/types/data/gear'
+import { ENCHANTMENT_GEAR_TYPES, type EnchantmentGearType } from '#/types/data/enchantment'
+import { GEAR_RARITIES, type GearListItem, type GearRarity, type GearType } from '#/types/data/gear'
 
 type EffectLink = { effect_id: string }
 
@@ -36,6 +37,25 @@ function setPools(set: SetEmbed): { archetypeNames: Array<string>; effectSlugs: 
   }
 }
 
+type EnchantmentNameRow = {
+  slug: string
+  name: string
+  gear_types: Array<string>
+}
+
+function enchantmentTypeForGear(type: GearType): EnchantmentGearType | null {
+  if (
+    type === 'armor_helmet' ||
+    type === 'armor_chest' ||
+    type === 'armor_leggings' ||
+    type === 'armor_boots'
+  ) {
+    return 'armor'
+  }
+
+  return ENCHANTMENT_GEAR_TYPES.find((entry) => entry === type) ?? null
+}
+
 type GearQueryRow = {
   name: string
   slug: string
@@ -44,16 +64,16 @@ type GearQueryRow = {
   type: GearListItem['type']
   variants: Array<string> | null
   sets: SetEmbed
-  gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
   enemy_gear_drops: Array<{ drop_rate: number | string; enemy: NamedEmbed }> | null
 }
 
 export async function getGear(): Promise<Array<GearListItem>> {
-  const { data, error } = await supabase
-    .from('gear')
-    .select(
-      `
+  const [gearResult, enchantmentResult] = await Promise.all([
+    supabase
+      .from('gear')
+      .select(
+        `
         name,
         slug,
         description,
@@ -64,16 +84,24 @@ export async function getGear(): Promise<Array<GearListItem>> {
           set_archetypes ( archetypes ( name, archetype_effects ( effect_id ) ) ),
           set_effects ( effect_id )
         ),
-        gear_enchantments ( enchantment:enchantments ( slug, name ) ),
         location_gear_drops ( drop_rate, location:locations ( slug, name ) ),
         enemy_gear_drops ( drop_rate, enemy:enemies ( slug, name ) )
       `,
-    )
-    .order('name')
+      )
+      .order('name'),
+    supabase.from('enchantments').select('slug, name, gear_types').order('name'),
+  ])
 
-  if (error) {
-    throw new CatalogQueryError(error.message)
+  if (gearResult.error) {
+    throw new CatalogQueryError(gearResult.error.message)
   }
+
+  if (enchantmentResult.error) {
+    throw new CatalogQueryError(enchantmentResult.error.message)
+  }
+
+  const enchantments = (enchantmentResult.data ?? []) as Array<EnchantmentNameRow>
+  const data = gearResult.data
 
   const rows = ((data ?? []) as Array<GearQueryRow>).flatMap((row) => {
     const rarity = row.rarity.filter((value): value is GearRarity =>
@@ -91,7 +119,11 @@ export async function getGear(): Promise<Array<GearListItem>> {
         description: row.description,
         rarity,
         type: row.type,
-        enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
+        enchantments: enchantments.flatMap((enchantment) =>
+          enchantment.gear_types.includes(enchantmentTypeForGear(row.type) ?? '')
+            ? [{ slug: enchantment.slug, name: enchantment.name }]
+            : [],
+        ),
         ...setPools(row.sets),
         variants: row.variants ?? [],
         locationSources: compactMap(row.location_gear_drops, (entry) =>

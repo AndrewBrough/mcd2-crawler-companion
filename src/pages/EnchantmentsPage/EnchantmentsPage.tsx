@@ -21,7 +21,7 @@ export function EnchantmentsPage({ enchantments, initialSlug = null }: Enchantme
   const [typeFilter, setTypeFilter] = useState<EnchantmentGearType | null>(null)
   const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const items = typeFilter
-    ? enchantments.filter((item) => item.gearType === typeFilter)
+    ? enchantments.filter((item) => item.gearTypes.includes(typeFilter))
     : enchantments
   const selected =
     enchantments.find((item) => item.slug === selectedSlug) ?? null
@@ -43,7 +43,8 @@ export function EnchantmentsPage({ enchantments, initialSlug = null }: Enchantme
           emptyCatalog="No enchantments in the catalog yet."
           extraSearchText={(item) => [
             item.description,
-            formatGearType(item.gearType),
+            ...item.gearTypes.map((type) => formatGearType(type)),
+            ...item.tiers.map((tier) => tier.text),
           ]}
           query={query}
           onQueryChange={setQuery}
