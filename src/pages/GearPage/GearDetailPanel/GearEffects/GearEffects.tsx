@@ -9,7 +9,7 @@ export type GearEffectsProps = {
   effects: Array<Effect>
   archetypeNames: Array<string>
   pinnedSlugs?: ReadonlyArray<string>
-  onPinEffect?: (slug: string) => void
+  onPinEffect?: (slug: string, replaceSlug?: string) => void
   uniqueEffect?: Effect | null
 }
 

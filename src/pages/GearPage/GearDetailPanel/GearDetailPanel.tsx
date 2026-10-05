@@ -16,7 +16,7 @@ export type GearDetailPanelProps = {
   effects: Array<Effect>
   onVariantSelect: (slug: string) => void
   pinnedEffectSlugs?: Array<string>
-  onPinEffect?: (slug: string) => void
+  onPinEffect?: (slug: string, replaceSlug?: string) => void
   pinnedEnchantmentSlug?: string | null
   onPinEnchantment?: (slug: string) => void
   footer?: ReactNode

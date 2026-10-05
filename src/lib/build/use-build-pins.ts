@@ -46,7 +46,12 @@ export function useBuildPins(search: BuildSearch) {
     return search[key] ?? null
   }
 
-  function toggleEffect(socketId: string, slug: string, allowed: ReadonlySet<string>) {
+  function toggleEffect(
+    socketId: string,
+    slug: string,
+    allowed: ReadonlySet<string>,
+    replaceSlug?: string,
+  ) {
     if (!isPinnableSocketId(socketId) || !allowed.has(slug)) {
       return
     }
@@ -54,12 +59,13 @@ export function useBuildPins(search: BuildSearch) {
     updateSearch((previous) => {
       const next = { ...previous }
       const current = readEffectPins(previous, socketId).filter((item) => allowed.has(item))
-      const pinned = current.includes(slug)
-      const packed = pinned
-        ? current.filter((item) => item !== slug)
-        : current.length >= EFFECT_PIN_CAP
-          ? current
-          : [...current, slug]
+      const packed = replaceSlug
+        ? current.map((item) => (item === replaceSlug ? slug : item))
+        : current.includes(slug)
+          ? current.filter((item) => item !== slug)
+          : current.length >= EFFECT_PIN_CAP
+            ? current
+            : [...current, slug]
       writeEffectPins(next, socketId, packed)
       return next
     })
@@ -99,7 +105,7 @@ export function useBuildPins(search: BuildSearch) {
 
 export type GearPinProps = {
   pinnedEffectSlugs?: Array<string>
-  onPinEffect?: (slug: string) => void
+  onPinEffect?: (slug: string, replaceSlug?: string) => void
   pinnedEnchantmentSlug?: string | null
   onPinEnchantment?: (slug: string) => void
 }
@@ -131,7 +137,7 @@ export function useGearPins(
 
   return {
     pinnedEffectSlugs: pins.effectPins(socketId).filter((slug) => allowedEffects.has(slug)),
-    onPinEffect: (slug) => pins.toggleEffect(socketId, slug, allowedEffects),
+    onPinEffect: (slug, replaceSlug) => pins.toggleEffect(socketId, slug, allowedEffects, replaceSlug),
     pinnedEnchantmentSlug: enchantmentSlug && allowedEnchantments.has(enchantmentSlug) ? enchantmentSlug : null,
     onPinEnchantment: (slug) => pins.toggleEnchantment(socketId, slug, allowedEnchantments),
   }

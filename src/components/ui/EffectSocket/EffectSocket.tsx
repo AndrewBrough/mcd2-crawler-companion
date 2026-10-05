@@ -8,7 +8,7 @@ import styles from './EffectSocket.module.css'
 export type EffectSocketProps = {
   effect?: Effect | null
   options?: Array<Effect>
-  onSelect?: (slug: string) => void
+  onSelect?: (slug: string, replaceSlug?: string) => void
   onChoose?: (slug: string) => void
   unique?: boolean
 }
@@ -46,7 +46,7 @@ export function EffectSocket({ effect, options = [], onSelect, onChoose, unique 
 
   function choose(slug: string) {
     setOpen(false)
-    onSelect?.(slug)
+    onSelect?.(slug, effect && slug !== effect.slug ? effect.slug : undefined)
   }
 
   if (effect && onChoose) {
