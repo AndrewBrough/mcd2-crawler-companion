@@ -51,10 +51,14 @@ export function parseCsv(text) {
 }
 
 function sqlLiteral(value) {
-  return `'${value.replaceAll("'", "''")}'`
+  if (Array.isArray(value)) {
+    return `array[${value.map((entry) => sqlLiteral(entry)).join(', ')}]::text[]`
+  }
+
+  return `'${String(value).replaceAll("'", "''")}'`
 }
 
-async function readCatalogCsv(csvFile, required, enums) {
+async function readCatalogCsv(csvFile, required, enums, lists) {
   const csvPath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     '../supabase/seeds',
@@ -89,14 +93,36 @@ async function readCatalogCsv(csvFile, required, enums) {
       }
     }
 
+    for (const [column, allowed] of Object.entries(lists)) {
+      const values = record[column]
+        .split('|')
+        .map((value) => value.trim())
+        .filter(Boolean)
+
+      if (!values.length || values.some((value) => !allowed.includes(value))) {
+        throw new Error(`${csvFile} row ${rowNumber + 2} has invalid ${column}: ${record[column]}`)
+      }
+
+      record[column] = values
+    }
+
     return record
   })
 }
 
-export async function syncCatalogCsv({ table, csvFile, csvFiles, required, enums = {} }) {
+export async function syncCatalogCsv({
+  table,
+  csvFile,
+  csvFiles,
+  required,
+  enums = {},
+  lists = {},
+}) {
   const files = csvFiles ?? [csvFile]
   const prune = process.argv.includes('--prune')
-  const rows = (await Promise.all(files.map((file) => readCatalogCsv(file, required, enums)))).flat()
+  const rows = (
+    await Promise.all(files.map((file) => readCatalogCsv(file, required, enums, lists)))
+  ).flat()
 
   const slugs = rows.map((item) => item.slug)
   const duplicateSlug = slugs.find((slug, i) => slugs.indexOf(slug) !== i)

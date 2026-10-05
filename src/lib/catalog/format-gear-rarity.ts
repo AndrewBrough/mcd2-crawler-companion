@@ -1,7 +1,9 @@
 import type { GearRarity } from '#/types/data/gear'
 
 const gearRarityLabels = {
-  regular: 'Regular',
+  common: 'Common',
+  rare: 'Rare',
+  special: 'Special',
   unique: 'Unique',
 } satisfies Record<GearRarity, string>
 

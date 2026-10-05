@@ -1,153 +1,153 @@
 name,slug,type,description,rarity
 Alchemist Top Hat,alchemist-top-hat,armor_helmet,An alchemist's old top hat that casts a tall shadow when healing and shielding allies.,unique
-Beekeeper Veil,beekeeper-veil,armor_helmet,,regular
-Bounty Hunter Helmet,bounty-hunter-helmet,armor_helmet,"Made from dark metal and bone, fit for the enduring bounty hunter.}}",regular
-Dauntless Horns,dauntless-horns,armor_helmet,,regular
-Disciple Mask,disciple-mask,armor_helmet,A true warrior isn't scared to show their face but hides it so as not to scare the world.,regular
-Dreamruler Crown,dreamruler-crown,armor_helmet,,regular
+Beekeeper Veil,beekeeper-veil,armor_helmet,,common|rare|special
+Bounty Hunter Helmet,bounty-hunter-helmet,armor_helmet,"Made from dark metal and bone, fit for the enduring bounty hunter.}}",common|rare|special
+Dauntless Horns,dauntless-horns,armor_helmet,,common|rare|special
+Disciple Mask,disciple-mask,armor_helmet,A true warrior isn't scared to show their face but hides it so as not to scare the world.,common|rare|special
+Dreamruler Crown,dreamruler-crown,armor_helmet,,common|rare|special
 Fly Agaric Cap,fly-agaric-cap,armor_helmet,An enchanted mushroom cap for poisoned punches and toxic terror.,unique
 Hivemind Hardhat,hivemind-hardhat,armor_helmet,A hardhat imbued with magical beeswax to make positive statuses stick like honey.,unique
-Humbler Antenna,humbler-antenna,armor_helmet,,regular
-Mad Sifter Mask,mad-sifter-mask,armor_helmet,,regular
-Monarch Crown,monarch-crown,armor_helmet,,regular
-Monstrosity Horns,monstrosity-horns,armor_helmet,,regular
-Mushroom Cap,mushroom-cap,armor_helmet,Eating the boots is not advised. Side effects may include suspicious behaviour and cold ears.,regular
-Mystic Circlet,mystic-circlet,armor_helmet,A Magician's circlet with an obsidian stone scavenged from a broken portal.,regular
-Nomad Hood,nomad-hood,armor_helmet,A rainproof hood for wandering the Overworld in search of danger.,regular
+Humbler Antenna,humbler-antenna,armor_helmet,,common|rare|special
+Mad Sifter Mask,mad-sifter-mask,armor_helmet,,common|rare|special
+Monarch Crown,monarch-crown,armor_helmet,,common|rare|special
+Monstrosity Horns,monstrosity-horns,armor_helmet,,common|rare|special
+Mushroom Cap,mushroom-cap,armor_helmet,Eating the boots is not advised. Side effects may include suspicious behaviour and cold ears.,common|rare|special
+Mystic Circlet,mystic-circlet,armor_helmet,A Magician's circlet with an obsidian stone scavenged from a broken portal.,common|rare|special
+Nomad Hood,nomad-hood,armor_helmet,A rainproof hood for wandering the Overworld in search of danger.,common|rare|special
 Oracle Crown,oracle-crown,armor_helmet,A striking crown forged in a thunderstorm for a fighter with bright ideas.,unique
-Packleader Muzzle,packleader-muzzle,armor_helmet,,regular
-Phantom Helmet,phantom-helmet,armor_helmet,Sturdy helmet forged into the sleepless night long ago.,regular
-Protector Helmet,protector-helmet,armor_helmet,,regular
-Ranger Cap,ranger-cap,armor_helmet,,regular
-Realmreacher Hat,realmreacher-hat,armor_helmet,A fancy hat made from sticky substances only found in the new dimension.,regular
-Redstone Helmet,redstone-helmet,armor_helmet,,regular
-Rimefrost Icecap,rimefrost-icecap,armor_helmet,,regular
+Packleader Muzzle,packleader-muzzle,armor_helmet,,common|rare|special
+Phantom Helmet,phantom-helmet,armor_helmet,Sturdy helmet forged into the sleepless night long ago.,common|rare|special
+Protector Helmet,protector-helmet,armor_helmet,,common|rare|special
+Ranger Cap,ranger-cap,armor_helmet,,common|rare|special
+Realmreacher Hat,realmreacher-hat,armor_helmet,A fancy hat made from sticky substances only found in the new dimension.,common|rare|special
+Redstone Helmet,redstone-helmet,armor_helmet,,common|rare|special
+Rimefrost Icecap,rimefrost-icecap,armor_helmet,,common|rare|special
 Rover Visor,rover-visor,armor_helmet,,unique
-Sage Headband,sage-headband,armor_helmet,,regular
-Scamp Hood,scamp-hood,armor_helmet,,regular
-Scoundrel Cowl,scoundrel-cowl,armor_helmet,,regular
-Sculk Digger Hood,sculk-digger-hood,armor_helmet,"Sculk-infused hood, tailored by the dim glow of Warden horns.",regular
-Sculker Mask,sculker-mask,armor_helmet,,regular
+Sage Headband,sage-headband,armor_helmet,,common|rare|special
+Scamp Hood,scamp-hood,armor_helmet,,common|rare|special
+Scoundrel Cowl,scoundrel-cowl,armor_helmet,,common|rare|special
+Sculk Digger Hood,sculk-digger-hood,armor_helmet,"Sculk-infused hood, tailored by the dim glow of Warden horns.",common|rare|special
+Sculker Mask,sculker-mask,armor_helmet,,common|rare|special
 Sharpshooter Fedora,sharpshooter-fedora,armor_helmet,A flashy fedora with an attached monocle scope for aiming multiple arrows at once.,unique
-Sifter Hood,sifter-hood,armor_helmet,A cute hood with adorable ears to listen for sculking predators.,regular
-Sorcerer Hat,sorcerer-hat,armor_helmet,Its brim is inscribed with powerful runes that prevent dandruff.,regular
+Sifter Hood,sifter-hood,armor_helmet,A cute hood with adorable ears to listen for sculking predators.,common|rare|special
+Sorcerer Hat,sorcerer-hat,armor_helmet,Its brim is inscribed with powerful runes that prevent dandruff.,common|rare|special
 Soul Corruptor Mask,soul-corruptor-mask,armor_helmet,,unique
-Steel Wool Cap,steel-wool-cap,armor_helmet,,regular
-Treehugger Mask,treehugger-mask,armor_helmet,"If you can't see the forest for the trees, you're probably wearing it the wrong way.",regular
+Steel Wool Cap,steel-wool-cap,armor_helmet,,common|rare|special
+Treehugger Mask,treehugger-mask,armor_helmet,"If you can't see the forest for the trees, you're probably wearing it the wrong way.",common|rare|special
 Twisted Warden Blindfold,twisted-warden-blindfold,armor_helmet,,unique
-Wolfpack Hood,wolfpack-hood,armor_helmet,,regular
+Wolfpack Hood,wolfpack-hood,armor_helmet,,common|rare|special
 Woodsprite Crown,woodsprite-crown,armor_helmet,A dark oak mask crowned with enchanted flowers that grant natural resistance to your pets.|rarity=Unique}},unique
 Alchemist Overcoat,alchemist-overcoat,armor_chest,An alchemist’s old overcoat that grants extra power to all artifacts.,unique
-Beekeeper Suit,beekeeper-suit,armor_chest,,regular
-Bounty Hunter Chestplate,bounty-hunter-chestplate,armor_chest,"Made from dark metal and bone, fit for the tireless bounty hunter.",regular
-Dauntless Pauldrons,dauntless-pauldrons,armor_chest,,regular
-Disciple Robe,disciple-robe,armor_chest,,regular
-Dreamruler Cover,dreamruler-cover,armor_chest,,regular
+Beekeeper Suit,beekeeper-suit,armor_chest,,common|rare|special
+Bounty Hunter Chestplate,bounty-hunter-chestplate,armor_chest,"Made from dark metal and bone, fit for the tireless bounty hunter.",common|rare|special
+Dauntless Pauldrons,dauntless-pauldrons,armor_chest,,common|rare|special
+Disciple Robe,disciple-robe,armor_chest,,common|rare|special
+Dreamruler Cover,dreamruler-cover,armor_chest,,common|rare|special
 Fly Agaric Coat,fly-agaric-coat,armor_chest,A cute coat made of mycelium with natural healing properties.|rarity=Unique}},unique
 Hivemind Thorax,hivemind-thorax,armor_chest,,unique
 Humbler Carapace,humbler-carapace,armor_chest,A carapace chestplate imbued with the healing properties of humbler husk.,unique
 Mad Sifter Vest,mad-sifter-vest,armor_chest,An enchanted vest fashioned like an enraged Sifter that grants enraged power to all artifacts.,unique
-Monarch Mantle,monarch-mantle,armor_chest,,regular
-Monstrosity Armor (Chestplate),monstrosity-armor-chestplate,armor_chest,,regular
-Mushroom Robe,mushroom-robe,armor_chest,Eating the robe is not advised. Side effects may include suspicious behavior and cold shoulders.,regular
-Mystic Robe,mystic-robe,armor_chest,An Evoker's robe retailored to suit a far more handsome wearer.,regular
-Nomad Chestplate,nomad-chestplate,armor_chest,A sturdy chestplate for roaming the Overworld in search of justice.,regular
-Oracle Mantle,oracle-mantle,armor_chest,,regular
-Packleader Hide,packleader-hide,armor_chest,,regular
-Phantom Chestplate,phantom-chestplate,armor_chest,,regular
-Protector Chestplate,protector-chestplate,armor_chest,Passed down for generations to serve a chosen protector. A heavy burden!,regular
-Ranger Jacket,ranger-jacket,armor_chest,,regular
-Realmreacher Robe,realmreacher-robe,armor_chest,,regular
-Redstone Chestplate,redstone-chestplate,armor_chest,,regular
+Monarch Mantle,monarch-mantle,armor_chest,,common|rare|special
+Monstrosity Armor (Chestplate),monstrosity-armor-chestplate,armor_chest,,common|rare|special
+Mushroom Robe,mushroom-robe,armor_chest,Eating the robe is not advised. Side effects may include suspicious behavior and cold shoulders.,common|rare|special
+Mystic Robe,mystic-robe,armor_chest,An Evoker's robe retailored to suit a far more handsome wearer.,common|rare|special
+Nomad Chestplate,nomad-chestplate,armor_chest,A sturdy chestplate for roaming the Overworld in search of justice.,common|rare|special
+Oracle Mantle,oracle-mantle,armor_chest,,common|rare|special
+Packleader Hide,packleader-hide,armor_chest,,common|rare|special
+Phantom Chestplate,phantom-chestplate,armor_chest,,common|rare|special
+Protector Chestplate,protector-chestplate,armor_chest,Passed down for generations to serve a chosen protector. A heavy burden!,common|rare|special
+Ranger Jacket,ranger-jacket,armor_chest,,common|rare|special
+Realmreacher Robe,realmreacher-robe,armor_chest,,common|rare|special
+Redstone Chestplate,redstone-chestplate,armor_chest,,common|rare|special
 Rimefrost Armor (Chestplate),rimefrost-armor-chestplate,armor_chest,,unique
 Rover Pauldrons,rover-pauldrons,armor_chest,,unique
-Sage Tunic,sage-tunic,armor_chest,,regular
-Scamp Jacket,scamp-jacket,armor_chest,Hold extra space for keeping tricks up your sleeves.,regular
-Scoundrel Blazer,scoundrel-blazer,armor_chest,,regular
-Sculk Digger Robe,sculk-digger-robe,armor_chest,,regular
-Sculker Robe,sculker-robe,armor_chest,A ferocious robe as durable as skulker hide.,regular
-Sharpshooter Duster,sharpshooter-duster,armor_chest,,regular
-Sifter Robe,sifter-robe,armor_chest,For looking fabulous as you defend your nest against predators.,regular
-Sorcerer Robe,sorcerer-robe,armor_chest,Its hems are stitched with powerful runes that stop your armpits from staining.,regular
+Sage Tunic,sage-tunic,armor_chest,,common|rare|special
+Scamp Jacket,scamp-jacket,armor_chest,Hold extra space for keeping tricks up your sleeves.,common|rare|special
+Scoundrel Blazer,scoundrel-blazer,armor_chest,,common|rare|special
+Sculk Digger Robe,sculk-digger-robe,armor_chest,,common|rare|special
+Sculker Robe,sculker-robe,armor_chest,A ferocious robe as durable as skulker hide.,common|rare|special
+Sharpshooter Duster,sharpshooter-duster,armor_chest,,common|rare|special
+Sifter Robe,sifter-robe,armor_chest,For looking fabulous as you defend your nest against predators.,common|rare|special
+Sorcerer Robe,sorcerer-robe,armor_chest,Its hems are stitched with powerful runes that stop your armpits from staining.,common|rare|special
 Soul Corruptor Duster,soul-corruptor-duster,armor_chest,,unique
-Steel Wool Sweater,steel-wool-sweater,armor_chest,,regular
-Treehugger Chestplate,treehugger-chestplate,armor_chest,Your enemes will soon realize they're barking up the wrong tree.,regular
+Steel Wool Sweater,steel-wool-sweater,armor_chest,,common|rare|special
+Treehugger Chestplate,treehugger-chestplate,armor_chest,Your enemes will soon realize they're barking up the wrong tree.,common|rare|special
 Twisted Warden Vest,twisted-warden-vest,armor_chest,A true master of the Deep Dark can dodge and duck without thinking.,unique
-Wolfpack Jacket,wolfpack-jacket,armor_chest,,regular
-Woodsprite Barkpiece,woodsprite-barkpiece,armor_chest,,regular
+Wolfpack Jacket,wolfpack-jacket,armor_chest,,common|rare|special
+Woodsprite Barkpiece,woodsprite-barkpiece,armor_chest,,common|rare|special
 Alchemist Trousers,alchemist-trousers,armor_leggings,An alchemist’s old trousers that generate health from all artifacts.,unique
-Beekeeper Leggings,beekeeper-leggings,armor_leggings,"As far as leggings go, these truly are the bee’s knees.",regular
-Bounty Hunter Shinguards,bounty-hunter-shinguards,armor_leggings,,regular
-Dauntless Greaves,dauntless-greaves,armor_leggings,,regular
-Disciple Leggings,disciple-leggings,armor_leggings,A true warrior wears leggings. Even warriors need to be comfy.,regular
+Beekeeper Leggings,beekeeper-leggings,armor_leggings,"As far as leggings go, these truly are the bee’s knees.",common|rare|special
+Bounty Hunter Shinguards,bounty-hunter-shinguards,armor_leggings,,common|rare|special
+Dauntless Greaves,dauntless-greaves,armor_leggings,,common|rare|special
+Disciple Leggings,disciple-leggings,armor_leggings,A true warrior wears leggings. Even warriors need to be comfy.,common|rare|special
 Dreamruler Pyjamas,dreamruler-pyjamas,armor_leggings,"A pair of pyjama pants as light as shadows, helping you sneak through your enemy's nightmares.}}",unique
 Fly Agaric Trousers,fly-agaric-trousers,armor_leggings,Don't eat the trousers! They are poisonous to humans but grant extra strength to your pets.,unique
-Hivemind Trousers,hivemind-trousers,armor_leggings,,regular
+Hivemind Trousers,hivemind-trousers,armor_leggings,,common|rare|special
 Humbler Greaves,humbler-greaves,armor_leggings,,unique
-Mad Sifter Slacks,mad-sifter-slacks,armor_leggings,,regular
-Monarch Sash,monarch-sash,armor_leggings,,regular
-Monstrosity Greaves,monstrosity-greaves,armor_leggings,,regular
-Mushroom Leggings,mushroom-leggings,armor_leggings,,regular
-Mystic Leggings,mystic-leggings,armor_leggings,An Evoker's leggings repurposed for a hero. Let's hope somebody washed them first!,regular
-Nomad Leggings,nomad-leggings,armor_leggings,A pair of durable leggings for trekking the Overworld in search of purpose.,regular
+Mad Sifter Slacks,mad-sifter-slacks,armor_leggings,,common|rare|special
+Monarch Sash,monarch-sash,armor_leggings,,common|rare|special
+Monstrosity Greaves,monstrosity-greaves,armor_leggings,,common|rare|special
+Mushroom Leggings,mushroom-leggings,armor_leggings,,common|rare|special
+Mystic Leggings,mystic-leggings,armor_leggings,An Evoker's leggings repurposed for a hero. Let's hope somebody washed them first!,common|rare|special
+Nomad Leggings,nomad-leggings,armor_leggings,A pair of durable leggings for trekking the Overworld in search of purpose.,common|rare|special
 Oracle Tights,oracle-tights,armor_leggings,A pair of flexible tights for fast access to artifacts.,unique
-Packleader Fur Chaps,packleader-fur-chaps,armor_leggings,,regular
-Phantom Pants,phantom-pants,armor_leggings,,regular
-Protector Shinguards,protector-shinguards,armor_leggings,,regular
-Ranger Leggings,ranger-leggings,armor_leggings,"You could sit in these comfy leggings for days, just waiting for the perfect shot.",regular
-Realmreacher Leggings,realmreacher-leggings,armor_leggings,A pair of lush leggings woven from moist materials only found in the new dimension.,regular
-Redstone Shinguards,redstone-shinguards,armor_leggings,For kicking two birds with one redstone.,regular
+Packleader Fur Chaps,packleader-fur-chaps,armor_leggings,,common|rare|special
+Phantom Pants,phantom-pants,armor_leggings,,common|rare|special
+Protector Shinguards,protector-shinguards,armor_leggings,,common|rare|special
+Ranger Leggings,ranger-leggings,armor_leggings,"You could sit in these comfy leggings for days, just waiting for the perfect shot.",common|rare|special
+Realmreacher Leggings,realmreacher-leggings,armor_leggings,A pair of lush leggings woven from moist materials only found in the new dimension.,common|rare|special
+Redstone Shinguards,redstone-shinguards,armor_leggings,For kicking two birds with one redstone.,common|rare|special
 Rimefrost Longjohns,rimefrost-longjohns,armor_leggings,,unique
 Rover Gaiters,rover-gaiters,armor_leggings,,unique
-Sage Belt,sage-belt,armor_leggings,,regular
-Scamp Leggings,scamp-leggings,armor_leggings,For when you need to leg it fast.,regular
-Scoundrel Chaps,scoundrel-chaps,armor_leggings,,regular
-Sculk Digger Leggings,sculk-digger-leggings,armor_leggings,,regular
-Sculker Slacks,sculker-slacks,armor_leggings,Don't slack around. Get busy sculking!,regular
-Sharpshooter Chaps,sharpshooter-chaps,armor_leggings,,regular
-Sifter Leggings,sifter-leggings,armor_leggings,These will help you survive the unforgiving tides of the new dimension.,regular
-Sorcerer Leggings,sorcerer-leggings,armor_leggings,,regular
+Sage Belt,sage-belt,armor_leggings,,common|rare|special
+Scamp Leggings,scamp-leggings,armor_leggings,For when you need to leg it fast.,common|rare|special
+Scoundrel Chaps,scoundrel-chaps,armor_leggings,,common|rare|special
+Sculk Digger Leggings,sculk-digger-leggings,armor_leggings,,common|rare|special
+Sculker Slacks,sculker-slacks,armor_leggings,Don't slack around. Get busy sculking!,common|rare|special
+Sharpshooter Chaps,sharpshooter-chaps,armor_leggings,,common|rare|special
+Sifter Leggings,sifter-leggings,armor_leggings,These will help you survive the unforgiving tides of the new dimension.,common|rare|special
+Sorcerer Leggings,sorcerer-leggings,armor_leggings,,common|rare|special
 Soul Corruptor Sash,soul-corruptor-sash,armor_leggings,,unique
-Steel Wool Leggings,steel-wool-leggings,armor_leggings,,regular
-Treehugger Leggings,treehugger-leggings,armor_leggings,For when you need to make like a tree and leave.,regular
+Steel Wool Leggings,steel-wool-leggings,armor_leggings,,common|rare|special
+Treehugger Leggings,treehugger-leggings,armor_leggings,For when you need to make like a tree and leave.,common|rare|special
 Twisted Warden Tights,twisted-warden-tights,armor_leggings,A true master of the Deep Dark doesn't need to wear anything but shadows... and perhaps a pair of tights.,unique
-Wolfpack Leggings,wolfpack-leggings,armor_leggings,,regular
+Wolfpack Leggings,wolfpack-leggings,armor_leggings,,common|rare|special
 Woodsprite Trunks,woodsprite-trunks,armor_leggings,A pair of thorned treetrunk leggings for prickly kicking back when under attack.,unique
 Alchemist Loafers,alchemist-loafers,armor_boots,An alchemist's old loafers with stacked soles AND stacked with souls!,unique
-Beekeeper Boots,beekeeper-boots,armor_boots,Adds a buzz to your step and a sting to your kicks}},regular
-Bounty Hunter Boots,bounty-hunter-boots,armor_boots,"Made from dark metal and bone, fit for the unwavering bounty hunter.",regular
-Dauntless Sabatons,dauntless-sabatons,armor_boots,,regular
-Disciple Wraps,disciple-wraps,armor_boots,,regular
-Dreamruler Slippers,dreamruler-slippers,armor_boots,,regular
-Fly Agaric Galoshes,fly-agaric-galoshes,armor_boots,,regular
+Beekeeper Boots,beekeeper-boots,armor_boots,Adds a buzz to your step and a sting to your kicks}},common|rare|special
+Bounty Hunter Boots,bounty-hunter-boots,armor_boots,"Made from dark metal and bone, fit for the unwavering bounty hunter.",common|rare|special
+Dauntless Sabatons,dauntless-sabatons,armor_boots,,common|rare|special
+Disciple Wraps,disciple-wraps,armor_boots,,common|rare|special
+Dreamruler Slippers,dreamruler-slippers,armor_boots,,common|rare|special
+Fly Agaric Galoshes,fly-agaric-galoshes,armor_boots,,common|rare|special
 Hivemind Stingers,hivemind-stingers,armor_boots,,unique
-Humbler Tarsi,humbler-tarsi,armor_boots,,regular
+Humbler Tarsi,humbler-tarsi,armor_boots,,common|rare|special
 Mad Sifter Paws,mad-sifter-paws,armor_boots,"A pair of boots fashioned like Sifter paws, just as quick to deflect ranged attacks.",unique
 Monarch Talons,monarch-talons,armor_boots,A pair of regal boots with sharp talons. Be the top of the ecosystem in every dimension.,unique
-Monstrosity Stompers,monstrosity-stompers,armor_boots,,regular
-Mushroom Boots,mushroom-boots,armor_boots,Eating the boots is not advised. Side effects may include suspicious behaviour and cold feet.,regular
-Mystic Boots,mystic-boots,armor_boots,An Evoker's boots repurposed for kicking Illager butt with an iron toe to boot.}},regular
-Nomad Boots,nomad-boots,armor_boots,A pair of reliable boots for traversing the Overworld in search of adventure.,regular
-Oracle Sandals,oracle-sandals,armor_boots,,regular
-Packleader Paws,packleader-paws,armor_boots,,regular
-Phantom Boots,phantom-boots,armor_boots,,regular
-Protector Boots,protector-boots,armor_boots,Passed down for generations to serve a chosen protector. Big shoes to fill!,regular
-Ranger Boots,ranger-boots,armor_boots,For tracking down wild prey or unsuspecting enemies.,regular
-Realmreacher Boots,realmreacher-boots,armor_boots,A pair of delicious boots crafted from bouncy blocks only found in the new dimension.,regular
-Redstone Boots,redstone-boots,armor_boots,Cobbled from the rubble of a Redstone Monstrosity.,regular
+Monstrosity Stompers,monstrosity-stompers,armor_boots,,common|rare|special
+Mushroom Boots,mushroom-boots,armor_boots,Eating the boots is not advised. Side effects may include suspicious behaviour and cold feet.,common|rare|special
+Mystic Boots,mystic-boots,armor_boots,An Evoker's boots repurposed for kicking Illager butt with an iron toe to boot.}},common|rare|special
+Nomad Boots,nomad-boots,armor_boots,A pair of reliable boots for traversing the Overworld in search of adventure.,common|rare|special
+Oracle Sandals,oracle-sandals,armor_boots,,common|rare|special
+Packleader Paws,packleader-paws,armor_boots,,common|rare|special
+Phantom Boots,phantom-boots,armor_boots,,common|rare|special
+Protector Boots,protector-boots,armor_boots,Passed down for generations to serve a chosen protector. Big shoes to fill!,common|rare|special
+Ranger Boots,ranger-boots,armor_boots,For tracking down wild prey or unsuspecting enemies.,common|rare|special
+Realmreacher Boots,realmreacher-boots,armor_boots,A pair of delicious boots crafted from bouncy blocks only found in the new dimension.,common|rare|special
+Redstone Boots,redstone-boots,armor_boots,Cobbled from the rubble of a Redstone Monstrosity.,common|rare|special
 Rimefrost Plodders,rimefrost-plodders,armor_boots,,unique
 Rover Sabatons,rover-sabatons,armor_boots,A pair of durable iron boots that keep you on your toes when in danger.,unique
-Sage Wraps,sage-wraps,armor_boots,,regular
-Scamp Sneakers,scamp-sneakers,armor_boots,,regular
-Scoundrel Sneakers,scoundrel-sneakers,armor_boots,,regular
-Sculk Digger Boots,sculk-digger-boots,armor_boots,"Sculk-infused boots, cobbled by the dim glow of Warden horns.",regular
-Sculker Boots,sculker-boots,armor_boots,,regular
-Sharpshooter Spurs,sharpshooter-spurs,armor_boots,,regular
-Sifter Boots,sifter-boots,armor_boots,Soft boots for running home to warn your nest of predators.,regular
-Sorcerer Boots,sorcerer-boots,armor_boots,,regular
+Sage Wraps,sage-wraps,armor_boots,,common|rare|special
+Scamp Sneakers,scamp-sneakers,armor_boots,,common|rare|special
+Scoundrel Sneakers,scoundrel-sneakers,armor_boots,,common|rare|special
+Sculk Digger Boots,sculk-digger-boots,armor_boots,"Sculk-infused boots, cobbled by the dim glow of Warden horns.",common|rare|special
+Sculker Boots,sculker-boots,armor_boots,,common|rare|special
+Sharpshooter Spurs,sharpshooter-spurs,armor_boots,,common|rare|special
+Sifter Boots,sifter-boots,armor_boots,Soft boots for running home to warn your nest of predators.,common|rare|special
+Sorcerer Boots,sorcerer-boots,armor_boots,,common|rare|special
 Soul Corruptor Sandals,soul-corruptor-sandals,armor_boots,,unique
-Steel Wool Boots,steel-wool-boots,armor_boots,,regular
-Treehugger Clogs,treehugger-clogs,armor_boots,For a traveler who loves walking in the woods.,regular
+Steel Wool Boots,steel-wool-boots,armor_boots,,common|rare|special
+Treehugger Clogs,treehugger-clogs,armor_boots,For a traveler who loves walking in the woods.,common|rare|special
 Twisted Warden Sneakers,twisted-warden-sneakers,armor_boots,,unique
-Wolfpack Boots,wolfpack-boots,armor_boots,,regular
+Wolfpack Boots,wolfpack-boots,armor_boots,,common|rare|special
 Woodsprite Root Boots,woodsprite-root-boots,armor_boots,A pair of root boots to keep you grounded with endlessly springing twigs to fletch arrows.,unique

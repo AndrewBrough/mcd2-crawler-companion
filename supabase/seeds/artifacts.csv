@@ -1,41 +1,41 @@
 name,slug,type,description,rarity
-Battle Banner,battle-banner,artifact,Raise the banner of war and grant strength to you and all nearby allies.,regular
-Blaze Bangle,blaze-bangle,artifact,Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!,regular
-Blight Bangle,blight-bangle,artifact,Imbues your attacks with poisonous power and looks stunning on your wrist!,regular
-Blizzard Bangle,blizzard-bangle,artifact,Imbues your attacks with the power of freezing blizzards and looks really cool on your wrist!,regular
-Cinder Scepter,cinder-scepter,artifact,"Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",regular
-Conductive Quiver,conductive-quiver,artifact,These arrows will strike your enemies like lightning from the skies.,regular
-Corrupted Beacon,corrupted-beacon,artifact,"Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",regular
-Corrupted Seeds,corrupted-seeds,artifact,"Instantly sprout into deadly vines, poisoning and binding your enemies while you reap what you've sown.",regular
-Creeper Candle,creeper-candle,artifact,"Just a completely normal candle, apart from that ominous hss coming from the burning wick... Wait, that's a fuse!",regular
-Death Cap Mushroom,death-cap-mushroom,artifact,"Eaten by daring warriors before battle to enter a berserker state, increasing both movement and attack speed.",regular
-Echo Ocarina,echo-ocarina,artifact,The music of this hollowed husk protects against ranged attacks.,regular
-Electric Bangle,electric-bangle,artifact,Imbues your attacks with the power of crackling electricy and looks striking on your wrist!,regular
-Ender Fog,ender-fog,artifact,"The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",regular
-Fighter's Flute,fighters-flute,artifact,The music of the flute grants critical striking powers to any fighter of note.,regular
-Fighting Fungus,fighting-fungus,artifact,"Eaten by daring warriors before battle, unleashing their rage and increasing their attack speed.",regular
-Firework Arrow,firework-arrow,artifact,"The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",regular
-Flaming Quiver,flaming-quiver,artifact,Light your arrows with the flame of your righteous rage.,regular
-Freezing Quiver,freezing-quiver,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
-Grindstone,grindstone,artifact,These arrows will have your enemies quivering from both fear and cold.,regular
-Honey Dipper,honey-dipper,artifact,A sticky treat to trap your enemies as your buzzing friends join the battle! Victory never tasted so sweet.}},regular
-Humbling Horn,humbling-horn,artifact,The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.}},regular
-Lightning Rod,lightning-rod,artifact,"Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",regular
-Picnic Basket,picnic-basket,artifact,Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.,regular
-Pouch of Ember,pouch-of-ember,artifact,Throw it on the ground to spread a fierce fire around yourself. You'll be too hot to handle!,regular
-Pouch of Frost,pouch-of-frost,artifact,Throw it on the ground to spread a blistering blizzard around yourself. One of the coolest artifacts there is!,regular
-Pouch of Poison,pouch-of-poison,artifact,,regular
-Pouch of Thunder,pouch-of-thunder,artifact,Throw it on the ground to spread conductive chaos around yourself. It's a real trip!,regular
-Powershaker,powershaker,artifact,Let's shake things up! The Powershaker is a smashing good time and will blow your enemies' minds!,regular
-Redstone Mine Launcher,redstone-mine-launcher,artifact,This state-of-the-craft launcher will fire a volley of explosive Redstone mines.,regular
-Soul Harvester,soul-harvester,artifact,Charge it up with the souls you have collected before releasing them into a cluster hex of power.,regular
-Tempo Truffle,tempo-truffle,artifact,"Eaten by daring warriors before battle, sending them charging into battle with increased movement speed.",regular
-Totem of Casting,totem-of-casting,artifact,"Place the totem on the ground to spread artificing energy to your allies, reducing their artifact cooldown time.",regular
-Totem of Regeneration,totem-of-regeneration,artifact,This wooden figurine radiates a warmth like that of a crackling campfire and heals all friends who gather around it.,regular
-Totem of Shielding,totem-of-shielding,artifact,"This solid gold totem radiates a protective barrier, shielding all inside it from projectiles.",regular
-Turtle Master's Mandolin,turtle-masters-mandolin,artifact,"A beautiful instrument varnished with Potion of the Turtle Master, granting resistance to all your friends who catch your groove.",regular
-Venomous Quiver,venomous-quiver,artifact,A quiver soaked in venom for that extra sting when your arrows bite.,regular
-Warding Chimes,warding-chimes,artifact,Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.,regular
-Warrior Drums,warrior-drums,artifact,Let the sound of drums fill your warrior heart with the power to double damage on all critical hits.,regular
-Winter Staff,winter-staff,artifact,Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.,regular
-Witch Brew,witch-brew,artifact,A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?,regular
+Battle Banner,battle-banner,artifact,Raise the banner of war and grant strength to you and all nearby allies.,common|rare|special
+Blaze Bangle,blaze-bangle,artifact,Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!,common|rare|special
+Blight Bangle,blight-bangle,artifact,Imbues your attacks with poisonous power and looks stunning on your wrist!,common|rare|special
+Blizzard Bangle,blizzard-bangle,artifact,Imbues your attacks with the power of freezing blizzards and looks really cool on your wrist!,common|rare|special
+Cinder Scepter,cinder-scepter,artifact,"Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",common|rare|special
+Conductive Quiver,conductive-quiver,artifact,These arrows will strike your enemies like lightning from the skies.,common|rare|special
+Corrupted Beacon,corrupted-beacon,artifact,"Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",common|rare|special
+Corrupted Seeds,corrupted-seeds,artifact,"Instantly sprout into deadly vines, poisoning and binding your enemies while you reap what you've sown.",common|rare|special
+Creeper Candle,creeper-candle,artifact,"Just a completely normal candle, apart from that ominous hss coming from the burning wick... Wait, that's a fuse!",common|rare|special
+Death Cap Mushroom,death-cap-mushroom,artifact,"Eaten by daring warriors before battle to enter a berserker state, increasing both movement and attack speed.",common|rare|special
+Echo Ocarina,echo-ocarina,artifact,The music of this hollowed husk protects against ranged attacks.,common|rare|special
+Electric Bangle,electric-bangle,artifact,Imbues your attacks with the power of crackling electricy and looks striking on your wrist!,common|rare|special
+Ender Fog,ender-fog,artifact,"The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",common|rare|special
+Fighter's Flute,fighters-flute,artifact,The music of the flute grants critical striking powers to any fighter of note.,common|rare|special
+Fighting Fungus,fighting-fungus,artifact,"Eaten by daring warriors before battle, unleashing their rage and increasing their attack speed.",common|rare|special
+Firework Arrow,firework-arrow,artifact,"The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",common|rare|special
+Flaming Quiver,flaming-quiver,artifact,Light your arrows with the flame of your righteous rage.,common|rare|special
+Freezing Quiver,freezing-quiver,artifact,These arrows will have your enemies quivering from both fear and cold.,common|rare|special
+Grindstone,grindstone,artifact,These arrows will have your enemies quivering from both fear and cold.,common|rare|special
+Honey Dipper,honey-dipper,artifact,A sticky treat to trap your enemies as your buzzing friends join the battle! Victory never tasted so sweet.}},common|rare|special
+Humbling Horn,humbling-horn,artifact,The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.}},common|rare|special
+Lightning Rod,lightning-rod,artifact,"Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",common|rare|special
+Picnic Basket,picnic-basket,artifact,Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.,common|rare|special
+Pouch of Ember,pouch-of-ember,artifact,Throw it on the ground to spread a fierce fire around yourself. You'll be too hot to handle!,common|rare|special
+Pouch of Frost,pouch-of-frost,artifact,Throw it on the ground to spread a blistering blizzard around yourself. One of the coolest artifacts there is!,common|rare|special
+Pouch of Poison,pouch-of-poison,artifact,,common|rare|special
+Pouch of Thunder,pouch-of-thunder,artifact,Throw it on the ground to spread conductive chaos around yourself. It's a real trip!,common|rare|special
+Powershaker,powershaker,artifact,Let's shake things up! The Powershaker is a smashing good time and will blow your enemies' minds!,common|rare|special
+Redstone Mine Launcher,redstone-mine-launcher,artifact,This state-of-the-craft launcher will fire a volley of explosive Redstone mines.,common|rare|special
+Soul Harvester,soul-harvester,artifact,Charge it up with the souls you have collected before releasing them into a cluster hex of power.,common|rare|special
+Tempo Truffle,tempo-truffle,artifact,"Eaten by daring warriors before battle, sending them charging into battle with increased movement speed.",common|rare|special
+Totem of Casting,totem-of-casting,artifact,"Place the totem on the ground to spread artificing energy to your allies, reducing their artifact cooldown time.",common|rare|special
+Totem of Regeneration,totem-of-regeneration,artifact,This wooden figurine radiates a warmth like that of a crackling campfire and heals all friends who gather around it.,common|rare|special
+Totem of Shielding,totem-of-shielding,artifact,"This solid gold totem radiates a protective barrier, shielding all inside it from projectiles.",common|rare|special
+Turtle Master's Mandolin,turtle-masters-mandolin,artifact,"A beautiful instrument varnished with Potion of the Turtle Master, granting resistance to all your friends who catch your groove.",common|rare|special
+Venomous Quiver,venomous-quiver,artifact,A quiver soaked in venom for that extra sting when your arrows bite.,common|rare|special
+Warding Chimes,warding-chimes,artifact,Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.,common|rare|special
+Warrior Drums,warrior-drums,artifact,Let the sound of drums fill your warrior heart with the power to double damage on all critical hits.,common|rare|special
+Winter Staff,winter-staff,artifact,Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.,common|rare|special
+Witch Brew,witch-brew,artifact,A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?,common|rare|special

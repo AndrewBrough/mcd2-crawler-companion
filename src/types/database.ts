@@ -169,7 +169,7 @@ export type Database = {
           created_at: string
           description: string
           name: string
-          rarity: string
+          rarity: string[]
           slug: string
           type: string
         }
@@ -177,7 +177,7 @@ export type Database = {
           created_at?: string
           description?: string
           name: string
-          rarity?: string
+          rarity?: string[]
           slug: string
           type: string
         }
@@ -185,7 +185,7 @@ export type Database = {
           created_at?: string
           description?: string
           name?: string
-          rarity?: string
+          rarity?: string[]
           slug?: string
           type?: string
         }

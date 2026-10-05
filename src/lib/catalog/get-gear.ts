@@ -1,13 +1,13 @@
 import { supabase } from '#/lib/supabase/client'
 import { compactMap, mapDrop, mapNamedRef, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
-import { GEAR_RARITIES, type GearListItem } from '#/types/data/gear'
+import { GEAR_RARITIES, type GearListItem, type GearRarity } from '#/types/data/gear'
 
 type GearQueryRow = {
   name: string
   slug: string
   description: string
-  rarity: string
+  rarity: Array<string>
   type: GearListItem['type']
   gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
@@ -36,9 +36,11 @@ export async function getGear(): Promise<Array<GearListItem>> {
   }
 
   return ((data ?? []) as Array<GearQueryRow>).flatMap((row) => {
-    const rarity = GEAR_RARITIES.find((value) => value === row.rarity)
+    const rarity = row.rarity.filter((value): value is GearRarity =>
+      GEAR_RARITIES.some((entry) => entry === value),
+    )
 
-    if (!rarity) {
+    if (rarity.length !== row.rarity.length) {
       return []
     }
 

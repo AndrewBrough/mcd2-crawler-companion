@@ -1,0 +1,56 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: none;
+  box-shadow: var(--display-shadow);
+  cursor: default;
+}
+
+.default {
+  padding: 0.16rem 0.45rem 0.18rem;
+  font-size: 0.7rem;
+}
+
+.sm {
+  padding: 0.08rem 0.32rem 0.1rem;
+  font-size: 0.55rem;
+}
+
+.common {
+  background: #9c816c;
+  color: var(--black);
+}
+
+.rare {
+  background: #57d052;
+  color: var(--black);
+}
+
+.special {
+  background: #0787f2;
+  color: var(--black);
+}
+
+.unique {
+  background: #f15915;
+  color: var(--black);
+}
+
+button.badge {
+  cursor: pointer;
+}
+
+.selected,
+button.badge:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 0;
+}

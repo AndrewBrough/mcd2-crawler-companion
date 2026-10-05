@@ -1,6 +1,6 @@
+import { Badge } from '#/components/ui/Badge'
 import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { GearRarity } from '#/types/data/gear'
-import { GearCatalogFilterButton } from '../GearCatalogFilterButton'
 import styles from './GearCatalogRarityFilters.module.css'
 
 export type GearCatalogRarityFiltersProps = {
@@ -17,12 +17,15 @@ export function GearCatalogRarityFilters({
   return (
     <div className={styles.row} role="group" aria-label="Filter by rarity">
       {rarities.map((rarity) => (
-        <GearCatalogFilterButton
+        <Badge
           key={rarity}
-          label={formatGearRarity(rarity)}
+          color={rarity}
+          size="sm"
           selected={value === rarity}
-          onSelect={() => onChange(value === rarity ? null : rarity)}
-        />
+          onClick={() => onChange(value === rarity ? null : rarity)}
+        >
+          {formatGearRarity(rarity)}
+        </Badge>
       ))}
     </div>
   )

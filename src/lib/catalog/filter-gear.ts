@@ -13,11 +13,11 @@ export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array
   const type = options.type ?? null
   const rarity = options.rarity ?? null
   const matched = gear.filter(
-    (item) => (!type || item.type === type) && (!rarity || item.rarity === rarity),
+    (item) => (!type || item.type === type) && (!rarity || item.rarity.includes(rarity)),
   )
 
   return filterCatalogItems(matched, options.query, (item) => [
     formatGearType(item.type),
-    formatGearRarity(item.rarity),
+    ...item.rarity.map((value) => formatGearRarity(value)),
   ])
 }

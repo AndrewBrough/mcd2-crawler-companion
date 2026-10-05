@@ -157,16 +157,32 @@ function infoboxField(wikitext, key) {
   return match?.[1]?.trim() ?? ''
 }
 
-function gearRarity(wikitext, name, uniqueGear) {
+const GEAR_RARITIES = ['common', 'rare', 'special', 'unique']
+const BASE_GEAR_RARITY = 'common|rare|special'
+
+function isUniqueGear(wikitext, name, uniqueGear) {
   const setName = infoboxField(wikitext, 'set').toLowerCase()
   const lead = wikitext.split('\n==')[0]
-  const unique =
+
+  return (
     uniqueGear.names.has(name.toLowerCase()) ||
-    infoboxField(wikitext, 'rarity').toLowerCase() === 'unique' ||
     (setName !== '' && uniqueGear.sets.has(setName)) ||
     /\{\{MCD2\|unique\}\}/i.test(lead)
+  )
+}
 
-  return unique ? 'unique' : 'regular'
+function gearRarity(wikitext, name, uniqueGear) {
+  const field = infoboxField(wikitext, 'rarity').toLowerCase()
+
+  if (field === 'unique' || isUniqueGear(wikitext, name, uniqueGear)) {
+    return 'unique'
+  }
+
+  if (GEAR_RARITIES.includes(field)) {
+    return field
+  }
+
+  return BASE_GEAR_RARITY
 }
 
 async function fetchWikitextByName(names) {
@@ -221,7 +237,7 @@ function rowsFromCsv(csv) {
     slug: entry[index.slug]?.trim() ?? '',
     type: entry[index.type]?.trim() ?? '',
     description: entry[index.description]?.trim() ?? '',
-    rarity: entry[index.rarity]?.trim() || 'regular',
+    rarity: entry[index.rarity]?.trim() || BASE_GEAR_RARITY,
   }))
 }
 
@@ -271,8 +287,9 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
   await writeFile(csvPath, gearCsv(rows))
 
   const uniqueCount = rows.filter((row) => row.rarity === 'unique').length
+  const baseCount = rows.filter((row) => row.rarity === BASE_GEAR_RARITY).length
   console.log(
-    `Wrote ${rows.length} ${label} to supabase/seeds/${csvFile} (${uniqueCount} unique, ${rows.length - uniqueCount} regular).`,
+    `Wrote ${rows.length} ${label} to supabase/seeds/${csvFile} (${uniqueCount} unique, ${baseCount} common/rare/special).`,
   )
   console.log(`Source: ${pageUrl} (CC BY-NC-SA 3.0)`)
 

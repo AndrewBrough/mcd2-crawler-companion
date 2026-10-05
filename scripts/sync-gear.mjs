@@ -17,6 +17,8 @@ await syncCatalogCsv({
   required: ['name', 'slug', 'type', 'description', 'rarity'],
   enums: {
     type: GEAR_TYPES,
-    rarity: ['regular', 'unique'],
+  },
+  lists: {
+    rarity: ['common', 'rare', 'special', 'unique'],
   },
 })
