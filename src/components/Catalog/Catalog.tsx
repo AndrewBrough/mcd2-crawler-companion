@@ -67,7 +67,7 @@ export function Catalog<T extends CatalogItem>({
             onItemSelect={onItemSelect}
           />
         ) : (
-          <p className={styles.empty}>{items.length ? emptyFiltered : emptyCatalog}</p>
+          <p>{items.length ? emptyFiltered : emptyCatalog}</p>
         )}
       </div>
     </aside>

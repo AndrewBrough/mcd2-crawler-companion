@@ -28,7 +28,6 @@ export function EnchantmentsPage({ enchantments, initialSlug = null }: Enchantme
 
   return (
     <CatalogBrowsePage
-      kicker="Magic"
       title="Enchantments"
       description="Browse the catalog and inspect an enchantment."
       catalog={

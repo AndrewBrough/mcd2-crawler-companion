@@ -18,7 +18,6 @@ export function EffectsPage({ effects, initialSlug = null }: EffectsPageProps) {
 
   return (
     <CatalogBrowsePage
-      kicker="Loot"
       title="Effects"
       description="Browse the catalog and inspect an effect."
       catalog={

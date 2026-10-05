@@ -21,7 +21,7 @@ export function BuildSocketRow({
 }: BuildSocketRowProps) {
   return (
     <section className={styles.row}>
-      <h2 className={styles.label}>{label}</h2>
+      <h2 className="heading">{label}</h2>
       <div className={styles.sockets}>
         {sockets.map((socket) => (
           <BuildSocket

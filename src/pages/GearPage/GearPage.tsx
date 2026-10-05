@@ -24,7 +24,6 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
 
   return (
     <CatalogBrowsePage
-      kicker="Loot"
       title="Gear"
       description="Browse the catalog and inspect a piece of gear."
       catalog={

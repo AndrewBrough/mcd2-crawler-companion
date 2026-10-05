@@ -26,7 +26,7 @@ export function CatalogDetailPanel({
   if (!item) {
     return (
       <aside className={styles.panel} aria-label={ariaLabel}>
-        <p className={styles.empty}>{emptyMessage}</p>
+        <p>{emptyMessage}</p>
       </aside>
     )
   }
@@ -39,7 +39,7 @@ export function CatalogDetailPanel({
             <h2 className={styles.name}>{item.name}</h2>
             {headingExtra}
           </div>
-          <p className={styles.description}>{item.description || 'No description yet.'}</p>
+          <p>{item.description || 'No description yet.'}</p>
         </div>
         {media}
       </div>

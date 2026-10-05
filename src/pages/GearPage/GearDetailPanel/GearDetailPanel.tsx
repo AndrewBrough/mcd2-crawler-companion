@@ -46,11 +46,11 @@ export function GearDetailPanel({ item, effects, onVariantSelect, footer }: Gear
             archetypeNames={item.archetypeNames}
           />
           <section className={styles.enchantments}>
-            <h3 className={styles.heading}>Enchantments</h3>
+            <h3 className="heading">Enchantments</h3>
             {item.enchantments.length ? (
               <CatalogGrid items={item.enchantments} catalogKind="enchantments" linked />
             ) : (
-              <p className={styles.none}>No enchantments</p>
+              <p>No enchantments</p>
             )}
           </section>
           <GearVariant item={item} onSelect={onVariantSelect} />

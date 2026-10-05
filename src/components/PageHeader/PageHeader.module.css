@@ -16,13 +16,13 @@
   margin: 0;
   font-size: 3rem;
   line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
   color: var(--sea-ink);
 }
 
 .description {
-  margin: 0;
   max-width: 42rem;
-  color: var(--sea-ink-soft);
   font-size: 1.05rem;
   line-height: 1.6;
 }

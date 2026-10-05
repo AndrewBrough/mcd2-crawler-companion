@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+@import './typography.css';
 @import 'tailwindcss';
 @import './breakpoints.css';
 @plugin '@tailwindcss/typography';
@@ -198,26 +198,12 @@ body,
 body {
   margin: 0;
   color: var(--foreground);
-  font-family: var(--font-sans);
-  text-shadow: var(--text-shadow);
   background-color: var(--background-darker);
   background-image:
     linear-gradient(to bottom, transparent, var(--background-darker)),
     linear-gradient(to right, var(--background-light), var(--background-dark));
   background-attachment: fixed;
   overflow-x: clip;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  text-shadow: var(--display-shadow);
 }
 
 body::after {
@@ -273,11 +259,6 @@ pre code {
   margin-inline: auto;
 }
 
-.display-title {
-  font-family: var(--font-display);
-  text-shadow: var(--display-shadow);
-}
-
 .island-shell {
   border: 1px solid var(--line);
   background: linear-gradient(to right, var(--light-panel-background), var(--dark-panel-background));
@@ -299,11 +280,6 @@ pre code {
 .feature-card:hover {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--primary) 45%, var(--line));
-}
-
-input,
-textarea {
-  text-shadow: var(--text-shadow);
 }
 
 button,

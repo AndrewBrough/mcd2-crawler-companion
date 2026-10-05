@@ -15,7 +15,7 @@ export function GearUniqueEffect({ effect }: GearUniqueEffectProps) {
         <Badge color="unique">{effect?.name ?? 'Unknown'}</Badge>
       </div>
       {effect ? (
-        <p className={styles.description}>
+        <p>
           {effect.description ? (
             <EffectDescription effect={effect} level="unique" />
           ) : (

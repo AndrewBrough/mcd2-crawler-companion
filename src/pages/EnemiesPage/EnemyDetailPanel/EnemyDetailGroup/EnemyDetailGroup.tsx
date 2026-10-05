@@ -8,7 +8,7 @@ export type EnemyDetailGroupProps = {
 export function EnemyDetailGroup({ label, entries }: EnemyDetailGroupProps) {
   return (
     <section className={styles.group}>
-      <h3 className={styles.heading}>{label}</h3>
+      <h3 className="heading">{label}</h3>
       {entries.length ? (
         <ul className={styles.list}>
           {entries.map((entry) => (
@@ -16,7 +16,7 @@ export function EnemyDetailGroup({ label, entries }: EnemyDetailGroupProps) {
           ))}
         </ul>
       ) : (
-        <p className={styles.none}>None listed</p>
+        <p>None listed</p>
       )}
     </section>
   )

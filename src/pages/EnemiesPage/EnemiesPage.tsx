@@ -15,7 +15,6 @@ export function EnemiesPage({ enemies, initialSlug = null }: EnemiesPageProps) {
 
   return (
     <CatalogBrowsePage
-      kicker="Mobs"
       title="Enemies"
       description="Browse the catalog and inspect an enemy."
       catalog={

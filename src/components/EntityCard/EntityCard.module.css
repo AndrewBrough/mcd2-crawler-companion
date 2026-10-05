@@ -29,15 +29,13 @@
 
 .title {
   margin: 0;
-  font-family: var(--font-display);
-  text-shadow: var(--display-shadow);
   font-size: 1.25rem;
+  letter-spacing: normal;
+  text-transform: none;
   color: var(--content);
 }
 
 .description {
-  margin: 0;
-  color: var(--sea-ink-soft);
   line-height: 1.55;
 }
 

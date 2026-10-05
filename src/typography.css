@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+
+body {
+  font-family: var(--font-sans);
+  text-shadow: var(--text-shadow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: var(--display-shadow);
+}
+
+p,
+li {
+  margin: 0;
+  color: var(--sea-ink-soft);
+  line-height: 1.5;
+}
+
+.display-title {
+  font-family: var(--font-display);
+  text-shadow: var(--display-shadow);
+}
+
+input,
+textarea {
+  text-shadow: var(--text-shadow);
+}

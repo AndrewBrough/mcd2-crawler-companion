@@ -8,7 +8,7 @@ export type EffectLevelsProps = {
 export function EffectLevels({ levels }: EffectLevelsProps) {
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading}>Effectiveness</h3>
+      <h3 className="heading">Effectiveness</h3>
       {levels.length ? (
         <ul className={styles.list}>
           {levels.map((level) => (
@@ -19,7 +19,7 @@ export function EffectLevels({ levels }: EffectLevelsProps) {
           ))}
         </ul>
       ) : (
-        <p className={styles.none}>No listed amounts</p>
+        <p>No listed amounts</p>
       )}
     </section>
   )

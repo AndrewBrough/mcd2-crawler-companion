@@ -12,7 +12,7 @@ export function GearEffects({ effects, archetypeNames }: GearEffectsProps) {
 
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading} title={archetypeTitle}>
+      <h3 className="heading" title={archetypeTitle}>
         Effects
       </h3>
       {effects.length ? (
@@ -24,7 +24,7 @@ export function GearEffects({ effects, archetypeNames }: GearEffectsProps) {
           ))}
         </ul>
       ) : (
-        <p className={styles.none}>No effects</p>
+        <p>No effects</p>
       )}
     </section>
   )

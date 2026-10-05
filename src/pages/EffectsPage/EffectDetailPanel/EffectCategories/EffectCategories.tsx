@@ -8,11 +8,11 @@ export type EffectCategoriesProps = {
 export function EffectCategories({ gearSlugs }: EffectCategoriesProps) {
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading}>Gear</h3>
+      <h3 className="heading">Gear</h3>
       {gearSlugs.length ? (
         <p className={styles.value}>{gearSlugs.map(formatEffectGearSlug).join(', ')}</p>
       ) : (
-        <p className={styles.none}>No gear listed</p>
+        <p>No gear listed</p>
       )}
     </section>
   )

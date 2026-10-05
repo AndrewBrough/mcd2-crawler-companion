@@ -16,7 +16,7 @@ export function GearVariant({ item, onSelect }: GearVariantProps) {
 
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading}>{heading}</h3>
+      <h3 className="heading">{heading}</h3>
       <CatalogGrid
         items={item.variants}
         catalogKind="gear"

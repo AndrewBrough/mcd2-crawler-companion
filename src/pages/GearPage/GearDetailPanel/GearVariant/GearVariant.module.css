@@ -3,12 +3,3 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
-.heading {
-  margin: 0;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--secondary);
-}

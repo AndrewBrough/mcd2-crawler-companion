@@ -3,7 +3,6 @@ import { PageHeader } from '#/components/PageHeader'
 import styles from './CatalogBrowsePage.module.css'
 
 export type CatalogBrowsePageProps = {
-  kicker: string
   title: string
   description: string
   catalog: ReactNode
@@ -11,7 +10,6 @@ export type CatalogBrowsePageProps = {
 }
 
 export function CatalogBrowsePage({
-  kicker,
   title,
   description,
   catalog,
@@ -19,7 +17,7 @@ export function CatalogBrowsePage({
 }: CatalogBrowsePageProps) {
   return (
     <div className={styles.page}>
-      <PageHeader kicker={kicker} title={title} description={description} />
+      <PageHeader title={title} description={description} />
       <div className={styles.layout}>
         {catalog}
         {detail}
