@@ -28,16 +28,10 @@ export function uniqueEffectForGear(effects: Array<Effect>, slug: string): Effec
 
 export function effectsForGear(
   effects: Array<Effect>,
-  gear: { type: GearType; slug: string },
+  gear: { slug: string; effectSlugs: Array<string> },
 ): Array<Effect> {
-  const typeSlugs = effectSlugsByGearType[gear.type]
   const unique = uniqueEffectForGear(effects, gear.slug)
+  const allowed = new Set(gear.effectSlugs)
 
-  return effects.filter((effect) => {
-    if (unique && effect.slug === unique.slug) {
-      return false
-    }
-
-    return effect.gearSlugs.some((slug) => typeSlugs.includes(slug))
-  })
+  return effects.filter((effect) => allowed.has(effect.slug) && effect.slug !== unique?.slug)
 }

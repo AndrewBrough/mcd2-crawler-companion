@@ -3,15 +3,38 @@ import { compactMap, mapDrop, mapNamedRef, type NamedEmbed } from '#/lib/catalog
 import { CatalogQueryError } from '#/lib/catalog/query-error'
 import { GEAR_RARITIES, type GearListItem, type GearRarity } from '#/types/data/gear'
 
+type EffectLink = { effect_id: string }
+
+type SetEmbed = {
+  set_archetypes: Array<{
+    archetypes: { archetype_effects: Array<EffectLink> } | null
+  }> | null
+  set_effects: Array<EffectLink> | null
+} | null
+
 type GearQueryRow = {
   name: string
   slug: string
   description: string
   rarity: Array<string>
   type: GearListItem['type']
+  sets: SetEmbed
   gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
   enemy_gear_drops: Array<{ drop_rate: number | string; enemy: NamedEmbed }> | null
+}
+
+function effectSlugs(set: SetEmbed): Array<string> {
+  if (!set) {
+    return []
+  }
+
+  const fromArchetypes = (set.set_archetypes ?? []).flatMap(
+    (link) => link.archetypes?.archetype_effects.map((row) => row.effect_id) ?? [],
+  )
+  const direct = (set.set_effects ?? []).map((row) => row.effect_id)
+
+  return [...new Set([...fromArchetypes, ...direct])]
 }
 
 export async function getGear(): Promise<Array<GearListItem>> {
@@ -24,6 +47,10 @@ export async function getGear(): Promise<Array<GearListItem>> {
         description,
         rarity,
         type,
+        sets (
+          set_archetypes ( archetypes ( archetype_effects ( effect_id ) ) ),
+          set_effects ( effect_id )
+        ),
         gear_enchantments ( enchantment:enchantments ( slug, name ) ),
         location_gear_drops ( drop_rate, location:locations ( slug, name ) ),
         enemy_gear_drops ( drop_rate, enemy:enemies ( slug, name ) )
@@ -52,6 +79,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
         rarity,
         type: row.type,
         enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
+        effectSlugs: effectSlugs(row.sets),
         locationSources: compactMap(row.location_gear_drops, (entry) =>
           mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
         ),
