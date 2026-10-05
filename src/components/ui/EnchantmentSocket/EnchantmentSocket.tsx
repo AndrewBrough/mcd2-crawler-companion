@@ -52,12 +52,18 @@ export function EnchantmentSocket({
     onSelect?.(slug)
   }
 
-  if (enchantment && onChoose) {
+  if (enchantment && !onSelect) {
     return (
       <EnchantmentSocketTooltip tiers={enchantment.tiers} activeLabel={ACTIVE_TIER}>
-        <button className={styles.socket} type="button" onClick={() => onChoose(enchantment.slug)}>
-          <EnchantmentSocketContent enchantment={enchantment} />
-        </button>
+        {onChoose ? (
+          <button className={styles.socket} type="button" onClick={() => onChoose(enchantment.slug)}>
+            <EnchantmentSocketContent enchantment={enchantment} />
+          </button>
+        ) : (
+          <div className={styles.socket}>
+            <EnchantmentSocketContent enchantment={enchantment} />
+          </div>
+        )}
       </EnchantmentSocketTooltip>
     )
   }

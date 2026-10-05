@@ -1,6 +1,5 @@
 import { EffectSocket } from '#/components/ui/EffectSocket'
 import type { Effect } from '#/types/data/effect'
-import { GearEffectPill } from './GearEffectPill'
 import styles from './GearEffects.module.css'
 
 const EFFECT_PIN_CAP = 3
@@ -50,13 +49,11 @@ export function GearEffects({
         </div>
       ) : null}
       {!onPinEffect && effects.length ? (
-        <ul className={styles.list}>
+        <div className={styles.sockets}>
           {effects.map((effect) => (
-            <li key={effect.slug}>
-              <GearEffectPill effect={effect} />
-            </li>
+            <EffectSocket key={effect.slug} effect={effect} />
           ))}
-        </ul>
+        </div>
       ) : null}
       {!uniqueEffect && !effects.length ? <p>No effects</p> : null}
     </section>

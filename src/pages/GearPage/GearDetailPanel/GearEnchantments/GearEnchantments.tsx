@@ -1,4 +1,3 @@
-import { CatalogGrid } from '#/components/Catalog'
 import { EnchantmentSocket } from '#/components/ui/EnchantmentSocket'
 import type { GearEnchantment } from '#/types/data/enchantment'
 import styles from './GearEnchantments.module.css'
@@ -30,7 +29,11 @@ export function GearEnchantments({
         </div>
       ) : null}
       {!onPinEnchantment && enchantments.length ? (
-        <CatalogGrid items={enchantments} catalogKind="enchantments" linked />
+        <div className={styles.sockets}>
+          {enchantments.map((enchantment) => (
+            <EnchantmentSocket key={enchantment.slug} enchantment={enchantment} />
+          ))}
+        </div>
       ) : null}
       {!enchantments.length ? <p>No enchantments</p> : null}
     </section>

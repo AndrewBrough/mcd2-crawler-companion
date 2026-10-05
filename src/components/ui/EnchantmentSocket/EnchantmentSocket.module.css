@@ -23,6 +23,11 @@
   cursor: default;
 }
 
+.socket:not(.selected) {
+  --pixel-border-width: 2px;
+  border: 2px solid color-mix(in oklab, var(--purple) 50%, transparent);
+}
+
 button.socket {
   cursor: pointer;
 }
