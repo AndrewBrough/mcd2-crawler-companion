@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      archetype_effects: {
+        Row: {
+          archetype_id: string
+          effect_id: string
+        }
+        Insert: {
+          archetype_id: string
+          effect_id: string
+        }
+        Update: {
+          archetype_id?: string
+          effect_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'archetype_effects_archetype_id_fkey'
+            columns: ['archetype_id']
+            isOneToOne: false
+            referencedRelation: 'archetypes'
+            referencedColumns: ['slug']
+          },
+          {
+            foreignKeyName: 'archetype_effects_effect_id_fkey'
+            columns: ['effect_id']
+            isOneToOne: false
+            referencedRelation: 'effects'
+            referencedColumns: ['slug']
+          },
+        ]
+      }
+      archetypes: {
+        Row: {
+          created_at: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       effects: {
         Row: {
           created_at: string
@@ -170,6 +218,7 @@ export type Database = {
           description: string
           name: string
           rarity: string[]
+          set_id: string | null
           slug: string
           type: string
         }
@@ -178,6 +227,7 @@ export type Database = {
           description?: string
           name: string
           rarity?: string[]
+          set_id?: string | null
           slug: string
           type: string
         }
@@ -186,10 +236,19 @@ export type Database = {
           description?: string
           name?: string
           rarity?: string[]
+          set_id?: string | null
           slug?: string
           type?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: 'gear_set_id_fkey'
+            columns: ['set_id']
+            isOneToOne: false
+            referencedRelation: 'sets'
+            referencedColumns: ['slug']
+          },
+        ]
       }
       gear_enchantments: {
         Row: {
@@ -381,6 +440,84 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      set_archetypes: {
+        Row: {
+          archetype_id: string
+          set_id: string
+        }
+        Insert: {
+          archetype_id: string
+          set_id: string
+        }
+        Update: {
+          archetype_id?: string
+          set_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'set_archetypes_archetype_id_fkey'
+            columns: ['archetype_id']
+            isOneToOne: false
+            referencedRelation: 'archetypes'
+            referencedColumns: ['slug']
+          },
+          {
+            foreignKeyName: 'set_archetypes_set_id_fkey'
+            columns: ['set_id']
+            isOneToOne: false
+            referencedRelation: 'sets'
+            referencedColumns: ['slug']
+          },
+        ]
+      }
+      set_effects: {
+        Row: {
+          effect_id: string
+          set_id: string
+        }
+        Insert: {
+          effect_id: string
+          set_id: string
+        }
+        Update: {
+          effect_id?: string
+          set_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'set_effects_effect_id_fkey'
+            columns: ['effect_id']
+            isOneToOne: false
+            referencedRelation: 'effects'
+            referencedColumns: ['slug']
+          },
+          {
+            foreignKeyName: 'set_effects_set_id_fkey'
+            columns: ['set_id']
+            isOneToOne: false
+            referencedRelation: 'sets'
+            referencedColumns: ['slug']
+          },
+        ]
+      }
+      sets: {
+        Row: {
+          created_at: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
           name?: string
           slug?: string
         }
