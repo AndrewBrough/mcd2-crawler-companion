@@ -11,6 +11,10 @@ const levelLabels = {
   unique: 'Unique',
 } satisfies Record<EffectDescriptionLevel, string>
 
+export function effectLevelLabel(level: EffectDescriptionLevel): string {
+  return levelLabels[level]
+}
+
 export type EffectDescriptionProps = {
   effect: Effect
   level?: EffectDescriptionLevel

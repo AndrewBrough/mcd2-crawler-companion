@@ -8,7 +8,6 @@ import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
 import { GearEffects } from './GearEffects'
-import { GearUniqueEffect } from './GearUniqueEffect'
 import { GearVariant } from './GearVariant'
 import styles from './GearDetailPanel.module.css'
 
@@ -53,12 +52,12 @@ export function GearDetailPanel({
     >
       {item ? (
         <>
-          {item.rarity.includes('unique') ? <GearUniqueEffect effect={uniqueEffect} /> : null}
           <GearEffects
             effects={effectsForGear(effects, item)}
             archetypeNames={item.archetypeNames}
             pinnedSlugs={pinnedEffectSlugs}
             onPinEffect={onPinEffect}
+            uniqueEffect={item.rarity.includes('unique') ? uniqueEffect : null}
           />
           <section className={styles.enchantments}>
             <h3 className="heading">Enchantments</h3>

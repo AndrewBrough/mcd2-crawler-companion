@@ -1,2 +1,2 @@
 export { EffectSocket } from './EffectSocket'
-export type { EffectSocketEffect, EffectSocketProps } from './EffectSocket'
+export type { EffectSocketProps } from './EffectSocket'

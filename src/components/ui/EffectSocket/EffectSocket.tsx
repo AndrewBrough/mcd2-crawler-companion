@@ -1,22 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
+import { effectLevelLabel, type EffectDescriptionLevel } from '#/components/ui/EffectDescription'
+import type { Effect } from '#/types/data/effect'
+import { EffectSocketContent } from './EffectSocketContent'
+import { EffectSocketTooltip } from './EffectSocketTooltip'
 import styles from './EffectSocket.module.css'
 
-export type EffectSocketEffect = {
-  slug: string
-  name: string
-  description: string
-}
-
 export type EffectSocketProps = {
-  effect?: EffectSocketEffect | null
-  options?: Array<EffectSocketEffect>
+  effect?: Effect | null
+  options?: Array<Effect>
   onSelect?: (slug: string) => void
   onChoose?: (slug: string) => void
+  unique?: boolean
 }
 
-export function EffectSocket({ effect, options = [], onSelect, onChoose }: EffectSocketProps) {
+export function EffectSocket({ effect, options = [], onSelect, onChoose, unique = false }: EffectSocketProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const [open, setOpen] = useState(false)
+  const level: EffectDescriptionLevel = unique ? 'unique' : 3
+  const activeLabel = effectLevelLabel(level)
 
   useEffect(() => {
     if (!open) {
@@ -50,35 +51,38 @@ export function EffectSocket({ effect, options = [], onSelect, onChoose }: Effec
 
   if (effect && onChoose) {
     return (
-      <button className={styles.socket} type="button" onClick={() => onChoose(effect.slug)}>
-        <span className={styles.title}>{effect.name}</span>
-        <span className={styles.description}>{effect.description || 'No description yet.'}</span>
-      </button>
+      <EffectSocketTooltip levels={effect.levels} activeLabel={activeLabel}>
+        <button className={styles.socket} type="button" onClick={() => onChoose(effect.slug)}>
+          <EffectSocketContent effect={effect} level={level} />
+        </button>
+      </EffectSocketTooltip>
     )
   }
 
   if (effect && !onSelect) {
     return (
-      <div className={styles.socket}>
-        <span className={styles.title}>{effect.name}</span>
-        <span className={styles.description}>{effect.description || 'No description yet.'}</span>
-      </div>
+      <EffectSocketTooltip levels={effect.levels} activeLabel={activeLabel}>
+        <div className={unique ? `${styles.socket} ${styles.unique}` : styles.socket}>
+          <EffectSocketContent effect={effect} level={level} />
+        </div>
+      </EffectSocketTooltip>
     )
   }
 
   return (
     <div className={styles.wrap} ref={rootRef}>
       {effect ? (
-        <button
-          className={styles.socket}
-          type="button"
-          aria-expanded={open}
-          aria-haspopup="listbox"
-          onClick={() => setOpen((current) => !current)}
-        >
-          <span className={styles.title}>{effect.name}</span>
-          <span className={styles.description}>{effect.description || 'No description yet.'}</span>
-        </button>
+        <EffectSocketTooltip levels={effect.levels} activeLabel={activeLabel}>
+          <button
+            className={styles.socket}
+            type="button"
+            aria-expanded={open}
+            aria-haspopup="listbox"
+            onClick={() => setOpen((current) => !current)}
+          >
+            <EffectSocketContent effect={effect} level={level} />
+          </button>
+        </EffectSocketTooltip>
       ) : (
         <button
           className={styles.empty}

@@ -1,5 +1,6 @@
 import { useNavigate } from '@tanstack/react-router'
-import { effectsForGear } from '#/lib/catalog/filter-effects'
+import { useEffect } from 'react'
+import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
 import type { BuildLoadout } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
@@ -81,7 +82,19 @@ export function useBuildPins(search: BuildSearch) {
     })
   }
 
-  return { effectPins, enchantmentPin, toggleEffect, toggleEnchantment }
+  function removeEffectSlug(socketId: string, slug: string) {
+    updateSearch((previous) => {
+      const next = { ...previous }
+      writeEffectPins(
+        next,
+        socketId,
+        readEffectPins(previous, socketId).filter((item) => item !== slug),
+      )
+      return next
+    })
+  }
+
+  return { effectPins, enchantmentPin, toggleEffect, toggleEnchantment, removeEffectSlug }
 }
 
 export type GearPinProps = {
@@ -99,6 +112,15 @@ export function useGearPins(
 ): GearPinProps {
   const pins = useBuildPins(search)
   const socketId = item ? pinnableSocketForSlug(loadout, item.slug) : null
+  const uniqueSlug = item ? uniqueEffectForGear(effects, item.slug)?.slug : null
+
+  useEffect(() => {
+    if (!socketId || !uniqueSlug || !readEffectPins(search, socketId).includes(uniqueSlug)) {
+      return
+    }
+    pins.removeEffectSlug(socketId, uniqueSlug)
+  }, [search, socketId, uniqueSlug])
+
   if (!item || !socketId) {
     return {}
   }
