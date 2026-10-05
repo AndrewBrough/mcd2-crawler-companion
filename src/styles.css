@@ -35,6 +35,8 @@
   --secondary-dark: #339cd7;
   --secondary-foreground: #010c29;
 
+  --purple: #BE62F4;
+
   --background: var(--background-dark);
   --foreground: var(--content);
   --card: color-mix(in oklab, var(--navy) 82%, var(--secondary-dark) 18%);

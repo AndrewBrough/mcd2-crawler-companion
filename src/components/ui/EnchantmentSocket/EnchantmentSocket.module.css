@@ -5,6 +5,8 @@
 
 .socket,
 .empty {
+  composes: corners from '../../../styles/pixel-border.module.css';
+  --pixel-border-width: 3px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -29,6 +31,17 @@ button.socket:hover,
 button.socket:focus-visible,
 button.socket[aria-expanded='true'] {
   background: color-mix(in oklab, var(--secondary) 35%, var(--surface-strong));
+  outline: none;
+}
+
+.selected {
+  background: color-mix(in oklab, var(--purple) 50%, transparent);
+}
+
+button.selected:hover,
+button.selected:focus-visible,
+button.selected[aria-expanded='true'] {
+  background: color-mix(in oklab, var(--purple) 78%, transparent);
   outline: none;
 }
 

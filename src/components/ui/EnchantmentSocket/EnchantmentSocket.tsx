@@ -67,7 +67,7 @@ export function EnchantmentSocket({
       {enchantment ? (
         <EnchantmentSocketTooltip tiers={enchantment.tiers} activeLabel={ACTIVE_TIER}>
           <button
-            className={styles.socket}
+            className={`${styles.socket} ${styles.selected}`}
             type="button"
             aria-expanded={open}
             aria-haspopup="listbox"

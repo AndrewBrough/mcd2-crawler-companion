@@ -19,7 +19,7 @@ export function GearEnchantments({
 
   return (
     <section className={styles.section}>
-      <h3 className="heading">Enchantments</h3>
+      <h3 className={`${styles.title} heading`}>Enchantment</h3>
       {onPinEnchantment && enchantments.length ? (
         <div className={styles.sockets}>
           {pinned ? (
