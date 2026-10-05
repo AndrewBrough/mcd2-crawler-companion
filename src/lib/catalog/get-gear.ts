@@ -1,7 +1,11 @@
 import { supabase } from '#/lib/supabase/client'
 import { compactMap, mapDrop, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
-import { ENCHANTMENT_GEAR_TYPES, type EnchantmentGearType } from '#/types/data/enchantment'
+import {
+  ENCHANTMENT_GEAR_TYPES,
+  type EnchantmentGearType,
+  type EnchantmentTier,
+} from '#/types/data/enchantment'
 import { GEAR_RARITIES, type GearListItem, type GearRarity, type GearType } from '#/types/data/gear'
 
 type EffectLink = { effect_id: string }
@@ -40,7 +44,19 @@ function setPools(set: SetEmbed): { archetypeNames: Array<string>; effectSlugs: 
 type EnchantmentNameRow = {
   slug: string
   name: string
+  description: string
+  tier_1: string
+  tier_2: string
+  tier_3: string
   gear_types: Array<string>
+}
+
+function enchantmentTiers(row: EnchantmentNameRow): Array<EnchantmentTier> {
+  return [
+    { label: 'I', text: row.tier_1 },
+    { label: 'II', text: row.tier_2 },
+    { label: 'III', text: row.tier_3 },
+  ].filter((tier) => tier.text)
 }
 
 function enchantmentTypeForGear(type: GearType): EnchantmentGearType | null {
@@ -89,7 +105,10 @@ export async function getGear(): Promise<Array<GearListItem>> {
       `,
       )
       .order('name'),
-    supabase.from('enchantments').select('slug, name, gear_types').order('name'),
+    supabase
+      .from('enchantments')
+      .select('slug, name, description, tier_1, tier_2, tier_3, gear_types')
+      .order('name'),
   ])
 
   if (gearResult.error) {
@@ -121,7 +140,14 @@ export async function getGear(): Promise<Array<GearListItem>> {
         type: row.type,
         enchantments: enchantments.flatMap((enchantment) =>
           enchantment.gear_types.includes(enchantmentTypeForGear(row.type) ?? '')
-            ? [{ slug: enchantment.slug, name: enchantment.name }]
+            ? [
+                {
+                  slug: enchantment.slug,
+                  name: enchantment.name,
+                  description: enchantment.description,
+                  tiers: enchantmentTiers(enchantment),
+                },
+              ]
             : [],
         ),
         ...setPools(row.sets),

@@ -1,9 +1,3 @@
-.enchantments {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .footer {
   margin-top: auto;
 }

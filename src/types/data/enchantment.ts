@@ -13,6 +13,13 @@ export type EnchantmentTier = {
   text: string
 }
 
+export type GearEnchantment = {
+  slug: string
+  name: string
+  description: string
+  tiers: Array<EnchantmentTier>
+}
+
 export type Enchantment = {
   slug: string
   name: string

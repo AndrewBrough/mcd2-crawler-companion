@@ -1,0 +1,41 @@
+.host {
+  display: block;
+  width: 100%;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 40;
+  width: 17.5rem;
+  padding: 0.55rem 0.65rem;
+  background: var(--surface-strong);
+  color: var(--content);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px color-mix(in oklab, var(--black) 45%, transparent);
+  pointer-events: none;
+}
+
+.tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.tiers li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.label {
+  flex: 0 0 1.25rem;
+}
+
+.current {
+  font-weight: 700;
+}

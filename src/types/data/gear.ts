@@ -1,3 +1,4 @@
+import type { GearEnchantment } from './enchantment'
 import type { DropRateEntry, NamedRef } from './drop-rate'
 
 export const GEAR_TYPES = [
@@ -23,7 +24,7 @@ export type Gear = {
   description: string
   type: GearType
   rarity: Array<GearRarity>
-  enchantments: Array<NamedRef>
+  enchantments: Array<GearEnchantment>
   archetypeNames: Array<string>
   effectSlugs: Array<string>
   variants: Array<NamedRef & { rarity: Array<GearRarity> }>
