@@ -4,14 +4,14 @@ import { GearCatalogTypeButton } from './GearCatalogTypeButton'
 import styles from './GearCatalogTypeFilters.module.css'
 
 const GEAR_TYPE_ICONS = {
-  melee_weapon: '/icons/Inventory_melee.png',
-  ranged_weapon: '/icons/Inventory_ranged.png',
-  armor_helmet: '/icons/inventory_helmet.png',
-  armor_chest: '/icons/inventory_chest.png',
-  armor_leggings: '/icons/inventory_leggings.png',
-  armor_boots: '/icons/inventory_boots.png',
-  artifact: '/icons/inventory_artifact.png',
-  talisman: '/icons/Inventory_talisman.png',
+  melee_weapon: '/icons/inventory-icon-melee.png',
+  ranged_weapon: '/icons/inventory-icon-ranged.png',
+  armor_helmet: '/icons/inventory-icon-helmet.png',
+  armor_chest: '/icons/inventory-icon-chest.png',
+  armor_leggings: '/icons/inventory-icon-leggings.png',
+  armor_boots: '/icons/inventory-icon-boots.png',
+  artifact: '/icons/inventory-icon-artifact.png',
+  talisman: '/icons/inventory-icon-talisman.png',
 } satisfies Record<GearType, string>
 
 export type GearCatalogTypeFiltersProps = {
