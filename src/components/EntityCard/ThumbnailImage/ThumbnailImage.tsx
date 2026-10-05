@@ -10,9 +10,10 @@ export type ThumbnailImageProps = {
   catalogKind: CatalogKind
   slug: string
   size?: 'card' | 'tile' | 'fill' | 'detail'
+  unique?: boolean
 }
 
-export function ThumbnailImage({ catalogKind, slug, size = 'card' }: ThumbnailImageProps) {
+export function ThumbnailImage({ catalogKind, slug, size = 'card', unique = false }: ThumbnailImageProps) {
   const resolvedUrl = resolveThumbnailUrl(catalogKind, slug)
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
   const src = failedSrc === resolvedUrl ? DEFAULT_THUMBNAIL_URL : resolvedUrl
@@ -29,7 +30,7 @@ export function ThumbnailImage({ catalogKind, slug, size = 'card' }: ThumbnailIm
   }, [resolvedUrl, src])
 
   return (
-    <div className={`${styles.media} ${styles[size]}`}>
+    <div className={[styles.media, styles[size], unique ? styles.unique : ''].filter(Boolean).join(' ')}>
       <img
         ref={imgRef}
         className={`${styles.image} ${styles[size]}`}

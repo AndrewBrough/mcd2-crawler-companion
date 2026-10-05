@@ -1,13 +1,14 @@
 .media {
   overflow: hidden;
   border-radius: 0;
-  background:
-    radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 52%),
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--navy) 62%, var(--secondary-dark) 38%),
-      var(--navy)
-    );
+  background: var(--black);
+}
+
+.unique {
+  background-image: url('/item-bg-unique.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card {

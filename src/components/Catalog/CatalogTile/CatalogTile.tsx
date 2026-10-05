@@ -16,6 +16,7 @@ export type CatalogTileProps = {
   clearLabel?: string
   selectLabel?: string
   pixelBorder?: boolean
+  unique?: boolean
 }
 
 export function CatalogTile({
@@ -30,6 +31,7 @@ export function CatalogTile({
   clearLabel,
   selectLabel,
   pixelBorder = false,
+  unique = false,
 }: CatalogTileProps) {
   const className = [styles.tile, selected ? styles.selected : '', pixelBorder ? styles.pixel : '']
     .filter(Boolean)
@@ -39,7 +41,7 @@ export function CatalogTile({
     <span className={styles.previewSlot}>
       <span className={pixelBorder ? `${styles.preview} ${styles.notched}` : styles.preview}>
         {slug && catalogKind ? (
-          <ThumbnailImage catalogKind={catalogKind} slug={slug} size="fill" />
+          <ThumbnailImage catalogKind={catalogKind} slug={slug} size="fill" unique={unique} />
         ) : (
           <span className={styles.emptyLabel}>{emptyLabel}</span>
         )}

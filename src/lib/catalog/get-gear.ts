@@ -103,13 +103,13 @@ export async function getGear(): Promise<Array<GearListItem>> {
       },
     ]
   })
-  const names = new Map(rows.map((row) => [row.slug, row.name]))
+  const gearBySlug = new Map(rows.map((row) => [row.slug, row]))
 
   return rows.map((row) => ({
     ...row,
     variants: row.variants.flatMap((slug) => {
-      const name = names.get(slug)
-      return name ? [{ slug, name }] : []
+      const variant = gearBySlug.get(slug)
+      return variant ? [{ slug, name: variant.name, rarity: variant.rarity }] : []
     }),
   }))
 }

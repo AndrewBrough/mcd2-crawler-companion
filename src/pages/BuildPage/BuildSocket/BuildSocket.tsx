@@ -24,6 +24,7 @@ export function BuildSocket({ label, selected, equipped, onSelect, onClear }: Bu
         clearLabel={equipped ? `Remove ${equipped.name} from ${label}` : undefined}
         selectLabel={equipped ? `${label}, ${equipped.name}` : `Filter catalog by ${label}`}
         pixelBorder
+        unique={equipped?.rarity.includes('unique')}
       />
     </div>
   )

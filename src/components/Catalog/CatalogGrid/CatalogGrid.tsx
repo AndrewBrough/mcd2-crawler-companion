@@ -6,6 +6,7 @@ import styles from './CatalogGrid.module.css'
 export type CatalogGridItem = {
   slug: string
   name: string
+  rarity?: ReadonlyArray<string>
 }
 
 export type CatalogGridProps<T extends CatalogGridItem> = {
@@ -37,6 +38,7 @@ export function CatalogGrid<T extends CatalogGridItem>({
             to={to}
             onSelect={to || !onItemSelect ? undefined : () => onItemSelect(item)}
             pixelBorder
+            unique={item.rarity?.includes('unique')}
           />
         </li>
       ))}
