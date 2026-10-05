@@ -1,3 +1,4 @@
+import { EffectSocket } from '#/components/ui/EffectSocket'
 import type { Effect } from '#/types/data/effect'
 import { GearEffectPill } from './GearEffectPill'
 import styles from './GearEffects.module.css'
@@ -13,23 +14,41 @@ export type GearEffectsProps = {
 
 export function GearEffects({ effects, archetypeNames, pinnedSlugs = [], onPinEffect }: GearEffectsProps) {
   const archetypeTitle = archetypeNames.length ? archetypeNames.join(', ') : undefined
-  const pinLimitReached = pinnedSlugs.length >= EFFECT_PIN_CAP
+  const pinnedEffects = pinnedSlugs.flatMap((slug) => {
+    const effect = effects.find((item) => item.slug === slug)
+    return effect ? [effect] : []
+  })
+  const availableEffects = effects.filter((effect) => !pinnedSlugs.includes(effect.slug))
+  const emptySockets = Math.max(0, EFFECT_PIN_CAP - pinnedEffects.length)
 
   return (
     <section className={styles.section}>
       <h3 className="heading" title={archetypeTitle}>
         Effects
       </h3>
-      {effects.length ? (
+      {onPinEffect && effects.length ? (
+        <div className={styles.sockets}>
+          {pinnedEffects.map((effect) => (
+            <EffectSocket
+              key={effect.slug}
+              effect={effect}
+              options={availableEffects}
+              onSelect={onPinEffect}
+            />
+          ))}
+          {Array.from({ length: emptySockets }, (_, index) => (
+            <EffectSocket
+              key={`empty-${index}`}
+              options={availableEffects}
+              onSelect={onPinEffect}
+            />
+          ))}
+        </div>
+      ) : effects.length ? (
         <ul className={styles.list}>
           {effects.map((effect) => (
             <li key={effect.slug}>
-              <GearEffectPill
-                effect={effect}
-                pinned={pinnedSlugs.includes(effect.slug)}
-                disabled={Boolean(onPinEffect) && pinLimitReached && !pinnedSlugs.includes(effect.slug)}
-                onPin={onPinEffect ? () => onPinEffect(effect.slug) : undefined}
-              />
+              <GearEffectPill effect={effect} />
             </li>
           ))}
         </ul>
