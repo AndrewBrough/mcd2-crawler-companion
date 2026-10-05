@@ -54,6 +54,14 @@ function wikiDescription(wikitext) {
   return plainWiki(infoboxField(wikitext, 'description'))
 }
 
+function variantSlugs(wikitext) {
+  return plainWiki(infoboxField(wikitext, 'variant'))
+    .split(',')
+    .map((name) => slugify(name))
+    .filter(Boolean)
+    .join('|')
+}
+
 function entriesInSection(wikitext, heading, pageUrl) {
   const lines = wikitext.split('\n')
   const start = lines.findIndex((line) => new RegExp(`^=+\\s*${heading}\\s*=+\\s*$`).test(line))
@@ -238,15 +246,16 @@ function rowsFromCsv(csv) {
     type: entry[index.type]?.trim() ?? '',
     description: entry[index.description]?.trim() ?? '',
     rarity: entry[index.rarity]?.trim() || BASE_GEAR_RARITY,
+    variants: entry[index.variants]?.trim() ?? '',
   }))
 }
 
 function gearCsv(rows) {
   const lines = rows.map((row) =>
-    [row.name, row.slug, row.type, row.description, row.rarity].map(csvField).join(','),
+    [row.name, row.slug, row.type, row.description, row.rarity, row.variants].map(csvField).join(','),
   )
 
-  return `name,slug,type,description,rarity\n${lines.join('\n')}\n`
+  return `name,slug,type,description,rarity,variants\n${lines.join('\n')}\n`
 }
 
 export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, label }) {
@@ -280,6 +289,7 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     type: item.type,
     description: wikiDescription(wikitextByName.get(item.name) ?? ''),
     rarity: gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
+    variants: variantSlugs(wikitextByName.get(item.name) ?? ''),
   }))
   const removed = [...previousSlugs].filter((slug) => !rows.some((row) => row.slug === slug))
   const missing = rows.filter((row) => !row.description)

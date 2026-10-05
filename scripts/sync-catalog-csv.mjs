@@ -58,7 +58,7 @@ function sqlLiteral(value) {
   return `'${String(value).replaceAll("'", "''")}'`
 }
 
-async function readCatalogCsv(csvFile, required, enums, lists) {
+async function readCatalogCsv(csvFile, required, enums, lists, slugLists) {
   const csvPath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     '../supabase/seeds',
@@ -106,6 +106,19 @@ async function readCatalogCsv(csvFile, required, enums, lists) {
       record[column] = values
     }
 
+    for (const column of slugLists) {
+      const values = record[column]
+        .split('|')
+        .map((value) => value.trim())
+        .filter(Boolean)
+
+      if (values.some((value) => !SLUG_PATTERN.test(value))) {
+        throw new Error(`${csvFile} row ${rowNumber + 2} has invalid ${column}: ${record[column]}`)
+      }
+
+      record[column] = values
+    }
+
     return record
   })
 }
@@ -117,11 +130,12 @@ export async function syncCatalogCsv({
   required,
   enums = {},
   lists = {},
+  slugLists = [],
 }) {
   const files = csvFiles ?? [csvFile]
   const prune = process.argv.includes('--prune')
   const rows = (
-    await Promise.all(files.map((file) => readCatalogCsv(file, required, enums, lists)))
+    await Promise.all(files.map((file) => readCatalogCsv(file, required, enums, lists, slugLists)))
   ).flat()
 
   const slugs = rows.map((item) => item.slug)

@@ -9,15 +9,17 @@ import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
 import { GearEffects } from './GearEffects'
 import { GearUniqueEffect } from './GearUniqueEffect'
+import { GearVariant } from './GearVariant'
 import styles from './GearDetailPanel.module.css'
 
 export type GearDetailPanelProps = {
   item: Gear | null
   effects: Array<Effect>
+  onVariantSelect: (slug: string) => void
   footer?: ReactNode
 }
 
-export function GearDetailPanel({ item, effects, footer }: GearDetailPanelProps) {
+export function GearDetailPanel({ item, effects, onVariantSelect, footer }: GearDetailPanelProps) {
   const uniqueEffect = item ? uniqueEffectForGear(effects, item.slug) : null
 
   return (
@@ -39,7 +41,10 @@ export function GearDetailPanel({ item, effects, footer }: GearDetailPanelProps)
       {item ? (
         <>
           {item.rarity.includes('unique') ? <GearUniqueEffect effect={uniqueEffect} /> : null}
-          <GearEffects effects={effectsForGear(effects, item)} />
+          <GearEffects
+            effects={effectsForGear(effects, item)}
+            archetypeNames={item.archetypeNames}
+          />
           <section className={styles.enchantments}>
             <h3 className={styles.heading}>Enchantments</h3>
             {item.enchantments.length ? (
@@ -48,6 +53,7 @@ export function GearDetailPanel({ item, effects, footer }: GearDetailPanelProps)
               <p className={styles.none}>No enchantments</p>
             )}
           </section>
+          <GearVariant item={item} onSelect={onVariantSelect} />
           {footer ? <div className={styles.footer}>{footer}</div> : null}
         </>
       ) : null}

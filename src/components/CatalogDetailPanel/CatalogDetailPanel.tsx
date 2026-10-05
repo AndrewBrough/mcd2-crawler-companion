@@ -33,7 +33,6 @@ export function CatalogDetailPanel({
 
   return (
     <aside className={styles.panel} aria-label={ariaLabel}>
-      <p className={styles.kicker}>Details</p>
       <div className={styles.summary}>
         <div className={styles.copy}>
           <div className={styles.heading}>

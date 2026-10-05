@@ -5,12 +5,36 @@ import { GEAR_RARITIES, type GearListItem, type GearRarity } from '#/types/data/
 
 type EffectLink = { effect_id: string }
 
+type ArchetypeEmbed = {
+  name: string
+  archetype_effects: Array<EffectLink>
+}
+
 type SetEmbed = {
   set_archetypes: Array<{
-    archetypes: { archetype_effects: Array<EffectLink> } | null
+    archetypes: ArchetypeEmbed | null
   }> | null
   set_effects: Array<EffectLink> | null
 } | null
+
+function setPools(set: SetEmbed): { archetypeNames: Array<string>; effectSlugs: Array<string> } {
+  if (!set) {
+    return { archetypeNames: [], effectSlugs: [] }
+  }
+
+  const archetypes = (set.set_archetypes ?? []).flatMap((link) =>
+    link.archetypes ? [link.archetypes] : [],
+  )
+  const fromArchetypes = archetypes.flatMap((archetype) =>
+    archetype.archetype_effects.map((row) => row.effect_id),
+  )
+  const direct = (set.set_effects ?? []).map((row) => row.effect_id)
+
+  return {
+    archetypeNames: archetypes.map((archetype) => archetype.name),
+    effectSlugs: [...new Set([...fromArchetypes, ...direct])],
+  }
+}
 
 type GearQueryRow = {
   name: string
@@ -18,23 +42,11 @@ type GearQueryRow = {
   description: string
   rarity: Array<string>
   type: GearListItem['type']
+  variants: Array<string> | null
   sets: SetEmbed
   gear_enchantments: Array<{ enchantment: NamedEmbed }> | null
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
   enemy_gear_drops: Array<{ drop_rate: number | string; enemy: NamedEmbed }> | null
-}
-
-function effectSlugs(set: SetEmbed): Array<string> {
-  if (!set) {
-    return []
-  }
-
-  const fromArchetypes = (set.set_archetypes ?? []).flatMap(
-    (link) => link.archetypes?.archetype_effects.map((row) => row.effect_id) ?? [],
-  )
-  const direct = (set.set_effects ?? []).map((row) => row.effect_id)
-
-  return [...new Set([...fromArchetypes, ...direct])]
 }
 
 export async function getGear(): Promise<Array<GearListItem>> {
@@ -47,8 +59,9 @@ export async function getGear(): Promise<Array<GearListItem>> {
         description,
         rarity,
         type,
+        variants,
         sets (
-          set_archetypes ( archetypes ( archetype_effects ( effect_id ) ) ),
+          set_archetypes ( archetypes ( name, archetype_effects ( effect_id ) ) ),
           set_effects ( effect_id )
         ),
         gear_enchantments ( enchantment:enchantments ( slug, name ) ),
@@ -62,7 +75,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
     throw new CatalogQueryError(error.message)
   }
 
-  return ((data ?? []) as Array<GearQueryRow>).flatMap((row) => {
+  const rows = ((data ?? []) as Array<GearQueryRow>).flatMap((row) => {
     const rarity = row.rarity.filter((value): value is GearRarity =>
       GEAR_RARITIES.some((entry) => entry === value),
     )
@@ -79,7 +92,8 @@ export async function getGear(): Promise<Array<GearListItem>> {
         rarity,
         type: row.type,
         enchantments: compactMap(row.gear_enchantments, (entry) => mapNamedRef(entry.enchantment)),
-        effectSlugs: effectSlugs(row.sets),
+        ...setPools(row.sets),
+        variants: row.variants ?? [],
         locationSources: compactMap(row.location_gear_drops, (entry) =>
           mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
         ),
@@ -89,4 +103,13 @@ export async function getGear(): Promise<Array<GearListItem>> {
       },
     ]
   })
+  const names = new Map(rows.map((row) => [row.slug, row.name]))
+
+  return rows.map((row) => ({
+    ...row,
+    variants: row.variants.flatMap((slug) => {
+      const name = names.get(slug)
+      return name ? [{ slug, name }] : []
+    }),
+  }))
 }

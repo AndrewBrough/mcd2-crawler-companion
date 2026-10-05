@@ -221,6 +221,7 @@ export type Database = {
           set_id: string | null
           slug: string
           type: string
+          variants: string[]
         }
         Insert: {
           created_at?: string
@@ -230,6 +231,7 @@ export type Database = {
           set_id?: string | null
           slug: string
           type: string
+          variants?: string[]
         }
         Update: {
           created_at?: string
@@ -239,6 +241,7 @@ export type Database = {
           set_id?: string | null
           slug?: string
           type?: string
+          variants?: string[]
         }
         Relationships: [
           {

@@ -1,25 +1,27 @@
-name,slug,type,description,rarity
-Amethyst Lens,amethyst-lens,talisman,Ranged Attacks deal X% more damage.,common|rare|special
-Armadillo Amulet,armadillo-amulet,talisman,Reduces rolling cooldown time by X%.,common|rare|special
-Emerald of Good Fortune,emerald-of-good-fortune,talisman,Grants a X% chance to receive additional emeralds..,common|rare|special
-Essence of Efficiency,essence-of-efficiency,talisman,Reduces artifact cooldown time by X%.,common|rare|special
-Fist of Iron,fist-of-iron,talisman,Melee attacks deal X% more damage.,common|rare|special
-Golem Kit,golem-kit,talisman,Summons a plated protector to prevent you from being harmed!,common|rare|special
-Glowstone Flask,glowstone-flask,talisman,Reduces potion cooldown time by X%,common|rare|special
-Healing Heart,healing-heart,talisman,Restores health by X% per second after 5 seconds out of combat.,common|rare|special
-Lucky Clover,lucky-clover,talisman,Grants a X% chance to get additional loot drops.,common|rare|special
-Looter's Charm,looters-charm,talisman,Grants a X% increased chance for defeated enemies to drop loot.,common|rare|special
-Medallion of Momentum,medallion-of-momentum,talisman,Increases movement speed by X% if moving for more than 3 seconds.,common|rare|special
-Ocelot's Paw,ocelots-paw,talisman,Jumping melee attacks deal X% more damage.,common|rare|special
-Prickle's Mark,prickles-mark,talisman,Summons a prickly pal to participate in the fight!,common|rare|special
-Sculk Badge,sculk-badge,talisman,Increases duration of positive statuses applied to you by X%.,common|rare|special
-Sigil of Beeswax,sigil-of-beeswax,talisman,Increases the player's maximum health by X%,common|rare|special
-Soul Chip,soul-chip,talisman,Increases Soul capacity by X%.,common|rare|special
-Tasty Bone,tasty-bone,talisman,Summons a furry friend to fight by your side!,common|rare|special
-Tendrils of the Sprout,tendrils-of-the-sprout,talisman,Grants a X% damage increase while health is above 95%,common|rare|special
-The Eye of Experience,the-eye-of-experience,talisman,Increases experience gained by X%.,common|rare|special
-Thrifty Pendant,thrifty-pendant,talisman,"Grants up to a X% damage bonus based on emeralds held, effective to a maximum of X emeralds.",common|rare|special
-Twig of Dark Oak,twig-of-dark-oak,talisman,Carry X% more ammo.,common|rare|special
-Twisted Tooth,twisted-tooth,talisman,Increases souls gained by X%.,common|rare|special
-Wobblestone,wobblestone,talisman,Summons a wobbly ward to aid you in battle!,common|rare|special
-Wonderful Wheat,wonderful-wheat,talisman,Summons a woolly wanderer to watch over you in battle!,common|rare|special
+name,slug,type,description,rarity,variants
+Amethyst Lens,amethyst-lens,talisman,Ranged Attacks deal X% more damage.,common,
+The Prime Enchanter Revived,the-prime-enchanter-revived,talisman,,common|rare|special,
+Howling Woods,howling-woods,talisman,,common|rare|special,
+Armadillo Amulet,armadillo-amulet,talisman,Reduces rolling cooldown time by X%.,common,
+Emerald of Good Fortune,emerald-of-good-fortune,talisman,Grants a X% chance to receive additional emeralds..,common|rare|special,
+Essence of Efficiency,essence-of-efficiency,talisman,Reduces artifact cooldown time by X%.,common|rare|special,
+Fist of Iron,fist-of-iron,talisman,Melee attacks deal X% more damage.,common,
+Golem Kit,golem-kit,talisman,Summons a plated protector to prevent you from being harmed!,common,
+Glowstone Flask,glowstone-flask,talisman,Reduces potion cooldown time by X%,common,
+Healing Heart,healing-heart,talisman,Restores health by X% per second after 5 seconds out of combat.,common,
+Lucky Clover,lucky-clover,talisman,Grants a X% chance to get additional loot drops.,common,
+Looter's Charm,looters-charm,talisman,Grants a X% increased chance for defeated enemies to drop loot.,common,
+Medallion of Momentum,medallion-of-momentum,talisman,Increases movement speed by X% if moving for more than 3 seconds.,common,
+Ocelot's Paw,ocelots-paw,talisman,Jumping melee attacks deal X% more damage.,common,
+Prickle's Mark,prickles-mark,talisman,Summons a prickly pal to participate in the fight!,common|rare|special,
+Sculk Badge,sculk-badge,talisman,Increases duration of positive statuses applied to you by X%.,common,
+Sigil of Beeswax,sigil-of-beeswax,talisman,Increases the player's maximum health by X%,common,
+Soul Chip,soul-chip,talisman,Increases Soul capacity by X%.,common,
+Tasty Bone,tasty-bone,talisman,Summons a furry friend to fight by your side!,common|rare|special,
+Tendrils of the Sprout,tendrils-of-the-sprout,talisman,Grants a X% damage increase while health is above 95%,common,
+The Eye of Experience,the-eye-of-experience,talisman,Increases experience gained by X%.,common|rare|special,
+Thrifty Pendant,thrifty-pendant,talisman,"Grants up to a X% damage bonus based on emeralds held, effective to a maximum of X emeralds.",common,
+Twig of Dark Oak,twig-of-dark-oak,talisman,Carry X% more ammo.,common,
+Twisted Tooth,twisted-tooth,talisman,Increases souls gained by X%.,common,
+Wobblestone,wobblestone,talisman,Summons a wobbly ward to aid you in battle!,common,
+Wonderful Wheat,wonderful-wheat,talisman,Summons a woolly wanderer to watch over you in battle!,common,

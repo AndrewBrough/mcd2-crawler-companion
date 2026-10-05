@@ -40,7 +40,18 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
           onQueryChange={setQuery}
         />
       }
-      detail={<GearDetailPanel item={selected} effects={effects} />}
+      detail={
+        <GearDetailPanel
+          item={selected}
+          effects={effects}
+          onVariantSelect={(slug) => {
+            const variant = gear.find((entry) => entry.slug === slug)
+            if (variant) {
+              handleItemSelect(variant)
+            }
+          }}
+        />
+      }
     />
   )
 }

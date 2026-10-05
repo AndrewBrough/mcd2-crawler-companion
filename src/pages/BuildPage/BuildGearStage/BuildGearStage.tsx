@@ -62,6 +62,12 @@ export function BuildGearStage({
         <GearDetailPanel
           item={detailItem}
           effects={effects}
+          onVariantSelect={(slug) => {
+            const variant = gear.find((entry) => entry.slug === slug)
+            if (variant) {
+              onItemSelect(variant)
+            }
+          }}
           footer={
             <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
           }

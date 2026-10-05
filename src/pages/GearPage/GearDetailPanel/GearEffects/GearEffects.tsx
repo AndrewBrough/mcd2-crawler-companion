@@ -4,12 +4,17 @@ import styles from './GearEffects.module.css'
 
 export type GearEffectsProps = {
   effects: Array<Effect>
+  archetypeNames: Array<string>
 }
 
-export function GearEffects({ effects }: GearEffectsProps) {
+export function GearEffects({ effects, archetypeNames }: GearEffectsProps) {
+  const archetypeTitle = archetypeNames.length ? archetypeNames.join(', ') : undefined
+
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading}>Effects</h3>
+      <h3 className={styles.heading} title={archetypeTitle}>
+        Effects
+      </h3>
       {effects.length ? (
         <ul className={styles.list}>
           {effects.map((effect) => (
