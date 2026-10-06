@@ -12,7 +12,7 @@ const CSV_PATH = path.resolve(
 const SECTIONS = [
   { heading: 'Melee Enchantments', gearType: 'melee_weapon', icon: false },
   { heading: 'Ranged Enchantments', gearType: 'ranged_weapon', icon: false },
-  { heading: 'Armor Enchantments', gearType: 'armor', icon: true },
+  { heading: 'Armor Enchantments', gearType: 'armor_helmet', icon: true },
 ]
 
 function tableRows(wikitext, heading) {

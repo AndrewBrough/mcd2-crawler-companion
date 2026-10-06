@@ -60,15 +60,6 @@ function enchantmentTiers(row: EnchantmentNameRow): Array<EnchantmentTier> {
 }
 
 function enchantmentTypeForGear(type: GearType): EnchantmentGearType | null {
-  if (
-    type === 'armor_helmet' ||
-    type === 'armor_chest' ||
-    type === 'armor_leggings' ||
-    type === 'armor_boots'
-  ) {
-    return 'armor'
-  }
-
   return ENCHANTMENT_GEAR_TYPES.find((entry) => entry === type) ?? null
 }
 

@@ -4,7 +4,6 @@ import type { GearType } from '#/types/data/gear'
 const gearTypeLabels = {
   melee_weapon: 'Melee',
   ranged_weapon: 'Ranged',
-  armor: 'Armor',
   armor_helmet: 'Helmet',
   armor_chest: 'Chestplate',
   armor_leggings: 'Leggings',

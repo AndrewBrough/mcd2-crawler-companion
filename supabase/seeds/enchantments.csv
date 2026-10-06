@@ -16,10 +16,10 @@ Thundering,thundering,Attacks have a chance to spread lightning damage to nearby
 Chain Reaction,chain-reaction,Successful ranged hits have a chance to fire off additional projectiles at nearby enemies.,Projectiles have a 20% chance to spawn 4 additional projectiles.,Projectiles have a 30% chance to spawn 6 additional projectiles.,Projectiles have a 40% chance to spawn 8 additional projectiles.,ranged_weapon,Attack,
 Piercing,piercing,Allows fired arrows and projectiles to pierce through multiple targets.,Projectiles can pierce up to 1 enemies.,Projectiles can pierce up to 3 enemies.,Projectiles can pierce up to 5 enemies.,ranged_weapon,Attack,"""Training With The Enchantsmith"" Quest"
 Ricochet,ricochet,Allows fired arrows and projectiles to bounce between multiple targets.,Projectiles can bounce up to 1 times.,Projectiles can bounce up to 2 times.,Projectiles can bounce up to 3 times.,ranged_weapon,Attack,Dungeons
-Ancient Alchemy,ancient-alchemy,Using a health potion grants additional souls,30 Souls,45 Souls,60 Souls,armor,Soul|Health,"""Training With The Enchantsmith"" Quest"
-Artifact Amplifier,artifact-amplifier,Reduces artifact cooldown and improves damage and souls absorbed for a short time,6s,7.5s,9s,armor,Artifact,
-Barrier Brew,barrier-brew,Grants the Fortifying status for a short time,2s,4s,6s,armor,Health,
-Bottomless Brew,bottomless-brew,Gives the player additional health potions,+1,+2,+3,armor,Health,Obtained from dungeons in the sift
-Buddy Brew,buddy-brew,Chance to spawn a regeneration well for a short time,2s,4s,6s,armor,Health,
-End quiver,end-quiver,Increases max quiver size,2,4,6,armor,Ranged,Dungeons
-Tumbleshot,tumbleshot,Rolling fires a barrage of arrows targeting enemies.,1 arrow for 110% of range damage,1 arrow for 120% of range damage,2 arrows for 130% of range damage,armor,Ranged,Sift rifts
+Ancient Alchemy,ancient-alchemy,Using a health potion grants additional souls,30 Souls,45 Souls,60 Souls,armor_helmet,Soul|Health,"""Training With The Enchantsmith"" Quest"
+Artifact Amplifier,artifact-amplifier,Reduces artifact cooldown and improves damage and souls absorbed for a short time,6s,7.5s,9s,armor_helmet,Artifact,
+Barrier Brew,barrier-brew,Grants the Fortifying status for a short time,2s,4s,6s,armor_helmet,Health,
+Bottomless Brew,bottomless-brew,Gives the player additional health potions,+1,+2,+3,armor_helmet,Health,Obtained from dungeons in the sift
+Buddy Brew,buddy-brew,Chance to spawn a regeneration well for a short time,2s,4s,6s,armor_helmet,Health,
+End quiver,end-quiver,Increases max quiver size,2,4,6,armor_helmet,Ranged,Dungeons
+Tumbleshot,tumbleshot,Rolling fires a barrage of arrows targeting enemies.,1 arrow for 110% of range damage,1 arrow for 120% of range damage,2 arrows for 130% of range damage,armor_helmet,Ranged,Sift rifts
