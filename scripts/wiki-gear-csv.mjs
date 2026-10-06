@@ -47,6 +47,7 @@ export function plainWiki(text) {
     .replace(/<[^>]+>/g, '')
     .replace(/'{2,}/g, '')
     .replace(/\s+/g, ' ')
+    .replace(/\}\}+/g, '')
     .trim()
 }
 
@@ -54,7 +55,22 @@ function wikiDescription(wikitext) {
   return plainWiki(infoboxField(wikitext, 'description'))
 }
 
-function entriesInSection(wikitext, heading, pageUrl) {
+function listRarity(row) {
+  const match = row.match(/\{\{DungeonsIIRarity\|([^}]+)\}\}/i)
+  const value = match?.[1]?.trim().toLowerCase() ?? ''
+
+  if (value === 'unique' || value.endsWith('=unique')) {
+    return 'unique'
+  }
+
+  if (value === 'br') {
+    return BASE_GEAR_RARITY
+  }
+
+  return null
+}
+
+function entriesInSection(wikitext, heading, pageUrl, options) {
   const lines = wikitext.split('\n')
   const start = lines.findIndex((line) => new RegExp(`^=+\\s*${heading}\\s*=+\\s*$`).test(line))
 
@@ -89,19 +105,27 @@ function entriesInSection(wikitext, heading, pageUrl) {
     rows.push(current.join('\n'))
   }
 
-  return rows.map(entryFromRow).filter(Boolean)
+  return rows.map((row) => entryFromRow(row, options)).filter(Boolean)
 }
 
-function entryFromRow(row) {
+function entryFromRow(row, options = {}) {
   const imageMatch = row.match(/\[\[(?:File|Image):([^\]|]+)/i)
   const searchable = imageMatch ? row.slice(imageMatch.index + imageMatch[0].length) : row
   const templates = [
-    searchable.match(/\{\{MCD2(?:Link)?\|([^}]+)\}\}/),
-    searchable.match(/\[\[Dungeons II:([^\]|#]+)(?:\|[^\]]*)?\]\]/),
-  ].filter(Boolean)
+    { priority: 0, match: searchable.match(/\{\{MCD2(?:Link)?\|([^}]+)\}\}/) },
+    { priority: 1, match: searchable.match(/\[\[Dungeons II:([^\]|#]+)(?:\|[^\]]*)?\]\]/) },
+    options.plainLinks
+      ? {
+          priority: 2,
+          match: searchable.match(/\[\[(?!(?:File|Image|Category):)([^\]|#]+)(?:\|[^\]]*)?\]\]/i),
+        }
+      : null,
+  ].filter((entry) => entry?.match)
 
-  templates.sort((left, right) => left.index - right.index)
-  const name = templates[0]?.[1]?.trim()
+  templates.sort(
+    (left, right) => left.match.index - right.match.index || left.priority - right.priority,
+  )
+  const name = templates[0]?.match[1]?.trim()
 
   if (!name || name.includes('{')) {
     return null
@@ -110,6 +134,7 @@ function entryFromRow(row) {
   return {
     name,
     image: imageMatch?.[1]?.trim() ?? '',
+    listRarity: listRarity(row),
   }
 }
 
@@ -241,23 +266,43 @@ function rowsFromCsv(csv) {
   }))
 }
 
-function gearCsv(rows) {
-  const lines = rows.map((row) =>
-    [row.name, row.slug, row.type, row.description, row.rarity].map(csvField).join(','),
-  )
+function gearCsv(rows, weaponSets) {
+  const fields = ['name', 'slug', 'type', 'description', 'rarity']
 
-  return `name,slug,type,description,rarity\n${lines.join('\n')}\n`
+  if (weaponSets) {
+    fields.push('set_id', 'pool')
+  }
+
+  const lines = rows.map((row) => fields.map((field) => csvField(row[field] ?? '')).join(','))
+
+  return `${fields.join(',')}\n${lines.join('\n')}\n`
 }
 
-export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, label }) {
+function weaponSetId(row, bySlug) {
+  if (row.rarity !== 'unique') {
+    return row.slug
+  }
+
+  const variant = bySlug.get(row.variantSlug)
+
+  if (variant && variant.rarity !== 'unique') {
+    return variant.slug
+  }
+
+  return ''
+}
+
+export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, label, weaponSets = false }) {
   const csvPath = path.join(SEEDS_DIR, csvFile)
   const wikitext = await fetchPage(pageTitle, pageUrl)
-  const listed = sections.flatMap(({ heading, type }) =>
-    entriesInSection(wikitext, heading, pageUrl).map((entry) => ({
+  const listed = sections.flatMap(({ heading, type, pool }) =>
+    entriesInSection(wikitext, heading, pageUrl, { plainLinks: weaponSets }).map((entry) => ({
       name: entry.name,
       type,
+      pool: pool ?? '',
       slug: slugify(entry.name),
       image: entry.image,
+      listRarity: entry.listRarity,
     })),
   )
   const seen = new Set()
@@ -274,17 +319,31 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
     fetchWikitextByName(items.map((item) => item.name)),
     fetchUniqueGear(),
   ])
-  const rows = items.map((item) => ({
-    name: item.name,
-    slug: item.slug,
-    type: item.type,
-    description: wikiDescription(wikitextByName.get(item.name) ?? ''),
-    rarity: gearRarity(wikitextByName.get(item.name) ?? '', item.name, uniqueGear),
-  }))
+  const rows = items.map((item) => {
+    const wikitextForItem = wikitextByName.get(item.name) ?? ''
+    const row = {
+      name: item.name,
+      slug: item.slug,
+      type: item.type,
+      pool: item.pool,
+      description: wikiDescription(wikitextForItem),
+      rarity: item.listRarity ?? gearRarity(wikitextForItem, item.name, uniqueGear),
+      variantSlug: slugify(plainWiki(infoboxField(wikitextForItem, 'variant'))),
+    }
+
+    return row
+  })
+  const bySlug = new Map(rows.map((row) => [row.slug, row]))
+
+  for (const row of rows) {
+    row.set_id = weaponSets ? weaponSetId(row, bySlug) : ''
+  }
+
+  const unresolved = rows.filter((row) => weaponSets && !row.set_id)
   const removed = [...previousSlugs].filter((slug) => !rows.some((row) => row.slug === slug))
   const missing = rows.filter((row) => !row.description)
 
-  await writeFile(csvPath, gearCsv(rows))
+  await writeFile(csvPath, gearCsv(rows, weaponSets))
 
   const uniqueCount = rows.filter((row) => row.rarity === 'unique').length
   const baseCount = rows.filter((row) => row.rarity === BASE_GEAR_RARITY).length
@@ -299,6 +358,10 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
 
   if (missing.length) {
     console.log(`No description found for: ${missing.map((row) => row.name).join(', ')}`)
+  }
+
+  if (unresolved.length) {
+    console.log(`No base variant for: ${unresolved.map((row) => row.name).join(', ')}`)
   }
 
   await syncCatalogThumbnails({

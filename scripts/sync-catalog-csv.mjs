@@ -58,7 +58,7 @@ function sqlLiteral(value) {
   return `'${String(value).replaceAll("'", "''")}'`
 }
 
-async function readCatalogCsv(csvFile, required, enums, lists, slugLists) {
+async function readCatalogCsv(csvFile, required, enums, lists, slugLists, extras = []) {
   const csvPath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     '../supabase/seeds',
@@ -106,6 +106,14 @@ async function readCatalogCsv(csvFile, required, enums, lists, slugLists) {
       record[column] = values
     }
 
+    for (const column of extras) {
+      if (index[column] === undefined) {
+        continue
+      }
+
+      record[column] = entry[index[column]]?.trim() ?? ''
+    }
+
     for (const column of slugLists) {
       const values = record[column]
         .split('|')
@@ -131,11 +139,15 @@ export async function syncCatalogCsv({
   enums = {},
   lists = {},
   slugLists = [],
+  extras = [],
+  prepare,
 }) {
   const files = csvFiles ?? [csvFile]
   const prune = process.argv.includes('--prune')
   const rows = (
-    await Promise.all(files.map((file) => readCatalogCsv(file, required, enums, lists, slugLists)))
+    await Promise.all(
+      files.map((file) => readCatalogCsv(file, required, enums, lists, slugLists, extras)),
+    )
   ).flat()
 
   const slugs = rows.map((item) => item.slug)
@@ -172,7 +184,21 @@ ${updateColumns.map((column) => `  ${column} = excluded.${column}`).join(',\n')}
   }
 
   const supabase = createClient(supabaseUrl, secretKey)
-  const { error: upsertError } = await supabase.from(table).upsert(rows, { onConflict: 'slug' })
+
+  if (prepare) {
+    await prepare(supabase, rows)
+  }
+
+  const catalogRows = rows.map((row) => {
+    const record = Object.fromEntries(required.map((column) => [column, row[column]]))
+
+    if (record.set_id === '') {
+      delete record.set_id
+    }
+
+    return record
+  })
+  const { error: upsertError } = await supabase.from(table).upsert(catalogRows, { onConflict: 'slug' })
 
   if (upsertError) {
     throw new Error(upsertError.message)

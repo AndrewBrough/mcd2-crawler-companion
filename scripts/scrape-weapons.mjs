@@ -7,9 +7,10 @@ await appendWikiGear({
   pageUrl: 'https://minecraft.wiki/w/Dungeons_II:Weapon',
   csvFile: 'weapons.csv',
   label: 'weapons',
+  weaponSets: true,
   sections: [
-    { heading: 'List of melee weapons', type: 'melee_weapon' },
-    { heading: 'List of bows', type: 'ranged_weapon' },
-    { heading: 'List of crossbows', type: 'ranged_weapon' },
+    { heading: 'List of melee weapons', type: 'melee_weapon', pool: 'melee' },
+    { heading: 'List of bows', type: 'ranged_weapon', pool: 'bow' },
+    { heading: 'List of crossbows', type: 'ranged_weapon', pool: 'crossbow' },
   ],
 })
