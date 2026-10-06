@@ -12,7 +12,9 @@ import {
   writeEffectPins,
 } from './build-socket-params'
 
-const EFFECT_PIN_CAP = 3
+export function effectPinCapForRarity(rarity: ReadonlyArray<string>): number {
+  return rarity.includes('unique') ? 2 : 3
+}
 
 type NavigateSearch = (previous: BuildSearch) => BuildSearch
 
@@ -50,6 +52,7 @@ export function useBuildPins(search: BuildSearch) {
     socketId: string,
     slug: string,
     allowed: ReadonlySet<string>,
+    cap: number,
     replaceSlug?: string,
   ) {
     if (!isPinnableSocketId(socketId) || !allowed.has(slug)) {
@@ -63,10 +66,10 @@ export function useBuildPins(search: BuildSearch) {
         ? current.map((item) => (item === replaceSlug ? slug : item))
         : current.includes(slug)
           ? current.filter((item) => item !== slug)
-          : current.length >= EFFECT_PIN_CAP
+          : current.length >= cap
             ? current
             : [...current, slug]
-      writeEffectPins(next, socketId, packed)
+      writeEffectPins(next, socketId, packed.slice(0, cap))
       return next
     })
   }
@@ -88,19 +91,15 @@ export function useBuildPins(search: BuildSearch) {
     })
   }
 
-  function removeEffectSlug(socketId: string, slug: string) {
+  function replaceEffectPins(socketId: string, slugs: Array<string>) {
     updateSearch((previous) => {
       const next = { ...previous }
-      writeEffectPins(
-        next,
-        socketId,
-        readEffectPins(previous, socketId).filter((item) => item !== slug),
-      )
+      writeEffectPins(next, socketId, slugs)
       return next
     })
   }
 
-  return { effectPins, enchantmentPin, toggleEffect, toggleEnchantment, removeEffectSlug }
+  return { effectPins, enchantmentPin, toggleEffect, toggleEnchantment, replaceEffectPins }
 }
 
 export type GearPinProps = {
@@ -119,13 +118,24 @@ export function useGearPins(
   const pins = useBuildPins(search)
   const socketId = item ? pinnableSocketForSlug(loadout, item.slug) : null
   const uniqueSlug = item ? uniqueEffectForGear(effects, item.slug)?.slug : null
+  const pinCap = item ? effectPinCapForRarity(item.rarity) : 3
 
   useEffect(() => {
-    if (!socketId || !uniqueSlug || !readEffectPins(search, socketId).includes(uniqueSlug)) {
+    if (!socketId) {
       return
     }
-    pins.removeEffectSlug(socketId, uniqueSlug)
-  }, [search, socketId, uniqueSlug])
+
+    const current = readEffectPins(search, socketId)
+    const next = current.filter((slug) => slug !== uniqueSlug).slice(0, pinCap)
+    const unchanged =
+      next.length === current.length && next.every((slug, index) => slug === current[index])
+
+    if (unchanged) {
+      return
+    }
+
+    pins.replaceEffectPins(socketId, next)
+  }, [pinCap, search, socketId, uniqueSlug])
 
   if (!item || !socketId) {
     return {}
@@ -136,8 +146,12 @@ export function useGearPins(
   const enchantmentSlug = pins.enchantmentPin(socketId)
 
   return {
-    pinnedEffectSlugs: pins.effectPins(socketId).filter((slug) => allowedEffects.has(slug)),
-    onPinEffect: (slug, replaceSlug) => pins.toggleEffect(socketId, slug, allowedEffects, replaceSlug),
+    pinnedEffectSlugs: pins
+      .effectPins(socketId)
+      .filter((slug) => allowedEffects.has(slug))
+      .slice(0, pinCap),
+    onPinEffect: (slug, replaceSlug) =>
+      pins.toggleEffect(socketId, slug, allowedEffects, pinCap, replaceSlug),
     pinnedEnchantmentSlug: enchantmentSlug && allowedEnchantments.has(enchantmentSlug) ? enchantmentSlug : null,
     onPinEnchantment: (slug) => pins.toggleEnchantment(socketId, slug, allowedEnchantments),
   }

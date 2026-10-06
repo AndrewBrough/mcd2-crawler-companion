@@ -3,6 +3,7 @@ import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
 import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { Badge } from '#/components/ui/Badge'
 import { Favourite } from '#/components/Favourite'
+import { effectPinCapForRarity } from '#/lib/build/use-build-pins'
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
 import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { Effect } from '#/types/data/effect'
@@ -74,6 +75,7 @@ export function GearDetailPanel({
             onPinEffect={onPinEffect}
             uniqueEffect={item.rarity.includes('unique') ? uniqueEffect : null}
             collapsible={collapsibleRolls}
+            pinCap={effectPinCapForRarity(item.rarity)}
           />
           <GearVariant item={item} onSelect={onVariantSelect} />
           <GearArchetype item={item} gear={gear} onSelect={onVariantSelect} />

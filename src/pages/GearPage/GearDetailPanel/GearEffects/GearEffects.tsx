@@ -4,8 +4,6 @@ import type { Effect } from '#/types/data/effect'
 import { GearSectionToggle } from '../GearSectionToggle'
 import styles from './GearEffects.module.css'
 
-const EFFECT_PIN_CAP = 3
-
 export type GearEffectsProps = {
   effects: Array<Effect>
   archetypeNames: Array<string>
@@ -13,6 +11,7 @@ export type GearEffectsProps = {
   onPinEffect?: (slug: string, replaceSlug?: string) => void
   uniqueEffect?: Effect | null
   collapsible?: boolean
+  pinCap?: number
 }
 
 export function GearEffects({
@@ -22,15 +21,16 @@ export function GearEffects({
   onPinEffect,
   uniqueEffect = null,
   collapsible = true,
+  pinCap = 3,
 }: GearEffectsProps) {
   const [expanded, setExpanded] = useState(false)
   const archetypeTitle = archetypeNames.length ? archetypeNames.join(', ') : undefined
   const pinnedEffects = pinnedSlugs.flatMap((slug) => {
     const effect = effects.find((item) => item.slug === slug)
     return effect ? [effect] : []
-  })
+  }).slice(0, pinCap)
   const availableEffects = effects.filter((effect) => !pinnedSlugs.includes(effect.slug))
-  const showEmptySocket = pinnedEffects.length < EFFECT_PIN_CAP && availableEffects.length > 0
+  const showEmptySocket = pinnedEffects.length < pinCap && availableEffects.length > 0
 
   return (
     <section className={styles.section}>
