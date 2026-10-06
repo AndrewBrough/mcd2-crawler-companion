@@ -15,11 +15,11 @@ export function BuildGearAction({ inBuild, onAdd, onRemove, onBack }: BuildGearA
     <div className={styles.row}>
       <Button type="button" variant="grey" iconPosition="start" onClick={onBack}>
         Back
-        {createElement('wa-icon', { name: 'angle-left' })}
+        {createElement('wa-icon', { name: 'angle-left', canvas: 'auto' })}
       </Button>
       <Button type="button" iconPosition="start" onClick={inBuild ? onRemove : onAdd}>
         {inBuild ? 'REMOVE FROM BUILD' : 'ADD TO BUILD'}
-        {createElement('wa-icon', { name: inBuild ? 'minus' : 'plus' })}
+        {createElement('wa-icon', { name: inBuild ? 'minus' : 'plus', canvas: 'auto' })}
       </Button>
     </div>
   )
