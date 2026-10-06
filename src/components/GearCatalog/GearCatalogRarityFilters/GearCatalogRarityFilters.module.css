@@ -6,5 +6,9 @@
 }
 
 .inline {
-  display: contents;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.45rem;
 }
