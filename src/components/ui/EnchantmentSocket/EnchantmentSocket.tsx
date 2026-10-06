@@ -57,11 +57,11 @@ export function EnchantmentSocket({
       <EnchantmentSocketTooltip tiers={enchantment.tiers} activeLabel={ACTIVE_TIER}>
         {onChoose ? (
           <button className={styles.socket} type="button" onClick={() => onChoose(enchantment.slug)}>
-            <EnchantmentSocketContent enchantment={enchantment} />
+            <EnchantmentSocketContent enchantment={enchantment} level={ACTIVE_TIER} />
           </button>
         ) : (
           <div className={styles.socket}>
-            <EnchantmentSocketContent enchantment={enchantment} />
+            <EnchantmentSocketContent enchantment={enchantment} level={ACTIVE_TIER} />
           </div>
         )}
       </EnchantmentSocketTooltip>
@@ -79,7 +79,7 @@ export function EnchantmentSocket({
             aria-haspopup="listbox"
             onClick={() => setOpen((current) => !current)}
           >
-            <EnchantmentSocketContent enchantment={enchantment} />
+            <EnchantmentSocketContent enchantment={enchantment} level={ACTIVE_TIER} />
           </button>
         </EnchantmentSocketTooltip>
       ) : (
