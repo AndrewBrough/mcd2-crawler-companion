@@ -7,7 +7,7 @@ import { useSaveBuild } from '#/lib/build/use-save-build'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import { BUILD_SOCKET_ROWS, type BuildLoadout, type BuildSocketDefinition } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
-import type { Gear, GearRarity, GearType } from '#/types/data/gear'
+import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 import { Layout } from '#/components/ui/Layout'
 import { BuildGearStage } from './BuildGearStage/BuildGearStage'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
@@ -37,7 +37,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const { loadout, equip, clearSocket, removeSlug } = useBuildLoadout(gear, search)
   const { savedBuilds, removeSavedBuild } = useSaveBuild(search)
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
-  const [rarityFilter, setRarityFilter] = useState<GearRarity | null>(null)
+  const [rarityFilter, setRarityFilter] = useState<GearRarityFilter | null>(null)
   const [activeSocketId, setActiveSocketId] = useState<string | null>(() =>
     socketIdForSlug(loadout, search.slug),
   )

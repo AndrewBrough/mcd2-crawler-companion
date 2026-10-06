@@ -79,7 +79,6 @@ type GearQueryRow = {
   set_id: string | null
   rarity: Array<string>
   type: GearListItem['type']
-  variants: Array<string> | null
   sets: SetEmbed
   location_gear_drops: Array<{ drop_rate: number | string; location: NamedEmbed }> | null
   enemy_gear_drops: Array<{ drop_rate: number | string; enemy: NamedEmbed }> | null
@@ -97,7 +96,6 @@ export async function getGear(): Promise<Array<GearListItem>> {
         set_id,
         rarity,
         type,
-        variants,
         sets (
           set_archetypes ( archetypes ( name, archetype_effects ( effect_id ) ) ),
           set_effects ( effect_id )
@@ -154,7 +152,6 @@ export async function getGear(): Promise<Array<GearListItem>> {
             : [],
         ),
         ...setPools(row.sets),
-        variants: row.variants ?? [],
         locationSources: compactMap(row.location_gear_drops, (entry) =>
           mapDrop({ drop_rate: entry.drop_rate, target: entry.location }),
         ),
@@ -164,13 +161,21 @@ export async function getGear(): Promise<Array<GearListItem>> {
       },
     ]
   })
-  const gearBySlug = new Map(rows.map((row) => [row.slug, row]))
-
   return rows.map((row) => ({
     ...row,
-    variants: row.variants.flatMap((slug) => {
-      const variant = gearBySlug.get(slug)
-      return variant ? [{ slug, name: variant.name, rarity: variant.rarity }] : []
-    }),
+    variants: rows
+      .flatMap((other) => {
+        if (
+          !row.setId ||
+          other.slug === row.slug ||
+          other.setId !== row.setId ||
+          other.type !== row.type
+        ) {
+          return []
+        }
+
+        return [{ slug: other.slug, name: other.name, rarity: other.rarity }]
+      })
+      .sort((left, right) => left.name.localeCompare(right.name)),
   }))
 }

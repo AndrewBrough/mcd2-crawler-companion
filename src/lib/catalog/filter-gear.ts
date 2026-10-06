@@ -1,15 +1,23 @@
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
 import { filterCatalogItems } from '#/lib/catalog/filter-catalog-items'
 import type { Effect } from '#/types/data/effect'
-import type { Gear, GearRarity, GearType } from '#/types/data/gear'
+import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 
 export type FilterGearOptions = {
   query: string
   effectQuery?: string
   archetypeQuery?: string
   type?: GearType | null
-  rarity?: GearRarity | null
+  rarity?: GearRarityFilter | null
   effects?: Array<Effect>
+}
+
+function matchesRarity(item: Gear, filter: GearRarityFilter): boolean {
+  if (filter === 'unique') {
+    return item.rarity.includes('unique')
+  }
+
+  return item.rarity.some((value) => value === 'common' || value === 'rare' || value === 'special')
 }
 
 function matchesText(values: Array<string | null | undefined>, query: string): boolean {
@@ -36,7 +44,7 @@ export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array
   const matched = gear.filter(
     (item) =>
       (!type || item.type === type) &&
-      (!rarity || item.rarity.includes(rarity)) &&
+      (!rarity || matchesRarity(item, rarity)) &&
       matchesText(effectNames(item, effects), options.effectQuery ?? '') &&
       matchesText(item.archetypeNames, options.archetypeQuery ?? ''),
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { filterGear } from '#/lib/catalog/filter-gear'
-import { GEAR_RARITIES, GEAR_TYPES, type Gear, type GearRarity, type GearType } from '#/types/data/gear'
+import { GEAR_TYPES, type Gear, type GearRarityFilter, type GearType } from '#/types/data/gear'
 import type { Effect } from '#/types/data/effect'
 import { GearCatalogRarityFilters } from './GearCatalogRarityFilters'
 import { GearCatalogSearchFields } from './GearCatalogSearchFields'
@@ -13,8 +13,8 @@ export type GearCatalogProps = {
   effects?: Array<Effect>
   typeFilter: GearType | null
   onTypeFilterChange: (type: GearType | null) => void
-  rarityFilter: GearRarity | null
-  onRarityFilterChange: (rarity: GearRarity | null) => void
+  rarityFilter: GearRarityFilter | null
+  onRarityFilterChange: (rarity: GearRarityFilter | null) => void
   selectedSlug: string | null
   onItemSelect: (item: Gear) => void
   query: string
@@ -82,11 +82,7 @@ export function GearCatalog({
             types={GEAR_TYPES}
             onChange={onTypeFilterChange}
           />
-          <GearCatalogRarityFilters
-            value={rarityFilter}
-            rarities={GEAR_RARITIES}
-            onChange={onRarityFilterChange}
-          />
+          <GearCatalogRarityFilters value={rarityFilter} onChange={onRarityFilterChange} />
         </>
       }
     />

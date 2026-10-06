@@ -3,7 +3,7 @@ import type { BuildSearch } from '#/lib/build/build-search'
 import { useGearPins } from '#/lib/build/use-build-pins'
 import type { BuildLoadout } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
-import type { Gear, GearRarity, GearType } from '#/types/data/gear'
+import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from '#/pages/GearPage/GearDetailPanel'
 import { BuildGearAction } from '../BuildGearAction/BuildGearAction'
 import styles from './BuildGearStage.module.css'
@@ -17,8 +17,8 @@ export type BuildGearStageProps = {
   inBuild: boolean
   typeFilter: GearType | null
   onTypeFilterChange: (type: GearType | null) => void
-  rarityFilter: GearRarity | null
-  onRarityFilterChange: (rarity: GearRarity | null) => void
+  rarityFilter: GearRarityFilter | null
+  onRarityFilterChange: (rarity: GearRarityFilter | null) => void
   selectedSlug: string | null
   onItemSelect: (item: Gear) => void
   query: string

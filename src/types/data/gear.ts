@@ -18,6 +18,10 @@ export const GEAR_RARITIES = ['common', 'rare', 'special', 'unique'] as const
 
 export type GearRarity = (typeof GEAR_RARITIES)[number]
 
+export const GEAR_RARITY_FILTERS = ['basic', 'unique'] as const
+
+export type GearRarityFilter = (typeof GEAR_RARITY_FILTERS)[number]
+
 export type Gear = {
   slug: string
   name: string
