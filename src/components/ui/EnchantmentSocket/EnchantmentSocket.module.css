@@ -18,7 +18,7 @@
 }
 
 .socket {
-  gap: 0.25rem;
+  gap: 0.5rem;
   color: var(--content);
   cursor: default;
 }

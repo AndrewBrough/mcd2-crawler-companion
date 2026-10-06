@@ -32,6 +32,13 @@
   min-height: 0;
 }
 
+.small {
+  width: calc(var(--slot-size) * 0.7 - 6px);
+  height: calc(var(--slot-size) * 0.7 - 6px);
+  flex-shrink: 0;
+  min-height: 0;
+}
+
 .image {
   display: block;
   width: 100%;
@@ -52,4 +59,8 @@
 
 .image.detail {
   height: 6.5rem;
+}
+
+.image.small {
+  height: calc(var(--slot-size) * 0.7 - 6px);
 }

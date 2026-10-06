@@ -1,3 +1,4 @@
+import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import type { GearEnchantment } from '#/types/data/enchantment'
 import styles from './EnchantmentSocketContent.module.css'
 
@@ -13,6 +14,7 @@ function displayedText(enchantment: GearEnchantment): string {
 export function EnchantmentSocketContent({ enchantment }: EnchantmentSocketContentProps) {
   return (
     <>
+      <ThumbnailImage catalogKind="enchantments" slug={enchantment.slug} size="small" />
       <span className={styles.title}>{enchantment.name}</span>
       <span className={styles.description}>{displayedText(enchantment)}</span>
     </>

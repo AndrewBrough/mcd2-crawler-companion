@@ -1,3 +1,4 @@
+import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { EffectDescription } from '#/components/ui/EffectDescription'
 import type { EffectDescriptionLevel } from '#/components/ui/EffectDescription'
 import type { Effect } from '#/types/data/effect'
@@ -11,6 +12,7 @@ export type EffectSocketContentProps = {
 export function EffectSocketContent({ effect, level }: EffectSocketContentProps) {
   return (
     <>
+      <ThumbnailImage catalogKind="effects" slug={effect.slug} size="small" unique={level === 'unique'} />
       <span className={styles.title}>{effect.name}</span>
       <span className={styles.description}>
         {effect.description ? (
