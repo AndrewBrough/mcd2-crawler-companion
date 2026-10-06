@@ -43,8 +43,6 @@ export function GearCatalog({
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [effectQuery, setEffectQuery] = useState('')
   const [archetypeQuery, setArchetypeQuery] = useState('')
-  const searching = [query, effectQuery, archetypeQuery].some((value) => value.trim())
-  const grouped = searching || typeFilter !== null
   const items = sortGear(
     filterGear(gear, {
       query: '',
@@ -85,9 +83,9 @@ export function GearCatalog({
         ) : null
       }
       limitResults
-      groupBy={grouped ? (item) => item.type : undefined}
-      groupLabel={grouped ? (group) => formatGearType(group as GearType) : undefined}
-      groupOrder={grouped ? GEAR_TYPES : undefined}
+      groupBy={(item) => item.type}
+      groupLabel={(group) => formatGearType(group as GearType)}
+      groupOrder={GEAR_TYPES}
       toolbar={
         <div className={styles.filters}>
           <GearCatalogTypeFilters
