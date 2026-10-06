@@ -6,6 +6,7 @@ import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effect
 import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
+import { GearArchetype } from './GearArchetype'
 import { GearEffects } from './GearEffects'
 import { GearEnchantments } from './GearEnchantments'
 import { GearVariant } from './GearVariant'
@@ -13,6 +14,7 @@ import styles from './GearDetailPanel.module.css'
 
 export type GearDetailPanelProps = {
   item: Gear | null
+  gear: Array<Gear>
   effects: Array<Effect>
   onVariantSelect: (slug: string) => void
   pinnedEffectSlugs?: Array<string>
@@ -24,6 +26,7 @@ export type GearDetailPanelProps = {
 
 export function GearDetailPanel({
   item,
+  gear,
   effects,
   onVariantSelect,
   pinnedEffectSlugs,
@@ -65,6 +68,7 @@ export function GearDetailPanel({
             uniqueEffect={item.rarity.includes('unique') ? uniqueEffect : null}
           />
           <GearVariant item={item} onSelect={onVariantSelect} />
+          <GearArchetype item={item} gear={gear} onSelect={onVariantSelect} />
           {footer ? <div className={styles.footer}>{footer}</div> : null}
         </>
       ) : null}

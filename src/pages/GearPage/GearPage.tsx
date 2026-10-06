@@ -43,6 +43,7 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
       detail={
         <GearDetailPanel
           item={selected}
+          gear={gear}
           effects={effects}
           onVariantSelect={(slug) => {
             const variant = gear.find((entry) => entry.slug === slug)

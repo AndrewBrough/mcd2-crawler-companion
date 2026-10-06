@@ -71,6 +71,7 @@ export function BuildGearStage({
       {detailItem ? (
         <GearDetailPanel
           item={detailItem}
+          gear={gear}
           effects={effects}
           pinnedEffectSlugs={gearPins.pinnedEffectSlugs}
           onPinEffect={gearPins.onPinEffect}
