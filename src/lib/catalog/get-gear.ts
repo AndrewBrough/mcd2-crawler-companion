@@ -76,6 +76,7 @@ type GearQueryRow = {
   name: string
   slug: string
   description: string
+  set_id: string | null
   rarity: Array<string>
   type: GearListItem['type']
   variants: Array<string> | null
@@ -93,6 +94,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
         name,
         slug,
         description,
+        set_id,
         rarity,
         type,
         variants,
@@ -136,6 +138,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
         name: row.name,
         slug: row.slug,
         description: row.description,
+        setId: row.set_id,
         rarity,
         type: row.type,
         enchantments: enchantments.flatMap((enchantment) =>

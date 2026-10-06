@@ -27,6 +27,7 @@ export type Gear = {
   enchantments: Array<GearEnchantment>
   archetypeNames: Array<string>
   effectSlugs: Array<string>
+  setId: string | null
   variants: Array<NamedRef & { rarity: Array<GearRarity> }>
 }
 

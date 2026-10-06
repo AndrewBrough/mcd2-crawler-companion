@@ -3,3 +3,8 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.archetype {
+  color: var(--secondary);
+  font-size: 0.8em;
+}

@@ -26,7 +26,9 @@ export function GearArchetype({ item, gear, onSelect }: GearArchetypeProps) {
     <>
       {groups.map((group) => (
         <section key={group.name} className={styles.section}>
-          <h3 className="heading">{group.name}</h3>
+          <h3 className="heading">
+            Similar Items <span className={styles.archetype}>{group.name} archetype</span>
+          </h3>
           <CatalogGrid
             items={group.items}
             catalogKind="gear"

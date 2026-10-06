@@ -16,7 +16,9 @@ export function GearVariant({ item, onSelect }: GearVariantProps) {
 
   return (
     <section className={styles.section}>
-      <h3 className="heading">{heading}</h3>
+      <h3 className="heading">
+        {heading} {item.setId ? <span className={styles.setId}>{item.setId} set</span> : null}
+      </h3>
       <CatalogGrid
         items={item.variants}
         catalogKind="gear"
