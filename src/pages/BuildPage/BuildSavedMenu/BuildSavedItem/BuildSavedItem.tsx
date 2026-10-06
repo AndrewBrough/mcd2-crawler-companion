@@ -6,16 +6,26 @@ import styles from './BuildSavedItem.module.css'
 
 export type BuildSavedItemProps = {
   build: SavedBuild
+  separated?: boolean
   onSelect: (url: string) => void
   onDelete: (key: string) => void
 }
 
-export function BuildSavedItem({ build, onSelect, onDelete }: BuildSavedItemProps) {
+export function BuildSavedItem({ build, separated = false, onSelect, onDelete }: BuildSavedItemProps) {
   const label = savedBuildLabel(build.key)
+  const rowClass = [styles.row, build.current ? styles.current : '', separated ? styles.separated : '']
+    .filter(Boolean)
+    .join(' ')
 
   return (
-    <li className={build.current ? `${styles.row} ${styles.current}` : styles.row}>
-      <button className={styles.item} type="button" role="menuitem" onClick={() => onSelect(build.url)}>
+    <li className={rowClass}>
+      <button
+        className={styles.item}
+        type="button"
+        role="menuitem"
+        data-build-option=""
+        onClick={() => onSelect(build.url)}
+      >
         {label}
       </button>
       <Button

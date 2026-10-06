@@ -9,6 +9,11 @@
   background: color-mix(in oklab, var(--primary) 28%, var(--surface-strong));
 }
 
+.separated {
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--line);
+}
+
 .item {
   flex: 1;
   min-width: 0;

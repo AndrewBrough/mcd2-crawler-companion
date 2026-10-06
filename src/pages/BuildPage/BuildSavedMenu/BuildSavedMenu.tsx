@@ -12,9 +12,9 @@ export type BuildSavedMenuProps = {
 export function BuildSavedMenu({ builds, query, onDelete }: BuildSavedMenuProps) {
   const navigate = useNavigate()
   const needle = query.trim().toLowerCase()
-  const visible = needle
-    ? builds.filter((build) => savedBuildLabel(build.key).toLowerCase().includes(needle))
-    : builds
+  const matches = (build: SavedBuild) => savedBuildLabel(build.key).toLowerCase().includes(needle)
+  const matched = needle ? builds.filter(matches) : builds
+  const other = needle ? builds.filter((build) => !matches(build)) : []
 
   function selectBuild(url: string) {
     const parsed = new URL(url, window.location.origin)
@@ -36,13 +36,28 @@ export function BuildSavedMenu({ builds, query, onDelete }: BuildSavedMenuProps)
       role="menu"
       onMouseDown={(event) => event.preventDefault()}
     >
-      <li className={visible.length > 0 ? styles.newBuildRow : undefined}>
-        <button className={styles.newBuild} type="button" role="menuitem" onClick={startNewBuild}>
+      <li className={matched.length + other.length > 0 ? styles.newBuildRow : undefined}>
+        <button
+          className={styles.newBuild}
+          type="button"
+          role="menuitem"
+          data-build-option=""
+          onClick={startNewBuild}
+        >
           New build
         </button>
       </li>
-      {visible.map((build) => (
+      {matched.map((build) => (
         <BuildSavedItem key={build.key} build={build} onSelect={selectBuild} onDelete={onDelete} />
+      ))}
+      {other.map((build, index) => (
+        <BuildSavedItem
+          key={build.key}
+          build={build}
+          separated={index === 0 && matched.length > 0}
+          onSelect={selectBuild}
+          onDelete={onDelete}
+        />
       ))}
     </ul>
   )

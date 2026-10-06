@@ -30,6 +30,27 @@ export function BuildTitleField({
     onSave()
   }
 
+  function moveOption(event: KeyboardEvent<HTMLDivElement>) {
+    if (!menuOpen || (event.key !== 'ArrowDown' && event.key !== 'ArrowUp')) return
+    const options = [...event.currentTarget.querySelectorAll<HTMLButtonElement>('[data-build-option]')]
+    if (options.length === 0) return
+
+    event.preventDefault()
+    const current = options.indexOf(event.target as HTMLButtonElement)
+    if (event.key === 'ArrowDown') {
+      const next = current < 0 ? options[0] : options[Math.min(current + 1, options.length - 1)]
+      next.focus()
+      return
+    }
+
+    if (current <= 0) {
+      event.currentTarget.querySelector('input')?.focus()
+      return
+    }
+
+    options[current - 1].focus()
+  }
+
   return (
     <div className={styles.row}>
       <div
@@ -40,6 +61,7 @@ export function BuildTitleField({
             setMenuOpen(false)
           }
         }}
+        onKeyDown={moveOption}
       >
         <Input
           value={value}
