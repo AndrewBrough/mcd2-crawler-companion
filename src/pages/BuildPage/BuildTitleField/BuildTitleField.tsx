@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 import type { SavedBuild } from '#/lib/build/build-storage'
 import { Input } from '#/components/ui/Input'
 import { BuildSavedMenu } from '../BuildSavedMenu/BuildSavedMenu'
@@ -24,6 +24,12 @@ export function BuildTitleField({
 }: BuildTitleFieldProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  function saveOnEnter(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== 'Enter' || event.nativeEvent.isComposing || !showSave || !onSave) return
+    event.preventDefault()
+    onSave()
+  }
+
   return (
     <div className={styles.row}>
       <div
@@ -44,13 +50,13 @@ export function BuildTitleField({
           aria-autocomplete="list"
           role="combobox"
           placeholder="Untitled build"
+          onKeyDown={saveOnEnter}
         />
         {onDeleteBuild && menuOpen ? (
           <BuildSavedMenu
             builds={savedBuilds}
             query={value}
             onDelete={onDeleteBuild}
-            onClose={() => setMenuOpen(false)}
           />
         ) : null}
       </div>

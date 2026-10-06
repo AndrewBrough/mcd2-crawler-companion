@@ -8,7 +8,13 @@ export type BuildTitleSaveProps = {
 
 export function BuildTitleSave({ onSave }: BuildTitleSaveProps) {
   return (
-    <button className={styles.button} type="button" aria-label="Save build name" onClick={onSave}>
+    <button
+      className={styles.button}
+      type="button"
+      aria-label="Save build name"
+      onMouseDown={(event) => event.preventDefault()}
+      onClick={onSave}
+    >
       {createElement('wa-icon', { name: 'floppy-disk' })}
     </button>
   )

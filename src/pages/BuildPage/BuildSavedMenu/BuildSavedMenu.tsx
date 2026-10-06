@@ -7,10 +7,9 @@ export type BuildSavedMenuProps = {
   builds: Array<SavedBuild>
   query: string
   onDelete: (key: string) => void
-  onClose: () => void
 }
 
-export function BuildSavedMenu({ builds, query, onDelete, onClose }: BuildSavedMenuProps) {
+export function BuildSavedMenu({ builds, query, onDelete }: BuildSavedMenuProps) {
   const navigate = useNavigate()
   const needle = query.trim().toLowerCase()
   const visible = needle
@@ -18,7 +17,6 @@ export function BuildSavedMenu({ builds, query, onDelete, onClose }: BuildSavedM
     : builds
 
   function selectBuild(url: string) {
-    onClose()
     const parsed = new URL(url, window.location.origin)
     const search: Record<string, string> = {}
     parsed.searchParams.forEach((value, key) => {
@@ -28,7 +26,6 @@ export function BuildSavedMenu({ builds, query, onDelete, onClose }: BuildSavedM
   }
 
   function startNewBuild() {
-    onClose()
     void navigate({ to: '/', search: {} } as Parameters<typeof navigate>[0])
   }
 
