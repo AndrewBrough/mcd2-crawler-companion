@@ -18,15 +18,17 @@ export type GearCatalogTypeFiltersProps = {
   value: GearType | null
   types: ReadonlyArray<GearType>
   onChange: (type: GearType | null) => void
+  inline?: boolean
 }
 
 export function GearCatalogTypeFilters({
   value,
   types,
   onChange,
+  inline = false,
 }: GearCatalogTypeFiltersProps) {
   return (
-    <div className={styles.row} role="group" aria-label="Filter by gear type">
+    <div className={inline ? styles.inline : styles.row} role="group" aria-label="Filter by gear type">
       {types.map((type) => (
         <GearCatalogTypeButton
           key={type}

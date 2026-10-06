@@ -10,6 +10,7 @@ import { GearCatalogRarityFilters } from './GearCatalogRarityFilters'
 import { GearCatalogSearchFields } from './GearCatalogSearchFields'
 import { GearCatalogSearchToggle } from './GearCatalogSearchToggle'
 import { GearCatalogTypeFilters } from './GearCatalogTypeFilters'
+import styles from './GearCatalog.module.css'
 
 export type GearCatalogProps = {
   gear: Array<Gear>
@@ -88,14 +89,15 @@ export function GearCatalog({
       groupLabel={grouped ? (group) => formatGearType(group as GearType) : undefined}
       groupOrder={grouped ? GEAR_TYPES : undefined}
       toolbar={
-        <>
+        <div className={styles.filters}>
           <GearCatalogTypeFilters
+            inline
             value={typeFilter}
             types={GEAR_TYPES}
             onChange={onTypeFilterChange}
           />
-          <GearCatalogRarityFilters value={rarityFilter} onChange={onRarityFilterChange} />
-        </>
+          <GearCatalogRarityFilters inline value={rarityFilter} onChange={onRarityFilterChange} />
+        </div>
       }
     />
   )

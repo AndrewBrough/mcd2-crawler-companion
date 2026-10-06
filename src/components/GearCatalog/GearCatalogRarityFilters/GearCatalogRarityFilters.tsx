@@ -16,11 +16,16 @@ const rarityFilterLabel = {
 export type GearCatalogRarityFiltersProps = {
   value: GearRarityFilter | null
   onChange: (rarity: GearRarityFilter | null) => void
+  inline?: boolean
 }
 
-export function GearCatalogRarityFilters({ value, onChange }: GearCatalogRarityFiltersProps) {
+export function GearCatalogRarityFilters({
+  value,
+  onChange,
+  inline = false,
+}: GearCatalogRarityFiltersProps) {
   return (
-    <div className={styles.row} role="group" aria-label="Filter by rarity">
+    <div className={inline ? styles.inline : styles.row} role="group" aria-label="Filter by rarity">
       {GEAR_RARITY_FILTERS.map((rarity) => (
         <Badge
           key={rarity}
