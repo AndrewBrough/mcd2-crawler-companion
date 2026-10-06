@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
+import { Favourite } from '#/components/Favourite'
 import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import type { CatalogLinkPath } from '#/lib/catalog/catalog-link'
 import type { CatalogKind } from '#/types/catalog'
@@ -33,6 +35,7 @@ export function CatalogTile({
   pixelBorder = false,
   unique = false,
 }: CatalogTileProps) {
+  const [pointerOver, setPointerOver] = useState(false)
   const className = [styles.tile, selected ? styles.selected : '', pixelBorder ? styles.pixel : '']
     .filter(Boolean)
     .join(' ')
@@ -52,7 +55,15 @@ export function CatalogTile({
   const caption = name ? <span className={styles.name}>{name}</span> : null
 
   return (
-    <div className={className}>
+    <div
+      className={className}
+      onMouseEnter={() => setPointerOver(true)}
+      onMouseLeave={() => setPointerOver(false)}
+      onFocus={() => setPointerOver(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPointerOver(false)
+      }}
+    >
       {to && slug ? (
         <Link to={to} search={{ slug }} className={styles.frame} aria-label={label}>
           {preview}
@@ -79,6 +90,9 @@ export function CatalogTile({
         <button className={styles.clear} type="button" onClick={onClear} aria-label={clearLabel}>
           ×
         </button>
+      ) : null}
+      {catalogKind === 'gear' && slug ? (
+        <Favourite slug={slug} name={name} placement="tile" visible={pointerOver} />
       ) : null}
     </div>
   )

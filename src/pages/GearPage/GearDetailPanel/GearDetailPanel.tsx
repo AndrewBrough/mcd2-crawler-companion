@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
 import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { Badge } from '#/components/ui/Badge'
+import { Favourite } from '#/components/Favourite'
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
 import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { Effect } from '#/types/data/effect'
@@ -43,13 +44,16 @@ export function GearDetailPanel({
       emptyMessage="Select a piece of gear to see its details."
       item={item}
       headingExtra={
-        item
-          ? item.rarity.map((rarity) => (
+        item ? (
+          <>
+            <Favourite slug={item.slug} name={item.name} />
+            {item.rarity.map((rarity) => (
               <Badge key={rarity} color={rarity}>
                 {formatGearRarity(rarity)}
               </Badge>
-            ))
-          : null
+            ))}
+          </>
+        ) : null
       }
       media={item ? <ThumbnailImage catalogKind="gear" slug={item.slug} size="detail" /> : null}
     >

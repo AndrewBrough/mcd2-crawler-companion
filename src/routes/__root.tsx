@@ -2,6 +2,7 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { AppShell } from '#/components/AppShell'
+import { FavouritesProvider } from '#/components/FavouritesProvider'
 import { RootNotFound } from '#/components/RootNotFound'
 
 import appCss from '../styles.css?url'
@@ -51,7 +52,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <AppShell>{children}</AppShell>
+        <FavouritesProvider>
+          <AppShell>{children}</AppShell>
+        </FavouritesProvider>
         <TanStackDevtools
           config={{
             position: 'bottom-right',

@@ -9,6 +9,12 @@
   line-height: 0;
   opacity: 0.5;
   transform: scale(0.8);
+  transition: transform 0.12s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: scale(1.1);
 }
 
 .icon {
@@ -18,8 +24,12 @@
   object-fit: fill;
 }
 
-.selected,
-.selected:hover {
+.selected {
   opacity: 1;
   transform: scale(1);
+}
+
+.selected:hover,
+.selected:focus-visible {
+  transform: scale(1.1);
 }

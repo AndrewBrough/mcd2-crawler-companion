@@ -47,6 +47,17 @@
 
 button.badge {
   cursor: pointer;
+  opacity: 0.5;
+  transition: transform 0.12s ease;
+}
+
+button.badge:hover,
+button.badge:focus-visible {
+  transform: scale(1.1);
+}
+
+button.badge.selected {
+  opacity: 1;
 }
 
 .selected,
