@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { PageHeader } from '#/components/PageHeader'
-import styles from './CatalogBrowsePage.module.css'
+import { Layout } from '#/components/ui/Layout'
 
 export type CatalogBrowsePageProps = {
   title: string
@@ -16,12 +16,9 @@ export function CatalogBrowsePage({
   detail,
 }: CatalogBrowsePageProps) {
   return (
-    <div className={styles.page}>
-      <PageHeader title={title} description={description} />
-      <div className={styles.layout}>
-        {catalog}
-        {detail}
-      </div>
-    </div>
+    <Layout columns="split" header={<PageHeader title={title} description={description} />}>
+      {catalog}
+      {detail}
+    </Layout>
   )
 }

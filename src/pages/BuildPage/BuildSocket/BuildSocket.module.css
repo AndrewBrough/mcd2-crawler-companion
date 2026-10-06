@@ -1,5 +1,5 @@
 .socket {
-  flex: 0 0 var(--build-slot-size, 4.75rem);
-  width: var(--build-slot-size, 4.75rem);
+  flex: 0 0 var(--slot-size);
+  width: var(--slot-size);
   min-width: 0;
 }

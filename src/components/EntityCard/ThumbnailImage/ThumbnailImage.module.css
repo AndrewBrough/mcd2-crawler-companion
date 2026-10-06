@@ -16,7 +16,7 @@
 }
 
 .tile {
-  min-height: 4.75rem;
+  min-height: var(--slot-size);
 }
 
 .fill {
@@ -43,7 +43,7 @@
 }
 
 .image.tile {
-  height: 4.75rem;
+  height: var(--slot-size);
 }
 
 .image.fill {

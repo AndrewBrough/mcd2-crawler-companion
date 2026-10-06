@@ -1,7 +1,6 @@
 .grid {
-  --gear-slot-size: 4.75rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, var(--gear-slot-size));
+  grid-template-columns: repeat(auto-fill, var(--slot-size));
   gap: 0.75rem 0.6rem;
   margin: 0;
   padding: 0;

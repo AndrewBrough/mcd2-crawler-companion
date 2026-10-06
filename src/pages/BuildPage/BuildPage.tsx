@@ -8,11 +8,10 @@ import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import { BUILD_SOCKET_ROWS, type BuildLoadout, type BuildSocketDefinition } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarity, GearType } from '#/types/data/gear'
+import { Layout } from '#/components/ui/Layout'
 import { BuildGearStage } from './BuildGearStage/BuildGearStage'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
 import { usePreserveCatalogScroll } from './use-preserve-catalog-scroll'
-import styles from './BuildPage.module.css'
-import { PageHeader } from '#/components/PageHeader'
 
 export type BuildPageProps = {
   gear: Array<Gear>
@@ -128,54 +127,51 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   }
 
   return (
-    <div className={styles.page}>
-      {/* <PageHeader title="Save a Loadout" description="Save gear, their effects and enchantments to a loadout. Save and switch between loadouts. Optimize your next build." /> */}
-      <div className={styles.layout}>
-        <BuildLoadoutPanel
-          title={title}
-          onTitleChange={setTitle}
-          showSave={dirty}
-          onSave={saveName}
-          savedBuilds={savedBuilds}
-          onDeleteBuild={removeSavedBuild}
-          rows={BUILD_SOCKET_ROWS}
-          loadout={loadout}
-          activeSocketId={activeSocketId}
-          onSocketSelect={handleSocketSelect}
-          onSocketClear={clearSocket}
-        />
-        <BuildGearStage
-          gear={gear}
-          effects={effects}
-          search={search}
-          loadout={loadout}
-          detailItem={detailItem}
-          inBuild={inBuild}
-          typeFilter={typeFilter}
-          onTypeFilterChange={handleTypeFilterChange}
-          rarityFilter={rarityFilter}
-          onRarityFilterChange={setRarityFilter}
-          selectedSlug={selectedSlug}
-          onItemSelect={(item) => {
-            rememberCatalogScroll()
-            selectSlug(item.slug)
-            setShowDetails(true)
-          }}
-          query={query}
-          onQueryChange={setQuery}
-          onSearchClear={() => {
-            setActiveSocketId(null)
-            clearSlug()
-          }}
-          onAdd={handleAdd}
-          onRemove={handleRemove}
-          onBack={() => {
-            setActiveSocketId(null)
-            setShowDetails(false)
-            clearSlug()
-          }}
-        />
-      </div>
-    </div>
+    <Layout columns="sidebar">
+      <BuildLoadoutPanel
+        title={title}
+        onTitleChange={setTitle}
+        showSave={dirty}
+        onSave={saveName}
+        savedBuilds={savedBuilds}
+        onDeleteBuild={removeSavedBuild}
+        rows={BUILD_SOCKET_ROWS}
+        loadout={loadout}
+        activeSocketId={activeSocketId}
+        onSocketSelect={handleSocketSelect}
+        onSocketClear={clearSocket}
+      />
+      <BuildGearStage
+        gear={gear}
+        effects={effects}
+        search={search}
+        loadout={loadout}
+        detailItem={detailItem}
+        inBuild={inBuild}
+        typeFilter={typeFilter}
+        onTypeFilterChange={handleTypeFilterChange}
+        rarityFilter={rarityFilter}
+        onRarityFilterChange={setRarityFilter}
+        selectedSlug={selectedSlug}
+        onItemSelect={(item) => {
+          rememberCatalogScroll()
+          selectSlug(item.slug)
+          setShowDetails(true)
+        }}
+        query={query}
+        onQueryChange={setQuery}
+        onSearchClear={() => {
+          setActiveSocketId(null)
+          clearSlug()
+        }}
+        onAdd={handleAdd}
+        onRemove={handleRemove}
+        onBack={() => {
+          setActiveSocketId(null)
+          setShowDetails(false)
+          clearSlug()
+        }}
+      />
+    </Layout>
   )
 }

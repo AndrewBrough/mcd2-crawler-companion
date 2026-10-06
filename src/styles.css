@@ -58,6 +58,7 @@
   --chart-4: var(--secondary-dark);
   --chart-5: var(--primary-light);
   --radius: 0;
+  --slot-size: 4.75rem;
   --sidebar: color-mix(in oklab, var(--navy) 90%, var(--black) 10%);
   --sidebar-foreground: var(--content);
   --sidebar-primary: var(--primary);

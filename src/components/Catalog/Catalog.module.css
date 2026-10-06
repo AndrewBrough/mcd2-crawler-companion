@@ -1,6 +1,5 @@
 .panel {
   composes: corners from '../../styles/pixel-border.module.css';
-  --gear-slot-size: 4.75rem;
   --pixel-border-width: 4px;
   display: flex;
   flex-direction: column;
