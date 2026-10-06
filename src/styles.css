@@ -23,8 +23,8 @@
   --light-panel-background: #051a23;
   --dark-panel-background: #090b0f;
   --content: #e3e2de;
-  --display-shadow: -2px 2px 0 var(--black);
-  --text-shadow: -1px 1px 0 var(--black);
+  --display-shadow: 0 3px 0 var(--black);
+  --text-shadow: 0 2px 0 var(--black);
 
   --primary: #ffa31f;
   --primary-light: #ffda53;

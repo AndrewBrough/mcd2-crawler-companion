@@ -1,3 +1,4 @@
+import { Button } from '#/components/ui/button'
 import styles from './BuildGearAction.module.css'
 
 export type BuildGearActionProps = {
@@ -10,12 +11,12 @@ export type BuildGearActionProps = {
 export function BuildGearAction({ inBuild, onAdd, onRemove, onBack }: BuildGearActionProps) {
   return (
     <div className={styles.row}>
-      <button className={styles.button} type="button" onClick={onBack}>
+      <Button type="button" variant="grey" onClick={onBack}>
         Back
-      </button>
-      <button className={`${styles.button} ${styles.action}`} type="button" onClick={inBuild ? onRemove : onAdd}>
-        {inBuild ? 'Remove from build' : 'Add to build'}
-      </button>
+      </Button>
+      <Button type="button" onClick={inBuild ? onRemove : onAdd}>
+        {inBuild ? 'REMOVE FROM BUILD' : 'ADD TO BUILD'}
+      </Button>
     </div>
   )
 }

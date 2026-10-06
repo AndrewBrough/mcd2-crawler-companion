@@ -8,6 +8,7 @@
   font-family: var(--font-display);
   text-shadow: none;
   font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
 }
@@ -16,7 +17,7 @@
 .primary:hover,
 .primary:focus-visible {
   background: var(--primary);
-  color: var(--black);
+  color: var(--navy);
   border-top: 5px solid var(--primary-light);
   border-bottom: 5px solid var(--primary-dark);
 }
@@ -50,4 +51,18 @@
 
 .danger:hover {
   background: color-mix(in oklab, var(--destructive) 78%, black);
+}
+
+.grey,
+.grey:hover,
+.grey:focus-visible {
+  background: #e4e4e1;
+  color: var(--navy);
+  border-top: 5px solid var(--white);
+  border-bottom: 5px solid var(--grey);
+}
+
+.grey:hover {
+  background: var(--grey);
+  color: var(--white);
 }
