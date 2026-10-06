@@ -9,29 +9,3 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
-.field {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.55rem;
-}
-
-.clear {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-bottom: 0.2rem;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--content);
-  font-size: 1.15rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.clear:hover,
-.clear:focus-visible {
-  color: var(--primary);
-}

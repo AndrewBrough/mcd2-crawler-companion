@@ -56,6 +56,7 @@ export function BuildGearStage({
       <div className={styles.catalog} hidden={detailItem !== null}>
         <GearCatalog
           gear={gear}
+          effects={effects}
           typeFilter={typeFilter}
           onTypeFilterChange={onTypeFilterChange}
           rarityFilter={rarityFilter}

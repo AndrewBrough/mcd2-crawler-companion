@@ -1,6 +1,5 @@
-import { createElement, type ReactNode } from 'react'
-import '@awesome.me/webawesome/dist/components/icon/icon.js'
-import { Input } from '#/components/ui/Input'
+import type { ReactNode } from 'react'
+import { CatalogSearchField } from './CatalogSearchField'
 import styles from './CatalogSearch.module.css'
 
 export type CatalogSearchProps = {
@@ -9,6 +8,8 @@ export type CatalogSearchProps = {
   placeholder: string
   label: string
   onClear?: () => void
+  accessory?: ReactNode
+  details?: ReactNode
   children?: ReactNode
 }
 
@@ -18,38 +19,22 @@ export function CatalogSearch({
   placeholder,
   label,
   onClear,
+  accessory,
+  details,
   children,
 }: CatalogSearchProps) {
   return (
     <div className={styles.wrap}>
       <div className={styles.controls}>
-        <div className={styles.field}>
-          <Input
-            type="search"
-            grow
-            value={value}
-            onChange={(event) => onChange(event.target.value)}
-            placeholder={placeholder}
-            aria-label={label}
-          />
-          {value.length > 0 ? (
-            <button
-              className={styles.clear}
-              type="button"
-              aria-label="Clear search"
-              onClick={() => {
-                onChange('')
-                onClear?.()
-              }}
-            >
-              {createElement('wa-icon', {
-                name: 'xmark',
-                family: 'classic',
-                variant: 'solid',
-              })}
-            </button>
-          ) : null}
-        </div>
+        <CatalogSearchField
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          label={label}
+          onClear={onClear}
+          accessory={accessory}
+        />
+        {details}
         {children}
       </div>
     </div>

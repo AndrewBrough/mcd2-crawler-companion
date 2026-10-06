@@ -29,6 +29,7 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
       catalog={
         <GearCatalog
           gear={gear}
+          effects={effects}
           typeFilter={typeFilter}
           onTypeFilterChange={setTypeFilter}
           rarityFilter={rarityFilter}
