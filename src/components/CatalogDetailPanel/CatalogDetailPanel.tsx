@@ -12,6 +12,7 @@ export type CatalogDetailPanelProps = {
   item: CatalogDetailItem | null
   headingExtra?: ReactNode
   media?: ReactNode
+  header?: ReactNode
   children?: ReactNode
 }
 
@@ -21,6 +22,7 @@ export function CatalogDetailPanel({
   item,
   headingExtra,
   media,
+  header,
   children,
 }: CatalogDetailPanelProps) {
   if (!item) {
@@ -33,6 +35,7 @@ export function CatalogDetailPanel({
 
   return (
     <aside className={styles.panel} aria-label={ariaLabel}>
+      {header}
       <div className={styles.summary}>
         <div className={styles.copy}>
           <div className={styles.heading}>

@@ -12,7 +12,6 @@ import { GearArchetype } from './GearArchetype'
 import { GearEffects } from './GearEffects'
 import { GearEnchantments } from './GearEnchantments'
 import { GearVariant } from './GearVariant'
-import styles from './GearDetailPanel.module.css'
 
 export type GearDetailPanelProps = {
   item: Gear | null
@@ -24,7 +23,7 @@ export type GearDetailPanelProps = {
   pinnedEnchantmentSlug?: string | null
   onPinEnchantment?: (slug: string) => void
   collapsibleRolls?: boolean
-  footer?: ReactNode
+  header?: ReactNode
 }
 
 export function GearDetailPanel({
@@ -37,7 +36,7 @@ export function GearDetailPanel({
   pinnedEnchantmentSlug = null,
   onPinEnchantment,
   collapsibleRolls = true,
-  footer,
+  header,
 }: GearDetailPanelProps) {
   const uniqueEffect = item ? uniqueEffectForGear(effects, item.slug) : null
 
@@ -59,6 +58,7 @@ export function GearDetailPanel({
         ) : null
       }
       media={item ? <ThumbnailImage catalogKind="gear" slug={item.slug} size="detail" /> : null}
+      header={header}
     >
       {item ? (
         <>
@@ -79,7 +79,6 @@ export function GearDetailPanel({
           />
           <GearVariant item={item} onSelect={onVariantSelect} />
           <GearArchetype item={item} gear={gear} onSelect={onVariantSelect} />
-          {footer ? <div className={styles.footer}>{footer}</div> : null}
         </>
       ) : null}
     </CatalogDetailPanel>

@@ -10,10 +10,15 @@ export type BuildGearActionProps = {
 export function BuildGearAction({ inBuild, onAdd, onRemove, onBack }: BuildGearActionProps) {
   return (
     <div className={styles.row}>
-      <button className={styles.button} type="button" onClick={onBack}>
+      <button className={`${styles.button} ${styles.start}`} type="button" onClick={onBack}>
         Back
       </button>
-      <button className={`${styles.button} ${styles.action}`} type="button" onClick={inBuild ? onRemove : onAdd}>
+      {inBuild ? <h3 className={`${styles.status} heading`}>In Build</h3> : <span className={styles.status} />}
+      <button
+        className={`${styles.button} ${styles.action} ${styles.end}`}
+        type="button"
+        onClick={inBuild ? onRemove : onAdd}
+      >
         {inBuild ? 'Remove from build' : 'Add to build'}
       </button>
     </div>

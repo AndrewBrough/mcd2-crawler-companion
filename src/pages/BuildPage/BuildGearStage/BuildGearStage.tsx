@@ -84,7 +84,7 @@ export function BuildGearStage({
               onItemSelect(variant)
             }
           }}
-          footer={
+          header={
             <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
           }
         />
