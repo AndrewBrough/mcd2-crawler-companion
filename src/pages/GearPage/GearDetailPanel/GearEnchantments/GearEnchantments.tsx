@@ -1,8 +1,22 @@
 import { useState } from 'react'
 import { EnchantmentSocket } from '#/components/ui/EnchantmentSocket'
 import type { GearEnchantment } from '#/types/data/enchantment'
+import { GearRollTiles, type GearRollTileItem } from '../GearRollTiles'
 import { GearSectionToggle } from '../GearSectionToggle'
 import styles from './GearEnchantments.module.css'
+
+function enchantmentTile(enchantment: GearEnchantment): GearRollTileItem {
+  return {
+    name: enchantment.name,
+    slug: enchantment.slug,
+    catalogKind: 'enchantments',
+    description: enchantment.description,
+    levels: enchantment.tiers.map((tier) => ({
+      label: tier.label,
+      value: tier.text,
+    })),
+  }
+}
 
 export type GearEnchantmentsProps = {
   enchantments: Array<GearEnchantment>
@@ -45,11 +59,7 @@ export function GearEnchantments({
           </div>
         ) : null}
         {!onPinEnchantment && enchantments.length ? (
-          <div className={styles.sockets}>
-            {enchantments.map((enchantment) => (
-              <EnchantmentSocket key={enchantment.slug} enchantment={enchantment} />
-            ))}
-          </div>
+          <GearRollTiles items={enchantments.map(enchantmentTile)} />
         ) : null}
         {!enchantments.length ? <p>No enchantments</p> : null}
       </GearSectionToggle>

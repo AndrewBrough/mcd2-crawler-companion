@@ -6,6 +6,8 @@ import type { CatalogLinkPath } from '#/lib/catalog/catalog-link'
 import type { CatalogKind } from '#/types/catalog'
 import styles from './CatalogTile.module.css'
 
+export type CatalogTileSize = 'normal' | 'small'
+
 export type CatalogTileProps = {
   name: string
   slug?: string | null
@@ -19,6 +21,7 @@ export type CatalogTileProps = {
   selectLabel?: string
   pixelBorder?: boolean
   unique?: boolean
+  size?: CatalogTileSize
 }
 
 export function CatalogTile({
@@ -34,9 +37,15 @@ export function CatalogTile({
   selectLabel,
   pixelBorder = false,
   unique = false,
+  size = 'normal',
 }: CatalogTileProps) {
   const [pointerOver, setPointerOver] = useState(false)
-  const className = [styles.tile, selected ? styles.selected : '', pixelBorder ? styles.pixel : '']
+  const className = [
+    styles.tile,
+    size === 'small' ? styles.small : '',
+    selected ? styles.selected : '',
+    pixelBorder ? styles.pixel : '',
+  ]
     .filter(Boolean)
     .join(' ')
   const label = selectLabel ?? name

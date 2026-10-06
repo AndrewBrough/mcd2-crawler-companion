@@ -6,6 +6,10 @@
   min-width: 0;
 }
 
+.small {
+  width: calc(var(--slot-size) * 0.7);
+}
+
 .frame {
   display: flex;
   flex-direction: column;

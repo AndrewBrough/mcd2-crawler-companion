@@ -1,8 +1,23 @@
 import { useState } from 'react'
 import { EffectSocket } from '#/components/ui/EffectSocket'
 import type { Effect } from '#/types/data/effect'
+import { GearRollTiles, type GearRollTileItem } from '../GearRollTiles'
 import { GearSectionToggle } from '../GearSectionToggle'
 import styles from './GearEffects.module.css'
+
+function effectTile(effect: Effect, unique = false): GearRollTileItem {
+  return {
+    name: effect.name,
+    slug: effect.slug,
+    catalogKind: 'effects',
+    description: effect.description,
+    unique,
+    levels: effect.levels.map((level) => ({
+      label: level.label,
+      value: `${Number(level.percent)}%`,
+    })),
+  }
+}
 
 export type GearEffectsProps = {
   effects: Array<Effect>
@@ -42,7 +57,7 @@ export function GearEffects({
         collapsible={collapsible}
         onToggle={() => setExpanded((open) => !open)}
       >
-        {uniqueEffect ? <EffectSocket effect={uniqueEffect} unique /> : null}
+        {onPinEffect && uniqueEffect ? <EffectSocket effect={uniqueEffect} unique /> : null}
         {onPinEffect && effects.length ? (
           <div className={styles.sockets}>
             {pinnedEffects.map((effect) => (
@@ -58,12 +73,13 @@ export function GearEffects({
             ) : null}
           </div>
         ) : null}
-        {!onPinEffect && effects.length ? (
-          <div className={styles.sockets}>
-            {effects.map((effect) => (
-              <EffectSocket key={effect.slug} effect={effect} />
-            ))}
-          </div>
+        {!onPinEffect && (uniqueEffect || effects.length) ? (
+          <GearRollTiles
+            items={[
+              ...(uniqueEffect ? [effectTile(uniqueEffect, true)] : []),
+              ...effects.map((effect) => effectTile(effect)),
+            ]}
+          />
         ) : null}
         {!uniqueEffect && !effects.length ? <p>No effects</p> : null}
       </GearSectionToggle>
