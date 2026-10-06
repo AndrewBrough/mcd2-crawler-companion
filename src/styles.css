@@ -14,6 +14,7 @@
   --grey: #747774;
   --grey-dark: #454845;
 
+  --background-light-light: #5F8A99;
   --background-light: #467683;
   --background-dark: #0A4558;
   --background-darker: #080305;
@@ -36,6 +37,9 @@
   --secondary-foreground: #010c29;
 
   --purple: #BE62F4;
+  --purple-light: #E8C8FC;
+  --purple-dark: #8A3CC8;
+  --purple-foreground: var(--navy);
 
   --background: var(--background-dark);
   --foreground: var(--content);

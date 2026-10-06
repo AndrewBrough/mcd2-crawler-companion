@@ -1,4 +1,5 @@
 import { GearCatalog } from '#/components/GearCatalog'
+import { Banner } from '#/components/ui/Banner'
 import type { BuildSearch } from '#/lib/build/build-search'
 import { useGearPins } from '#/lib/build/use-build-pins'
 import type { BuildLoadout } from '#/types/data/build'
@@ -85,7 +86,10 @@ export function BuildGearStage({
             }
           }}
           header={
-            <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
+            <>
+              {inBuild ? <Banner title="Equipped" color="dark" bleed /> : null}
+              <BuildGearAction inBuild={inBuild} onAdd={onAdd} onRemove={onRemove} onBack={onBack} />
+            </>
           }
         />
       ) : null}
