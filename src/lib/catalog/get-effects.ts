@@ -37,15 +37,10 @@ function levels(row: EffectQueryRow): Array<EffectLevel> {
   })
 }
 
-function fallbackName(slug: string): string {
-  return slug
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
+function availableGear(slug: string, names: Map<string, string>): EffectGearRef | null {
+  const name = names.get(slug)
 
-function gearName(slug: string, names: Map<string, string>): EffectGearRef {
-  return { slug, name: names.get(slug) ?? fallbackName(slug) }
+  return name ? { slug, name } : null
 }
 
 export async function getEffects(): Promise<Array<Effect>> {
@@ -69,6 +64,9 @@ export async function getEffects(): Promise<Array<Effect>> {
     description: row.description,
     gearSlugs: row.gear_slugs ?? [],
     levels: levels(row),
-    uniqueGear: (row.unique_bound ?? []).map((slug) => gearName(slug, names)),
+    uniqueGear: (row.unique_bound ?? []).flatMap((slug) => {
+      const gear = availableGear(slug, names)
+      return gear ? [gear] : []
+    }),
   }))
 }
