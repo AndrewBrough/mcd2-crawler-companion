@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { SavedBuild } from '#/lib/build/build-storage'
 import { Input } from '#/components/ui/Input'
 import { BuildSavedMenu } from '../BuildSavedMenu/BuildSavedMenu'
@@ -21,19 +22,39 @@ export function BuildTitleField({
   savedBuilds = [],
   onDeleteBuild,
 }: BuildTitleFieldProps) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
-    <div className={styles.wrap}>
-      <div className={styles.row}>
+    <div className={styles.row}>
+      <div
+        className={styles.field}
+        onFocus={() => setMenuOpen(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) {
+            setMenuOpen(false)
+          }
+        }}
+      >
         <Input
-          grow
           value={value}
           onChange={(event) => onChange(event.target.value)}
           aria-label="Build name"
+          aria-expanded={onDeleteBuild ? menuOpen : undefined}
+          aria-controls={menuOpen ? 'saved-builds' : undefined}
+          aria-autocomplete="list"
+          role="combobox"
           placeholder="Untitled build"
         />
-        {showSave && onSave ? <BuildTitleSave onSave={onSave} /> : null}
-        {onDeleteBuild ? <BuildSavedMenu builds={savedBuilds} onDelete={onDeleteBuild} /> : null}
+        {onDeleteBuild && menuOpen ? (
+          <BuildSavedMenu
+            builds={savedBuilds}
+            query={value}
+            onDelete={onDeleteBuild}
+            onClose={() => setMenuOpen(false)}
+          />
+        ) : null}
       </div>
+      {showSave && onSave ? <BuildTitleSave onSave={onSave} /> : null}
     </div>
   )
 }

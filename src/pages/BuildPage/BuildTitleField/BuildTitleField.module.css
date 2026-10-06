@@ -1,11 +1,11 @@
-.wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
 .row {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+}
+
+.field {
+  position: relative;
+  flex: 1;
+  min-width: 0;
 }
