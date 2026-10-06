@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Catalog } from '#/components/Catalog'
+import { useFavourites } from '#/components/FavouritesProvider'
 import { filterGear } from '#/lib/catalog/filter-gear'
+import { formatGearType } from '#/lib/catalog/format-gear-type'
+import { sortGear } from '#/lib/catalog/sort-gear'
 import { GEAR_TYPES, type Gear, type GearRarityFilter, type GearType } from '#/types/data/gear'
 import type { Effect } from '#/types/data/effect'
 import { GearCatalogRarityFilters } from './GearCatalogRarityFilters'
@@ -35,17 +38,23 @@ export function GearCatalog({
   onQueryChange,
   onSearchClear,
 }: GearCatalogProps) {
+  const { isFavourite } = useFavourites()
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [effectQuery, setEffectQuery] = useState('')
   const [archetypeQuery, setArchetypeQuery] = useState('')
-  const items = filterGear(gear, {
-    query: '',
-    effectQuery,
-    archetypeQuery,
-    type: typeFilter,
-    rarity: rarityFilter,
-    effects,
-  })
+  const searching = [query, effectQuery, archetypeQuery].some((value) => value.trim())
+  const grouped = searching || typeFilter !== null
+  const items = sortGear(
+    filterGear(gear, {
+      query: '',
+      effectQuery,
+      archetypeQuery,
+      type: typeFilter,
+      rarity: rarityFilter,
+      effects,
+    }),
+    isFavourite,
+  )
 
   return (
     <Catalog
@@ -75,6 +84,9 @@ export function GearCatalog({
         ) : null
       }
       limitResults
+      groupBy={grouped ? (item) => item.type : undefined}
+      groupLabel={grouped ? (group) => formatGearType(group as GearType) : undefined}
+      groupOrder={grouped ? GEAR_TYPES : undefined}
       toolbar={
         <>
           <GearCatalogTypeFilters

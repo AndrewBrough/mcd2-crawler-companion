@@ -1,7 +1,8 @@
 import { useState, type ReactNode } from 'react'
 import { filterCatalogItems } from '#/lib/catalog/filter-catalog-items'
 import type { CatalogKind } from '#/types/catalog'
-import { CatalogGrid, type CatalogGridItem } from './CatalogGrid'
+import type { CatalogGridItem } from './CatalogGrid'
+import { CatalogResults } from './CatalogResults'
 import { CatalogSearch } from './CatalogSearch'
 import styles from './Catalog.module.css'
 
@@ -25,6 +26,9 @@ export type CatalogProps<T extends CatalogItem> = {
   searchAccessory?: ReactNode
   searchDetails?: ReactNode
   limitResults?: boolean
+  groupBy?: (item: T) => string
+  groupLabel?: (group: string) => string
+  groupOrder?: ReadonlyArray<string>
 }
 
 export function Catalog<T extends CatalogItem>({
@@ -45,6 +49,9 @@ export function Catalog<T extends CatalogItem>({
   searchAccessory,
   searchDetails,
   limitResults = false,
+  groupBy,
+  groupLabel,
+  groupOrder,
 }: CatalogProps<T>) {
   const [internalQuery, setInternalQuery] = useState('')
   const query = queryProp ?? internalQuery
@@ -65,16 +72,16 @@ export function Catalog<T extends CatalogItem>({
         {toolbar}
       </CatalogSearch>
       <div className={limitResults ? `${styles.results} ${styles.limited}` : styles.results}>
-        {visible.length ? (
-          <CatalogGrid
-            items={visible}
-            catalogKind={catalogKind}
-            selectedSlug={selectedSlug}
-            onItemSelect={onItemSelect}
-          />
-        ) : (
-          <p>{items.length ? emptyFiltered : emptyCatalog}</p>
-        )}
+        <CatalogResults
+          items={visible}
+          catalogKind={catalogKind}
+          selectedSlug={selectedSlug}
+          onItemSelect={onItemSelect}
+          empty={items.length ? emptyFiltered : emptyCatalog}
+          groupBy={groupBy}
+          groupLabel={groupLabel}
+          groupOrder={groupOrder}
+        />
       </div>
     </aside>
   )
