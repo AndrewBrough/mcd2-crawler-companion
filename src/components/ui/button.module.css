@@ -13,6 +13,10 @@
   cursor: pointer;
 }
 
+.iconStart {
+  flex-direction: row-reverse;
+}
+
 .primary,
 .primary:hover,
 .primary:focus-visible {

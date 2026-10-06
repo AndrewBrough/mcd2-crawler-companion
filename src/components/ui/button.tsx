@@ -20,6 +20,10 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
       },
+      iconPosition: {
+        start: styles.iconStart,
+        end: '',
+      },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
         xs: 'h-6 gap-1 px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*="size-"])]:size-3',
@@ -33,6 +37,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: 'default',
+      iconPosition: 'end',
       size: 'default',
     },
   },
@@ -46,6 +51,7 @@ export type ButtonProps = React.ComponentProps<'button'> &
 export function Button({
   className,
   variant = 'default',
+  iconPosition = 'end',
   size = 'default',
   asChild = false,
   ...props
@@ -57,7 +63,7 @@ export function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, iconPosition, size, className }))}
       {...props}
     />
   )
