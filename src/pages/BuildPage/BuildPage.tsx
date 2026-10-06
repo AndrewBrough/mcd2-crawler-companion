@@ -112,18 +112,14 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     const socketId = targetSocketId(loadout, activeSocketId, detailItem)
     if (!socketId) return
     setTypeFilter(detailItem.type)
+    setActiveSocketId(socketId)
     equip(socketId, detailItem)
-    setActiveSocketId(null)
-    setShowDetails(false)
-    clearSlug()
   }
 
   function handleRemove() {
     if (!detailItem) return
     removeSlug(detailItem.slug)
     setActiveSocketId(null)
-    setShowDetails(false)
-    clearSlug()
   }
 
   return (
