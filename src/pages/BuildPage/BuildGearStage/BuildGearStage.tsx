@@ -77,6 +77,7 @@ export function BuildGearStage({
           onPinEffect={gearPins.onPinEffect}
           pinnedEnchantmentSlug={gearPins.pinnedEnchantmentSlug}
           onPinEnchantment={gearPins.onPinEnchantment}
+          collapsibleRolls={false}
           onVariantSelect={(slug) => {
             const variant = gear.find((entry) => entry.slug === slug)
             if (variant) {

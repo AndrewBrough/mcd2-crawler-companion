@@ -22,6 +22,7 @@ export type GearDetailPanelProps = {
   onPinEffect?: (slug: string, replaceSlug?: string) => void
   pinnedEnchantmentSlug?: string | null
   onPinEnchantment?: (slug: string) => void
+  collapsibleRolls?: boolean
   footer?: ReactNode
 }
 
@@ -34,6 +35,7 @@ export function GearDetailPanel({
   onPinEffect,
   pinnedEnchantmentSlug = null,
   onPinEnchantment,
+  collapsibleRolls = true,
   footer,
 }: GearDetailPanelProps) {
   const uniqueEffect = item ? uniqueEffectForGear(effects, item.slug) : null
@@ -63,6 +65,7 @@ export function GearDetailPanel({
             enchantments={item.enchantments}
             pinnedSlug={pinnedEnchantmentSlug}
             onPinEnchantment={onPinEnchantment}
+            collapsible={collapsibleRolls}
           />
           <GearEffects
             effects={effectsForGear(effects, item)}
@@ -70,6 +73,7 @@ export function GearDetailPanel({
             pinnedSlugs={pinnedEffectSlugs}
             onPinEffect={onPinEffect}
             uniqueEffect={item.rarity.includes('unique') ? uniqueEffect : null}
+            collapsible={collapsibleRolls}
           />
           <GearVariant item={item} onSelect={onVariantSelect} />
           <GearArchetype item={item} gear={gear} onSelect={onVariantSelect} />

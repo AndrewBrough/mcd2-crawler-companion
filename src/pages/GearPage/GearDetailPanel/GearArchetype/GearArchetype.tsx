@@ -1,6 +1,5 @@
-import { CatalogGrid } from '#/components/Catalog'
 import type { Gear } from '#/types/data/gear'
-import styles from './GearArchetype.module.css'
+import { GearArchetypeGroup } from './GearArchetypeGroup'
 
 export type GearArchetypeProps = {
   item: Gear
@@ -25,16 +24,12 @@ export function GearArchetype({ item, gear, onSelect }: GearArchetypeProps) {
   return (
     <>
       {groups.map((group) => (
-        <section key={group.name} className={styles.section}>
-          <h3 className="heading">
-            Similar Items <span className={styles.archetype}>{group.name} archetype</span>
-          </h3>
-          <CatalogGrid
-            items={group.items}
-            catalogKind="gear"
-            onItemSelect={(entry) => onSelect(entry.slug)}
-          />
-        </section>
+        <GearArchetypeGroup
+          key={group.name}
+          name={group.name}
+          items={group.items}
+          onSelect={onSelect}
+        />
       ))}
     </>
   )
