@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
-import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { Badge } from '#/components/ui/Badge'
 import { Favourite } from '#/components/Favourite'
 import { effectPinCapForRarity } from '#/lib/build/use-build-pins'
@@ -9,6 +8,7 @@ import { formatGearRarity } from '#/lib/catalog/format-gear-rarity'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
 import { GearArchetype } from './GearArchetype'
+import { GearDetailMedia } from './GearDetailMedia'
 import { GearEffects } from './GearEffects'
 import { GearEnchantments } from './GearEnchantments'
 import { GearVariant } from './GearVariant'
@@ -57,7 +57,14 @@ export function GearDetailPanel({
           </>
         ) : null
       }
-      media={item ? <ThumbnailImage catalogKind="gear" slug={item.slug} size="detail" /> : null}
+      media={
+        item ? (
+          <GearDetailMedia
+            slug={item.slug}
+            baseDps={item.type === 'melee_weapon' ? item.baseDps : null}
+          />
+        ) : null
+      }
       header={header}
     >
       {item ? (

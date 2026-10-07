@@ -32,6 +32,7 @@ export type Gear = {
   archetypeNames: Array<string>
   effectSlugs: Array<string>
   setId: string | null
+  baseDps: number | null
   variants: Array<NamedRef & { rarity: Array<GearRarity> }>
 }
 

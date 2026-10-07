@@ -1,3 +1,4 @@
+import { getMeleeBaseDps, meleeBaseDps } from '#/lib/catalog/get-melee-base-dps'
 import { supabase } from '#/lib/supabase/client'
 import { compactMap, mapDrop, type NamedEmbed } from '#/lib/catalog/map-drop'
 import { CatalogQueryError } from '#/lib/catalog/query-error'
@@ -76,7 +77,7 @@ type GearQueryRow = {
 }
 
 export async function getGear(): Promise<Array<GearListItem>> {
-  const [gearResult, enchantmentResult] = await Promise.all([
+  const [gearResult, enchantmentResult, dps] = await Promise.all([
     supabase
       .from('gear')
       .select(
@@ -100,6 +101,7 @@ export async function getGear(): Promise<Array<GearListItem>> {
       .from('enchantments')
       .select('slug, name, description, tier_1, tier_2, tier_3, gear_types')
       .order('name'),
+    getMeleeBaseDps(),
   ])
 
   if (gearResult.error) {
@@ -128,6 +130,15 @@ export async function getGear(): Promise<Array<GearListItem>> {
         slug: row.slug,
         description: row.description,
         setId: row.set_id,
+        baseDps: meleeBaseDps(
+          {
+            type: row.type,
+            slug: row.slug,
+            setId: row.set_id,
+            rarity,
+          },
+          dps,
+        ),
         rarity,
         type: row.type,
         enchantments: enchantments.flatMap((enchantment) =>
