@@ -62,12 +62,14 @@ export function GearDetailPanel({
     >
       {item ? (
         <>
-          <GearEnchantments
-            enchantments={item.enchantments}
-            pinnedSlug={pinnedEnchantmentSlug}
-            onPinEnchantment={onPinEnchantment}
-            collapsible={collapsibleRolls}
-          />
+          {item.type === 'artifact' || item.type === 'talisman' ? null : (
+            <GearEnchantments
+              enchantments={item.enchantments}
+              pinnedSlug={pinnedEnchantmentSlug}
+              onPinEnchantment={onPinEnchantment}
+              collapsible={collapsibleRolls}
+            />
+          )}
           <GearEffects
             effects={effectsForGear(effects, item)}
             archetypeNames={item.archetypeNames}
