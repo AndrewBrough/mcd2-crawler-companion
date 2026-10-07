@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
+import { PanelBack } from '#/components/ui/PanelBack'
 import { GearCatalogFilters } from '#/components/GearCatalog/GearCatalogFilters'
 import { GearCatalogTypeSelect } from '#/components/GearCatalog/GearCatalogTypeSelect'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
@@ -19,7 +20,7 @@ export type EnchantmentsPageProps = {
 
 export function EnchantmentsPage({ enchantments, initialSlug = null }: EnchantmentsPageProps) {
   const [typeFilter, setTypeFilter] = useState<EnchantmentGearType | null>(null)
-  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
+  const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const items = typeFilter
     ? enchantments.filter((item) => item.gearTypes.includes(typeFilter))
     : enchantments
@@ -30,6 +31,7 @@ export function EnchantmentsPage({ enchantments, initialSlug = null }: Enchantme
     <CatalogBrowsePage
       title="Enchantments"
       description="Browse the catalog and inspect an enchantment."
+      detailOpen={selected !== null}
       catalog={
         <Catalog
           items={items}
@@ -63,7 +65,7 @@ export function EnchantmentsPage({ enchantments, initialSlug = null }: Enchantme
           }
         />
       }
-      detail={<EnchantmentDetailPanel item={selected} />}
+      detail={<EnchantmentDetailPanel item={selected} header={<PanelBack onClick={clearSlug} />} />}
     />
   )
 }

@@ -8,7 +8,7 @@ import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import { BUILD_SOCKET_ROWS, type BuildLoadout, type BuildSocketDefinition } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
-import { Layout } from '#/components/ui/Layout'
+import { Layout, useNarrowViewport, type LayoutMobilePanel } from '#/components/ui/Layout'
 import { BuildGearStage } from './BuildGearStage/BuildGearStage'
 import { BuildLoadoutPanel } from './BuildLoadoutPanel'
 import { usePreserveCatalogScroll } from './use-preserve-catalog-scroll'
@@ -65,15 +65,17 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const [showDetails, setShowDetails] = useState(() =>
     gear.some((item) => item.slug === search.slug),
   )
+  const [mobilePanel, setMobilePanel] = useState<'build' | 'catalog' | 'details'>('build')
+  const isNarrow = useNarrowViewport()
 
   useEffect(() => {
-    if (!search.slug) {
+    if (!search.slug || mobilePanel === 'catalog') {
       return
     }
     if (gear.some((item) => item.slug === search.slug)) {
       setShowDetails(true)
     }
-  }, [gear, search.slug])
+  }, [gear, mobilePanel, search.slug])
   const rememberCatalogScroll = usePreserveCatalogScroll(!showDetails)
   const inspected = gear.find((item) => item.slug === selectedSlug) ?? null
   const detailItem = showDetails ? inspected : null
@@ -85,21 +87,30 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   )
 
   function handleSocketSelect(socket: BuildSocketDefinition) {
-    if (socket.id === activeSocketId) {
+    if (socket.id === activeSocketId && !isNarrow) {
       setActiveSocketId(null)
       setTypeFilter(null)
       setShowDetails(false)
+      setMobilePanel('build')
       clearSlug()
       return
     }
 
     setActiveSocketId(socket.id)
     setTypeFilter(socket.kind)
+
     const item = loadout[socket.id]
     if (item) {
       rememberCatalogScroll()
       selectSlug(item.slug)
       setShowDetails(true)
+      setMobilePanel('details')
+      return
+    }
+
+    setMobilePanel('catalog')
+    if (isNarrow) {
+      setShowDetails(false)
       return
     }
 
@@ -134,8 +145,11 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     setActiveSocketId(null)
   }
 
+  const layoutPanel: LayoutMobilePanel = mobilePanel === 'build' ? 'primary' : 'secondary'
+  const showCatalog = isNarrow ? mobilePanel === 'catalog' : detailItem === null
+
   return (
-    <Layout columns="sidebar">
+    <Layout columns="sidebar" mobilePanel={layoutPanel}>
       <BuildLoadoutPanel
         title={title}
         onTitleChange={setTitle}
@@ -166,6 +180,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
           rememberCatalogScroll()
           selectSlug(item.slug)
           setShowDetails(true)
+          setMobilePanel('details')
         }}
         query={query}
         onQueryChange={setQuery}
@@ -175,9 +190,16 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
         }}
         onAdd={handleAdd}
         onRemove={handleRemove}
+        showCatalog={showCatalog}
+        onCatalogBack={() => setMobilePanel('build')}
         onBack={() => {
-          setActiveSocketId(null)
           setShowDetails(false)
+          setMobilePanel('catalog')
+          if (isNarrow) {
+            retainSocket.current = true
+          } else {
+            setActiveSocketId(null)
+          }
           clearSlug()
         }}
       />

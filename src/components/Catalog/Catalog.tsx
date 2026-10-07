@@ -20,12 +20,12 @@ export type CatalogProps<T extends CatalogItem> = {
   emptyCatalog: string
   extraSearchText?: (item: T) => Array<string | null | undefined>
   toolbar?: ReactNode
+  leading?: ReactNode
   query?: string
   onQueryChange?: (query: string) => void
   onSearchClear?: () => void
   searchAccessory?: ReactNode
   searchDetails?: ReactNode
-  limitResults?: boolean
   groupBy?: (item: T) => string
   groupLabel?: (group: string) => string
   groupOrder?: ReadonlyArray<string>
@@ -43,12 +43,12 @@ export function Catalog<T extends CatalogItem>({
   emptyCatalog,
   extraSearchText,
   toolbar,
+  leading,
   query: queryProp,
   onQueryChange,
   onSearchClear,
   searchAccessory,
   searchDetails,
-  limitResults = false,
   groupBy,
   groupLabel,
   groupOrder,
@@ -60,6 +60,7 @@ export function Catalog<T extends CatalogItem>({
 
   return (
     <aside className={styles.panel} aria-label={ariaLabel}>
+      {leading}
       <CatalogSearch
         value={query}
         onChange={setQuery}
@@ -71,7 +72,7 @@ export function Catalog<T extends CatalogItem>({
       >
         {toolbar}
       </CatalogSearch>
-      <div className={limitResults ? `${styles.results} ${styles.limited}` : styles.results}>
+      <div className={styles.results}>
         <CatalogResults
           items={visible}
           catalogKind={catalogKind}

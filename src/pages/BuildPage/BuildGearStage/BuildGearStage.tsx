@@ -1,5 +1,6 @@
 import { GearCatalog } from '#/components/GearCatalog'
 import { Banner } from '#/components/ui/Banner'
+import { PanelBack } from '#/components/ui/PanelBack'
 import type { BuildSearch } from '#/lib/build/build-search'
 import { useGearPins } from '#/lib/build/use-build-pins'
 import type { BuildLoadout } from '#/types/data/build'
@@ -29,6 +30,8 @@ export type BuildGearStageProps = {
   onAdd: () => void
   onRemove: () => void
   onBack: () => void
+  onCatalogBack: () => void
+  showCatalog: boolean
 }
 
 export function BuildGearStage({
@@ -51,12 +54,14 @@ export function BuildGearStage({
   onAdd,
   onRemove,
   onBack,
+  onCatalogBack,
+  showCatalog,
 }: BuildGearStageProps) {
   const gearPins = useGearPins(search, loadout, detailItem, effects, activeSocketId)
 
   return (
     <div className={styles.stage}>
-      <div className={styles.catalog} hidden={detailItem !== null}>
+      <div className={styles.catalog} hidden={!showCatalog}>
         <GearCatalog
           gear={gear}
           effects={effects}
@@ -69,9 +74,10 @@ export function BuildGearStage({
           query={query}
           onQueryChange={onQueryChange}
           onSearchClear={onSearchClear}
+          leading={<PanelBack onClick={onCatalogBack} />}
         />
       </div>
-      {detailItem ? (
+      {detailItem && !showCatalog ? (
         <GearDetailPanel
           item={detailItem}
           gear={gear}

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { CatalogDetailPanel } from '#/components/CatalogDetailPanel'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
 import type { Enchantment } from '#/types/data/enchantment'
@@ -6,14 +7,16 @@ import styles from './EnchantmentDetailPanel.module.css'
 
 export type EnchantmentDetailPanelProps = {
   item: Enchantment | null
+  header?: ReactNode
 }
 
-export function EnchantmentDetailPanel({ item }: EnchantmentDetailPanelProps) {
+export function EnchantmentDetailPanel({ item, header }: EnchantmentDetailPanelProps) {
   return (
     <CatalogDetailPanel
       ariaLabel="Enchantment details"
       emptyMessage="Select an enchantment to see its details."
       item={item}
+      header={header}
     >
       {item ? (
         <>

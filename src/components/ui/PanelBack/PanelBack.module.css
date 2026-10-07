@@ -1,0 +1,11 @@
+@reference '../../../breakpoints.css';
+
+.back {
+  display: none;
+}
+
+@media (max-width: theme(--breakpoint-sm)) {
+  .back {
+    display: flex;
+  }
+}

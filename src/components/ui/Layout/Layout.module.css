@@ -31,8 +31,18 @@
     overflow: visible;
   }
 
+  .single {
+    height: calc(100vh - var(--app-header-offset) - (2 * var(--app-main-padding-block)));
+    overflow: hidden;
+  }
+
   .sidebar,
   .split {
     grid-template-columns: 1fr;
+  }
+
+  .primary > :nth-child(2),
+  .secondary > :nth-child(1) {
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { useFavourites } from '#/components/FavouritesProvider'
 import { filterGear } from '#/lib/catalog/filter-gear'
@@ -24,6 +24,7 @@ export type GearCatalogProps = {
   query: string
   onQueryChange: (query: string) => void
   onSearchClear?: () => void
+  leading?: ReactNode
 }
 
 export function GearCatalog({
@@ -38,6 +39,7 @@ export function GearCatalog({
   query,
   onQueryChange,
   onSearchClear,
+  leading,
 }: GearCatalogProps) {
   const { isFavourite } = useFavourites()
   const [filtersOpen, setFiltersOpen] = useState(false)
@@ -69,6 +71,7 @@ export function GearCatalog({
       query={query}
       onQueryChange={onQueryChange}
       onSearchClear={onSearchClear}
+      leading={leading}
       searchAccessory={
         <GearCatalogSearchToggle open={filtersOpen} onToggle={() => setFiltersOpen((open) => !open)} />
       }
@@ -82,7 +85,6 @@ export function GearCatalog({
           />
         ) : null
       }
-      limitResults
       groupBy={(item) => item.type}
       groupLabel={(group) => formatGearType(group as GearType)}
       groupOrder={GEAR_TYPES}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import { GearCatalog } from '#/components/GearCatalog'
+import { PanelBack } from '#/components/ui/PanelBack'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearListItem, GearRarityFilter, GearType } from '#/types/data/gear'
@@ -15,7 +16,7 @@ export type GearPageProps = {
 export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarityFilter | null>(null)
-  const { selectedSlug, selectSlug, query, setQuery } = useCatalogSlug(initialSlug)
+  const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(initialSlug)
   const selected = gear.find((item) => item.slug === selectedSlug) ?? null
 
   function handleItemSelect(item: Gear) {
@@ -26,6 +27,7 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
     <CatalogBrowsePage
       title="Gear"
       description="Browse the catalog and inspect a piece of gear."
+      detailOpen={selected !== null}
       catalog={
         <GearCatalog
           gear={gear}
@@ -45,6 +47,7 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
           item={selected}
           gear={gear}
           effects={effects}
+          header={<PanelBack onClick={clearSlug} />}
           onVariantSelect={(slug) => {
             const variant = gear.find((entry) => entry.slug === slug)
             if (variant) {
