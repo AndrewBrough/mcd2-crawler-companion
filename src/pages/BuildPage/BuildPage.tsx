@@ -45,10 +45,13 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
 
   useEffect(() => {
     if (search.slug) {
-      const socketId = socketIdForSlug(loadout, search.slug)
-      if (socketId) {
-        setActiveSocketId(socketId)
-      }
+      const item = gear.find((entry) => entry.slug === search.slug)
+      setActiveSocketId((current) => {
+        if (item && current && socketKind(current) === item.type) {
+          return current
+        }
+        return socketIdForSlug(loadout, search.slug) ?? current
+      })
       return
     }
 
@@ -58,7 +61,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     }
 
     setActiveSocketId(null)
-  }, [loadout, search.slug])
+  }, [gear, loadout, search.slug])
   const [showDetails, setShowDetails] = useState(() =>
     gear.some((item) => item.slug === search.slug),
   )
@@ -74,7 +77,12 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
   const rememberCatalogScroll = usePreserveCatalogScroll(!showDetails)
   const inspected = gear.find((item) => item.slug === selectedSlug) ?? null
   const detailItem = showDetails ? inspected : null
-  const inBuild = Boolean(detailItem && Object.values(loadout).some((item) => item.slug === detailItem.slug))
+  const inBuild = Boolean(
+    detailItem &&
+      (activeSocketId
+        ? loadout[activeSocketId]?.slug === detailItem.slug
+        : Object.values(loadout).some((item) => item.slug === detailItem.slug)),
+  )
 
   function handleSocketSelect(socket: BuildSocketDefinition) {
     if (socket.id === activeSocketId) {
@@ -118,6 +126,10 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
 
   function handleRemove() {
     if (!detailItem) return
+    if (activeSocketId && loadout[activeSocketId]?.slug === detailItem.slug) {
+      clearSocket(activeSocketId)
+      return
+    }
     removeSlug(detailItem.slug)
     setActiveSocketId(null)
   }
@@ -142,6 +154,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
         effects={effects}
         search={search}
         loadout={loadout}
+        activeSocketId={activeSocketId}
         detailItem={detailItem}
         inBuild={inBuild}
         typeFilter={typeFilter}

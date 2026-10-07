@@ -14,6 +14,7 @@ export type BuildGearStageProps = {
   effects: Array<Effect>
   search: BuildSearch
   loadout: BuildLoadout
+  activeSocketId: string | null
   detailItem: Gear | null
   inBuild: boolean
   typeFilter: GearType | null
@@ -35,6 +36,7 @@ export function BuildGearStage({
   effects,
   search,
   loadout,
+  activeSocketId,
   detailItem,
   inBuild,
   typeFilter,
@@ -50,7 +52,7 @@ export function BuildGearStage({
   onRemove,
   onBack,
 }: BuildGearStageProps) {
-  const gearPins = useGearPins(search, loadout, detailItem, effects)
+  const gearPins = useGearPins(search, loadout, detailItem, effects, activeSocketId)
 
   return (
     <div className={styles.stage}>

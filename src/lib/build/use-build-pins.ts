@@ -1,7 +1,7 @@
 import { useNavigate } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { effectsForGear, uniqueEffectForGear } from '#/lib/catalog/filter-effects'
-import type { BuildLoadout } from '#/types/data/build'
+import { BUILD_SOCKET_ROWS, type BuildLoadout } from '#/types/data/build'
 import type { Effect } from '#/types/data/effect'
 import type { Gear } from '#/types/data/gear'
 import type { BuildSearch } from './build-search'
@@ -23,6 +23,26 @@ function pinnableSocketForSlug(loadout: BuildLoadout, slug: string): string | nu
     ([socketId, item]) => item.slug === slug && isPinnableSocketId(socketId),
   )
   return match?.[0] ?? null
+}
+
+function socketKind(socketId: string): string | undefined {
+  return BUILD_SOCKET_ROWS.flatMap((row) => row.sockets).find((socket) => socket.id === socketId)?.kind
+}
+
+function pinSocketId(loadout: BuildLoadout, item: Gear, activeSocketId: string | null): string | null {
+  if (
+    activeSocketId &&
+    isPinnableSocketId(activeSocketId) &&
+    loadout[activeSocketId]?.slug === item.slug
+  ) {
+    return activeSocketId
+  }
+
+  if (activeSocketId && socketKind(activeSocketId) === item.type) {
+    return null
+  }
+
+  return pinnableSocketForSlug(loadout, item.slug)
 }
 
 export function useBuildPins(search: BuildSearch) {
@@ -114,9 +134,10 @@ export function useGearPins(
   loadout: BuildLoadout,
   item: Gear | null,
   effects: Array<Effect>,
+  activeSocketId: string | null = null,
 ): GearPinProps {
   const pins = useBuildPins(search)
-  const socketId = item ? pinnableSocketForSlug(loadout, item.slug) : null
+  const socketId = item ? pinSocketId(loadout, item, activeSocketId) : null
   const uniqueSlug = item ? uniqueEffectForGear(effects, item.slug)?.slug : null
   const pinCap = item ? effectPinCapForRarity(item.rarity) : 3
 
