@@ -13,8 +13,21 @@ const GEAR_TYPES = [
 
 await syncCatalogCsv({
   table: 'gear',
-  csvFiles: ['armor.csv', 'artifacts.csv', 'talismans.csv'],
+  csvFiles: ['armor.csv'],
   required: ['name', 'slug', 'type', 'description', 'rarity'],
+  enums: {
+    type: GEAR_TYPES,
+  },
+  lists: {
+    rarity: ['common', 'rare', 'special', 'unique'],
+  },
+})
+
+await syncCatalogCsv({
+  table: 'gear',
+  csvFiles: ['artifacts.csv', 'talismans.csv'],
+  required: ['name', 'slug', 'type', 'description', 'rarity'],
+  nullColumns: ['set_id'],
   enums: {
     type: GEAR_TYPES,
   },

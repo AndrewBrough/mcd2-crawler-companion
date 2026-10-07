@@ -79,7 +79,9 @@ export function GearDetailPanel({
             collapsible={collapsibleRolls}
             pinCap={effectPinCapForRarity(item.rarity)}
           />
-          <GearVariant item={item} onSelect={onVariantSelect} />
+          {item.type === 'artifact' || item.type === 'talisman' ? null : (
+            <GearVariant item={item} onSelect={onVariantSelect} />
+          )}
           <GearArchetype item={item} gear={gear} onSelect={onVariantSelect} />
         </>
       ) : null}

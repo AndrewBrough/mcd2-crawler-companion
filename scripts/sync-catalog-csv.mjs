@@ -51,6 +51,10 @@ export function parseCsv(text) {
 }
 
 function sqlLiteral(value) {
+  if (value === null) {
+    return 'null'
+  }
+
   if (Array.isArray(value)) {
     return `array[${value.map((entry) => sqlLiteral(entry)).join(', ')}]::text[]`
   }
@@ -140,6 +144,7 @@ export async function syncCatalogCsv({
   lists = {},
   slugLists = [],
   extras = [],
+  nullColumns = [],
   prepare,
 }) {
   const files = csvFiles ?? [csvFile]
@@ -157,11 +162,21 @@ export async function syncCatalogCsv({
     throw new Error(`${files.join(', ')} has duplicate slug: ${duplicateSlug}`)
   }
 
-  const updateColumns = required.filter((column) => column !== 'slug')
-  const upsertSql = `insert into public.${table} (${required.join(', ')})
+  const columns = [...required, ...nullColumns.filter((column) => !required.includes(column))]
+  const updateColumns = columns.filter((column) => column !== 'slug')
+  const records = rows.map((item) => {
+    const record = { ...item }
+
+    for (const column of nullColumns) {
+      record[column] = null
+    }
+
+    return record
+  })
+  const upsertSql = `insert into public.${table} (${columns.join(', ')})
 values
-${rows
-  .map((item) => `  (${required.map((column) => sqlLiteral(item[column])).join(', ')})`)
+${records
+  .map((item) => `  (${columns.map((column) => sqlLiteral(item[column])).join(', ')})`)
   .join(',\n')}
 on conflict (slug) do update
 set
@@ -189,8 +204,8 @@ ${updateColumns.map((column) => `  ${column} = excluded.${column}`).join(',\n')}
     await prepare(supabase, rows)
   }
 
-  const catalogRows = rows.map((row) => {
-    const record = Object.fromEntries(required.map((column) => [column, row[column]]))
+  const catalogRows = records.map((row) => {
+    const record = Object.fromEntries(columns.map((column) => [column, row[column]]))
 
     if (record.set_id === '') {
       delete record.set_id

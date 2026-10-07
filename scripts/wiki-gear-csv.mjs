@@ -336,7 +336,8 @@ export async function appendWikiGear({ pageTitle, pageUrl, csvFile, sections, la
   const bySlug = new Map(rows.map((row) => [row.slug, row]))
 
   for (const row of rows) {
-    row.set_id = weaponSets ? weaponSetId(row, bySlug) : ''
+    row.set_id =
+      weaponSets && row.type !== 'artifact' && row.type !== 'talisman' ? weaponSetId(row, bySlug) : ''
   }
 
   const unresolved = rows.filter((row) => weaponSets && !row.set_id)
