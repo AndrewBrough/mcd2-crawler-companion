@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { LevelBadge } from '#/components/ui/LevelBadge'
+import { readSocketTooltipFrame, type SocketTooltipFrame } from '#/components/ui/socketTooltipFrame'
 import type { EnchantmentTier } from '#/types/data/enchantment'
 import styles from './EnchantmentSocketTooltip.module.css'
 
@@ -8,10 +10,7 @@ export type EnchantmentSocketTooltipProps = {
   children: ReactNode
 }
 
-type TooltipPosition = {
-  top: number
-  left: number
-}
+type TooltipPosition = SocketTooltipFrame
 
 export function EnchantmentSocketTooltip({
   tiers,
@@ -36,14 +35,12 @@ export function EnchantmentSocketTooltip({
   }
 
   function showTooltip() {
-    const rect = hostRef.current?.getBoundingClientRect()
-    if (!rect) {
+    const host = hostRef.current
+    if (!host) {
       return
     }
 
-    const width = 280
-    const left = Math.min(Math.max(8, rect.left), window.innerWidth - width - 8)
-    setPosition({ top: rect.bottom + 6, left })
+    setPosition(readSocketTooltipFrame(host))
   }
 
   return (
@@ -57,12 +54,26 @@ export function EnchantmentSocketTooltip({
     >
       {children}
       {position ? (
-        <span className={styles.tooltip} role="tooltip" style={{ top: position.top, left: position.left }}>
+        <span
+          className={styles.tooltip}
+          role="tooltip"
+          style={{
+            top: position.top,
+            left: position.left,
+            width: position.width,
+            paddingLeft: position.paddingLeft,
+            paddingRight: position.paddingRight,
+          }}
+        >
           <ul className={styles.tiers}>
             {tiers.map((tier) => (
-              <li key={tier.label} className={tier.label === activeLabel ? styles.current : undefined}>
-                <span className={styles.label}>{tier.label}</span>
-                <span>{tier.text}</span>
+              <li
+                key={tier.label}
+                className={tier.label === activeLabel ? styles.current : undefined}
+                style={{ gap: position.gap }}
+              >
+                <LevelBadge label={tier.label} size={position.badge} />
+                <span className={styles.value}>{tier.text}</span>
               </li>
             ))}
           </ul>

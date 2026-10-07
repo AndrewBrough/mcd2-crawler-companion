@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
+import { LevelBadge } from '#/components/ui/LevelBadge'
 import styles from './GearRollTooltip.module.css'
 
 export type GearRollLevel = {
@@ -15,6 +16,7 @@ export type GearRollTooltipProps = {
 type TooltipPosition = {
   top: number
   left: number
+  width: number
 }
 
 export function GearRollTooltip({ description, levels, children }: GearRollTooltipProps) {
@@ -39,14 +41,15 @@ export function GearRollTooltip({ description, levels, children }: GearRollToolt
   }
 
   function showTooltip() {
-    const rect = hostRef.current?.getBoundingClientRect()
-    if (!rect) {
+    const host = hostRef.current
+    if (!host) {
       return
     }
 
-    const width = Math.min(288, window.innerWidth - 16)
-    const left = Math.min(Math.max(8, rect.left), window.innerWidth - width - 8)
-    setPosition({ top: rect.bottom + 6, left })
+    const rect = host.getBoundingClientRect()
+    const anchor = host.closest('section') ?? host
+    const bounds = anchor.getBoundingClientRect()
+    setPosition({ top: rect.bottom + 6, left: bounds.left, width: bounds.width })
   }
 
   return (
@@ -62,13 +65,18 @@ export function GearRollTooltip({ description, levels, children }: GearRollToolt
     >
       {children}
       {position ? (
-        <span className={styles.tooltip} id={tooltipId} role="tooltip" style={{ top: position.top, left: position.left }}>
+        <span
+          className={styles.tooltip}
+          id={tooltipId}
+          role="tooltip"
+          style={{ top: position.top, left: position.left, width: position.width }}
+        >
           {text ? <p className={styles.description}>{text}</p> : null}
           {levels.length ? (
             <ul className={styles.levels}>
               {levels.map((level) => (
                 <li key={level.label} className={styles.level}>
-                  <span className={styles.label}>{level.label}</span>
+                  <LevelBadge label={level.label} />
                   <span>{level.value}</span>
                 </li>
               ))}

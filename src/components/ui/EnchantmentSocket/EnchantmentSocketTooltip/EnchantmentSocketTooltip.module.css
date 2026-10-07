@@ -6,11 +6,10 @@
 .tooltip {
   position: fixed;
   z-index: 40;
-  width: 17.5rem;
-  padding: 0.55rem 0.65rem;
+  box-sizing: border-box;
+  padding: 0.55rem 0;
   background: var(--surface-strong);
   color: var(--content);
-  border: 1px solid var(--line);
   box-shadow: 0 10px 24px color-mix(in oklab, var(--black) 45%, transparent);
   pointer-events: none;
 }
@@ -29,11 +28,12 @@
 
 .tiers li {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
 }
 
-.label {
-  flex: 0 0 1.25rem;
+.value {
+  flex: 1;
+  min-width: 0;
 }
 
 .current {

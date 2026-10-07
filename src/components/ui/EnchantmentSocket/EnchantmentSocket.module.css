@@ -18,14 +18,14 @@
 }
 
 .socket {
-  gap: 0.5rem;
+  gap: 1rem;
   color: var(--content);
   cursor: default;
 }
 
 .socket:not(.selected) {
   --pixel-border-width: 2px;
-  border: 2px solid color-mix(in oklab, var(--purple) 50%, transparent);
+  border: 2px solid color-mix(in oklab, var(--purple) 20%, transparent);
 }
 
 button.socket {
@@ -35,18 +35,18 @@ button.socket {
 button.socket:hover,
 button.socket:focus-visible,
 button.socket[aria-expanded='true'] {
-  background: color-mix(in oklab, var(--secondary) 35%, var(--surface-strong));
+  background: color-mix(in oklab, var(--secondary) 15%, var(--surface-strong));
   outline: none;
 }
 
 .selected {
-  background: color-mix(in oklab, var(--purple) 50%, transparent);
+  background: color-mix(in oklab, var(--purple) 20%, transparent);
 }
 
 button.selected:hover,
 button.selected:focus-visible,
 button.selected[aria-expanded='true'] {
-  background: color-mix(in oklab, var(--purple) 78%, transparent);
+  background: color-mix(in oklab, var(--purple) 30%, transparent);
   outline: none;
 }
 

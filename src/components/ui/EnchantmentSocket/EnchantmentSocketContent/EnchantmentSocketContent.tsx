@@ -14,13 +14,15 @@ export function EnchantmentSocketContent({ enchantment, level }: EnchantmentSock
   return (
     <>
       <ThumbnailImage catalogKind="enchantments" slug={enchantment.slug} size="small" />
-      <span className={styles.title}>{enchantment.name}</span>
-      <span className={styles.description}>
-        {enchantment.description ? (
-          <EnchantmentDescription description={enchantment.description} value={tier?.text} />
-        ) : (
-          'No description yet.'
-        )}
+      <span className={styles.text}>
+        <span className={styles.title}>{enchantment.name}</span>
+        <span className={styles.description}>
+          {enchantment.description ? (
+            <EnchantmentDescription description={enchantment.description} value={tier?.text} />
+          ) : (
+            'No description yet.'
+          )}
+        </span>
       </span>
     </>
   )

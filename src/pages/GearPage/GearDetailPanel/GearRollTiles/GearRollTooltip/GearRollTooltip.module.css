@@ -5,7 +5,7 @@
 .tooltip {
   position: fixed;
   z-index: 40;
-  width: min(18rem, calc(100vw - 1rem));
+  box-sizing: border-box;
   padding: 0.55rem 0.65rem;
   background: var(--surface-strong);
   color: var(--content);
@@ -39,11 +39,6 @@
 
 .level {
   display: flex;
-  gap: 0.5rem;
-  align-items: flex-start;
-}
-
-.label {
-  flex: 0 0 auto;
-  font-weight: 700;
+  align-items: center;
+  gap: 0.65rem;
 }

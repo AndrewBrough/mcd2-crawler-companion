@@ -13,13 +13,15 @@ export function EffectSocketContent({ effect, level }: EffectSocketContentProps)
   return (
     <>
       <ThumbnailImage catalogKind="effects" slug={effect.slug} size="small" unique={level === 'unique'} />
-      <span className={styles.title}>{effect.name}</span>
-      <span className={styles.description}>
-        {effect.description ? (
-          <EffectDescription effect={effect} level={level} />
-        ) : (
-          'No description yet.'
-        )}
+      <span className={styles.text}>
+        <span className={styles.title}>{effect.name}</span>
+        <span className={styles.description}>
+          {effect.description ? (
+            <EffectDescription effect={effect} level={level} />
+          ) : (
+            'No description yet.'
+          )}
+        </span>
       </span>
     </>
   )
