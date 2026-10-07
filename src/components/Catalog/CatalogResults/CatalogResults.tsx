@@ -1,3 +1,4 @@
+import { Banner } from '#/components/ui/Banner'
 import type { CatalogKind } from '#/types/catalog'
 import { CatalogGrid, type CatalogGridItem } from '../CatalogGrid'
 import styles from './CatalogResults.module.css'
@@ -48,7 +49,7 @@ export function CatalogResults<T extends CatalogGridItem>({
     <div className={styles.sections}>
       {sections.map((section) => (
         <section key={section.id} className={styles.section}>
-          <h2 className="heading border-bottom-light">{section.label}</h2>
+          <Banner title={section.label} color="dark" />
           <CatalogGrid
             items={section.items}
             catalogKind={catalogKind}
