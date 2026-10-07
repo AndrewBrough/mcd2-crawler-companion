@@ -1,17 +1,17 @@
 .panel {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
   min-width: 0;
   min-height: 0;
   height: 100%;
   overflow-y: auto;
   background: transparent;
-  padding: 1.35rem 4px 1.5rem;
+  padding: 0 4px;
 }
 
 .rows {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1rem;
 }

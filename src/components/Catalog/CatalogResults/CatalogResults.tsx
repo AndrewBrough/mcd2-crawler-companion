@@ -48,7 +48,7 @@ export function CatalogResults<T extends CatalogGridItem>({
     <div className={styles.sections}>
       {sections.map((section) => (
         <section key={section.id} className={styles.section}>
-          <h2 className="heading">{section.label}</h2>
+          <h2 className="heading border-bottom-light">{section.label}</h2>
           <CatalogGrid
             items={section.items}
             catalogKind={catalogKind}

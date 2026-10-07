@@ -14,6 +14,7 @@
 
 .input::placeholder {
   color: color-mix(in oklab, var(--white) 42%, transparent);
+  text-shadow: none;
 }
 
 .input:focus {
