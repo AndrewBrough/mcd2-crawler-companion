@@ -3,8 +3,10 @@
 body {
   font-family: var(--font-sans);
   text-shadow: var(--text-shadow);
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--white);
 }
 
 h1,
@@ -15,7 +17,6 @@ h5,
 h6,
 .heading {
   margin: 0;
-  color: var(--white);
   line-height: 1.5;
   text-transform: uppercase;
   text-shadow: var(--display-shadow);
@@ -34,31 +35,31 @@ h2 {
 }
 h3 {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.12em;
   font-family: var(--font-display);
 }
 h4 {
-  font-size: 1rem;
-  font-weight: 400;
-  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: var(--font-display);
 }
 h5 {
-  font-size: 0.85rem;
-  font-weight: 100;
-  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-display);
 }
 h6 {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 100;
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
 }
 
 p,
 li {
   margin: 0;
-  color: var(--sea-ink-soft);
-  line-height: 1.5;
+  padding: 0;
+  line-height: 1.25;
 }
 
 .display-title {

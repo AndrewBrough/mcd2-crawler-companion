@@ -1,7 +1,6 @@
 import { ThumbnailImage } from '#/components/EntityCard/ThumbnailImage'
 import { EnchantmentDescription } from '#/components/ui/EnchantmentDescription'
 import type { GearEnchantment } from '#/types/data/enchantment'
-import styles from './EnchantmentSocketContent.module.css'
 
 export type EnchantmentSocketContentProps = {
   enchantment: GearEnchantment
@@ -14,15 +13,15 @@ export function EnchantmentSocketContent({ enchantment, level }: EnchantmentSock
   return (
     <>
       <ThumbnailImage catalogKind="enchantments" slug={enchantment.slug} size="small" />
-      <span className={styles.text}>
-        <span className={styles.title}>{enchantment.name}</span>
-        <span className={styles.description}>
+      <span>
+        <h5>{enchantment.name}</h5>
+        <p>
           {enchantment.description ? (
             <EnchantmentDescription description={enchantment.description} value={tier?.text} />
           ) : (
             'No description yet.'
           )}
-        </span>
+        </p>
       </span>
     </>
   )
