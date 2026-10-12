@@ -9,3 +9,7 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.uniqueEffect {
+  margin-bottom: 0.5rem;
+}
