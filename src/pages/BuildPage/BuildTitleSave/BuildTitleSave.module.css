@@ -24,4 +24,37 @@
 .button:disabled {
   opacity: 0.5;
   cursor: default;
+  pointer-events: none;
+}
+
+.host {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  width: max-content;
+  max-width: 14rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--surface-strong);
+  color: var(--content);
+  box-shadow: 0 10px 24px color-mix(in oklab, var(--black) 45%, transparent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.host:hover .tooltip,
+.host:focus-within .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
