@@ -82,7 +82,7 @@ export function BuildTitleField({
           />
         ) : null}
       </div>
-      {showSave && onSave ? <BuildTitleSave onSave={onSave} /> : null}
+      {onSave ? <BuildTitleSave onSave={onSave} disabled={!showSave} /> : null}
     </div>
   )
 }

@@ -16,7 +16,12 @@
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
   background: var(--secondary-dark);
   color: var(--white);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
