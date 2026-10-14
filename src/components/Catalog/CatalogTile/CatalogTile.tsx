@@ -49,6 +49,7 @@ export function CatalogTile({
     size === 'small' ? styles.small : '',
     selected ? styles.selected : '',
     pixelBorder ? styles.pixel : '',
+    unique ? styles.unique : '',
   ]
     .filter(Boolean)
     .join(' ')
@@ -57,7 +58,7 @@ export function CatalogTile({
     <span className={styles.previewSlot}>
       <span className={pixelBorder ? `${styles.preview} ${styles.notched}` : styles.preview}>
         {slug && catalogKind ? (
-          <ThumbnailImage catalogKind={catalogKind} slug={slug} size="fill" unique={unique} />
+          <ThumbnailImage catalogKind={catalogKind} slug={slug} size="fill" />
         ) : (
           <span className={styles.emptyLabel}>{emptyLabel}</span>
         )}

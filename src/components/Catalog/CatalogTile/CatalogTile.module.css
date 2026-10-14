@@ -73,6 +73,13 @@ div.frame {
     --tile-edge-dark 0.2s ease;
 }
 
+.unique .preview {
+  --tile-edge-light: var(--primary);
+  background:
+    linear-gradient(var(--surface-strong), var(--surface-strong)) padding-box,
+    linear-gradient(to bottom right, var(--tile-edge-light), var(--tile-edge-dark)) border-box;
+}
+
 .tile:hover .preview,
 .tile:focus-within .preview {
   --tile-edge-light: var(--white);
