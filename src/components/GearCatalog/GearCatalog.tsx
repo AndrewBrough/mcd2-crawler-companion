@@ -21,6 +21,7 @@ export type GearCatalogProps = {
   onRarityFilterChange: (rarity: GearRarityFilter | null) => void
   selectedSlug: string | null
   onItemSelect: (item: Gear) => void
+  onItemAdd?: (item: Gear) => void
   query: string
   onQueryChange: (query: string) => void
   onSearchClear?: () => void
@@ -36,6 +37,7 @@ export function GearCatalog({
   onRarityFilterChange,
   selectedSlug,
   onItemSelect,
+  onItemAdd,
   query,
   onQueryChange,
   onSearchClear,
@@ -63,6 +65,7 @@ export function GearCatalog({
       catalogKind="gear"
       selectedSlug={selectedSlug}
       onItemSelect={onItemSelect}
+      onItemAdd={onItemAdd}
       ariaLabel="Gear catalog"
       searchPlaceholder="Search gear"
       searchLabel="Search gear"

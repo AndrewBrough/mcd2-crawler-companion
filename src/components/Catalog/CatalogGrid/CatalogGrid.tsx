@@ -14,6 +14,7 @@ export type CatalogGridProps<T extends CatalogGridItem> = {
   catalogKind: CatalogKind
   selectedSlug?: string | null
   onItemSelect?: (item: T) => void
+  onItemAdd?: (item: T) => void
   linked?: boolean
 }
 
@@ -22,6 +23,7 @@ export function CatalogGrid<T extends CatalogGridItem>({
   catalogKind,
   selectedSlug = null,
   onItemSelect,
+  onItemAdd,
   linked = false,
 }: CatalogGridProps<T>) {
   const to = linked ? (catalogLink(catalogKind) ?? undefined) : undefined
@@ -39,6 +41,8 @@ export function CatalogGrid<T extends CatalogGridItem>({
             onSelect={to || !onItemSelect ? undefined : () => onItemSelect(item)}
             pixelBorder
             unique={item.rarity?.includes('unique')}
+            onAdd={onItemAdd ? () => onItemAdd(item) : undefined}
+            addLabel={onItemAdd ? `Add ${item.name} to build` : undefined}
           />
         </li>
       ))}

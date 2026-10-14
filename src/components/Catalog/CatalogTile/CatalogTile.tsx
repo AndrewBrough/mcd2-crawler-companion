@@ -18,6 +18,8 @@ export type CatalogTileProps = {
   emptyLabel?: string
   onClear?: () => void
   clearLabel?: string
+  onAdd?: () => void
+  addLabel?: string
   selectLabel?: string
   pixelBorder?: boolean
   unique?: boolean
@@ -34,6 +36,8 @@ export function CatalogTile({
   emptyLabel,
   onClear,
   clearLabel,
+  onAdd,
+  addLabel,
   selectLabel,
   pixelBorder = false,
   unique = false,
@@ -98,6 +102,11 @@ export function CatalogTile({
       {onClear ? (
         <button className={styles.clear} type="button" onClick={onClear} aria-label={clearLabel}>
           ×
+        </button>
+      ) : null}
+      {onAdd ? (
+        <button className={styles.add} type="button" onClick={onAdd} aria-label={addLabel}>
+          +
         </button>
       ) : null}
       {catalogKind === 'gear' && slug ? (

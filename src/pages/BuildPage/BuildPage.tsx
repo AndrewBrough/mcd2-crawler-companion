@@ -135,6 +135,12 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
     equip(socketId, detailItem)
   }
 
+  function handleQuickAdd(item: Gear) {
+    const socketId = targetSocketId(loadout, activeSocketId, item)
+    if (!socketId) return
+    equip(socketId, item, null)
+  }
+
   function handleRemove() {
     if (!detailItem) return
     if (activeSocketId && loadout[activeSocketId]?.slug === detailItem.slug) {
@@ -189,6 +195,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
           clearSlug()
         }}
         onAdd={handleAdd}
+        onQuickAdd={handleQuickAdd}
         onRemove={handleRemove}
         showCatalog={showCatalog}
         onCatalogBack={() => setMobilePanel('build')}

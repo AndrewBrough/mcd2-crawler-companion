@@ -13,6 +13,7 @@ export type CatalogProps<T extends CatalogItem> = {
   catalogKind: CatalogKind
   selectedSlug: string | null
   onItemSelect: (item: T) => void
+  onItemAdd?: (item: T) => void
   ariaLabel: string
   searchPlaceholder: string
   searchLabel: string
@@ -36,6 +37,7 @@ export function Catalog<T extends CatalogItem>({
   catalogKind,
   selectedSlug,
   onItemSelect,
+  onItemAdd,
   ariaLabel,
   searchPlaceholder,
   searchLabel,
@@ -78,6 +80,7 @@ export function Catalog<T extends CatalogItem>({
           catalogKind={catalogKind}
           selectedSlug={selectedSlug}
           onItemSelect={onItemSelect}
+          onItemAdd={onItemAdd}
           empty={items.length ? emptyFiltered : emptyCatalog}
           groupBy={groupBy}
           groupLabel={groupLabel}

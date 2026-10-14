@@ -28,6 +28,7 @@ export type BuildGearStageProps = {
   onQueryChange: (query: string) => void
   onSearchClear?: () => void
   onAdd: () => void
+  onQuickAdd: (item: Gear) => void
   onRemove: () => void
   onBack: () => void
   onCatalogBack: () => void
@@ -52,6 +53,7 @@ export function BuildGearStage({
   onQueryChange,
   onSearchClear,
   onAdd,
+  onQuickAdd,
   onRemove,
   onBack,
   onCatalogBack,
@@ -71,6 +73,7 @@ export function BuildGearStage({
           onRarityFilterChange={onRarityFilterChange}
           selectedSlug={selectedSlug}
           onItemSelect={onItemSelect}
+          onItemAdd={onQuickAdd}
           query={query}
           onQueryChange={onQueryChange}
           onSearchClear={onSearchClear}

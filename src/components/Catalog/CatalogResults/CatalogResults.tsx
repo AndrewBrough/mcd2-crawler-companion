@@ -8,6 +8,7 @@ export type CatalogResultsProps<T extends CatalogGridItem> = {
   catalogKind: CatalogKind
   selectedSlug: string | null
   onItemSelect: (item: T) => void
+  onItemAdd?: (item: T) => void
   empty: string
   groupBy?: (item: T) => string
   groupLabel?: (group: string) => string
@@ -19,6 +20,7 @@ export function CatalogResults<T extends CatalogGridItem>({
   catalogKind,
   selectedSlug,
   onItemSelect,
+  onItemAdd,
   empty,
   groupBy,
   groupLabel,
@@ -35,6 +37,7 @@ export function CatalogResults<T extends CatalogGridItem>({
         catalogKind={catalogKind}
         selectedSlug={selectedSlug}
         onItemSelect={onItemSelect}
+        onItemAdd={onItemAdd}
       />
     )
   }
@@ -55,6 +58,7 @@ export function CatalogResults<T extends CatalogGridItem>({
             catalogKind={catalogKind}
             selectedSlug={selectedSlug}
             onItemSelect={onItemSelect}
+            onItemAdd={onItemAdd}
           />
         </section>
       ))}

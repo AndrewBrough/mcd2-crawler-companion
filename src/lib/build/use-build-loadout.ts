@@ -63,9 +63,9 @@ export function useBuildLoadout(gear: Array<Gear>, search: BuildSearch) {
     } as Parameters<typeof navigate>[0])
   }
 
-  function equip(socketId: string, item: Gear) {
+  function equip(socketId: string, item: Gear, catalogSlug?: string | null) {
     setLoadout((current) => ({ ...current, [socketId]: item }))
-    writeSocket(socketId, item.slug, item.slug)
+    writeSocket(socketId, item.slug, catalogSlug === null ? undefined : (catalogSlug ?? item.slug))
   }
 
   function removeSlug(slug: string) {
