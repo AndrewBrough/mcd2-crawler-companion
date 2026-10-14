@@ -3,7 +3,7 @@ Axe,axe,melee_weapon,"An effective weapon, favored by the relentless Vindicators
 Hunter's Hatchet,hunters-hatchet,melee_weapon,For the experienced hunter who knows how to fletch their own arrows.,unique,axe,melee
 Battlestaff,battlestaff,melee_weapon,With extra weights on the ends for striking fear into your enemies.,common|rare|special,battlestaff,melee
 Elemental Staff,elemental-staff,melee_weapon,"A powerful staff that unleashes the elements of fire, ice, poison and electricity on your enemies.",unique,battlestaff,melee
-Battle Hammer,battle-hammer,melee_weapon,,common|rare|special,battle-hammer,melee
+Battle Hammer,battle-hammer,melee_weapon,Strike while the iron is still hot.,common|rare|special,battle-hammer,melee
 Emerald Hammer,emerald-hammer,melee_weapon,This steel hammer with emerald alloy is said to bring extraordinary luck to its wielder.,unique,battle-hammer,melee
 Claymore,claymore,melee_weapon,A massive sword that rests easily in a righteous warrior's hands.,common|rare|special,claymore,melee
 Slaymore,slaymore,melee_weapon,,unique,claymore,melee
@@ -13,34 +13,34 @@ Cookiecutter,cookiecutter,melee_weapon,A curved greatsword that works all enemie
 Lullaby Blade,lullaby-blade,melee_weapon,,unique,cookiecutter,melee
 Double Daggers,double-daggers,melee_weapon,When one dagger just isn't fast enough.,common|rare|special,double-daggers,melee
 Venomous Fangs,venomous-fangs,melee_weapon,,unique,double-daggers,melee
-Double Sickles,double-sickles,melee_weapon,,common|rare|special,double-sickles,melee
+Double Sickles,double-sickles,melee_weapon,"Harvest tools from Honeycomb Fields, repurposed for reaping illagers and monsters.",common|rare|special,double-sickles,melee
 Sift Sickles,sift-sickles,melee_weapon,A pair of humbler husk sickles with the power to both harm and heal.,unique,double-sickles,melee
 Gauntlets,gauntlets,melee_weapon,,common|rare|special,gauntlets,melee
 Prime Enchanter's Gauntlets,prime-enchanters-gauntlets,melee_weapon,One is crackling with electricity. The other is enchanted with ice. Both are primed for punching.,unique,gauntlets,melee
-Glaive,glaive,melee_weapon,,common|rare|special,glaive,melee
-Golden Glaive,golden-glaive,melee_weapon,,unique,glaive,melee
+Glaive,glaive,melee_weapon,A wise blacksmith once stuck a sword on top of a staff and the world has never been the same.,common|rare|special,glaive,melee
+Golden Glaive,golden-glaive,melee_weapon,A glaive of pure gold for the brave warrior who leads the charge.,unique,glaive,melee
 Greataxe,greataxe,melee_weapon,A good axe settles for having one blade on one side. This is no goodaxe.,common|rare|special,greataxe,melee
 Awesomeaxe,awesomeaxe,melee_weapon,Why would anyone ever settle for a greataxe?,unique,greataxe,melee
 Greatsword,greatsword,melee_weapon,"If your heart is just, even the greatest sword will feel as light as a feather.",common|rare|special,greatsword,melee
-The Darkshard,the-darkshard,melee_weapon,,unique,greatsword,melee
+The Darkshard,the-darkshard,melee_weapon,A legendary sword forged in the Deep Dark with amethyst alloy in the blade.,unique,greatsword,melee
 Longsword,longsword,melee_weapon,A mighty longsword with a razor-sharp edge.,common|rare|special,longsword,melee
 Frostbiter,frostbiter,melee_weapon,,unique,longsword,melee
 Mace,mace,melee_weapon,,common|rare|special,mace,melee
-Carapace Mace,carapace-mace,melee_weapon,,unique,mace,melee
+Carapace Mace,carapace-mace,melee_weapon,"Hard as nails but light as a feather, this mace is perfect for rolling and jumping attacks.",unique,mace,melee
 Meat Cleaver,meat-cleaver,melee_weapon,A reliable kitchen cleaver repurposed for serving up justice.,common|rare|special,meat-cleaver,melee
 Cacaphonous Cleaver,cacaphonous-cleaver,melee_weapon,A mystical meat cleaver that serves souls for dessert.,unique,meat-cleaver,melee
 Mob Mallet,mob-mallet,melee_weapon,Let's play a good old game of whack-a-mob!,common|rare|special,mob-mallet,melee
-Monster Masher,monster-masher,melee_weapon,,unique,mob-mallet,melee
+Monster Masher,monster-masher,melee_weapon,A mallet made from humbler husk that guards as hard as it hits.,unique,mob-mallet,melee
 Pickaxe,pickaxe,melee_weapon,The iconic tool for adventurers and heroes for as longs as anyone can remember.,common|rare|special,pickaxe,melee
 The Prospector's Pick,the-prospectors-pick,melee_weapon,,unique,pickaxe,melee
 Pike,pike,melee_weapon,Enemies won't want to get the wrong end of the stick when they run into you.,common|rare|special,pike,melee
 Stormcaller,stormcaller,melee_weapon,A magic lightning rod attached to a copper pike that can strike your enemies in more ways than one.,unique,pike,melee
 Rapier,rapier,melee_weapon,A nimble and narrow blade that strikes with fierce ferocity,common|rare|special,rapier,melee
-The Thousand Cuts,the-thousand-cuts,melee_weapon,,unique,rapier,melee
+The Thousand Cuts,the-thousand-cuts,melee_weapon,A nimble sword for the fencing virtuoso that strikes faster than other blades.,unique,rapier,melee
 Riftslasher,riftslasher,melee_weapon,"A curved longsword with an edge so sharp it could open rifts of its own... It doesn't, though.",common|rare|special,riftslasher,melee
 Pride of the Plains,pride-of-the-plains,melee_weapon,A sharp copper sword forged as a gift to a noble protector of the plains.,unique,riftslasher,melee
-Sabre,sabre,melee_weapon,,common|rare|special,sabre,melee
-Rascal's Razor,rascals-razor,melee_weapon,,unique,sabre,melee
+Sabre,sabre,melee_weapon,A slightly curved sword for when you want to paint with broad strokes.,common|rare|special,sabre,melee
+Rascal's Razor,rascals-razor,melee_weapon,For mischieveous warriors who like rollinga around in the mud.,unique,sabre,melee
 Scythe,scythe,melee_weapon,"Fit only for toiling warriors, the scythe truly separates the wheat from the chaff.",common|rare|special,scythe,melee
 Soul Reaper,soul-reaper,melee_weapon,"A scythe with a shard of a soul block for a blade, that draws all souls towards you.",unique,scythe,melee
 Short Spear,short-spear,melee_weapon,"With the right wielder, even a short spear can reach across dimensions",common|rare|special,short-spear,melee
@@ -48,20 +48,20 @@ Spectral Spear,spectral-spear,melee_weapon,A spear forged in ichor and possessed
 Shovel,shovel,melee_weapon,"When planning for revenge, you must dig two graves: one for your enemy. And one... for your other enemy.",common|rare|special,shovel,melee
 Diamond Shovel,diamond-shovel,melee_weapon,A durable diamond shovel enchanted with the power to blast enemies away.,unique,shovel,melee
 Sword,sword,melee_weapon,A classic sword used by heroes and survivors since the dawn of the Overworld.,common|rare|special,sword,melee
-The Burning Blade,the-burning-blade,melee_weapon,,unique,sword,melee
+The Burning Blade,the-burning-blade,melee_weapon,A flame frozen into steel that erupts when you swing it.,unique,sword,melee
 Tidal Sickle,tidal-sickle,melee_weapon,"A harvest tool for the new dimension, perfect for reaping souls.",common|rare|special,tidal-sickle,melee
-Lunar Sickle,lunar-sickle,melee_weapon,,unique,tidal-sickle,melee
-Twilight Dagger,twilight-dagger,melee_weapon,,common|rare|special,twilight-dagger,melee
+Lunar Sickle,lunar-sickle,melee_weapon,Leave your enemies reeling and ripe for the reaping.,unique,tidal-sickle,melee
+Twilight Dagger,twilight-dagger,melee_weapon,A must-have in any rogue's inventory.,common|rare|special,twilight-dagger,melee
 Sculker's Bane,sculkers-bane,melee_weapon,A deadly dagger with a soul-infused edge.,unique,twilight-dagger,melee
-War Hammer,war-hammer,melee_weapon,,common|rare|special,war-hammer,melee
-Heartbreaker,heartbreaker,melee_weapon,,unique,war-hammer,melee
+War Hammer,war-hammer,melee_weapon,Its strikes send tremors through the earth and through your enemies' hearts.,common|rare|special,war-hammer,melee
+Heartbreaker,heartbreaker,melee_weapon,A netherite war hammer imbued with ghastly fire magic that explodes on impact.,unique,war-hammer,melee
 Wolf Claws,wolf-claws,melee_weapon,"A respectful offering from your wolf friends, for close combat beneath the full moon.",common|rare|special,wolf-claws,melee
-Sculker Claws,sculker-claws,melee_weapon,,unique,wolf-claws,melee
+Sculker Claws,sculker-claws,melee_weapon,A pair of sharp claws attached to gloves that let you sculk in the shadows.,unique,wolf-claws,melee
 Bow,bow,ranged_weapon,"A hunter's best friend, repurposed for hunting Illagers and monsters.",common|rare|special,bow,bow
 Ranger's Promise,rangers-promise,ranged_weapon,A ranger never breaks a promise. This bow never misses its mark.,unique,bow,bow
 Greatbow,greatbow,ranged_weapon,A powerful bow that fires with such force your arrows pierce even the toughest of enemies.,common|rare|special,greatbow,bow
 Humbler Heartstring,humbler-heartstring,ranged_weapon,This greatbow beats like the heart of a Humbler and pierces through the toughest husks.,unique,greatbow,bow
-Longbow,longbow,ranged_weapon,,common|rare|special,longbow,bow
+Longbow,longbow,ranged_weapon,Crafted for hunting but extremely effective at long range.,common|rare|special,longbow,bow
 Creaking's Reach,creakings-reach,ranged_weapon,Made from the branch of a Creaking. Hits with the strength of an entire forest.,unique,longbow,bow
 Powerbow,powerbow,ranged_weapon,For the patient ranger who doesn't like to waste arrows.,common|rare|special,powerbow,bow
 Paragon,paragon,ranged_weapon,,unique,powerbow,bow
@@ -78,4 +78,4 @@ The Close Ranger,the-close-ranger,ranged_weapon,Judge your enemies up close and 
 Rapid Crossbow,rapid-crossbow,ranged_weapon,For the hair-trigger hunter who likes firing rapid bursts of arrows.,common|rare|special,rapid-crossbow,crossbow
 The Cross Pollinator,the-cross-pollinator,ranged_weapon,Cross-pollinate mobs with sharpened twigs and see what grows from their remains.,unique,rapid-crossbow,crossbow
 Scatter Crossbow,scatter-crossbow,ranged_weapon,The ultimate weapon for when you have enemies coming from every direction.,common|rare|special,scatter-crossbow,crossbow
-Harp Crossbow,harp-crossbow,ranged_weapon,,unique,scatter-crossbow,crossbow
+Harp Crossbow,harp-crossbow,ranged_weapon,"Half musical instrument, fully deadly weapon. The Harp Crossbow always hits the right note.",unique,scatter-crossbow,crossbow
