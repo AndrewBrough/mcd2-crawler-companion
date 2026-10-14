@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { useFavourites } from '#/components/FavouritesProvider'
-import { filterGear } from '#/lib/catalog/filter-gear'
+import { filterGear, gearExtraSearchText } from '#/lib/catalog/filter-gear'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
 import { sortGear } from '#/lib/catalog/sort-gear'
 import { GEAR_TYPES, type Gear, type GearRarityFilter, type GearType } from '#/types/data/gear'
@@ -68,7 +68,7 @@ export function GearCatalog({
       searchLabel="Search gear"
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
-      extraSearchText={(item) => [item.setId]}
+      extraSearchText={gearExtraSearchText}
       query={query}
       onQueryChange={onQueryChange}
       onSearchClear={onSearchClear}

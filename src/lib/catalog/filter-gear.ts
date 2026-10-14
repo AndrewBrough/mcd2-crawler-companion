@@ -37,6 +37,14 @@ function effectNames(item: Gear, effects: Array<Effect>): Array<string> {
   return unique ? [...names, unique.name] : names
 }
 
+export function gearExtraSearchText(item: Gear): Array<string | null> {
+  const baseVariants = item.rarity.includes('unique')
+    ? item.variants.filter((variant) => !variant.rarity.includes('unique'))
+    : []
+
+  return [item.setId, ...baseVariants.flatMap((variant) => [variant.name, variant.slug])]
+}
+
 export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array<Gear> {
   const type = options.type ?? null
   const rarity = options.rarity ?? null
