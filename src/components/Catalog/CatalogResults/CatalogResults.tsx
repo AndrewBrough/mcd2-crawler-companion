@@ -13,7 +13,6 @@ export type CatalogResultsProps<T extends CatalogGridItem> = {
   groupBy?: (item: T) => string
   groupLabel?: (group: string) => string
   groupOrder?: ReadonlyArray<string>
-  hideBanner?: (group: string) => boolean
 }
 
 export function CatalogResults<T extends CatalogGridItem>({
@@ -26,7 +25,6 @@ export function CatalogResults<T extends CatalogGridItem>({
   groupBy,
   groupLabel,
   groupOrder,
-  hideBanner,
 }: CatalogResultsProps<T>) {
   if (!items.length) {
     return <p>{empty}</p>
@@ -54,7 +52,7 @@ export function CatalogResults<T extends CatalogGridItem>({
     <div className={styles.sections}>
       {sections.map((section) => (
         <section key={section.id} className={styles.section}>
-          {hideBanner?.(section.id) ? null : <Banner title={section.label} color="dark" />}
+          <Banner title={section.label} color="dark" />
           <CatalogGrid
             items={section.items}
             catalogKind={catalogKind}
