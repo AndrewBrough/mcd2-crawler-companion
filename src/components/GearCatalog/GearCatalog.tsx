@@ -68,6 +68,7 @@ export function GearCatalog({
       searchLabel="Search gear"
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
+      extraSearchText={(item) => [item.setId]}
       query={query}
       onQueryChange={onQueryChange}
       onSearchClear={onSearchClear}
