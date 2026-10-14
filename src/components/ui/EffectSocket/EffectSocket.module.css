@@ -36,12 +36,6 @@ button.socket[aria-expanded='true'] {
   outline: none;
 }
 
-.unique {
-  composes: corners from '../../../styles/pixel-border.module.css';
-  --pixel-border-width: 2px;
-  border: 2px solid #f15915;
-}
-
 .empty {
   justify-content: center;
   border: 1px dashed var(--line);

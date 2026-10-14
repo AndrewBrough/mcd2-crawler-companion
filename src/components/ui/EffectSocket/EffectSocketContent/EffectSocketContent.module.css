@@ -1,0 +1,11 @@
+.uniqueImage {
+  composes: corners from '../../../../styles/pixel-border.module.css';
+  --pixel-border-width: 3px;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--black), var(--black)) padding-box,
+    linear-gradient(to top right, var(--primary-dark), var(--primary), var(--primary-dark)) border-box;
+}

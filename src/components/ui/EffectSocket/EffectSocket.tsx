@@ -62,7 +62,7 @@ export function EffectSocket({ effect, options = [], onSelect, onChoose, unique 
   if (effect && !onSelect) {
     return (
       <EffectSocketTooltip levels={effect.levels} activeLabel={activeLabel}>
-        <div className={unique ? `${styles.socket} ${styles.unique}` : styles.socket}>
+        <div className={styles.socket}>
           <EffectSocketContent effect={effect} level={level} />
         </div>
       </EffectSocketTooltip>
