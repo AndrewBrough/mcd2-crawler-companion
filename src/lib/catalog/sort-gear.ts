@@ -24,20 +24,16 @@ export function sortGear(
     }
   }
 
-  const favouriteFamily = new Set<string>()
-  for (const item of gear) {
-    if (isFavourite(item.slug)) {
-      favouriteFamily.add(familyId(item))
-    }
-  }
-
   const sortName = (item: Gear) => baseName.get(familyId(item)) ?? item.name
 
   return [...gear].sort((left, right) => {
-    const favourite =
-      Number(favouriteFamily.has(familyId(right))) - Number(favouriteFamily.has(familyId(left)))
+    const favourite = Number(isFavourite(right.slug)) - Number(isFavourite(left.slug))
     if (favourite !== 0) {
       return favourite
+    }
+
+    if (isFavourite(left.slug)) {
+      return compareName(left.name, right.name)
     }
 
     const byFamilyName = compareName(sortName(left), sortName(right))
