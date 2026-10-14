@@ -11,6 +11,7 @@ export type BuildSocketRowProps = {
   loadout: BuildLoadout
   effects: Array<Effect>
   search: BuildSearch
+  showEnchantmentsAndEffects: boolean
   activeSocketId: string | null
   onSocketSelect: (socket: BuildSocketDefinition) => void
   onSocketClear: (socketId: string) => void
@@ -22,6 +23,7 @@ export function BuildSocketRow({
   loadout,
   effects,
   search,
+  showEnchantmentsAndEffects,
   activeSocketId,
   onSocketSelect,
   onSocketClear,
@@ -40,6 +42,7 @@ export function BuildSocketRow({
               equipped={loadout[socket.id] ?? null}
               enchantment={icons.enchantment}
               effects={icons.effects}
+              showEnchantmentsAndEffects={showEnchantmentsAndEffects}
               onSelect={() => onSocketSelect(socket)}
               onClear={() => onSocketClear(socket.id)}
             />

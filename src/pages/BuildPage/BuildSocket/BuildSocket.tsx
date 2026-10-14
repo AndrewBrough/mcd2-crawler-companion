@@ -10,6 +10,7 @@ export type BuildSocketProps = {
   equipped: Gear | null
   enchantment?: SocketIcon | null
   effects?: Array<SocketIcon>
+  showEnchantmentsAndEffects?: boolean
   onSelect: () => void
   onClear: () => void
 }
@@ -20,10 +21,13 @@ export function BuildSocket({
   equipped,
   enchantment = null,
   effects = [],
+  showEnchantmentsAndEffects = true,
   onSelect,
   onClear,
 }: BuildSocketProps) {
-  const showIcons = Boolean(equipped && (enchantment || effects.length))
+  const showIcons = Boolean(
+    showEnchantmentsAndEffects && equipped && (enchantment || effects.length),
+  )
 
   return (
     <div className={styles.socket}>

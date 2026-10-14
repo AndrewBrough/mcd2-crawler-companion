@@ -1,3 +1,5 @@
+import { Checkbox } from '#/components/ui/Checkbox'
+import { useSearchSettings } from '#/hooks/useSearchSettings'
 import type { BuildSearch } from '#/lib/build/build-search'
 import type { SavedBuild } from '#/lib/build/build-storage'
 import type { BuildLoadout, BuildSocketDefinition, BuildSocketRowDefinition } from '#/types/data/build'
@@ -37,16 +39,25 @@ export function BuildLoadoutPanel({
   onSocketSelect,
   onSocketClear,
 }: BuildLoadoutPanelProps) {
+  const { showEnchantmentsAndEffects, setShowEnchantmentsAndEffects } = useSearchSettings()
+
   return (
     <section className={styles.panel} aria-label="Build loadout">
-      <BuildTitleField
-        value={title}
-        onChange={onTitleChange}
-        showSave={showSave}
-        onSave={onSave}
-        savedBuilds={savedBuilds}
-        onDeleteBuild={onDeleteBuild}
-      />
+      <div className={styles.title}>
+        <BuildTitleField
+          value={title}
+          onChange={onTitleChange}
+          showSave={showSave}
+          onSave={onSave}
+          savedBuilds={savedBuilds}
+          onDeleteBuild={onDeleteBuild}
+        />
+        <Checkbox
+          label="Show enchantments & effects"
+          checked={showEnchantmentsAndEffects}
+          onChange={setShowEnchantmentsAndEffects}
+        />
+      </div>
       <div className={styles.rows}>
         {rows.map((row) => (
           <BuildSocketRow
@@ -56,6 +67,7 @@ export function BuildLoadoutPanel({
             loadout={loadout}
             effects={effects}
             search={search}
+            showEnchantmentsAndEffects={showEnchantmentsAndEffects}
             activeSocketId={activeSocketId}
             onSocketSelect={onSocketSelect}
             onSocketClear={onSocketClear}
