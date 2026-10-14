@@ -1,0 +1,43 @@
+.wrap {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.tile {
+  /* composes: corners from '../../../styles/pixel-border.module.css'; */
+  --pixel-border-width: 2px;
+  display: block;
+  box-sizing: border-box;
+  width: calc(70px * 0.25);
+  border: 1.75px solid transparent;
+  background: var(--black);
+}
+
+.enchantment {
+  border-color: var(--purple);
+}
+
+.effect {
+  border-color: var(--background-light);
+}
+
+.unique {
+  border-color: var(--primary);
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 40;
+  padding: 0.15rem 0.35rem;
+  background: var(--surface-strong);
+  color: var(--content);
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-shadow: none;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-100%);
+}

@@ -1,5 +1,7 @@
+import type { BuildSearch } from '#/lib/build/build-search'
 import type { SavedBuild } from '#/lib/build/build-storage'
 import type { BuildLoadout, BuildSocketDefinition, BuildSocketRowDefinition } from '#/types/data/build'
+import type { Effect } from '#/types/data/effect'
 import { BuildSocketRow } from '../BuildSocketRow'
 import { BuildTitleField } from '../BuildTitleField'
 import styles from './BuildLoadoutPanel.module.css'
@@ -13,6 +15,8 @@ export type BuildLoadoutPanelProps = {
   onDeleteBuild?: (key: string) => void
   rows: Array<BuildSocketRowDefinition>
   loadout: BuildLoadout
+  effects: Array<Effect>
+  search: BuildSearch
   activeSocketId: string | null
   onSocketSelect: (socket: BuildSocketDefinition) => void
   onSocketClear: (socketId: string) => void
@@ -27,6 +31,8 @@ export function BuildLoadoutPanel({
   onDeleteBuild,
   rows,
   loadout,
+  effects,
+  search,
   activeSocketId,
   onSocketSelect,
   onSocketClear,
@@ -48,6 +54,8 @@ export function BuildLoadoutPanel({
             label={row.label}
             sockets={row.sockets}
             loadout={loadout}
+            effects={effects}
+            search={search}
             activeSocketId={activeSocketId}
             onSocketSelect={onSocketSelect}
             onSocketClear={onSocketClear}

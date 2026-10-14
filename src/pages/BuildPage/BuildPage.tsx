@@ -165,6 +165,8 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
         onDeleteBuild={removeSavedBuild}
         rows={BUILD_SOCKET_ROWS}
         loadout={loadout}
+        effects={effects}
+        search={search}
         activeSocketId={activeSocketId}
         onSocketSelect={handleSocketSelect}
         onSocketClear={clearSocket}
