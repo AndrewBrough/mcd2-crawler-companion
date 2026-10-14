@@ -58,6 +58,13 @@ async function mapPool(items, limit, worker) {
   return results
 }
 
+function resolvedPageTitle(data, requestedTitle) {
+  const normalized = new Map((data.query?.normalized ?? []).map((entry) => [entry.from, entry.to]))
+  const redirects = new Map((data.query?.redirects ?? []).map((entry) => [entry.from, entry.to]))
+  const normalizedTitle = normalized.get(requestedTitle) ?? requestedTitle
+  return redirects.get(normalizedTitle) ?? redirects.get(requestedTitle) ?? normalizedTitle
+}
+
 async function fetchWikitext(names, pageTitle) {
   const wikitextByName = new Map()
 
@@ -72,11 +79,9 @@ async function fetchWikitext(names, pageTitle) {
       titles: chunk.map(pageTitle).join('|'),
     })
     const pages = new Map((data.query?.pages ?? []).map((page) => [page.title, page]))
-    const redirects = new Map((data.query?.redirects ?? []).map((entry) => [entry.from, entry.to]))
 
     for (const name of chunk) {
-      const redirected = redirects.get(pageTitle(name))
-      const page = pages.get(redirected ?? pageTitle(name))
+      const page = pages.get(resolvedPageTitle(data, pageTitle(name)))
       wikitextByName.set(name, page?.revisions?.[0]?.slots?.main?.content ?? '')
     }
   }
@@ -97,11 +102,9 @@ async function fetchImageInfo(filenames) {
       titles: chunk.map((filename) => `File:${filename}`).join('|'),
     })
     const pages = new Map((data.query?.pages ?? []).map((page) => [page.title, page]))
-    const redirects = new Map((data.query?.redirects ?? []).map((entry) => [entry.from, entry.to]))
 
     for (const filename of chunk) {
-      const redirected = redirects.get(`File:${filename}`)
-      const info = pages.get(redirected ?? `File:${filename}`)?.imageinfo?.[0]
+      const info = pages.get(resolvedPageTitle(data, `File:${filename}`))?.imageinfo?.[0]
       if (info?.url) {
         infoByFilename.set(filename, info)
       }
