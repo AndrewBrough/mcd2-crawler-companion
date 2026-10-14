@@ -38,11 +38,10 @@ function effectNames(item: Gear, effects: Array<Effect>): Array<string> {
 }
 
 export function gearExtraSearchText(item: Gear): Array<string | null> {
-  const baseVariants = item.rarity.includes('unique')
-    ? item.variants.filter((variant) => !variant.rarity.includes('unique'))
-    : []
+  const isUnique = item.rarity.includes('unique')
+  const related = item.variants.filter((variant) => variant.rarity.includes('unique') !== isUnique)
 
-  return [item.setId, ...baseVariants.flatMap((variant) => [variant.name, variant.slug])]
+  return [item.setId, ...related.flatMap((variant) => [variant.name, variant.slug])]
 }
 
 export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array<Gear> {
