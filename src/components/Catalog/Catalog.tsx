@@ -30,6 +30,7 @@ export type CatalogProps<T extends CatalogItem> = {
   groupBy?: (item: T) => string
   groupLabel?: (group: string) => string
   groupOrder?: ReadonlyArray<string>
+  hideBanner?: (group: string) => boolean
 }
 
 export function Catalog<T extends CatalogItem>({
@@ -54,6 +55,7 @@ export function Catalog<T extends CatalogItem>({
   groupBy,
   groupLabel,
   groupOrder,
+  hideBanner,
 }: CatalogProps<T>) {
   const [internalQuery, setInternalQuery] = useState('')
   const query = queryProp ?? internalQuery
@@ -85,6 +87,7 @@ export function Catalog<T extends CatalogItem>({
           groupBy={groupBy}
           groupLabel={groupLabel}
           groupOrder={groupOrder}
+          hideBanner={hideBanner}
         />
       </div>
     </aside>

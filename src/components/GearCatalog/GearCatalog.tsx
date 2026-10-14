@@ -1,8 +1,10 @@
 import { useState, type ReactNode } from 'react'
 import { Catalog } from '#/components/Catalog'
 import { useFavourites } from '#/components/FavouritesProvider'
+import { Checkbox } from '#/components/ui/Checkbox'
+import { useSearchSettings } from '#/hooks/useSearchSettings'
 import { filterGear, gearExtraSearchText } from '#/lib/catalog/filter-gear'
-import { formatGearType } from '#/lib/catalog/format-gear-type'
+import { gearCatalogGroups } from '#/lib/catalog/group-gear-by-set'
 import { sortGear } from '#/lib/catalog/sort-gear'
 import { GEAR_TYPES, type Gear, type GearRarityFilter, type GearType } from '#/types/data/gear'
 import type { Effect } from '#/types/data/effect'
@@ -44,6 +46,7 @@ export function GearCatalog({
   leading,
 }: GearCatalogProps) {
   const { isFavourite } = useFavourites()
+  const { groupBySet, setGroupBySet } = useSearchSettings()
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [effectQuery, setEffectQuery] = useState('')
   const [archetypeQuery, setArchetypeQuery] = useState('')
@@ -58,10 +61,11 @@ export function GearCatalog({
     }),
     isFavourite,
   )
+  const groups = gearCatalogGroups(groupBySet && query.trim().length > 0, items, gear)
 
   return (
     <Catalog
-      items={items}
+      items={groups.items}
       catalogKind="gear"
       selectedSlug={selectedSlug}
       onItemSelect={onItemSelect}
@@ -89,9 +93,10 @@ export function GearCatalog({
           />
         ) : null
       }
-      groupBy={(item) => item.type}
-      groupLabel={(group) => formatGearType(group as GearType)}
-      groupOrder={GEAR_TYPES}
+      groupBy={groups.groupBy}
+      groupLabel={groups.groupLabel}
+      groupOrder={groups.groupOrder}
+      hideBanner={groups.hideBanner}
       toolbar={
         <div className={styles.filters}>
           <GearCatalogTypeFilters
@@ -101,6 +106,7 @@ export function GearCatalog({
             onChange={onTypeFilterChange}
           />
           <GearCatalogRarityFilters inline value={rarityFilter} onChange={onRarityFilterChange} />
+          <Checkbox label="Group by set" checked={groupBySet} onChange={setGroupBySet} />
         </div>
       }
     />
