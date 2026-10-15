@@ -1,10 +1,30 @@
+@reference '../../../breakpoints.css';
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, var(--slot-size));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem 0.6rem;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+@media screen and (min-width: theme(--breakpoint-md)) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: theme(--breakpoint-lg)) {
+  .grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: theme(--breakpoint-xl)) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
 }
 
 .cell {
