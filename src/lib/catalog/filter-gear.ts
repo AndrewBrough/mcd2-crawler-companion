@@ -6,7 +6,7 @@ import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 export type FilterGearOptions = {
   query: string
   effectQuery?: string
-  archetypeQuery?: string
+  archetypeName?: string
   type?: GearType | null
   rarity?: GearRarityFilter | null
   effects?: Array<Effect>
@@ -53,7 +53,7 @@ export function filterGear(gear: Array<Gear>, options: FilterGearOptions): Array
       (!type || item.type === type) &&
       (!rarity || matchesRarity(item, rarity)) &&
       matchesText(effectNames(item, effects), options.effectQuery ?? '') &&
-      matchesText(item.archetypeNames, options.archetypeQuery ?? ''),
+      (!options.archetypeName || item.archetypeNames.includes(options.archetypeName)),
   )
 
   return filterCatalogItems(matched, options.query)

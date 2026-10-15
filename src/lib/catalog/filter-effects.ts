@@ -12,14 +12,19 @@ const effectSlugsByGearType = {
   talisman: ['talisman'],
 } satisfies Record<GearType, ReadonlyArray<string>>
 
-export function filterEffects(effects: Array<Effect>, type: GearType | null): Array<Effect> {
-  if (!type) {
-    return effects
-  }
+export function filterEffects(
+  effects: Array<Effect>,
+  type: GearType | null,
+  archetype: { effectSlugs: Array<string> } | null = null,
+): Array<Effect> {
+  const slugs = type ? effectSlugsByGearType[type] : null
+  const allowed = archetype ? new Set(archetype.effectSlugs) : null
 
-  const slugs = effectSlugsByGearType[type]
-
-  return effects.filter((effect) => effect.gearSlugs.some((slug) => slugs.includes(slug)))
+  return effects.filter(
+    (effect) =>
+      (!slugs || effect.gearSlugs.some((slug) => slugs.includes(slug))) &&
+      (!allowed || allowed.has(effect.slug)),
+  )
 }
 
 export function uniqueEffectForGear(effects: Array<Effect>, slug: string): Effect | null {

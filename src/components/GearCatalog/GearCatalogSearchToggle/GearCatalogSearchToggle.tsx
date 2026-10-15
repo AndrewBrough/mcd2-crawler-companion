@@ -5,18 +5,23 @@ import styles from './GearCatalogSearchToggle.module.css'
 export type GearCatalogSearchToggleProps = {
   open: boolean
   onToggle: () => void
+  label?: string
 }
 
 export function GearCatalogSearchSpacer() {
   return <span className={styles.spacer} aria-hidden="true" />
 }
 
-export function GearCatalogSearchToggle({ open, onToggle }: GearCatalogSearchToggleProps) {
+export function GearCatalogSearchToggle({
+  open,
+  onToggle,
+  label = 'Effect and archetype search',
+}: GearCatalogSearchToggleProps) {
   return (
     <button
       className={styles.button}
       type="button"
-      aria-label="Effect and archetype search"
+      aria-label={label}
       aria-expanded={open}
       onClick={onToggle}
     >

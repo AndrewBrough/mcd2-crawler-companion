@@ -6,6 +6,7 @@ import { useBuildName } from '#/lib/build/use-build-name'
 import { useSaveBuild } from '#/lib/build/use-save-build'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
 import { BUILD_SOCKET_ROWS, type BuildLoadout, type BuildSocketDefinition } from '#/types/data/build'
+import type { Archetype } from '#/types/data/archetype'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 import { Layout, useNarrowViewport, type LayoutMobilePanel } from '#/components/ui/Layout'
@@ -16,6 +17,7 @@ import { usePreserveCatalogScroll } from './use-preserve-catalog-scroll'
 export type BuildPageProps = {
   gear: Array<Gear>
   effects: Array<Effect>
+  archetypes: Array<Archetype>
   search: BuildSearch
 }
 
@@ -31,7 +33,7 @@ function socketIdForSlug(loadout: BuildLoadout, slug: string | undefined): strin
   return Object.entries(loadout).find(([, item]) => item.slug === slug)?.[0] ?? null
 }
 
-export function BuildPage({ gear, effects, search }: BuildPageProps) {
+export function BuildPage({ gear, effects, archetypes, search }: BuildPageProps) {
   const { title, setTitle, dirty, saveName } = useBuildName(search.name ?? null)
   const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(search.slug ?? null)
   const { loadout, equip, clearSocket, removeSlug } = useBuildLoadout(gear, search)
@@ -174,6 +176,7 @@ export function BuildPage({ gear, effects, search }: BuildPageProps) {
       <BuildGearStage
         gear={gear}
         effects={effects}
+        archetypes={archetypes}
         search={search}
         loadout={loadout}
         activeSocketId={activeSocketId}

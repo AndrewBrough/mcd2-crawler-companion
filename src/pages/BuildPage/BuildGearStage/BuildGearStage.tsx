@@ -4,6 +4,7 @@ import { PanelBack } from '#/components/ui/PanelBack'
 import type { BuildSearch } from '#/lib/build/build-search'
 import { useGearPins } from '#/lib/build/use-build-pins'
 import type { BuildLoadout } from '#/types/data/build'
+import type { Archetype } from '#/types/data/archetype'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearRarityFilter, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from '#/pages/GearPage/GearDetailPanel'
@@ -13,6 +14,7 @@ import styles from './BuildGearStage.module.css'
 export type BuildGearStageProps = {
   gear: Array<Gear>
   effects: Array<Effect>
+  archetypes: Array<Archetype>
   search: BuildSearch
   loadout: BuildLoadout
   activeSocketId: string | null
@@ -38,6 +40,7 @@ export type BuildGearStageProps = {
 export function BuildGearStage({
   gear,
   effects,
+  archetypes,
   search,
   loadout,
   activeSocketId,
@@ -67,6 +70,7 @@ export function BuildGearStage({
         <GearCatalog
           gear={gear}
           effects={effects}
+          archetypes={archetypes}
           typeFilter={typeFilter}
           onTypeFilterChange={onTypeFilterChange}
           rarityFilter={rarityFilter}

@@ -3,6 +3,7 @@ import { CatalogBrowsePage } from '#/components/CatalogBrowsePage'
 import { GearCatalog } from '#/components/GearCatalog'
 import { PanelBack } from '#/components/ui/PanelBack'
 import { useCatalogSlug } from '#/lib/catalog/use-catalog-slug'
+import type { Archetype } from '#/types/data/archetype'
 import type { Effect } from '#/types/data/effect'
 import type { Gear, GearListItem, GearRarityFilter, GearType } from '#/types/data/gear'
 import { GearDetailPanel } from './GearDetailPanel'
@@ -10,10 +11,11 @@ import { GearDetailPanel } from './GearDetailPanel'
 export type GearPageProps = {
   gear: Array<GearListItem>
   effects: Array<Effect>
+  archetypes: Array<Archetype>
   initialSlug?: string | null
 }
 
-export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
+export function GearPage({ gear, effects, archetypes, initialSlug = null }: GearPageProps) {
   const [typeFilter, setTypeFilter] = useState<GearType | null>(null)
   const [rarityFilter, setRarityFilter] = useState<GearRarityFilter | null>(null)
   const { selectedSlug, selectSlug, clearSlug, query, setQuery } = useCatalogSlug(initialSlug)
@@ -32,6 +34,7 @@ export function GearPage({ gear, effects, initialSlug = null }: GearPageProps) {
         <GearCatalog
           gear={gear}
           effects={effects}
+          archetypes={archetypes}
           typeFilter={typeFilter}
           onTypeFilterChange={setTypeFilter}
           rarityFilter={rarityFilter}

@@ -4,6 +4,7 @@ import { useFavourites } from '#/components/FavouritesProvider'
 import { filterGear, gearExtraSearchText } from '#/lib/catalog/filter-gear'
 import { formatGearType } from '#/lib/catalog/format-gear-type'
 import { sortGear } from '#/lib/catalog/sort-gear'
+import type { Archetype } from '#/types/data/archetype'
 import { GEAR_TYPES, type Gear, type GearRarityFilter, type GearType } from '#/types/data/gear'
 import type { Effect } from '#/types/data/effect'
 import { GearCatalogRarityFilters } from './GearCatalogRarityFilters'
@@ -15,6 +16,7 @@ import styles from './GearCatalog.module.css'
 export type GearCatalogProps = {
   gear: Array<Gear>
   effects?: Array<Effect>
+  archetypes?: Array<Archetype>
   typeFilter: GearType | null
   onTypeFilterChange: (type: GearType | null) => void
   rarityFilter: GearRarityFilter | null
@@ -31,6 +33,7 @@ export type GearCatalogProps = {
 export function GearCatalog({
   gear,
   effects = [],
+  archetypes = [],
   typeFilter,
   onTypeFilterChange,
   rarityFilter,
@@ -46,12 +49,13 @@ export function GearCatalog({
   const { isFavourite } = useFavourites()
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [effectQuery, setEffectQuery] = useState('')
-  const [archetypeQuery, setArchetypeQuery] = useState('')
+  const [archetypeSlug, setArchetypeSlug] = useState<string | null>(null)
+  const archetypeName = archetypes.find((item) => item.slug === archetypeSlug)?.name
   const items = sortGear(
     filterGear(gear, {
       query: '',
       effectQuery,
-      archetypeQuery,
+      archetypeName,
       type: typeFilter,
       rarity: rarityFilter,
       effects,
@@ -85,8 +89,9 @@ export function GearCatalog({
           <GearCatalogSearchFields
             effectQuery={effectQuery}
             onEffectQueryChange={setEffectQuery}
-            archetypeQuery={archetypeQuery}
-            onArchetypeQueryChange={setArchetypeQuery}
+            archetypes={archetypes}
+            archetypeSlug={archetypeSlug}
+            onArchetypeChange={setArchetypeSlug}
           />
         ) : null
       }
