@@ -74,8 +74,8 @@ export function GearCatalog({
       onItemSelect={onItemSelect}
       onItemAdd={onItemAdd}
       ariaLabel="Gear catalog"
-      searchPlaceholder="Search gear name"
-      searchLabel="Search gear name"
+      searchPlaceholder="Search gear or set name"
+      searchLabel="Search gear or set name"
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
       extraSearchText={gearExtraSearchText}
