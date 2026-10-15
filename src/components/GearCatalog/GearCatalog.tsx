@@ -48,12 +48,14 @@ export function GearCatalog({
 }: GearCatalogProps) {
   const { isFavourite } = useFavourites()
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [descriptionQuery, setDescriptionQuery] = useState('')
   const [effectQuery, setEffectQuery] = useState('')
   const [archetypeSlug, setArchetypeSlug] = useState<string | null>(null)
   const archetypeName = archetypes.find((item) => item.slug === archetypeSlug)?.name
   const items = sortGear(
     filterGear(gear, {
       query: '',
+      descriptionQuery,
       effectQuery,
       archetypeName,
       type: typeFilter,
@@ -72,8 +74,8 @@ export function GearCatalog({
       onItemSelect={onItemSelect}
       onItemAdd={onItemAdd}
       ariaLabel="Gear catalog"
-      searchPlaceholder="Search gear"
-      searchLabel="Search gear"
+      searchPlaceholder="Search gear name"
+      searchLabel="Search gear name"
       emptyFiltered="No gear matches that search."
       emptyCatalog="No gear in the catalog yet."
       extraSearchText={gearExtraSearchText}
@@ -87,6 +89,8 @@ export function GearCatalog({
       searchDetails={
         filtersOpen ? (
           <GearCatalogSearchFields
+            descriptionQuery={descriptionQuery}
+            onDescriptionQueryChange={setDescriptionQuery}
             effectQuery={effectQuery}
             onEffectQueryChange={setEffectQuery}
             archetypes={archetypes}

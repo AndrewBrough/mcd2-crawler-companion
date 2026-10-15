@@ -5,6 +5,8 @@ import { GearCatalogSearchSpacer } from '../GearCatalogSearchToggle'
 import styles from './GearCatalogSearchFields.module.css'
 
 export type GearCatalogSearchFieldsProps = {
+  descriptionQuery: string
+  onDescriptionQueryChange: (query: string) => void
   effectQuery: string
   onEffectQueryChange: (query: string) => void
   archetypes: Array<Archetype>
@@ -13,6 +15,8 @@ export type GearCatalogSearchFieldsProps = {
 }
 
 export function GearCatalogSearchFields({
+  descriptionQuery,
+  onDescriptionQueryChange,
   effectQuery,
   onEffectQueryChange,
   archetypes,
@@ -21,6 +25,13 @@ export function GearCatalogSearchFields({
 }: GearCatalogSearchFieldsProps) {
   return (
     <div className={styles.fields}>
+      <CatalogSearchField
+        value={descriptionQuery}
+        onChange={onDescriptionQueryChange}
+        placeholder="Search description"
+        label="Search description"
+        accessory={<GearCatalogSearchSpacer />}
+      />
       <CatalogSearchField
         value={effectQuery}
         onChange={onEffectQueryChange}

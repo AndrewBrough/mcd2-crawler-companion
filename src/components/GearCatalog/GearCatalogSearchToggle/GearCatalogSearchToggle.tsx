@@ -15,7 +15,7 @@ export function GearCatalogSearchSpacer() {
 export function GearCatalogSearchToggle({
   open,
   onToggle,
-  label = 'Effect and archetype search',
+  label = 'Description, effect, and archetype search',
 }: GearCatalogSearchToggleProps) {
   return (
     <button

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Catalog } from '#/components/Catalog'
+import { CatalogSearchField } from '#/components/Catalog/CatalogSearch/CatalogSearchField'
 import { GearCatalogSearchSpacer, GearCatalogSearchToggle } from '#/components/GearCatalog/GearCatalogSearchToggle'
 import { GearCatalogTypeFilters } from '#/components/GearCatalog/GearCatalogTypeFilters'
 import { ArchetypeDropdown } from '#/components/ui/ArchetypeDropdown'
@@ -32,9 +33,13 @@ export function EffectsCatalog({
   onQueryChange,
 }: EffectsCatalogProps) {
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [descriptionQuery, setDescriptionQuery] = useState('')
   const [archetypeSlug, setArchetypeSlug] = useState<string | null>(null)
   const archetype = archetypes.find((item) => item.slug === archetypeSlug) ?? null
-  const items = filterEffects(effects, typeFilter, archetype)
+  const needle = descriptionQuery.trim().toLowerCase()
+  const items = filterEffects(effects, typeFilter, archetype).filter(
+    (item) => !needle || item.description.toLowerCase().includes(needle),
+  )
 
   return (
     <Catalog
@@ -43,12 +48,11 @@ export function EffectsCatalog({
       selectedSlug={selectedSlug}
       onItemSelect={onItemSelect}
       ariaLabel="Effects catalog"
-      searchPlaceholder="Search effects"
-      searchLabel="Search effects"
+      searchPlaceholder="Search effects name"
+      searchLabel="Search effects name"
       emptyFiltered="No effects match that search."
       emptyCatalog="No effects in the catalog yet."
       extraSearchText={(item) => [
-        item.description,
         ...item.gearSlugs.map(formatEffectGearSlug),
         ...item.uniqueGear.map((gear) => gear.name),
       ]}
@@ -57,19 +61,28 @@ export function EffectsCatalog({
       searchAccessory={
         <GearCatalogSearchToggle
           open={filtersOpen}
-          label="Archetype search"
+          label="Description and archetype search"
           onToggle={() => setFiltersOpen((open) => !open)}
         />
       }
       searchDetails={
         filtersOpen ? (
-          <div className={styles.row}>
-            <ArchetypeDropdown
-              archetypes={archetypes}
-              value={archetypeSlug}
-              onChange={setArchetypeSlug}
+          <div className={styles.fields}>
+            <CatalogSearchField
+              value={descriptionQuery}
+              onChange={setDescriptionQuery}
+              placeholder="Search description"
+              label="Search description"
+              accessory={<GearCatalogSearchSpacer />}
             />
-            <GearCatalogSearchSpacer />
+            <div className={styles.row}>
+              <ArchetypeDropdown
+                archetypes={archetypes}
+                value={archetypeSlug}
+                onChange={setArchetypeSlug}
+              />
+              <GearCatalogSearchSpacer />
+            </div>
           </div>
         ) : null
       }
